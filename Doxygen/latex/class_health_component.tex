@@ -1,0 +1,121 @@
+\hypertarget{class_health_component}{}\section{Health\+Component Class Reference}
+\label{class_health_component}\index{HealthComponent@{HealthComponent}}
+
+
+A class that stores the properties necessary for an entity to have health.  
+
+
+
+
+{\ttfamily \#include $<$Health\+Component.\+h$>$}
+
+Inheritance diagram for Health\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_health_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_health_component_a048219dc6ddcede021b49bb380838aca}{Health\+Component}} (float p\+\_\+\+Health)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_health_component_a6b29bbbe02c1217c7c3f40137b2c2967}{Health\+Component}} (float p\+\_\+\+Health, float p\+\_\+\+Max\+Health)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_health_component_af9881732a6de9899dbb006202e057f1e}\label{class_health_component_af9881732a6de9899dbb006202e057f1e}} 
+\mbox{\hyperlink{class_health_component_af9881732a6de9899dbb006202e057f1e}{$\sim$\+Health\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_health_component_a525bed56c917ce36bbfb67264350e56a}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Update the health component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_health_component_aaaf08f6e3535e5cf0e94bddff815c11f}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_health_component_a38f1a3045adefe5f07c5d168b2a4432b}\label{class_health_component_a38f1a3045adefe5f07c5d168b2a4432b}} 
+float \mbox{\hyperlink{class_health_component_a38f1a3045adefe5f07c5d168b2a4432b}{Get\+Health}} () const
+\begin{DoxyCompactList}\small\item\em Returns the entity\textquotesingle{}s current health. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_health_component_a7ab1fa28ba3ddb000a69f29c06c786e2}\label{class_health_component_a7ab1fa28ba3ddb000a69f29c06c786e2}} 
+bool \mbox{\hyperlink{class_health_component_a7ab1fa28ba3ddb000a69f29c06c786e2}{Is\+Health\+Below\+Zero}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the entity\textquotesingle{}s health is below zero. True if it is. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary for an entity to have health. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_health_component_a048219dc6ddcede021b49bb380838aca}\label{class_health_component_a048219dc6ddcede021b49bb380838aca}} 
+\index{HealthComponent@{HealthComponent}!HealthComponent@{HealthComponent}}
+\index{HealthComponent@{HealthComponent}!HealthComponent@{HealthComponent}}
+\subsubsection{\texorpdfstring{HealthComponent()}{HealthComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Health\+Component\+::\+Health\+Component (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Health }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Health} & the starting health of the entity, this will also be used as the max health. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_health_component_a6b29bbbe02c1217c7c3f40137b2c2967}\label{class_health_component_a6b29bbbe02c1217c7c3f40137b2c2967}} 
+\index{HealthComponent@{HealthComponent}!HealthComponent@{HealthComponent}}
+\index{HealthComponent@{HealthComponent}!HealthComponent@{HealthComponent}}
+\subsubsection{\texorpdfstring{HealthComponent()}{HealthComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Health\+Component\+::\+Health\+Component (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Health,  }\item[{float}]{p\+\_\+\+Max\+Health }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Health} & the starting health of the entity. \\
+\hline
+{\em p\+\_\+\+Max\+Health} & the max health of the entity. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_health_component_aaaf08f6e3535e5cf0e94bddff815c11f}\label{class_health_component_aaaf08f6e3535e5cf0e94bddff815c11f}} 
+\index{HealthComponent@{HealthComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!HealthComponent@{HealthComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Health\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & the message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_health_component_a525bed56c917ce36bbfb67264350e56a}\label{class_health_component_a525bed56c917ce36bbfb67264350e56a}} 
+\index{HealthComponent@{HealthComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!HealthComponent@{HealthComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Health\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the health component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_health_component_8h}{Health\+Component.\+h}}\end{DoxyCompactItemize}

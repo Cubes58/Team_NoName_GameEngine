@@ -1,0 +1,69 @@
+{
+  "KeyBindings": [
+    {
+      "key": "W",
+      "command": "MovePlayerForwardCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "A",
+      "command": "MovePlayerLeftCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "S",
+      "command": "MovePlayerBackwardCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "D",
+      "command": "MovePlayerRightCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "E",
+      "command": "RotatePlayerRightCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "Q",
+      "command": "RotatePlayerLeftCommand",
+      "inputType": "press"
+    },
+    {
+      "key": "X",
+      "command": "SetCameraFirstPersonPerspectiveCommand",
+      "inputType": "release"
+    },
+    {
+      "key": "C",
+      "command": "SetCameraThirdPersonPerspectiveCommand",
+      "inputType": "release"
+    },
+    {
+      "key": "R",
+      "command": "ReloadInputConfigurationCommand",
+      "inputType": "release"
+    },
+    {
+      "key": ".",
+      "command": "NextSceneCommand",
+      "inputType": "release"
+    },
+    {
+      "key": ",",
+      "command": "PreviousSceneCommand",
+      "inputType": "release"
+    },
+	{
+      "key": "Z",
+      "command": "SetCameraPerspectiveCommand",
+      "inputType": "release"
+    },
+	{
+      "key": "I",
+      "command": "SetCameraInverseRotationCommand",
+      "inputType": "release"
+    }
+  ]
+}

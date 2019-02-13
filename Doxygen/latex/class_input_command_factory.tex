@@ -1,0 +1,123 @@
+\hypertarget{class_input_command_factory}{}\section{Input\+Command\+Factory Class Reference}
+\label{class_input_command_factory}\index{InputCommandFactory@{InputCommandFactory}}
+
+
+A class that creates Input commands, using the factory pattern.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Command\+Factory.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_command_factory_a428df8e7da41f132aaabcebf49223b1b}\label{class_input_command_factory_a428df8e7da41f132aaabcebf49223b1b}} 
+\mbox{\hyperlink{class_input_command_factory_a428df8e7da41f132aaabcebf49223b1b}{$\sim$\+Input\+Command\+Factory}} ()
+\begin{DoxyCompactList}\small\item\em Default destructor -\/ clears the mapped function pointers, used to create different types of input commands. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_command_factory_ac6ad25b227908980300cd094d1396834}{Register}} (const std\+::string \&p\+\_\+\+Input\+Command\+Name, \mbox{\hyperlink{_command_argument_types_8h_adefdc85c4f4f8765e96fd2f0d78b133e}{Command\+Argument\+Type}} p\+\_\+\+Command\+Data\+Type, Create\+Input\+Command p\+\_\+\+Create\+Input\+Command\+Pointer)
+\begin{DoxyCompactList}\small\item\em Registers an Input Command type. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_input_command}{Input\+Command}} $>$ \mbox{\hyperlink{class_input_command_factory_a4ea90122e946a301e8b645a656170ea4}{Create\+Input\+Command\+Type}} (const std\+::string \&p\+\_\+\+Input\+Command\+Name, std\+::vector$<$ std\+::any $>$ p\+\_\+\+Data)
+\begin{DoxyCompactList}\small\item\em Gets a pointer to a (child-\/class) type of Input Command, and returns it as an \mbox{\hyperlink{class_input_handler}{Input\+Handler}} pointer, to be used/stored. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_input_command}{Input\+Command}} $>$ \mbox{\hyperlink{class_input_command_factory_aa8d970f687c0392459ec1e596534c679}{Create\+Input\+Command\+Type}} (const std\+::string \&p\+\_\+\+Input\+Command\+Name)
+\begin{DoxyCompactList}\small\item\em Gets a pointer to a (child-\/class) type of Input Command, and returns it as an \mbox{\hyperlink{class_input_handler}{Input\+Handler}} pointer, to be used/stored. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{_command_argument_types_8h_adefdc85c4f4f8765e96fd2f0d78b133e}{Command\+Argument\+Type}} \mbox{\hyperlink{class_input_command_factory_a5f747618cbe98cce652dbf98cd9fa32c}{Get\+Command\+Type}} (const std\+::string \&p\+\_\+\+Input\+Command\+Name)
+\begin{DoxyCompactList}\small\item\em Gets the command argument type, given the input command name. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_input_command_factory}{Input\+Command\+Factory}} \& \mbox{\hyperlink{class_input_command_factory_ae05897e1e26aedb25705479016f69735}{Instance}} ()
+\begin{DoxyCompactList}\small\item\em Get the \mbox{\hyperlink{class_input_command_factory}{Input\+Command\+Factory}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that creates Input commands, using the factory pattern. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_input_command_factory_a4ea90122e946a301e8b645a656170ea4}\label{class_input_command_factory_a4ea90122e946a301e8b645a656170ea4}} 
+\index{InputCommandFactory@{InputCommandFactory}!CreateInputCommandType@{CreateInputCommandType}}
+\index{CreateInputCommandType@{CreateInputCommandType}!InputCommandFactory@{InputCommandFactory}}
+\subsubsection{\texorpdfstring{CreateInputCommandType()}{CreateInputCommandType()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_input_command}{Input\+Command}}$>$ Input\+Command\+Factory\+::\+Create\+Input\+Command\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Input\+Command\+Name,  }\item[{std\+::vector$<$ std\+::any $>$}]{p\+\_\+\+Data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a pointer to a (child-\/class) type of Input Command, and returns it as an \mbox{\hyperlink{class_input_handler}{Input\+Handler}} pointer, to be used/stored. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Input\+Command\+Name} & is the name of the Input Command (child) class, that will be used to identify that class. \\
+\hline
+{\em p\+\_\+\+Data} & passes the data that the class requires. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_command_factory_aa8d970f687c0392459ec1e596534c679}\label{class_input_command_factory_aa8d970f687c0392459ec1e596534c679}} 
+\index{InputCommandFactory@{InputCommandFactory}!CreateInputCommandType@{CreateInputCommandType}}
+\index{CreateInputCommandType@{CreateInputCommandType}!InputCommandFactory@{InputCommandFactory}}
+\subsubsection{\texorpdfstring{CreateInputCommandType()}{CreateInputCommandType()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_input_command}{Input\+Command}}$>$ Input\+Command\+Factory\+::\+Create\+Input\+Command\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Input\+Command\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a pointer to a (child-\/class) type of Input Command, and returns it as an \mbox{\hyperlink{class_input_handler}{Input\+Handler}} pointer, to be used/stored. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Input\+Command\+Name} & is the name of the Input Command (child) class, that will be used to identify that class. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_command_factory_a5f747618cbe98cce652dbf98cd9fa32c}\label{class_input_command_factory_a5f747618cbe98cce652dbf98cd9fa32c}} 
+\index{InputCommandFactory@{InputCommandFactory}!GetCommandType@{GetCommandType}}
+\index{GetCommandType@{GetCommandType}!InputCommandFactory@{InputCommandFactory}}
+\subsubsection{\texorpdfstring{GetCommandType()}{GetCommandType()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_command_argument_types_8h_adefdc85c4f4f8765e96fd2f0d78b133e}{Command\+Argument\+Type}} Input\+Command\+Factory\+::\+Get\+Command\+Type (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Input\+Command\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the command argument type, given the input command name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Input\+Command\+Name} & is the name of the Input Command (child) class, that\textquotesingle{}s used to identify that class. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the Command\+Argument\+Type, so what data the \mbox{\hyperlink{class_input_command}{Input\+Command}} requires, to function, will return \mbox{\hyperlink{_command_argument_types_8h_adefdc85c4f4f8765e96fd2f0d78b133eab50339a10e1de285ac99d4c3990b8693}{Command\+Argument\+Type\+::\+N\+O\+NE}} if no data is required. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_command_factory_ae05897e1e26aedb25705479016f69735}\label{class_input_command_factory_ae05897e1e26aedb25705479016f69735}} 
+\index{InputCommandFactory@{InputCommandFactory}!Instance@{Instance}}
+\index{Instance@{Instance}!InputCommandFactory@{InputCommandFactory}}
+\subsubsection{\texorpdfstring{Instance()}{Instance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_input_command_factory}{Input\+Command\+Factory}}\& Input\+Command\+Factory\+::\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Get the \mbox{\hyperlink{class_input_command_factory}{Input\+Command\+Factory}} instance. 
+
+\begin{DoxyReturn}{Returns}
+Returns an \mbox{\hyperlink{class_input_command_factory}{Input\+Command\+Factory}} instance, to be used. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_command_factory_ac6ad25b227908980300cd094d1396834}\label{class_input_command_factory_ac6ad25b227908980300cd094d1396834}} 
+\index{InputCommandFactory@{InputCommandFactory}!Register@{Register}}
+\index{Register@{Register}!InputCommandFactory@{InputCommandFactory}}
+\subsubsection{\texorpdfstring{Register()}{Register()}}
+{\footnotesize\ttfamily void Input\+Command\+Factory\+::\+Register (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Input\+Command\+Name,  }\item[{\mbox{\hyperlink{_command_argument_types_8h_adefdc85c4f4f8765e96fd2f0d78b133e}{Command\+Argument\+Type}}}]{p\+\_\+\+Command\+Data\+Type,  }\item[{Create\+Input\+Command}]{p\+\_\+\+Create\+Input\+Command\+Pointer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Registers an Input Command type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Input\+Command\+Name} & is the name of the Input Command (child) class, that will be used to identify that class. \\
+\hline
+{\em p\+\_\+\+Command\+Data\+Type} & justifies the data the class uses. \\
+\hline
+{\em p\+\_\+\+Create\+Input\+Command\+Pointer} & is the function pointer, which is used to create that type of Input Command class. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_input_command_factory_8h}{Input\+Command\+Factory.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\hypertarget{class_movement_component}{}\section{Movement\+Component Class Reference}
+\label{class_movement_component}\index{MovementComponent@{MovementComponent}}
+
+
+A class that stores the properties necessary for an entity to move around.  
+
+
+
+
+{\ttfamily \#include $<$Movement\+Component.\+h$>$}
+
+Inheritance diagram for Movement\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_movement_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_movement_component_a63eff0fd15a701acc43d36d14b2e0464}{Movement\+Component}} (const glm\+::vec3 \&p\+\_\+\+Acceleration, const glm\+::vec3 \&p\+\_\+\+Velocity)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_movement_component_aa085776b1411135b420c72a2226cad4a}\label{class_movement_component_aa085776b1411135b420c72a2226cad4a}} 
+\mbox{\hyperlink{class_movement_component_aa085776b1411135b420c72a2226cad4a}{$\sim$\+Movement\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_movement_component_aa7d58780fe672dc910896c53aa4da7fd}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Update the health component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_movement_component_aa82c5ab1af1d6bf286f264ad760e1e30}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_movement_component_aa8571c644ab0b1d48c6659fd4960bee0}\label{class_movement_component_aa8571c644ab0b1d48c6659fd4960bee0}} 
+const glm\+::vec3 \& \mbox{\hyperlink{class_movement_component_aa8571c644ab0b1d48c6659fd4960bee0}{Acceleration}} () const
+\begin{DoxyCompactList}\small\item\em Returns the acceleration of the component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_movement_component_afe25557004eb190c4e4ce696c045f7e0}\label{class_movement_component_afe25557004eb190c4e4ce696c045f7e0}} 
+const glm\+::vec3 \& \mbox{\hyperlink{class_movement_component_afe25557004eb190c4e4ce696c045f7e0}{Velocity}} () const
+\begin{DoxyCompactList}\small\item\em Returns the velocity of the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary for an entity to move around. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_movement_component_a63eff0fd15a701acc43d36d14b2e0464}\label{class_movement_component_a63eff0fd15a701acc43d36d14b2e0464}} 
+\index{MovementComponent@{MovementComponent}!MovementComponent@{MovementComponent}}
+\index{MovementComponent@{MovementComponent}!MovementComponent@{MovementComponent}}
+\subsubsection{\texorpdfstring{MovementComponent()}{MovementComponent()}}
+{\footnotesize\ttfamily Movement\+Component\+::\+Movement\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Acceleration,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Velocity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Acceleration} & the starting acceleration of the entity. \\
+\hline
+{\em p\+\_\+\+Velocity} & the starting velocity of the entity. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_movement_component_aa82c5ab1af1d6bf286f264ad760e1e30}\label{class_movement_component_aa82c5ab1af1d6bf286f264ad760e1e30}} 
+\index{MovementComponent@{MovementComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!MovementComponent@{MovementComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Movement\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & the message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_movement_component_aa7d58780fe672dc910896c53aa4da7fd}\label{class_movement_component_aa7d58780fe672dc910896c53aa4da7fd}} 
+\index{MovementComponent@{MovementComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!MovementComponent@{MovementComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Movement\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the health component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_movement_component_8h}{Movement\+Component.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,42 @@
+\hypertarget{class_input_command}{}\section{Input\+Command Class Reference}
+\label{class_input_command}\index{InputCommand@{InputCommand}}
+
+
+$<$ A shared pointer, used in the factory to store creation methods.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Commands.\+h$>$}
+
+Inheritance diagram for Input\+Command\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_input_command}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_command_a58df7f0cce61472fcfce8f8d52433fb7}\label{class_input_command_a58df7f0cce61472fcfce8f8d52433fb7}} 
+virtual \mbox{\hyperlink{class_input_command_a58df7f0cce61472fcfce8f8d52433fb7}{$\sim$\+Input\+Command}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_input_command_a341ed681b4c3772bef20eb250b8601f2}\label{class_input_command_a341ed681b4c3772bef20eb250b8601f2}} 
+virtual void \mbox{\hyperlink{class_input_command_a341ed681b4c3772bef20eb250b8601f2}{Execute}} ()=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, which child classes have to implement, so it can be called to execute the command. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_input_command_aec355997ea200c1e845730a24d054467}\label{class_input_command_aec355997ea200c1e845730a24d054467}} 
+bool \mbox{\hyperlink{class_input_command_aec355997ea200c1e845730a24d054467}{m\+\_\+\+Will\+Invalidate\+Objects}} = false
+\begin{DoxyCompactList}\small\item\em Used to indicate whether the Input Command invalides the current state of the game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+$<$ A shared pointer, used in the factory to store creation methods. 
+
+An abstract base class, used as an interface for Input Commands. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_input_commands_8h}{Input\+Commands.\+h}}\end{DoxyCompactItemize}

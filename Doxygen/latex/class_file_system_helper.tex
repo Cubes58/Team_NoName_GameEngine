@@ -1,0 +1,138 @@
+\hypertarget{class_file_system_helper}{}\section{File\+System\+Helper Class Reference}
+\label{class_file_system_helper}\index{FileSystemHelper@{FileSystemHelper}}
+
+
+A class that aids getting files and file information from a folder.  
+
+
+
+
+{\ttfamily \#include $<$File\+System\+Helper.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_file_system_helper_a73abde918c6cff15b8b86b1758b07366}\label{class_file_system_helper_a73abde918c6cff15b8b86b1758b07366}} 
+\mbox{\hyperlink{class_file_system_helper_a73abde918c6cff15b8b86b1758b07366}{File\+System\+Helper}} (\mbox{\hyperlink{class_file_system_helper}{File\+System\+Helper}} const \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy operator, deleted. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_file_system_helper_a0aafa11c68662b143c51ad8414ff2980}\label{class_file_system_helper_a0aafa11c68662b143c51ad8414ff2980}} 
+\mbox{\hyperlink{class_file_system_helper}{File\+System\+Helper}} \& \mbox{\hyperlink{class_file_system_helper_a0aafa11c68662b143c51ad8414ff2980}{operator=}} (\mbox{\hyperlink{class_file_system_helper}{File\+System\+Helper}} const \&)=delete
+\begin{DoxyCompactList}\small\item\em Assignment operator, deleted. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::vector$<$ \mbox{\hyperlink{struct_file_information}{File\+Information}} $>$ \mbox{\hyperlink{class_file_system_helper_a5947b684e4a33586eea9c066ca745bf0}{Get\+Files\+In\+Folder}} (const std\+::string \&p\+\_\+\+Folder\+Location, bool p\+\_\+\+Search\+Sub\+Directories=true)
+\begin{DoxyCompactList}\small\item\em Gets all files in a folder. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_file_system_helper_a0f895fcbc7e172821aac5b3b9c689d19}{Retain\+Remove\+Files\+With\+Extensions}} (std\+::vector$<$ std\+::string $>$ \&p\+\_\+\+Files, const std\+::vector$<$ std\+::string $>$ \&p\+\_\+\+File\+Extensions, bool p\+\_\+\+Keep\+File=true)
+\begin{DoxyCompactList}\small\item\em Either keeps only certain file, with the given file extension\mbox{[}s\mbox{]}, or it removes them, depending on what p\+\_\+\+Keep\+File is set to. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_file_system_helper_a123a656e26a3e6f30661e96173dee5d7}{Retain\+Remove\+Files\+With\+Extensions}} (std\+::vector$<$ \mbox{\hyperlink{struct_file_information}{File\+Information}} $>$ \&p\+\_\+\+Files, const std\+::vector$<$ std\+::string $>$ \&p\+\_\+\+File\+Extensions, bool p\+\_\+\+Keep\+File=true)
+\begin{DoxyCompactList}\small\item\em Either keeps only certain file, with the given file extension\mbox{[}s\mbox{]}, or it removes them, depending on what p\+\_\+\+Keep\+File is set to. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_file_system_helper_afbd3fec84f5f1212eea6a394162f17bd}{Remove\+File\+Extension}} (std\+::string \&p\+\_\+\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Removes the file extension from a file name string. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_file_system_helper_a44c0bd94522601736244ff130c646824}{Remove\+File\+Path}} (std\+::string \&p\+\_\+\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Removes the file path from a file string. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that aids getting files and file information from a folder. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_file_system_helper_a5947b684e4a33586eea9c066ca745bf0}\label{class_file_system_helper_a5947b684e4a33586eea9c066ca745bf0}} 
+\index{FileSystemHelper@{FileSystemHelper}!GetFilesInFolder@{GetFilesInFolder}}
+\index{GetFilesInFolder@{GetFilesInFolder}!FileSystemHelper@{FileSystemHelper}}
+\subsubsection{\texorpdfstring{GetFilesInFolder()}{GetFilesInFolder()}}
+{\footnotesize\ttfamily static std\+::vector$<$\mbox{\hyperlink{struct_file_information}{File\+Information}}$>$ File\+System\+Helper\+::\+Get\+Files\+In\+Folder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Folder\+Location,  }\item[{bool}]{p\+\_\+\+Search\+Sub\+Directories = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets all files in a folder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Folder\+Location} & the folder location. \\
+\hline
+{\em p\+\_\+\+Search\+Sub\+Directories} & whether to search sub directories within the folder, or not. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the files found. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_system_helper_afbd3fec84f5f1212eea6a394162f17bd}\label{class_file_system_helper_afbd3fec84f5f1212eea6a394162f17bd}} 
+\index{FileSystemHelper@{FileSystemHelper}!RemoveFileExtension@{RemoveFileExtension}}
+\index{RemoveFileExtension@{RemoveFileExtension}!FileSystemHelper@{FileSystemHelper}}
+\subsubsection{\texorpdfstring{RemoveFileExtension()}{RemoveFileExtension()}}
+{\footnotesize\ttfamily static bool File\+System\+Helper\+::\+Remove\+File\+Extension (\begin{DoxyParamCaption}\item[{std\+::string \&}]{p\+\_\+\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Removes the file extension from a file name string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Name} & the file name to manipulate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if it was able to remove it, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_system_helper_a44c0bd94522601736244ff130c646824}\label{class_file_system_helper_a44c0bd94522601736244ff130c646824}} 
+\index{FileSystemHelper@{FileSystemHelper}!RemoveFilePath@{RemoveFilePath}}
+\index{RemoveFilePath@{RemoveFilePath}!FileSystemHelper@{FileSystemHelper}}
+\subsubsection{\texorpdfstring{RemoveFilePath()}{RemoveFilePath()}}
+{\footnotesize\ttfamily static bool File\+System\+Helper\+::\+Remove\+File\+Path (\begin{DoxyParamCaption}\item[{std\+::string \&}]{p\+\_\+\+File\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Removes the file path from a file string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Name} & the file name to manipulate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if it was able to remove it, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_file_system_helper_a0f895fcbc7e172821aac5b3b9c689d19}\label{class_file_system_helper_a0f895fcbc7e172821aac5b3b9c689d19}} 
+\index{FileSystemHelper@{FileSystemHelper}!RetainRemoveFilesWithExtensions@{RetainRemoveFilesWithExtensions}}
+\index{RetainRemoveFilesWithExtensions@{RetainRemoveFilesWithExtensions}!FileSystemHelper@{FileSystemHelper}}
+\subsubsection{\texorpdfstring{RetainRemoveFilesWithExtensions()}{RetainRemoveFilesWithExtensions()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static void File\+System\+Helper\+::\+Retain\+Remove\+Files\+With\+Extensions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::string $>$ \&}]{p\+\_\+\+Files,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{p\+\_\+\+File\+Extensions,  }\item[{bool}]{p\+\_\+\+Keep\+File = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Either keeps only certain file, with the given file extension\mbox{[}s\mbox{]}, or it removes them, depending on what p\+\_\+\+Keep\+File is set to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Files} & the files to manipulate. \\
+\hline
+{\em p\+\_\+\+File\+Extensions} & the file extension\mbox{[}s\mbox{]} to either keep or remove. \\
+\hline
+{\em p\+\_\+\+Keep\+File} & whether to keep the particular file extensions passed in, or only remove files with those extensions -\/ default value is to keep the files with the passed in extensions. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_file_system_helper_a123a656e26a3e6f30661e96173dee5d7}\label{class_file_system_helper_a123a656e26a3e6f30661e96173dee5d7}} 
+\index{FileSystemHelper@{FileSystemHelper}!RetainRemoveFilesWithExtensions@{RetainRemoveFilesWithExtensions}}
+\index{RetainRemoveFilesWithExtensions@{RetainRemoveFilesWithExtensions}!FileSystemHelper@{FileSystemHelper}}
+\subsubsection{\texorpdfstring{RetainRemoveFilesWithExtensions()}{RetainRemoveFilesWithExtensions()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static void File\+System\+Helper\+::\+Retain\+Remove\+Files\+With\+Extensions (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_file_information}{File\+Information}} $>$ \&}]{p\+\_\+\+Files,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{p\+\_\+\+File\+Extensions,  }\item[{bool}]{p\+\_\+\+Keep\+File = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Either keeps only certain file, with the given file extension\mbox{[}s\mbox{]}, or it removes them, depending on what p\+\_\+\+Keep\+File is set to. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Files} & the files to manipulate. \\
+\hline
+{\em p\+\_\+\+File\+Extensions} & the file extension\mbox{[}s\mbox{]} to either keep or remove. \\
+\hline
+{\em p\+\_\+\+Keep\+File} & whether to keep the particular file extensions passed in, or only remove files with those extensions -\/ default value is to keep the files with the passed in extensions. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_file_system_helper_8h}{File\+System\+Helper.\+h}}\end{DoxyCompactItemize}

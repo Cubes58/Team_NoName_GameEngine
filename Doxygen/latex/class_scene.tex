@@ -1,0 +1,101 @@
+\hypertarget{class_scene}{}\section{Scene Class Reference}
+\label{class_scene}\index{Scene@{Scene}}
+
+
+A class that manages the level and gameplay.  
+
+
+
+
+{\ttfamily \#include $<$Scene.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_af79734f17482face8f8295560eea537b}{Scene}} (const std\+::string \&p\+\_\+\+Scene\+File, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_default_game}{Default\+Game}} $>$ p\+\_\+\+Game, glm\+::vec3 p\+\_\+\+Background\+Colour=glm\+::vec3(0.\+2f, 0.\+2f, 0.\+2f))
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_scene_a631eef7493cafce5d74739a2cad12a58}\label{class_scene_a631eef7493cafce5d74739a2cad12a58}} 
+\mbox{\hyperlink{class_scene_a631eef7493cafce5d74739a2cad12a58}{$\sim$\+Scene}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_a5783e29cf26164a26149d129242a42b6}{Update}} (float p\+\_\+\+Delta\+Time)
+\begin{DoxyCompactList}\small\item\em Updates the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_scene_a5e11c2fe829f4a4143f5edfa71619aa7}{Render}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_engine_core}{I\+Engine\+Core}} $>$ p\+\_\+\+Engine\+Interface)
+\begin{DoxyCompactList}\small\item\em Renders the scene. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+multimap$<$ std\+::type\+\_\+index, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$ $>$ \mbox{\hyperlink{class_scene_af479157ca173079d98fe5a392af06d24}{Get\+Objects\+Requiring\+Input}} () const
+\begin{DoxyCompactList}\small\item\em Gets the objects that require input. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that manages the level and gameplay. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_scene_af79734f17482face8f8295560eea537b}\label{class_scene_af79734f17482face8f8295560eea537b}} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Scene\+File,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_default_game}{Default\+Game}} $>$}]{p\+\_\+\+Game,  }\item[{glm\+::vec3}]{p\+\_\+\+Background\+Colour = {\ttfamily glm\+:\+:vec3(0.2f,~0.2f,~0.2f)} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Scene\+File} & the (scene\textquotesingle{}s) J\+S\+ON file location. \\
+\hline
+{\em p\+\_\+\+Game} & a pointer to the game object (must be turned into a weak pointer, if stored). \\
+\hline
+{\em p\+\_\+\+Background\+Colour} & the colour of the window\textquotesingle{}s background -\/ default initialised. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_scene_af479157ca173079d98fe5a392af06d24}\label{class_scene_af479157ca173079d98fe5a392af06d24}} 
+\index{Scene@{Scene}!GetObjectsRequiringInput@{GetObjectsRequiringInput}}
+\index{GetObjectsRequiringInput@{GetObjectsRequiringInput}!Scene@{Scene}}
+\subsubsection{\texorpdfstring{GetObjectsRequiringInput()}{GetObjectsRequiringInput()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+multimap$<$std\+::type\+\_\+index, std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_game_object}{Game\+Object}}$>$ $>$ Scene\+::\+Get\+Objects\+Requiring\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the objects that require input. 
+
+\begin{DoxyReturn}{Returns}
+Returns the objects that require objects. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_scene_a5e11c2fe829f4a4143f5edfa71619aa7}\label{class_scene_a5e11c2fe829f4a4143f5edfa71619aa7}} 
+\index{Scene@{Scene}!Render@{Render}}
+\index{Render@{Render}!Scene@{Scene}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Scene\+::\+Render (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_engine_core}{I\+Engine\+Core}} $>$}]{p\+\_\+\+Engine\+Interface }\end{DoxyParamCaption})}
+
+
+
+Renders the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Engine\+Interface} & the engine interface pointer. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_scene_a5783e29cf26164a26149d129242a42b6}\label{class_scene_a5783e29cf26164a26149d129242a42b6}} 
+\index{Scene@{Scene}!Update@{Update}}
+\index{Update@{Update}!Scene@{Scene}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Scene\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})}
+
+
+
+Updates the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\end{DoxyCompactItemize}

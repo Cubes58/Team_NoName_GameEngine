@@ -1,0 +1,340 @@
+\hypertarget{class_camera_component}{}\section{Camera\+Component Class Reference}
+\label{class_camera_component}\index{CameraComponent@{CameraComponent}}
+
+
+A class that stores the properties necessary for a camera component, to be added to an object.  
+
+
+
+
+{\ttfamily \#include $<$Camera\+Component.\+h$>$}
+
+Inheritance diagram for Camera\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_component_a6f14fb3dfa5ca8cfbaae2936413837d8}\label{class_camera_component_a6f14fb3dfa5ca8cfbaae2936413837d8}} 
+\mbox{\hyperlink{class_camera_component_a6f14fb3dfa5ca8cfbaae2936413837d8}{Camera\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the camera, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_component_a0469c99fc7579c782574162032c3d7e3}{Camera\+Component}} (const glm\+::vec3 \&p\+\_\+\+Position)
+\begin{DoxyCompactList}\small\item\em Constructor for the camera, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_camera_component_a5011cce0bdfe8ffba0e59922771f65e8}{Camera\+Component}} (const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation)
+\begin{DoxyCompactList}\small\item\em Constructor for the camera, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_camera_component_aedbd591ad2de175b4418ddfb6f8692c6}\label{class_camera_component_aedbd591ad2de175b4418ddfb6f8692c6}} 
+\mbox{\hyperlink{class_camera_component_aedbd591ad2de175b4418ddfb6f8692c6}{$\sim$\+Camera\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a8fd406e84c5c31bcdbf0ff482c76b173}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the camera component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_aa4c591ae0309634d43d7cee341eb6abf}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a4d35b8d9c30b1a0a2333ccd947697cb5}{Translate}} (const glm\+::vec3 \&p\+\_\+\+Translate\+Vector)
+\begin{DoxyCompactList}\small\item\em Translates the camera component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a27e2e9bdcd4d673967b9187cb3524e5b}{Translate}} (float p\+\_\+\+X\+Axis, float p\+\_\+\+Y\+Axis, float p\+\_\+\+Z\+Axis)
+\begin{DoxyCompactList}\small\item\em Translates the camera component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a58318ce1f0b1fa97da82d4304beb4005}{Rotate}} (float p\+\_\+\+Angle, const glm\+::vec3 \&p\+\_\+\+Axis)
+\begin{DoxyCompactList}\small\item\em Rotates the camera component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_ad7e109b916a367c044179997b888635b}{Rotate}} (float p\+\_\+\+Angle, float p\+\_\+\+X\+Axis, float p\+\_\+\+Y\+Axis, float p\+\_\+\+Z\+Axis)
+\begin{DoxyCompactList}\small\item\em Rotates the camera component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a665ea0b0d19c8532acddd6fe84ba0ae4}{Yaw}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the camera component around the Y axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_aaad279e1a0e4050cff1ed8072d40f7b1}{Pitch}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the camera component around the X axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_acac54caedcd622f9c7e0b032ff6d3ec5}{Roll}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the camera component around the Z axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_aea9b41ddab22a442fb1abc90008a406e}{Set\+Field\+Of\+View}} (float p\+\_\+\+Field\+O\+F\+View)
+\begin{DoxyCompactList}\small\item\em Sets the field of view, of the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_component_a4c4afaba244a809c07db05e9ec958a5d}{Look\+At}} (const glm\+::vec3 \&p\+\_\+\+Target)
+\begin{DoxyCompactList}\small\item\em Builds a look at view matrix. \end{DoxyCompactList}\item 
+const glm\+::vec3 \& \mbox{\hyperlink{class_camera_component_ada9efd239599d32ad9ec5fa92c26c38c}{Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the position of the camera component. \end{DoxyCompactList}\item 
+const glm\+::quat \& \mbox{\hyperlink{class_camera_component_ab87523de9e8a9070e69c852e0cae4493}{Orientation}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Orientation of the camera component. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_camera_component_a7304926c3974f8a80e3fc0a6c5e49cd1}{Get\+View\+Matrix}} () const
+\begin{DoxyCompactList}\small\item\em Gets the view matrix of the camera component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_camera_component_aced8f6cf0b7362d3c8c96698670147d5}\label{class_camera_component_aced8f6cf0b7362d3c8c96698670147d5}} 
+glm\+::vec3 \mbox{\hyperlink{class_camera_component_aced8f6cf0b7362d3c8c96698670147d5}{m\+\_\+\+Position}}
+\begin{DoxyCompactList}\small\item\em Position of the camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_camera_component_ab46f86357ab7f0868702aac7908950df}\label{class_camera_component_ab46f86357ab7f0868702aac7908950df}} 
+glm\+::quat \mbox{\hyperlink{class_camera_component_ab46f86357ab7f0868702aac7908950df}{m\+\_\+\+Orientation}}
+\begin{DoxyCompactList}\small\item\em Orientation of the camera. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_camera_component_a02ed3df0f7538518548fbb1a9d646f8d}\label{class_camera_component_a02ed3df0f7538518548fbb1a9d646f8d}} 
+float \mbox{\hyperlink{class_camera_component_a02ed3df0f7538518548fbb1a9d646f8d}{m\+\_\+\+Field\+Of\+View}}
+\begin{DoxyCompactList}\small\item\em Camera\textquotesingle{}s Field of view. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary for a camera component, to be added to an object. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_camera_component_a0469c99fc7579c782574162032c3d7e3}\label{class_camera_component_a0469c99fc7579c782574162032c3d7e3}} 
+\index{CameraComponent@{CameraComponent}!CameraComponent@{CameraComponent}}
+\index{CameraComponent@{CameraComponent}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{CameraComponent()}{CameraComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Camera\+Component\+::\+Camera\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the camera, it initialises the class\textquotesingle{} variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Position} & starting position of the camera. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_a5011cce0bdfe8ffba0e59922771f65e8}\label{class_camera_component_a5011cce0bdfe8ffba0e59922771f65e8}} 
+\index{CameraComponent@{CameraComponent}!CameraComponent@{CameraComponent}}
+\index{CameraComponent@{CameraComponent}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{CameraComponent()}{CameraComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Camera\+Component\+::\+Camera\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the camera, it initialises the class\textquotesingle{} variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Position} & starting position of the camera. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the camera. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_camera_component_a7304926c3974f8a80e3fc0a6c5e49cd1}\label{class_camera_component_a7304926c3974f8a80e3fc0a6c5e49cd1}} 
+\index{CameraComponent@{CameraComponent}!GetViewMatrix@{GetViewMatrix}}
+\index{GetViewMatrix@{GetViewMatrix}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{GetViewMatrix()}{GetViewMatrix()}}
+{\footnotesize\ttfamily glm\+::mat4 Camera\+Component\+::\+Get\+View\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the view matrix of the camera component. 
+
+\begin{DoxyReturn}{Returns}
+returns the view matrix of the camera component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_component_a4c4afaba244a809c07db05e9ec958a5d}\label{class_camera_component_a4c4afaba244a809c07db05e9ec958a5d}} 
+\index{CameraComponent@{CameraComponent}!LookAt@{LookAt}}
+\index{LookAt@{LookAt}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{LookAt()}{LookAt()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Look\+At (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Builds a look at view matrix. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Target} & the center. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_aa4c591ae0309634d43d7cee341eb6abf}\label{class_camera_component_aa4c591ae0309634d43d7cee341eb6abf}} 
+\index{CameraComponent@{CameraComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_camera_component_a8fd406e84c5c31bcdbf0ff482c76b173}\label{class_camera_component_a8fd406e84c5c31bcdbf0ff482c76b173}} 
+\index{CameraComponent@{CameraComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the camera component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+\mbox{\Hypertarget{class_camera_component_ab87523de9e8a9070e69c852e0cae4493}\label{class_camera_component_ab87523de9e8a9070e69c852e0cae4493}} 
+\index{CameraComponent@{CameraComponent}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Orientation()}{Orientation()}}
+{\footnotesize\ttfamily const glm\+::quat\& Camera\+Component\+::\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Orientation of the camera component. 
+
+\begin{DoxyReturn}{Returns}
+returns the Orientation of the camera component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_component_aaad279e1a0e4050cff1ed8072d40f7b1}\label{class_camera_component_aaad279e1a0e4050cff1ed8072d40f7b1}} 
+\index{CameraComponent@{CameraComponent}!Pitch@{Pitch}}
+\index{Pitch@{Pitch}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Pitch()}{Pitch()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Pitch (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the camera component around the X axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_ada9efd239599d32ad9ec5fa92c26c38c}\label{class_camera_component_ada9efd239599d32ad9ec5fa92c26c38c}} 
+\index{CameraComponent@{CameraComponent}!Position@{Position}}
+\index{Position@{Position}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Position()}{Position()}}
+{\footnotesize\ttfamily const glm\+::vec3\& Camera\+Component\+::\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the position of the camera component. 
+
+\begin{DoxyReturn}{Returns}
+returns the position of the camera component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_camera_component_acac54caedcd622f9c7e0b032ff6d3ec5}\label{class_camera_component_acac54caedcd622f9c7e0b032ff6d3ec5}} 
+\index{CameraComponent@{CameraComponent}!Roll@{Roll}}
+\index{Roll@{Roll}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Roll()}{Roll()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Roll (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the camera component around the Z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_a58318ce1f0b1fa97da82d4304beb4005}\label{class_camera_component_a58318ce1f0b1fa97da82d4304beb4005}} 
+\index{CameraComponent@{CameraComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the camera component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+{\em p\+\_\+\+Axis} & the axis to rotate around. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_ad7e109b916a367c044179997b888635b}\label{class_camera_component_ad7e109b916a367c044179997b888635b}} 
+\index{CameraComponent@{CameraComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle,  }\item[{float}]{p\+\_\+\+X\+Axis,  }\item[{float}]{p\+\_\+\+Y\+Axis,  }\item[{float}]{p\+\_\+\+Z\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the camera component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+{\em p\+\_\+\+X\+Axis} & the X axis value to rotate around. \\
+\hline
+{\em p\+\_\+\+Y\+Axis} & the Y axis value to rotate around. \\
+\hline
+{\em p\+\_\+\+Z\+Axis} & the Z axis value to rotate around. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_aea9b41ddab22a442fb1abc90008a406e}\label{class_camera_component_aea9b41ddab22a442fb1abc90008a406e}} 
+\index{CameraComponent@{CameraComponent}!SetFieldOfView@{SetFieldOfView}}
+\index{SetFieldOfView@{SetFieldOfView}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{SetFieldOfView()}{SetFieldOfView()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Set\+Field\+Of\+View (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Field\+O\+F\+View }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the field of view, of the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Field\+O\+F\+View} & the new field of view value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_a4d35b8d9c30b1a0a2333ccd947697cb5}\label{class_camera_component_a4d35b8d9c30b1a0a2333ccd947697cb5}} 
+\index{CameraComponent@{CameraComponent}!Translate@{Translate}}
+\index{Translate@{Translate}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Translate()}{Translate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Translate (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Translate\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translates the camera component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Translate\+Vector} & the translate vector, used to move the camera object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_a27e2e9bdcd4d673967b9187cb3524e5b}\label{class_camera_component_a27e2e9bdcd4d673967b9187cb3524e5b}} 
+\index{CameraComponent@{CameraComponent}!Translate@{Translate}}
+\index{Translate@{Translate}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Translate()}{Translate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Translate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+X\+Axis,  }\item[{float}]{p\+\_\+\+Y\+Axis,  }\item[{float}]{p\+\_\+\+Z\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translates the camera component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+X\+Axis} & the X axis translation. \\
+\hline
+{\em p\+\_\+\+Y\+Axis} & the Y axis translation. \\
+\hline
+{\em p\+\_\+\+Z\+Axis} & the Z axis translation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_camera_component_a665ea0b0d19c8532acddd6fe84ba0ae4}\label{class_camera_component_a665ea0b0d19c8532acddd6fe84ba0ae4}} 
+\index{CameraComponent@{CameraComponent}!Yaw@{Yaw}}
+\index{Yaw@{Yaw}!CameraComponent@{CameraComponent}}
+\subsubsection{\texorpdfstring{Yaw()}{Yaw()}}
+{\footnotesize\ttfamily void Camera\+Component\+::\+Yaw (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the camera component around the Y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_camera_component_8h}{Camera\+Component.\+h}}\end{DoxyCompactItemize}

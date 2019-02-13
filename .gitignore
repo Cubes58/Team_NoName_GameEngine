@@ -63,7 +63,7 @@ StyleCopReport.xml
 *_i.h
 *.ilk
 *.meta
-*.obj
+*.objs
 *.iobj
 *.pch
 *.pdb
@@ -84,6 +84,9 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+
+#!*.objs
+#!GameEngineArchitecture/resources/models/*.objs
 
 # Chutzpah Test files
 _Chutzpah*

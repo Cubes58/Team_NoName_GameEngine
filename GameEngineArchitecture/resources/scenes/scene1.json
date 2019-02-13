@@ -1,0 +1,172 @@
+{
+  "GameObjects": [
+    {
+      "modelName": "flag", 
+      "orientation": [
+        0.052519009775972715, 
+        0.0, 
+        -0.9986199245018871, 
+        0.0
+      ], 
+      "position": [
+        12.193375605792609, 
+        0.0, 
+        -28.430797298544952
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EndLevelCollectable"
+    }, 
+    {
+      "modelName": "pebbles", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        7.833961004211705, 
+        1.0658141036401503e-14, 
+        -7.287739548659559
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "attackDamage": 20, 
+      "attackDistance": 30, 
+      "attackSpeed": 15, 
+      "health": 500, 
+      "maxHealth": 500, 
+      "modelName": "warTower", 
+      "orientation": [
+        0.39483701341486316, 
+        0.0, 
+        0.9187511811353669, 
+        0.0
+      ], 
+      "position": [
+        -38.979453452016536, 
+        2.842170943040401e-14, 
+        33.15759988106828
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyTower"
+    }, 
+    {
+      "modelName": "tree", 
+      "orientation": [
+        0.10763854472735307, 
+        -0.0, 
+        0.9941900943426218, 
+        -0.0
+      ], 
+      "position": [
+        -20.036624246152712, 
+        1.1368683772161603e-13, 
+        -47.17805114444998
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.9939177587806253, 
+        -0.0, 
+        0.1101248781179748, 
+        -0.0
+      ], 
+      "position": [
+        -6.218127589107368, 
+        -2.842170943040401e-14, 
+        -48.35988220558298
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "tree", 
+      "orientation": [
+        0.9927175742755455, 
+        0.0, 
+        -0.12046500622370271, 
+        0.0
+      ], 
+      "position": [
+        27.131304783595603, 
+        -1.4210854715202004e-14, 
+        40.42048958237548
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "health": 100, 
+      "maxHealth": 100, 
+      "modelName": "duck", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PlayerCharacter", 
+      "uniformMovementSpeed": 0.35
+    }, 
+    {
+      "modelName": "floor", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "GameObjects": [
+    {
+      "modelName": "pebbles", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        5.7147665680859205, 
+        1.4210854715202004e-14, 
+        14.13777425171638
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "flag", 
+      "orientation": [
+        0.9427021697593929, 
+        0.0, 
+        0.3336354584436924, 
+        0.0
+      ], 
+      "position": [
+        49.0111724233687, 
+        0.0, 
+        58.941250311737726
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EndLevelCollectable"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.9939177587806253, 
+        -0.0, 
+        0.1101248781179748, 
+        -0.0
+      ], 
+      "position": [
+        -27.16562338292973, 
+        -1.4210854715202004e-14, 
+        -1.8565658451820894
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.45267153426676654, 
+        0.0, 
+        -0.8916773419037696, 
+        0.0
+      ], 
+      "position": [
+        15.004982861954865, 
+        0.0, 
+        -18.961010893076704
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "tree", 
+      "orientation": [
+        0.9990249156080019, 
+        -0.0, 
+        0.04414994897420255, 
+        -0.0
+      ], 
+      "position": [
+        48.79987998607104, 
+        9.237055564881302e-14, 
+        42.8833664924987
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "tree", 
+      "orientation": [
+        0.3001887977832742, 
+        -0.0, 
+        0.9538798067290412, 
+        -0.0
+      ], 
+      "position": [
+        -6.302538808451942, 
+        1.2789769243681803e-13, 
+        -33.68295411820546
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "tree", 
+      "orientation": [
+        0.9927175742755455, 
+        0.0, 
+        -0.12046500622370271, 
+        0.0
+      ], 
+      "position": [
+        -26.927222477118733, 
+        -1.4210854715202004e-14, 
+        16.770947033357853
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "attackDamage": 20, 
+      "attackDistance": 30, 
+      "attackSpeed": 15, 
+      "health": 500, 
+      "maxHealth": 500, 
+      "modelName": "warTower", 
+      "orientation": [
+        0.982084515400205, 
+        0.0, 
+        -0.188440984425216, 
+        0.0
+      ], 
+      "position": [
+        42.40420249187895, 
+        2.842170943040401e-14, 
+        -20.704300666861585
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyTower"
+    }, 
+    {
+      "modelName": "damagedTower", 
+      "orientation": [
+        0.9598837471579585, 
+        0.0, 
+        0.28039827378569304, 
+        0.0
+      ], 
+      "position": [
+        47.639770544767615, 
+        -4.263256414560601e-14, 
+        49.2720500396415
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "health": 100, 
+      "maxHealth": 100, 
+      "modelName": "duck", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PlayerCharacter", 
+      "uniformMovementSpeed": 0.35
+    }, 
+    {
+      "modelName": "floor", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }
+  ]
+}

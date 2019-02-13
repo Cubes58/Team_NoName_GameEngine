@@ -1,0 +1,57 @@
+\hypertarget{class_collision}{}\section{Collision Class Reference}
+\label{class_collision}\index{Collision@{Collision}}
+
+
+A class that handles collisions.  
+
+
+
+
+{\ttfamily \#include $<$Collision.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_collision_a1c247612eae832108bf79b78127f35f3}\label{class_collision_a1c247612eae832108bf79b78127f35f3}} 
+\mbox{\hyperlink{class_collision_a1c247612eae832108bf79b78127f35f3}{Collision}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_collision_aeb427d5296152744ac2c082d29afa930}\label{class_collision_aeb427d5296152744ac2c082d29afa930}} 
+\mbox{\hyperlink{class_collision_aeb427d5296152744ac2c082d29afa930}{$\sim$\+Collision}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_collision_a24c90bfb7d03e440c5d0a753b9682a2a}{operator()}} (const glm\+::vec3 \&p\+\_\+\+Entity\+One\+Position, const glm\+::vec3 \&p\+\_\+\+Entity\+Two\+Position, const glm\+::vec3 \&p\+\_\+\+Entity\+One\+Size, const glm\+::vec3 \&p\+\_\+\+Entity\+Two\+Size)
+\begin{DoxyCompactList}\small\item\em Detects a collision between two A\+A\+BB objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that handles collisions. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_collision_a24c90bfb7d03e440c5d0a753b9682a2a}\label{class_collision_a24c90bfb7d03e440c5d0a753b9682a2a}} 
+\index{Collision@{Collision}!operator()@{operator()}}
+\index{operator()@{operator()}!Collision@{Collision}}
+\subsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily bool Collision\+::operator() (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Entity\+One\+Position,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Entity\+Two\+Position,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Entity\+One\+Size,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Entity\+Two\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Detects a collision between two A\+A\+BB objects. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Entity\+One\+Position} & entity one\textquotesingle{}s position. \\
+\hline
+{\em p\+\_\+\+Entity\+Two\+Position} & entity two\textquotesingle{}s position. \\
+\hline
+{\em p\+\_\+\+Entity\+One\+Size} & entity one\textquotesingle{}s size. \\
+\hline
+{\em p\+\_\+\+Entity\+Two\+Size} & entity two\textquotesingle{}s size. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if a collision has happened, false otherwise. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_collision_8h}{Collision.\+h}}\end{DoxyCompactItemize}

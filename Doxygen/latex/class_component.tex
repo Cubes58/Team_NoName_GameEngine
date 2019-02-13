@@ -1,0 +1,79 @@
+\hypertarget{class_component}{}\section{Component Class Reference}
+\label{class_component}\index{Component@{Component}}
+
+
+An abstract base class that has the basic properties a component would need.  
+
+
+
+
+{\ttfamily \#include $<$Component.\+h$>$}
+
+Inheritance diagram for Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.323877cm]{class_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_component_a404098a91640552f9d0284d08b53def4}\label{class_component_a404098a91640552f9d0284d08b53def4}} 
+\mbox{\hyperlink{class_component_a404098a91640552f9d0284d08b53def4}{Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_component_ad82d7393e339c1b19cc17a0d55b5674d}\label{class_component_ad82d7393e339c1b19cc17a0d55b5674d}} 
+virtual \mbox{\hyperlink{class_component_ad82d7393e339c1b19cc17a0d55b5674d}{$\sim$\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{On\+Update}} (float p\+\_\+\+Delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method, which must be implemented by children classes, that updates the component. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{On\+Message}} (const std\+::string \&p\+\_\+\+Message)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method, which must be implemented by children classes, that sends a message to the component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract base class that has the basic properties a component would need. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_component_a1cd106256bf1791f9c6ab347776c7788}\label{class_component_a1cd106256bf1791f9c6ab347776c7788}} 
+\index{Component@{Component}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!Component@{Component}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily virtual void Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method, which must be implemented by children classes, that sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & the message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_transform_component_a07510e9014663febd69f9c00666a3951}{Transform\+Component}}, \mbox{\hyperlink{class_camera_component_aa4c591ae0309634d43d7cee341eb6abf}{Camera\+Component}}, \mbox{\hyperlink{class_movement_component_aa82c5ab1af1d6bf286f264ad760e1e30}{Movement\+Component}}, \mbox{\hyperlink{class_health_component_aaaf08f6e3535e5cf0e94bddff815c11f}{Health\+Component}}, \mbox{\hyperlink{class_attack_component_a25a304233ac871cfec61b6cc744b10bb}{Attack\+Component}}, and \mbox{\hyperlink{class_model_component_aff7bfde1544e8e608e55680706321fac}{Model\+Component}}.
+
+\mbox{\Hypertarget{class_component_ac080e9fa054949464c796b65a4b26b93}\label{class_component_ac080e9fa054949464c796b65a4b26b93}} 
+\index{Component@{Component}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!Component@{Component}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily virtual void Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method, which must be implemented by children classes, that updates the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the time passed \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_transform_component_a4e84c8415bc74787d8392182de9c15df}{Transform\+Component}}, \mbox{\hyperlink{class_camera_component_a8fd406e84c5c31bcdbf0ff482c76b173}{Camera\+Component}}, \mbox{\hyperlink{class_health_component_a525bed56c917ce36bbfb67264350e56a}{Health\+Component}}, \mbox{\hyperlink{class_movement_component_aa7d58780fe672dc910896c53aa4da7fd}{Movement\+Component}}, \mbox{\hyperlink{class_attack_component_a92aca094d9d41cddca1a730e672cb835}{Attack\+Component}}, and \mbox{\hyperlink{class_model_component_a52333e35346182468a0bfe0311c900e0}{Model\+Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_component_8h}{Component.\+h}}\end{DoxyCompactItemize}

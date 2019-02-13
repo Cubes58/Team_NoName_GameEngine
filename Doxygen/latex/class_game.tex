@@ -1,0 +1,115 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+An abstract base class that manages the scenes, and input handler.  
+
+
+
+
+{\ttfamily \#include $<$Game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a4735989677c1cab18866f3ae4ee0aa1c}\label{class_game_a4735989677c1cab18866f3ae4ee0aa1c}} 
+\mbox{\hyperlink{class_game_a4735989677c1cab18866f3ae4ee0aa1c}{Game}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_ab0556d428e8db075b405355af7e81dae}\label{class_game_ab0556d428e8db075b405355af7e81dae}} 
+virtual \mbox{\hyperlink{class_game_ab0556d428e8db075b405355af7e81dae}{$\sim$\+Game}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_a22579e2500d8552e669ef9349480d960}{Set\+Scene}} (unsigned int p\+\_\+\+Scene\+Number)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to set the scene. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_ab15084e492f17b36b90314f614b659d3}{Update}} (float p\+\_\+\+Delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to update the game. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_a04e3c7ae8a8bbba4f113398467a3896b}\label{class_game_a04e3c7ae8a8bbba4f113398467a3896b}} 
+virtual void \mbox{\hyperlink{class_game_a04e3c7ae8a8bbba4f113398467a3896b}{Render}} ()=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to render the game. \end{DoxyCompactList}\item 
+const bool \& \mbox{\hyperlink{class_game_a1fbd99129b2efca859afaaa7f45a62a4}{Is\+Running}} ()
+\begin{DoxyCompactList}\small\item\em Gets whether the game is running/on-\/going. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a5597a65653eb1485429f8c8ceef9d502}\label{class_game_a5597a65653eb1485429f8c8ceef9d502}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_i_engine_core}{I\+Engine\+Core}} $>$ \mbox{\hyperlink{class_game_a5597a65653eb1485429f8c8ceef9d502}{m\+\_\+\+Engine\+Interface}}
+\begin{DoxyCompactList}\small\item\em A pointer to the engine. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_abaeacc32cd51f09cd25f279653b85f38}\label{class_game_abaeacc32cd51f09cd25f279653b85f38}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_input_handler}{Input\+Handler}} $>$ \mbox{\hyperlink{class_game_abaeacc32cd51f09cd25f279653b85f38}{m\+\_\+\+Input\+Handler}}
+\begin{DoxyCompactList}\small\item\em A pointer to the input handler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_a4d44e28922d2ef362d86571546df28d1}\label{class_game_a4d44e28922d2ef362d86571546df28d1}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_scene}{Scene}} $>$ \mbox{\hyperlink{class_game_a4d44e28922d2ef362d86571546df28d1}{m\+\_\+\+Current\+Scene}}
+\begin{DoxyCompactList}\small\item\em Stores the current scene. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_acd086a35b791b23b8c26f6f94546ce94}\label{class_game_acd086a35b791b23b8c26f6f94546ce94}} 
+bool \mbox{\hyperlink{class_game_acd086a35b791b23b8c26f6f94546ce94}{m\+\_\+\+Is\+Running}} = true
+\begin{DoxyCompactList}\small\item\em Stores whether the game is/should be running. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract base class that manages the scenes, and input handler. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_a1fbd99129b2efca859afaaa7f45a62a4}\label{class_game_a1fbd99129b2efca859afaaa7f45a62a4}} 
+\index{Game@{Game}!IsRunning@{IsRunning}}
+\index{IsRunning@{IsRunning}!Game@{Game}}
+\subsubsection{\texorpdfstring{IsRunning()}{IsRunning()}}
+{\footnotesize\ttfamily const bool\& Game\+::\+Is\+Running (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets whether the game is running/on-\/going. 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the game is running, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_a22579e2500d8552e669ef9349480d960}\label{class_game_a22579e2500d8552e669ef9349480d960}} 
+\index{Game@{Game}!SetScene@{SetScene}}
+\index{SetScene@{SetScene}!Game@{Game}}
+\subsubsection{\texorpdfstring{SetScene()}{SetScene()}}
+{\footnotesize\ttfamily virtual void Game\+::\+Set\+Scene (\begin{DoxyParamCaption}\item[{unsigned int}]{p\+\_\+\+Scene\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to set the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Scene\+Number} & the scene number to switch to. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_default_game_ad5cc1efff4785b26da69b4dc942cc9fd}{Default\+Game}}.
+
+\mbox{\Hypertarget{class_game_ab15084e492f17b36b90314f614b659d3}\label{class_game_ab15084e492f17b36b90314f614b659d3}} 
+\index{Game@{Game}!Update@{Update}}
+\index{Update@{Update}!Game@{Game}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void Game\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to update the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the amount of time passed since the last update. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_default_game_a51e32950165cab20f9ba4e06bfc13e2f}{Default\+Game}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_game_8h}{Game.\+h}}\end{DoxyCompactItemize}

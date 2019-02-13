@@ -1,0 +1,144 @@
+\hypertarget{class_enemy_tower}{}\section{Enemy\+Tower Class Reference}
+\label{class_enemy_tower}\index{EnemyTower@{EnemyTower}}
+
+
+A class that stores the properties necessary to create a tower object that attacks the player.  
+
+
+
+
+{\ttfamily \#include $<$Enemy\+Tower.\+h$>$}
+
+Inheritance diagram for Enemy\+Tower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy_tower}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_enemy_tower_ace06a9d69e04e93e30fe87a2b36ba282}{Enemy\+Tower}} (const std\+::string \&p\+\_\+\+Model\+Name, const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation, const glm\+::vec3 \&p\+\_\+\+Scale, float p\+\_\+\+Attack\+Damage, float p\+\_\+\+Attack\+Distance, float p\+\_\+\+Attack\+Speed, float p\+\_\+\+Health)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_enemy_tower_a50073b5c1051a738e9242490f25dce1f}{Enemy\+Tower}} (const std\+::string \&p\+\_\+\+Model\+Name, const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation, const glm\+::vec3 \&p\+\_\+\+Scale, float p\+\_\+\+Attack\+Damage, float p\+\_\+\+Attack\+Distance, float p\+\_\+\+Attack\+Speed, float p\+\_\+\+Health, float p\+\_\+\+Max\+Health)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_enemy_tower_aa760afd4281ec3ba80969c09128568e8}\label{class_enemy_tower_aa760afd4281ec3ba80969c09128568e8}} 
+\mbox{\hyperlink{class_enemy_tower_aa760afd4281ec3ba80969c09128568e8}{$\sim$\+Enemy\+Tower}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_tower_ab3ada6dea5a4020a48c2764315767aec}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_enemy_tower_aa717457559bfba3b6e9f932d71c97831}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary to create a tower object that attacks the player. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_enemy_tower_ace06a9d69e04e93e30fe87a2b36ba282}\label{class_enemy_tower_ace06a9d69e04e93e30fe87a2b36ba282}} 
+\index{EnemyTower@{EnemyTower}!EnemyTower@{EnemyTower}}
+\index{EnemyTower@{EnemyTower}!EnemyTower@{EnemyTower}}
+\subsubsection{\texorpdfstring{EnemyTower()}{EnemyTower()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Enemy\+Tower\+::\+Enemy\+Tower (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale,  }\item[{float}]{p\+\_\+\+Attack\+Damage,  }\item[{float}]{p\+\_\+\+Attack\+Distance,  }\item[{float}]{p\+\_\+\+Attack\+Speed,  }\item[{float}]{p\+\_\+\+Health }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & name of the model, used by the object. \\
+\hline
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object \\
+\hline
+{\em p\+\_\+\+Scale} & starting scale of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Damage} & starting damage of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Distance} & attack distance of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Speed} & starting attack speed of the object. \\
+\hline
+{\em p\+\_\+\+Health} & starting health of the object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_enemy_tower_a50073b5c1051a738e9242490f25dce1f}\label{class_enemy_tower_a50073b5c1051a738e9242490f25dce1f}} 
+\index{EnemyTower@{EnemyTower}!EnemyTower@{EnemyTower}}
+\index{EnemyTower@{EnemyTower}!EnemyTower@{EnemyTower}}
+\subsubsection{\texorpdfstring{EnemyTower()}{EnemyTower()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Enemy\+Tower\+::\+Enemy\+Tower (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale,  }\item[{float}]{p\+\_\+\+Attack\+Damage,  }\item[{float}]{p\+\_\+\+Attack\+Distance,  }\item[{float}]{p\+\_\+\+Attack\+Speed,  }\item[{float}]{p\+\_\+\+Health,  }\item[{float}]{p\+\_\+\+Max\+Health }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & name of the model, used by the object. \\
+\hline
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object \\
+\hline
+{\em p\+\_\+\+Scale} & starting scale of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Damage} & starting damage of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Distance} & attack distance of the object. \\
+\hline
+{\em p\+\_\+\+Attack\+Speed} & starting attack speed of the object. \\
+\hline
+{\em p\+\_\+\+Health} & starting health of the object. \\
+\hline
+{\em p\+\_\+\+Max\+Health} & max health of the object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_tower_aa717457559bfba3b6e9f932d71c97831}\label{class_enemy_tower_aa717457559bfba3b6e9f932d71c97831}} 
+\index{EnemyTower@{EnemyTower}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!EnemyTower@{EnemyTower}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Enemy\+Tower\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a162f15f809f5181e3264b9f4d768bea2}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_enemy_tower_ab3ada6dea5a4020a48c2764315767aec}\label{class_enemy_tower_ab3ada6dea5a4020a48c2764315767aec}} 
+\index{EnemyTower@{EnemyTower}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!EnemyTower@{EnemyTower}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Enemy\+Tower\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a3d4444ab3efd5e3041014da90a66c081}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_enemy_tower_8h}{Enemy\+Tower.\+h}}\end{DoxyCompactItemize}

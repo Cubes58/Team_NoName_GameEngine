@@ -1,0 +1,108 @@
+\hypertarget{class_model}{}\section{Model Class Reference}
+\label{class_model}\index{Model@{Model}}
+
+
+A class that stores the properties necessary to create a model.  
+
+
+
+
+{\ttfamily \#include $<$Model.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_a1803bcfb4df005e3fc0e4cc9803e862c}{Model}} (std\+::string p\+\_\+\+File\+Path)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_model_a27483109877a1835b5932074a78edb95}{Model}} (const std\+::string \&p\+\_\+\+File\+Path, bool \&p\+\_\+\+Model\+Loaded)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_model_ab5283b9f5bbd72e86fe79f5ad9b5bd81}{Render}} (const unsigned int p\+\_\+\+Shader\+Program)
+\begin{DoxyCompactList}\small\item\em Renders the model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static unsigned int \mbox{\hyperlink{class_model_af13273ddd9a34c09beba7f210bf978af}{Texture\+From\+File}} (const char $\ast$p\+\_\+\+File\+Path, const std\+::string \&p\+\_\+\+Directory, bool p\+\_\+\+Gamma=false)
+\begin{DoxyCompactList}\small\item\em Loads textures from a file/folder. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary to create a model. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_a1803bcfb4df005e3fc0e4cc9803e862c}\label{class_model_a1803bcfb4df005e3fc0e4cc9803e862c}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection{\texorpdfstring{Model()}{Model()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}\item[{std\+::string}]{p\+\_\+\+File\+Path }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Path} & the file path to the model. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_model_a27483109877a1835b5932074a78edb95}\label{class_model_a27483109877a1835b5932074a78edb95}} 
+\index{Model@{Model}!Model@{Model}}
+\index{Model@{Model}!Model@{Model}}
+\subsubsection{\texorpdfstring{Model()}{Model()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Model\+::\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+File\+Path,  }\item[{bool \&}]{p\+\_\+\+Model\+Loaded }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Path} & the file path to the model. \\
+\hline
+{\em p\+\_\+\+Model\+Loaded} & sets this to true if the model loaded successfully, false otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_ab5283b9f5bbd72e86fe79f5ad9b5bd81}\label{class_model_ab5283b9f5bbd72e86fe79f5ad9b5bd81}} 
+\index{Model@{Model}!Render@{Render}}
+\index{Render@{Render}!Model@{Model}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Model\+::\+Render (\begin{DoxyParamCaption}\item[{const unsigned int}]{p\+\_\+\+Shader\+Program }\end{DoxyParamCaption})}
+
+
+
+Renders the model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Shader\+Program} & the shader program ID, being used, to render the model. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_model_af13273ddd9a34c09beba7f210bf978af}\label{class_model_af13273ddd9a34c09beba7f210bf978af}} 
+\index{Model@{Model}!TextureFromFile@{TextureFromFile}}
+\index{TextureFromFile@{TextureFromFile}!Model@{Model}}
+\subsubsection{\texorpdfstring{TextureFromFile()}{TextureFromFile()}}
+{\footnotesize\ttfamily static unsigned int Model\+::\+Texture\+From\+File (\begin{DoxyParamCaption}\item[{const char $\ast$}]{p\+\_\+\+File\+Path,  }\item[{const std\+::string \&}]{p\+\_\+\+Directory,  }\item[{bool}]{p\+\_\+\+Gamma = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Loads textures from a file/folder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Path} & the file where the texture is. \\
+\hline
+{\em p\+\_\+\+Directory} & the directory where the textures are located. \\
+\hline
+{\em p\+\_\+\+Gamma} & if the texture needs to be gamma corrected \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the texture ID. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_model_8h}{Model.\+h}}\end{DoxyCompactItemize}

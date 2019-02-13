@@ -1,0 +1,144 @@
+\hypertarget{class_model_manager}{}\section{Model\+Manager Class Reference}
+\label{class_model_manager}\index{ModelManager@{ModelManager}}
+
+
+A class that manages the models.  
+
+
+
+
+{\ttfamily \#include $<$Model\+Manager.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_model_manager_abda1bb8020099cec8f025d76e022c42c}{Load\+Model\+From\+File}} (std\+::string p\+\_\+\+File\+Location)
+\begin{DoxyCompactList}\small\item\em Loads a model in, from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_model_manager_a571ee1560b3d25da728c9904ddd37bcc}{Load\+Model\+From\+File}} (const \mbox{\hyperlink{struct_file_information}{File\+Information}} \&p\+\_\+\+File\+Location)
+\begin{DoxyCompactList}\small\item\em Loads a model in, from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_model_manager_ab94a71bd3c3a8c9546947686861e1d8b}{Load\+Models\+From\+Folder}} (const std\+::string \&p\+\_\+\+Folder\+Name)
+\begin{DoxyCompactList}\small\item\em Loads any models from a folder. \end{DoxyCompactList}\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ \mbox{\hyperlink{class_model_manager_a9bb6cee3ce0f0665de35df41fe78a49d}{Get\+Model}} (const std\+::string \&p\+\_\+\+Model\+Name)
+\begin{DoxyCompactList}\small\item\em Gets a model pointer, given a model\textquotesingle{}s name. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_model_manager_a78e2c64a9e221d209559d3cb7a961994}{Get\+Unsuccessfully\+Loaded\+Models}} ()
+\begin{DoxyCompactList}\small\item\em Gets a vector of model name\textquotesingle{}s that failed to be loaded in. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_manager_a6bc6a495133e0b00309f61fda56c9948}\label{class_model_manager_a6bc6a495133e0b00309f61fda56c9948}} 
+\mbox{\hyperlink{class_model_manager_a6bc6a495133e0b00309f61fda56c9948}{Model\+Manager}} (\mbox{\hyperlink{class_model_manager}{Model\+Manager}} const \&)=delete
+\begin{DoxyCompactList}\small\item\em Copy operator. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_manager_a281c631322a7a464de6c2b519d86ef1f}\label{class_model_manager_a281c631322a7a464de6c2b519d86ef1f}} 
+\mbox{\hyperlink{class_model_manager}{Model\+Manager}} \& \mbox{\hyperlink{class_model_manager_a281c631322a7a464de6c2b519d86ef1f}{operator=}} (\mbox{\hyperlink{class_model_manager}{Model\+Manager}} const \&)=delete
+\begin{DoxyCompactList}\small\item\em Assignment operator. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_model_manager}{Model\+Manager}} \& \mbox{\hyperlink{class_model_manager_a8d009d3630426c44e634bfccc92004b2}{Get\+Instance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{class_model_manager}{Model\+Manager}} instance. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that manages the models. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_manager_a8d009d3630426c44e634bfccc92004b2}\label{class_model_manager_a8d009d3630426c44e634bfccc92004b2}} 
+\index{ModelManager@{ModelManager}!GetInstance@{GetInstance}}
+\index{GetInstance@{GetInstance}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{GetInstance()}{GetInstance()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_model_manager}{Model\+Manager}}\& Model\+Manager\+::\+Get\+Instance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Gets the \mbox{\hyperlink{class_model_manager}{Model\+Manager}} instance. 
+
+\begin{DoxyReturn}{Returns}
+Returns the model manager instance. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_manager_a9bb6cee3ce0f0665de35df41fe78a49d}\label{class_model_manager_a9bb6cee3ce0f0665de35df41fe78a49d}} 
+\index{ModelManager@{ModelManager}!GetModel@{GetModel}}
+\index{GetModel@{GetModel}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{GetModel()}{GetModel()}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_model}{Model}}$>$ Model\+Manager\+::\+Get\+Model (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a model pointer, given a model\textquotesingle{}s name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & the name of the model. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the model pointer p\+\_\+\+Model\+Name references if it\textquotesingle{}s found, else it\textquotesingle{}ll try to find the default one, and return that, but if that fails too then a nullptr will be returned. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_manager_a78e2c64a9e221d209559d3cb7a961994}\label{class_model_manager_a78e2c64a9e221d209559d3cb7a961994}} 
+\index{ModelManager@{ModelManager}!GetUnsuccessfullyLoadedModels@{GetUnsuccessfullyLoadedModels}}
+\index{GetUnsuccessfullyLoadedModels@{GetUnsuccessfullyLoadedModels}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{GetUnsuccessfullyLoadedModels()}{GetUnsuccessfullyLoadedModels()}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::string$>$ Model\+Manager\+::\+Get\+Unsuccessfully\+Loaded\+Models (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets a vector of model name\textquotesingle{}s that failed to be loaded in. 
+
+\begin{DoxyReturn}{Returns}
+Returns a vector of model name\textquotesingle{}s that failed to be loaded in. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_manager_abda1bb8020099cec8f025d76e022c42c}\label{class_model_manager_abda1bb8020099cec8f025d76e022c42c}} 
+\index{ModelManager@{ModelManager}!LoadModelFromFile@{LoadModelFromFile}}
+\index{LoadModelFromFile@{LoadModelFromFile}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{LoadModelFromFile()}{LoadModelFromFile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Model\+Manager\+::\+Load\+Model\+From\+File (\begin{DoxyParamCaption}\item[{std\+::string}]{p\+\_\+\+File\+Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a model in, from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Location} & the location of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the model loaded successfully, else it returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_manager_a571ee1560b3d25da728c9904ddd37bcc}\label{class_model_manager_a571ee1560b3d25da728c9904ddd37bcc}} 
+\index{ModelManager@{ModelManager}!LoadModelFromFile@{LoadModelFromFile}}
+\index{LoadModelFromFile@{LoadModelFromFile}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{LoadModelFromFile()}{LoadModelFromFile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Model\+Manager\+::\+Load\+Model\+From\+File (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_file_information}{File\+Information}} \&}]{p\+\_\+\+File\+Location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a model in, from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+File\+Location} & the name, location, and extension of the file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if the model loaded successfully, else it returns false. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_model_manager_ab94a71bd3c3a8c9546947686861e1d8b}\label{class_model_manager_ab94a71bd3c3a8c9546947686861e1d8b}} 
+\index{ModelManager@{ModelManager}!LoadModelsFromFolder@{LoadModelsFromFolder}}
+\index{LoadModelsFromFolder@{LoadModelsFromFolder}!ModelManager@{ModelManager}}
+\subsubsection{\texorpdfstring{LoadModelsFromFolder()}{LoadModelsFromFolder()}}
+{\footnotesize\ttfamily bool Model\+Manager\+::\+Load\+Models\+From\+Folder (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Folder\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads any models from a folder. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Folder\+Name} & the name of the folder. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if all of the models loaded successfully, else it returns false. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_model_manager_8h}{Model\+Manager.\+h}}\end{DoxyCompactItemize}

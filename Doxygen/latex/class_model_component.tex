@@ -1,0 +1,99 @@
+\hypertarget{class_model_component}{}\section{Model\+Component Class Reference}
+\label{class_model_component}\index{ModelComponent@{ModelComponent}}
+
+
+A class that stores the properties necessary for a model.  
+
+
+
+
+{\ttfamily \#include $<$Model\+Component.\+h$>$}
+
+Inheritance diagram for Model\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_model_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_model_component_a2697cdcdf32b12a0c0bd69bbec809eb1}{Model\+Component}} (const std\+::string \&p\+\_\+\+Model\+Name)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_component_ac4d9b601719e4740091737731b6bd4fc}\label{class_model_component_ac4d9b601719e4740091737731b6bd4fc}} 
+\mbox{\hyperlink{class_model_component_ac4d9b601719e4740091737731b6bd4fc}{$\sim$\+Model\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_model_component_a52333e35346182468a0bfe0311c900e0}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Update the attack component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_model_component_aff7bfde1544e8e608e55680706321fac}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_model_component_a0ce4506173a7622d4c19341fbe01edc2}\label{class_model_component_a0ce4506173a7622d4c19341fbe01edc2}} 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ \mbox{\hyperlink{class_model_component_a0ce4506173a7622d4c19341fbe01edc2}{Get\+Model}} () const
+\begin{DoxyCompactList}\small\item\em Returns the model pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary for a model. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_model_component_a2697cdcdf32b12a0c0bd69bbec809eb1}\label{class_model_component_a2697cdcdf32b12a0c0bd69bbec809eb1}} 
+\index{ModelComponent@{ModelComponent}!ModelComponent@{ModelComponent}}
+\index{ModelComponent@{ModelComponent}!ModelComponent@{ModelComponent}}
+\subsubsection{\texorpdfstring{ModelComponent()}{ModelComponent()}}
+{\footnotesize\ttfamily Model\+Component\+::\+Model\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & the name of the model. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_model_component_aff7bfde1544e8e608e55680706321fac}\label{class_model_component_aff7bfde1544e8e608e55680706321fac}} 
+\index{ModelComponent@{ModelComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!ModelComponent@{ModelComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Model\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & the message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_model_component_a52333e35346182468a0bfe0311c900e0}\label{class_model_component_a52333e35346182468a0bfe0311c900e0}} 
+\index{ModelComponent@{ModelComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!ModelComponent@{ModelComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Model\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the attack component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_model_component_8h}{Model\+Component.\+h}}\end{DoxyCompactItemize}

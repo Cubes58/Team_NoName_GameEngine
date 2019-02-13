@@ -1,0 +1,181 @@
+\hypertarget{class_g_l_f_w___engine_core}{}\section{G\+L\+F\+W\+\_\+\+Engine\+Core Class Reference}
+\label{class_g_l_f_w___engine_core}\index{GLFW\_EngineCore@{GLFW\_EngineCore}}
+
+
+G\+L\+FW engine class.  
+
+
+
+
+{\ttfamily \#include $<$G\+L\+F\+W\+\_\+\+Engine\+Core.\+h$>$}
+
+Inheritance diagram for G\+L\+F\+W\+\_\+\+Engine\+Core\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_g_l_f_w___engine_core}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_a22586aa58b45fa02ed19c4f99a4d51dd}\label{class_g_l_f_w___engine_core_a22586aa58b45fa02ed19c4f99a4d51dd}} 
+\mbox{\hyperlink{class_g_l_f_w___engine_core_a22586aa58b45fa02ed19c4f99a4d51dd}{G\+L\+F\+W\+\_\+\+Engine\+Core}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_adf17916892982f1103140b22dc1b37be}\label{class_g_l_f_w___engine_core_adf17916892982f1103140b22dc1b37be}} 
+\mbox{\hyperlink{class_g_l_f_w___engine_core_adf17916892982f1103140b22dc1b37be}{$\sim$\+G\+L\+F\+W\+\_\+\+Engine\+Core}} () override
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_l_f_w___engine_core_a5854445153ce1b08ddafc47e1a5f2b23}{Init\+Window}} (int p\+\_\+\+Width, int p\+\_\+\+Height, const std\+::string \&p\+\_\+\+Window\+Name) override
+\begin{DoxyCompactList}\small\item\em Used to initialise the window. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_g_l_f_w___engine_core_af96a0fc6059fbb736d4f99697e791122}{Run\+Engine}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$ p\+\_\+\+Game) override
+\begin{DoxyCompactList}\small\item\em Used rune the game (the game loop). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_l_f_w___engine_core_ab4a942f593d2cc82494897d1fc922aa2}{Render\+Coloured\+Background}} (float p\+\_\+\+Red, float p\+\_\+\+Green, float p\+\_\+\+Blue) override
+\begin{DoxyCompactList}\small\item\em Used to render a custom background colour, and clear the colour and depth buffers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_l_f_w___engine_core_a1c76d22fba6e907d7c1af85412daeedc}{Set\+Camera}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera_component}{Camera\+Component}} $>$ p\+\_\+\+Camera) override
+\begin{DoxyCompactList}\small\item\em Sets the camera. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_l_f_w___engine_core_a214d69e029f3ff7553e2d98aa56dfe26}{Draw\+Model}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ p\+\_\+\+Model, const glm\+::mat4 \&p\+\_\+\+Model\+Matrix) override
+\begin{DoxyCompactList}\small\item\em Used to render a model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_g_l_f_w___engine_core_a7af6eb91d907b264088ceaa9e738721b}{Render\+Text}} (const std\+::string \&p\+\_\+\+Text, float p\+\_\+\+X\+Position, float p\+\_\+\+Y\+Position, float p\+\_\+\+Scale, glm\+::vec3 p\+\_\+\+Colour) override
+\begin{DoxyCompactList}\small\item\em Used to render text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+G\+L\+FW engine class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_a214d69e029f3ff7553e2d98aa56dfe26}\label{class_g_l_f_w___engine_core_a214d69e029f3ff7553e2d98aa56dfe26}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!DrawModel@{DrawModel}}
+\index{DrawModel@{DrawModel}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{DrawModel()}{DrawModel()}}
+{\footnotesize\ttfamily void G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Draw\+Model (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$}]{p\+\_\+\+Model,  }\item[{const glm\+::mat4 \&}]{p\+\_\+\+Model\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to render a model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model} & the pointer to the model that will be rendered. \\
+\hline
+{\em p\+\_\+\+Model\+Matrix} & the model matrix, the position of the model. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_aceb59e8067ef95f2c476d92a6fde5002}{I\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_a5854445153ce1b08ddafc47e1a5f2b23}\label{class_g_l_f_w___engine_core_a5854445153ce1b08ddafc47e1a5f2b23}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!InitWindow@{InitWindow}}
+\index{InitWindow@{InitWindow}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{InitWindow()}{InitWindow()}}
+{\footnotesize\ttfamily bool G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Init\+Window (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+\+Width,  }\item[{int}]{p\+\_\+\+Height,  }\item[{const std\+::string \&}]{p\+\_\+\+Window\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to initialise the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Width} & the window width. \\
+\hline
+{\em p\+\_\+\+Height} & the window height. \\
+\hline
+{\em p\+\_\+\+Window\+Name} & the window name. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_afdda3dcf95128f802a9328b7f1d9a0bf}{I\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_ab4a942f593d2cc82494897d1fc922aa2}\label{class_g_l_f_w___engine_core_ab4a942f593d2cc82494897d1fc922aa2}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!RenderColouredBackground@{RenderColouredBackground}}
+\index{RenderColouredBackground@{RenderColouredBackground}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{RenderColouredBackground()}{RenderColouredBackground()}}
+{\footnotesize\ttfamily void G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Render\+Coloured\+Background (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Red,  }\item[{float}]{p\+\_\+\+Green,  }\item[{float}]{p\+\_\+\+Blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to render a custom background colour, and clear the colour and depth buffers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Red} & the red colour\textquotesingle{}s strength. \\
+\hline
+{\em p\+\_\+\+Green} & the green colour\textquotesingle{}s strength. \\
+\hline
+{\em p\+\_\+\+Blue} & the blue colour\textquotesingle{}s strength. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_adc681491ab4cdf75db64068221645635}{I\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_a7af6eb91d907b264088ceaa9e738721b}\label{class_g_l_f_w___engine_core_a7af6eb91d907b264088ceaa9e738721b}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!RenderText@{RenderText}}
+\index{RenderText@{RenderText}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{RenderText()}{RenderText()}}
+{\footnotesize\ttfamily void G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Render\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Text,  }\item[{float}]{p\+\_\+\+X\+Position,  }\item[{float}]{p\+\_\+\+Y\+Position,  }\item[{float}]{p\+\_\+\+Scale,  }\item[{glm\+::vec3}]{p\+\_\+\+Colour }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to render text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Text} & the text to be displayed. \\
+\hline
+{\em p\+\_\+\+X\+Position} & the screen\textquotesingle{}s X position, of where the text should be rendered. \\
+\hline
+{\em p\+\_\+\+Y\+Position} & the screen\textquotesingle{}s Y position, of where the text should be rendered. \\
+\hline
+{\em p\+\_\+\+Scale} & the text\textquotesingle{}s scale. \\
+\hline
+{\em p\+\_\+\+Colour} & the colour of the text. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_ae3a8fc8e24c25afd91944e398d75a987}{I\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_af96a0fc6059fbb736d4f99697e791122}\label{class_g_l_f_w___engine_core_af96a0fc6059fbb736d4f99697e791122}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!RunEngine@{RunEngine}}
+\index{RunEngine@{RunEngine}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{RunEngine()}{RunEngine()}}
+{\footnotesize\ttfamily bool G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Run\+Engine (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$}]{p\+\_\+\+Game }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used rune the game (the game loop). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Game} & the game pointer \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_a34dab1237d44daac83d14676d2b17ff6}{I\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_g_l_f_w___engine_core_a1c76d22fba6e907d7c1af85412daeedc}\label{class_g_l_f_w___engine_core_a1c76d22fba6e907d7c1af85412daeedc}} 
+\index{GLFW\_EngineCore@{GLFW\_EngineCore}!SetCamera@{SetCamera}}
+\index{SetCamera@{SetCamera}!GLFW\_EngineCore@{GLFW\_EngineCore}}
+\subsubsection{\texorpdfstring{SetCamera()}{SetCamera()}}
+{\footnotesize\ttfamily void G\+L\+F\+W\+\_\+\+Engine\+Core\+::\+Set\+Camera (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera_component}{Camera\+Component}} $>$}]{p\+\_\+\+Camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sets the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Camera} & the camera that will be followed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_i_engine_core_ac9f6dbe2b0e1ece6f6cc44712b9b8751}{I\+Engine\+Core}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_g_l_f_w___engine_core_8h}{G\+L\+F\+W\+\_\+\+Engine\+Core.\+h}}\end{DoxyCompactItemize}

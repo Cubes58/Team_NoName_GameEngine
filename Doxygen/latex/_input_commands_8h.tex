@@ -1,0 +1,52 @@
+\hypertarget{_input_commands_8h}{}\section{Game\+Engine\+Architecture/include/\+Input\+Commands.h File Reference}
+\label{_input_commands_8h}\index{GameEngineArchitecture/include/InputCommands.h@{GameEngineArchitecture/include/InputCommands.h}}
+
+
+A class that stores the Input Command variations.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$any$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include \char`\"{}Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Default\+Game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Input\+Handler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Game\+Object.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Player\+Character.\+h\char`\"{}}\newline
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_input_command}{Input\+Command}}
+\begin{DoxyCompactList}\small\item\em $<$ A shared pointer, used in the factory to store creation methods. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_next_scene_command}{Next\+Scene\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which switches to the next scene. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_previous_scene_command}{Previous\+Scene\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which switches to the previous scene. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_reload_input_configuration_command}{Reload\+Input\+Configuration\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which reloads the key configuration file. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_rotate_player_left_command}{Rotate\+Player\+Left\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which rotates a game object left. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_rotate_player_right_command}{Rotate\+Player\+Right\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which rotates a game object right. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_move_player_forward_command}{Move\+Player\+Forward\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which moves a game object forward. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_move_player_backward_command}{Move\+Player\+Backward\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which moves a game object backward. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_move_player_left_command}{Move\+Player\+Left\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which moves a game object left. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_move_player_right_command}{Move\+Player\+Right\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which moves a game object right. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_set_camera_first_person_perspective_command}{Set\+Camera\+First\+Person\+Perspective\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which sets the camera component\textquotesingle{}s perspective to first person. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_set_camera_third_person_perspective_command}{Set\+Camera\+Third\+Person\+Perspective\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which sets the camera component\textquotesingle{}s perspective to third person. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_set_camera_perspective_command}{Set\+Camera\+Perspective\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which sets the camera component\textquotesingle{}s perspective. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_set_camera_inverse_rotation_command}{Set\+Camera\+Inverse\+Rotation\+Command}}
+\begin{DoxyCompactList}\small\item\em An \mbox{\hyperlink{class_input_command}{Input\+Command}} child class, which sets whether the camera component\textquotesingle{}s rotation is inverted or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the Input Command variations. 
+

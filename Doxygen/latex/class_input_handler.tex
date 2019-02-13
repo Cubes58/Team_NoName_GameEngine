@@ -1,0 +1,138 @@
+\hypertarget{class_input_handler}{}\section{Input\+Handler Class Reference}
+\label{class_input_handler}\index{InputHandler@{InputHandler}}
+
+
+A class that deals with the handling of input.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Handler.\+h$>$}
+
+Inheritance diagram for Input\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input_handler}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_handler_a304d7d05d09084e7bf16ed93b5c71dc9}{Input\+Handler}} (std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$ p\+\_\+\+Game)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_input_handler_a0014003118a5ae9a89dc5c3268bc90eb}{Load\+Key\+Binds}} (const std\+::string \&p\+\_\+\+Key\+Configuration\+File)
+\begin{DoxyCompactList}\small\item\em Attempts to load the key configuration file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_af78cb28dba7b65f56c6c48949d2c06cf}{Handle\+Inputs}} (const std\+::vector$<$ bool $>$ \&p\+\_\+\+Key\+Press\+Buffer, std\+::vector$<$ bool $>$ \&p\+\_\+\+Key\+Release\+Buffer)
+\begin{DoxyCompactList}\small\item\em Handles keyboard input events (release and press/repeat). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_a8d92172cce174850b2466ffbf536806c}{Handle\+Cursor\+Input}} (double p\+\_\+\+Mouse\+X\+Position, double p\+\_\+\+Mouse\+Y\+Position)
+\begin{DoxyCompactList}\small\item\em Handles cursor input event. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_handler_aca8287951c2ebe1c3c3e7f305f52e076}{Set\+Objects\+Requiring\+Input}} (std\+::unordered\+\_\+multimap$<$ std\+::type\+\_\+index, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$$>$ p\+\_\+\+Objects\+Requiring\+Input)
+\begin{DoxyCompactList}\small\item\em Sets the game objects that require input. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{class_input_handler_af157342dcffc46d1370450383304d85a}{Get\+Key\+Bind\+File}} () const
+\begin{DoxyCompactList}\small\item\em Get the key configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that deals with the handling of input. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_input_handler_a304d7d05d09084e7bf16ed93b5c71dc9}\label{class_input_handler_a304d7d05d09084e7bf16ed93b5c71dc9}} 
+\index{InputHandler@{InputHandler}!InputHandler@{InputHandler}}
+\index{InputHandler@{InputHandler}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{InputHandler()}{InputHandler()}}
+{\footnotesize\ttfamily Input\+Handler\+::\+Input\+Handler (\begin{DoxyParamCaption}\item[{std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$}]{p\+\_\+\+Game }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Game} & a weak pointer to the game instance. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_input_handler_af157342dcffc46d1370450383304d85a}\label{class_input_handler_af157342dcffc46d1370450383304d85a}} 
+\index{InputHandler@{InputHandler}!GetKeyBindFile@{GetKeyBindFile}}
+\index{GetKeyBindFile@{GetKeyBindFile}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{GetKeyBindFile()}{GetKeyBindFile()}}
+{\footnotesize\ttfamily const std\+::string\& Input\+Handler\+::\+Get\+Key\+Bind\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the key configuration file. 
+
+\begin{DoxyReturn}{Returns}
+Returns the key configuration file. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_input_handler_a8d92172cce174850b2466ffbf536806c}\label{class_input_handler_a8d92172cce174850b2466ffbf536806c}} 
+\index{InputHandler@{InputHandler}!HandleCursorInput@{HandleCursorInput}}
+\index{HandleCursorInput@{HandleCursorInput}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{HandleCursorInput()}{HandleCursorInput()}}
+{\footnotesize\ttfamily void Input\+Handler\+::\+Handle\+Cursor\+Input (\begin{DoxyParamCaption}\item[{double}]{p\+\_\+\+Mouse\+X\+Position,  }\item[{double}]{p\+\_\+\+Mouse\+Y\+Position }\end{DoxyParamCaption})}
+
+
+
+Handles cursor input event. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Mouse\+X\+Position} & the X axis position of the mouse. \\
+\hline
+{\em p\+\_\+\+Mouse\+Y\+Position} & the Y axis position of the mouse. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_handler_af78cb28dba7b65f56c6c48949d2c06cf}\label{class_input_handler_af78cb28dba7b65f56c6c48949d2c06cf}} 
+\index{InputHandler@{InputHandler}!HandleInputs@{HandleInputs}}
+\index{HandleInputs@{HandleInputs}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{HandleInputs()}{HandleInputs()}}
+{\footnotesize\ttfamily void Input\+Handler\+::\+Handle\+Inputs (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ bool $>$ \&}]{p\+\_\+\+Key\+Press\+Buffer,  }\item[{std\+::vector$<$ bool $>$ \&}]{p\+\_\+\+Key\+Release\+Buffer }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard input events (release and press/repeat). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Key\+Press\+Buffer} & key press events, vector. \\
+\hline
+{\em p\+\_\+\+Key\+Release\+Buffer} & key release events, vector. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_handler_a0014003118a5ae9a89dc5c3268bc90eb}\label{class_input_handler_a0014003118a5ae9a89dc5c3268bc90eb}} 
+\index{InputHandler@{InputHandler}!LoadKeyBinds@{LoadKeyBinds}}
+\index{LoadKeyBinds@{LoadKeyBinds}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{LoadKeyBinds()}{LoadKeyBinds()}}
+{\footnotesize\ttfamily bool Input\+Handler\+::\+Load\+Key\+Binds (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Key\+Configuration\+File }\end{DoxyParamCaption})}
+
+
+
+Attempts to load the key configuration file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Key\+Configuration\+File} & the key configuration file to load. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_input_handler_aca8287951c2ebe1c3c3e7f305f52e076}\label{class_input_handler_aca8287951c2ebe1c3c3e7f305f52e076}} 
+\index{InputHandler@{InputHandler}!SetObjectsRequiringInput@{SetObjectsRequiringInput}}
+\index{SetObjectsRequiringInput@{SetObjectsRequiringInput}!InputHandler@{InputHandler}}
+\subsubsection{\texorpdfstring{SetObjectsRequiringInput()}{SetObjectsRequiringInput()}}
+{\footnotesize\ttfamily void Input\+Handler\+::\+Set\+Objects\+Requiring\+Input (\begin{DoxyParamCaption}\item[{std\+::unordered\+\_\+multimap$<$ std\+::type\+\_\+index, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game_object}{Game\+Object}} $>$$>$}]{p\+\_\+\+Objects\+Requiring\+Input }\end{DoxyParamCaption})}
+
+
+
+Sets the game objects that require input. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Objects\+Requiring\+Input} & the objects requiring input. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_input_handler_8h}{Input\+Handler.\+h}}\end{DoxyCompactItemize}

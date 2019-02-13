@@ -1,0 +1,128 @@
+\hypertarget{class_default_game}{}\section{Default\+Game Class Reference}
+\label{class_default_game}\index{DefaultGame@{DefaultGame}}
+
+
+A class that manages the scene\mbox{[}s\mbox{]}, input handler, and gameplay.  
+
+
+
+
+{\ttfamily \#include $<$Default\+Game.\+h$>$}
+
+Inheritance diagram for Default\+Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_default_game}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_default_game_a3d5118ab258f159807210825a925ad1d}\label{class_default_game_a3d5118ab258f159807210825a925ad1d}} 
+\mbox{\hyperlink{class_default_game_a3d5118ab258f159807210825a925ad1d}{Default\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_default_game_a4b6d4c6602bd89314da6bd9eb8bd36a7}\label{class_default_game_a4b6d4c6602bd89314da6bd9eb8bd36a7}} 
+\mbox{\hyperlink{class_default_game_a4b6d4c6602bd89314da6bd9eb8bd36a7}{$\sim$\+Default\+Game}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_default_game_ad5cc1efff4785b26da69b4dc942cc9fd}{Set\+Scene}} (unsigned int p\+\_\+\+Scene\+Number) override
+\begin{DoxyCompactList}\small\item\em Used to set the scene. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_default_game_a51e32950165cab20f9ba4e06bfc13e2f}{Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Used to update the game. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_default_game_a63953b59a10867319a09ae8393af8cff}\label{class_default_game_a63953b59a10867319a09ae8393af8cff}} 
+void \mbox{\hyperlink{class_default_game_a63953b59a10867319a09ae8393af8cff}{Render}} () override
+\begin{DoxyCompactList}\small\item\em Used to render the game. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_default_game_a2962282bb0a25d369532c083de9edf8f}{Get\+Next\+Scene}} () const
+\begin{DoxyCompactList}\small\item\em Gets the next scene, in m\+\_\+\+Scenes map. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{class_default_game_a61dda5998f4587d654d7f651c5ed5d83}{Get\+Previous\+Scene}} () const
+\begin{DoxyCompactList}\small\item\em Gets the previous scene, in m\+\_\+\+Scenes map. \end{DoxyCompactList}\item 
+const unsigned int \& \mbox{\hyperlink{class_default_game_ad975018f66bb4006389fd238e11e6ba9}{Get\+Current\+Scene\+Number}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current scene, in the m\+\_\+\+Scenes map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A class that manages the scene\mbox{[}s\mbox{]}, input handler, and gameplay. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_default_game_ad975018f66bb4006389fd238e11e6ba9}\label{class_default_game_ad975018f66bb4006389fd238e11e6ba9}} 
+\index{DefaultGame@{DefaultGame}!GetCurrentSceneNumber@{GetCurrentSceneNumber}}
+\index{GetCurrentSceneNumber@{GetCurrentSceneNumber}!DefaultGame@{DefaultGame}}
+\subsubsection{\texorpdfstring{GetCurrentSceneNumber()}{GetCurrentSceneNumber()}}
+{\footnotesize\ttfamily const unsigned int\& Default\+Game\+::\+Get\+Current\+Scene\+Number (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the current scene, in the m\+\_\+\+Scenes map. 
+
+\begin{DoxyReturn}{Returns}
+Returns the current scene key, identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_default_game_a2962282bb0a25d369532c083de9edf8f}\label{class_default_game_a2962282bb0a25d369532c083de9edf8f}} 
+\index{DefaultGame@{DefaultGame}!GetNextScene@{GetNextScene}}
+\index{GetNextScene@{GetNextScene}!DefaultGame@{DefaultGame}}
+\subsubsection{\texorpdfstring{GetNextScene()}{GetNextScene()}}
+{\footnotesize\ttfamily unsigned int Default\+Game\+::\+Get\+Next\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the next scene, in m\+\_\+\+Scenes map. 
+
+\begin{DoxyReturn}{Returns}
+Returns the next scene key, identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_default_game_a61dda5998f4587d654d7f651c5ed5d83}\label{class_default_game_a61dda5998f4587d654d7f651c5ed5d83}} 
+\index{DefaultGame@{DefaultGame}!GetPreviousScene@{GetPreviousScene}}
+\index{GetPreviousScene@{GetPreviousScene}!DefaultGame@{DefaultGame}}
+\subsubsection{\texorpdfstring{GetPreviousScene()}{GetPreviousScene()}}
+{\footnotesize\ttfamily unsigned int Default\+Game\+::\+Get\+Previous\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the previous scene, in m\+\_\+\+Scenes map. 
+
+\begin{DoxyReturn}{Returns}
+Returns the previous scene key, identifier. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_default_game_ad5cc1efff4785b26da69b4dc942cc9fd}\label{class_default_game_ad5cc1efff4785b26da69b4dc942cc9fd}} 
+\index{DefaultGame@{DefaultGame}!SetScene@{SetScene}}
+\index{SetScene@{SetScene}!DefaultGame@{DefaultGame}}
+\subsubsection{\texorpdfstring{SetScene()}{SetScene()}}
+{\footnotesize\ttfamily void Default\+Game\+::\+Set\+Scene (\begin{DoxyParamCaption}\item[{unsigned int}]{p\+\_\+\+Scene\+Number }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to set the scene. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Scene\+Number} & the scene number to switch to. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_a22579e2500d8552e669ef9349480d960}{Game}}.
+
+\mbox{\Hypertarget{class_default_game_a51e32950165cab20f9ba4e06bfc13e2f}\label{class_default_game_a51e32950165cab20f9ba4e06bfc13e2f}} 
+\index{DefaultGame@{DefaultGame}!Update@{Update}}
+\index{Update@{Update}!DefaultGame@{DefaultGame}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Default\+Game\+::\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Used to update the game. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the amount of time passed since the last update. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_ab15084e492f17b36b90314f614b659d3}{Game}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_default_game_8h}{Default\+Game.\+h}}\end{DoxyCompactItemize}

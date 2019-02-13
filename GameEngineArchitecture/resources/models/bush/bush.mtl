@@ -1,0 +1,18 @@
+newmtl bush:Leaves_Branch_B169SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.59 0.59 0.59
+Tf 1.00 1.00 1.00
+map_Kd Tree_Bark_Texture.tga
+Ni 1.00
+Ks 0.09 0.09 0.09
+Ns -0.93
+newmtl bush:Leaves_Branch_B169SG1
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.59 0.59 0.59
+Tf 1.00 1.00 1.00
+map_Kd Branch_Texture.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+Ns 0.00

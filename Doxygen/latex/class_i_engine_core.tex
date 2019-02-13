@@ -1,0 +1,178 @@
+\hypertarget{class_i_engine_core}{}\section{I\+Engine\+Core Class Reference}
+\label{class_i_engine_core}\index{IEngineCore@{IEngineCore}}
+
+
+An abstract base class, for the general engine class.  
+
+
+
+
+{\ttfamily \#include $<$I\+Engine\+Core.\+h$>$}
+
+Inheritance diagram for I\+Engine\+Core\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_i_engine_core}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_engine_core_a2befdb05ea4c96642116bd75ee372798}\label{class_i_engine_core_a2befdb05ea4c96642116bd75ee372798}} 
+virtual \mbox{\hyperlink{class_i_engine_core_a2befdb05ea4c96642116bd75ee372798}{$\sim$\+I\+Engine\+Core}} ()=default
+\begin{DoxyCompactList}\small\item\em Default virtual constructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_engine_core_afdda3dcf95128f802a9328b7f1d9a0bf}{Init\+Window}} (int p\+\_\+\+Width, int p\+\_\+\+Height, const std\+::string \&p\+\_\+\+Window\+Name)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to initialise the window. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_i_engine_core_a34dab1237d44daac83d14676d2b17ff6}{Run\+Engine}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$ p\+\_\+\+Game)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used rune the game (the game loop). \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_engine_core_adc681491ab4cdf75db64068221645635}{Render\+Coloured\+Background}} (float p\+\_\+\+Red, float p\+\_\+\+Green, float p\+\_\+\+Blue)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to render a custom background colour, and clear the colour and depth buffers. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_engine_core_ac9f6dbe2b0e1ece6f6cc44712b9b8751}{Set\+Camera}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera_component}{Camera\+Component}} $>$ p\+\_\+\+Camera)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, set the camera. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_engine_core_aceb59e8067ef95f2c476d92a6fde5002}{Draw\+Model}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$ p\+\_\+\+Model, const glm\+::mat4 \&p\+\_\+\+Model\+Matrix)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to render a model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_i_engine_core_ae3a8fc8e24c25afd91944e398d75a987}{Render\+Text}} (const std\+::string \&p\+\_\+\+Text, float p\+\_\+\+X\+Position, float p\+\_\+\+Y\+Position, float p\+\_\+\+Scale, glm\+::vec3 p\+\_\+\+Colour)=0
+\begin{DoxyCompactList}\small\item\em A pure virtual method, used to render text. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract base class, for the general engine class. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_engine_core_aceb59e8067ef95f2c476d92a6fde5002}\label{class_i_engine_core_aceb59e8067ef95f2c476d92a6fde5002}} 
+\index{IEngineCore@{IEngineCore}!DrawModel@{DrawModel}}
+\index{DrawModel@{DrawModel}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{DrawModel()}{DrawModel()}}
+{\footnotesize\ttfamily virtual void I\+Engine\+Core\+::\+Draw\+Model (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_model}{Model}} $>$}]{p\+\_\+\+Model,  }\item[{const glm\+::mat4 \&}]{p\+\_\+\+Model\+Matrix }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to render a model. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model} & the pointer to the model that will be rendered. \\
+\hline
+{\em p\+\_\+\+Model\+Matrix} & the model matrix, the position of the model. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_a214d69e029f3ff7553e2d98aa56dfe26}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_i_engine_core_afdda3dcf95128f802a9328b7f1d9a0bf}\label{class_i_engine_core_afdda3dcf95128f802a9328b7f1d9a0bf}} 
+\index{IEngineCore@{IEngineCore}!InitWindow@{InitWindow}}
+\index{InitWindow@{InitWindow}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{InitWindow()}{InitWindow()}}
+{\footnotesize\ttfamily virtual bool I\+Engine\+Core\+::\+Init\+Window (\begin{DoxyParamCaption}\item[{int}]{p\+\_\+\+Width,  }\item[{int}]{p\+\_\+\+Height,  }\item[{const std\+::string \&}]{p\+\_\+\+Window\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to initialise the window. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Width} & the window width. \\
+\hline
+{\em p\+\_\+\+Height} & the window height. \\
+\hline
+{\em p\+\_\+\+Window\+Name} & the window name. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_a5854445153ce1b08ddafc47e1a5f2b23}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_i_engine_core_adc681491ab4cdf75db64068221645635}\label{class_i_engine_core_adc681491ab4cdf75db64068221645635}} 
+\index{IEngineCore@{IEngineCore}!RenderColouredBackground@{RenderColouredBackground}}
+\index{RenderColouredBackground@{RenderColouredBackground}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{RenderColouredBackground()}{RenderColouredBackground()}}
+{\footnotesize\ttfamily virtual void I\+Engine\+Core\+::\+Render\+Coloured\+Background (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Red,  }\item[{float}]{p\+\_\+\+Green,  }\item[{float}]{p\+\_\+\+Blue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to render a custom background colour, and clear the colour and depth buffers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Red} & the red colour\textquotesingle{}s strength. \\
+\hline
+{\em p\+\_\+\+Green} & the green colour\textquotesingle{}s strength. \\
+\hline
+{\em p\+\_\+\+Blue} & the blue colour\textquotesingle{}s strength. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_ab4a942f593d2cc82494897d1fc922aa2}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_i_engine_core_ae3a8fc8e24c25afd91944e398d75a987}\label{class_i_engine_core_ae3a8fc8e24c25afd91944e398d75a987}} 
+\index{IEngineCore@{IEngineCore}!RenderText@{RenderText}}
+\index{RenderText@{RenderText}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{RenderText()}{RenderText()}}
+{\footnotesize\ttfamily virtual void I\+Engine\+Core\+::\+Render\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Text,  }\item[{float}]{p\+\_\+\+X\+Position,  }\item[{float}]{p\+\_\+\+Y\+Position,  }\item[{float}]{p\+\_\+\+Scale,  }\item[{glm\+::vec3}]{p\+\_\+\+Colour }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used to render text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Text} & the text to be displayed. \\
+\hline
+{\em p\+\_\+\+X\+Position} & the screen\textquotesingle{}s X position, of where the text should be rendered. \\
+\hline
+{\em p\+\_\+\+Y\+Position} & the screen\textquotesingle{}s Y position, of where the text should be rendered. \\
+\hline
+{\em p\+\_\+\+Scale} & the text\textquotesingle{}s scale. \\
+\hline
+{\em p\+\_\+\+Colour} & the colour of the text. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_a7af6eb91d907b264088ceaa9e738721b}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_i_engine_core_a34dab1237d44daac83d14676d2b17ff6}\label{class_i_engine_core_a34dab1237d44daac83d14676d2b17ff6}} 
+\index{IEngineCore@{IEngineCore}!RunEngine@{RunEngine}}
+\index{RunEngine@{RunEngine}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{RunEngine()}{RunEngine()}}
+{\footnotesize\ttfamily virtual bool I\+Engine\+Core\+::\+Run\+Engine (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_game}{Game}} $>$}]{p\+\_\+\+Game }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, used rune the game (the game loop). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Game} & the game pointer \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_af96a0fc6059fbb736d4f99697e791122}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+\mbox{\Hypertarget{class_i_engine_core_ac9f6dbe2b0e1ece6f6cc44712b9b8751}\label{class_i_engine_core_ac9f6dbe2b0e1ece6f6cc44712b9b8751}} 
+\index{IEngineCore@{IEngineCore}!SetCamera@{SetCamera}}
+\index{SetCamera@{SetCamera}!IEngineCore@{IEngineCore}}
+\subsubsection{\texorpdfstring{SetCamera()}{SetCamera()}}
+{\footnotesize\ttfamily virtual void I\+Engine\+Core\+::\+Set\+Camera (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_camera_component}{Camera\+Component}} $>$}]{p\+\_\+\+Camera }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+A pure virtual method, set the camera. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Camera} & the camera that will be followed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_g_l_f_w___engine_core_a1c76d22fba6e907d7c1af85412daeedc}{G\+L\+F\+W\+\_\+\+Engine\+Core}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_i_engine_core_8h}{I\+Engine\+Core.\+h}}\end{DoxyCompactItemize}

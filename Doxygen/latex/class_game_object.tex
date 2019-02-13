@@ -1,0 +1,119 @@
+\hypertarget{class_game_object}{}\section{Game\+Object Class Reference}
+\label{class_game_object}\index{GameObject@{GameObject}}
+
+
+An abstract class that stores components, and allows components to be added and accessed.  
+
+
+
+
+{\ttfamily \#include $<$Game\+Object.\+h$>$}
+
+Inheritance diagram for Game\+Object\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.272727cm]{class_game_object}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}\label{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}} 
+\mbox{\hyperlink{class_game_object_a49f0fc91c3048ec583044e7a1b9c2518}{Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_game_object_aac8336499118faec34e0f406c022a25a}\label{class_game_object_aac8336499118faec34e0f406c022a25a}} 
+\mbox{\hyperlink{class_game_object_aac8336499118faec34e0f406c022a25a}{$\sim$\+Game\+Object}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a3d4444ab3efd5e3041014da90a66c081}{On\+Update}} (float p\+\_\+\+Delta\+Time)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method, which can be called on \mbox{\hyperlink{class_game_object}{Game\+Object}} types, to update them. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_game_object_a162f15f809f5181e3264b9f4d768bea2}{On\+Message}} (const std\+::string \&p\+\_\+\+Message)=0
+\begin{DoxyCompactList}\small\item\em Pure virtual method, which can be called on \mbox{\hyperlink{class_game_object}{Game\+Object}} types, to send messages to the object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\std\+::shared\+\_\+ptr$<$ T $>$ \mbox{\hyperlink{class_game_object_aae4f7351aa098e152f1f74988e458085}{Get\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Templated method, which returns the template T component. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{class_game_object_a3eee38860ec832fdc2b34f158c4a316f}{Add\+Component}} (std\+::shared\+\_\+ptr$<$ T $>$ p\+\_\+\+Component)
+\begin{DoxyCompactList}\small\item\em Templated method, which adds a component to the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_game_object_a0cfec74680e6debbc277871b43f9d596}\label{class_game_object_a0cfec74680e6debbc277871b43f9d596}} 
+std\+::unordered\+\_\+map$<$ std\+::type\+\_\+index, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_component}{Component}} $>$ $>$ \mbox{\hyperlink{class_game_object_a0cfec74680e6debbc277871b43f9d596}{m\+\_\+\+Components}}
+\begin{DoxyCompactList}\small\item\em Stores pointers to components, using the typeid of the component to identify it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+An abstract class that stores components, and allows components to be added and accessed. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_object_a3eee38860ec832fdc2b34f158c4a316f}\label{class_game_object_a3eee38860ec832fdc2b34f158c4a316f}} 
+\index{GameObject@{GameObject}!AddComponent@{AddComponent}}
+\index{AddComponent@{AddComponent}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{AddComponent()}{AddComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Game\+Object\+::\+Add\+Component (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ T $>$}]{p\+\_\+\+Component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Templated method, which adds a component to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Component} & the component to add, to the object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_object_aae4f7351aa098e152f1f74988e458085}\label{class_game_object_aae4f7351aa098e152f1f74988e458085}} 
+\index{GameObject@{GameObject}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{GetComponent()}{GetComponent()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::shared\+\_\+ptr$<$T$>$ Game\+Object\+::\+Get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Templated method, which returns the template T component. 
+
+\begin{DoxyReturn}{Returns}
+Returns the requests component (type), if it exists, else it returns a null pointer. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_game_object_a162f15f809f5181e3264b9f4d768bea2}\label{class_game_object_a162f15f809f5181e3264b9f4d768bea2}} 
+\index{GameObject@{GameObject}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method, which can be called on \mbox{\hyperlink{class_game_object}{Game\+Object}} types, to send messages to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the object. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_player_character_a7185322cbdc51cc339bfcada0c8fdb29}{Player\+Character}}, \mbox{\hyperlink{class_enemy_tower_aa717457559bfba3b6e9f932d71c97831}{Enemy\+Tower}}, \mbox{\hyperlink{class_end_level_collectable_aabbe03b0e87e7dbc04948b022f399de0}{End\+Level\+Collectable}}, \mbox{\hyperlink{class_dynamic_environment_object_a9803c4f8381f8812976cd016f86aaffd}{Dynamic\+Environment\+Object}}, and \mbox{\hyperlink{class_static_environment_object_afa722f23bf3c503edcacc60efec3f692}{Static\+Environment\+Object}}.
+
+\mbox{\Hypertarget{class_game_object_a3d4444ab3efd5e3041014da90a66c081}\label{class_game_object_a3d4444ab3efd5e3041014da90a66c081}} 
+\index{GameObject@{GameObject}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!GameObject@{GameObject}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily virtual void Game\+Object\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual method, which can be called on \mbox{\hyperlink{class_game_object}{Game\+Object}} types, to update them. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_player_character_a8b2f1ccb7f3ae744f9ecb9a80537e5ee}{Player\+Character}}, \mbox{\hyperlink{class_enemy_tower_ab3ada6dea5a4020a48c2764315767aec}{Enemy\+Tower}}, \mbox{\hyperlink{class_end_level_collectable_a6d04aaa0751a21b0d4922339d6524887}{End\+Level\+Collectable}}, \mbox{\hyperlink{class_dynamic_environment_object_a74f519772b818b7f82abec0a70ca59ce}{Dynamic\+Environment\+Object}}, and \mbox{\hyperlink{class_static_environment_object_accbe302e081137786ee1958d657f0271}{Static\+Environment\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_game_object_8h}{Game\+Object.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,380 @@
+\hypertarget{class_transform_component}{}\section{Transform\+Component Class Reference}
+\label{class_transform_component}\index{TransformComponent@{TransformComponent}}
+
+
+A class that stores the properties necessary to move around the scene.  
+
+
+
+
+{\ttfamily \#include $<$Transform\+Component.\+h$>$}
+
+Inheritance diagram for Transform\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_transform_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transform_component_ace1cf2d7d2a7468e9cb3eb0ce382f446}\label{class_transform_component_ace1cf2d7d2a7468e9cb3eb0ce382f446}} 
+\mbox{\hyperlink{class_transform_component_ace1cf2d7d2a7468e9cb3eb0ce382f446}{Transform\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor for the camera, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform_component_afc7699834c48ec6c5e222d8b09ec3eb4}{Transform\+Component}} (const glm\+::vec3 \&p\+\_\+\+Position)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform_component_a86691630518539b29654c71af3e5b50a}{Transform\+Component}} (const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_transform_component_af1942a21096683eadb069183d7b7470c}{Transform\+Component}} (const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation, const glm\+::vec3 \&p\+\_\+\+Scale)
+\begin{DoxyCompactList}\small\item\em Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transform_component_a5b87b5a6fad643d61fb7c56f6886f9b0}\label{class_transform_component_a5b87b5a6fad643d61fb7c56f6886f9b0}} 
+\mbox{\hyperlink{class_transform_component_a5b87b5a6fad643d61fb7c56f6886f9b0}{$\sim$\+Transform\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a8ed8e408395067f6622a2eb935e40437}{Translate}} (const glm\+::vec3 \&p\+\_\+\+Translate\+Vector)
+\begin{DoxyCompactList}\small\item\em Translates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a0d28658f165570312e1563b65b3a49a9}{Translate}} (float p\+\_\+\+X\+Axis, float p\+\_\+\+Y\+Axis, float p\+\_\+\+Z\+Axis)
+\begin{DoxyCompactList}\small\item\em Translates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a2417252e806d5f67a5cdb25bd4e90a42}{Rotate}} (float p\+\_\+\+Angle, const glm\+::vec3 \&p\+\_\+\+Axis)
+\begin{DoxyCompactList}\small\item\em Rotates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_aabc8784119f8794363bc1b3cfe12c4a7}{Rotate}} (float p\+\_\+\+Angle, float p\+\_\+\+X\+Axis, float p\+\_\+\+Y\+Axis, float p\+\_\+\+Z\+Axis)
+\begin{DoxyCompactList}\small\item\em Rotates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a1daa4e89db099d77bf04ccf30c0ea07b}{Scale\+Up}} (const glm\+::vec3 \&p\+\_\+\+Scale\+Vector)
+\begin{DoxyCompactList}\small\item\em scales the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a7f94e013cbae914fcffd9bb9d8364a49}{Scale\+Up}} (float p\+\_\+\+X\+Axis, float p\+\_\+\+Y\+Axis, float p\+\_\+\+Z\+Axis)
+\begin{DoxyCompactList}\small\item\em scales the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_accd65ad684a25f6b97132d5479dc906f}{Yaw}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the object around the Y axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a4c090d0fa38ebead21ec208fbb26d5c5}{Pitch}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the object around the X axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_ace336994b66a5dd69c33f86edbe578ad}{Roll}} (float p\+\_\+\+Angle)
+\begin{DoxyCompactList}\small\item\em Rotates the object around the Z axis. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a4e84c8415bc74787d8392182de9c15df}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the Translate component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_component_a07510e9014663febd69f9c00666a3951}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+const glm\+::vec3 \& \mbox{\hyperlink{class_transform_component_afa045f69a5721b753fdcfb9abb465e32}{Position}} () const
+\begin{DoxyCompactList}\small\item\em Gets the position of the Translate component. \end{DoxyCompactList}\item 
+const glm\+::quat \& \mbox{\hyperlink{class_transform_component_aae8fd949d2ecb08fc12fd0bdee8c2ddc}{Orientation}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Orientation of the Translate component. \end{DoxyCompactList}\item 
+const glm\+::vec3 \& \mbox{\hyperlink{class_transform_component_af4c4f5e4e950d6d67eebd13a708ca23a}{Scale}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Scale of the Translate component. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_transform_component_ac1c08a7a1c23be62f1de1718ee783922}{Get\+Model\+Matrix}} ()
+\begin{DoxyCompactList}\small\item\em Gets the model matrix of the Translate component. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_transform_component_a596b1336cbf060d6161279e1d7821ab6}\label{class_transform_component_a596b1336cbf060d6161279e1d7821ab6}} 
+glm\+::vec3 \mbox{\hyperlink{class_transform_component_a596b1336cbf060d6161279e1d7821ab6}{m\+\_\+\+Position}}
+\begin{DoxyCompactList}\small\item\em Stores the position of the component (object it\textquotesingle{}s attached to). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transform_component_aaf1c93401825078df6f85d8f2f184462}\label{class_transform_component_aaf1c93401825078df6f85d8f2f184462}} 
+glm\+::quat \mbox{\hyperlink{class_transform_component_aaf1c93401825078df6f85d8f2f184462}{m\+\_\+\+Orientation}}
+\begin{DoxyCompactList}\small\item\em Stores the orientation of the component (object it\textquotesingle{}s attached to). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_transform_component_aeef2b7cdd336afb4d86f13f592a0defa}\label{class_transform_component_aeef2b7cdd336afb4d86f13f592a0defa}} 
+glm\+::vec3 \mbox{\hyperlink{class_transform_component_aeef2b7cdd336afb4d86f13f592a0defa}{m\+\_\+\+Scale}}
+\begin{DoxyCompactList}\small\item\em Stores the scale of the component (object it\textquotesingle{}s attached to). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary to move around the scene. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transform_component_afc7699834c48ec6c5e222d8b09ec3eb4}\label{class_transform_component_afc7699834c48ec6c5e222d8b09ec3eb4}} 
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_a86691630518539b29654c71af3e5b50a}\label{class_transform_component_a86691630518539b29654c71af3e5b50a}} 
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_af1942a21096683eadb069183d7b7470c}\label{class_transform_component_af1942a21096683eadb069183d7b7470c}} 
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\index{TransformComponent@{TransformComponent}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{TransformComponent()}{TransformComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily Transform\+Component\+::\+Transform\+Component (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for the \mbox{\hyperlink{class_transform_component}{Transform\+Component}}, it initialises the class\textquotesingle{} variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object. \\
+\hline
+{\em p\+\_\+\+Scale} & starting scale of the object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transform_component_ac1c08a7a1c23be62f1de1718ee783922}\label{class_transform_component_ac1c08a7a1c23be62f1de1718ee783922}} 
+\index{TransformComponent@{TransformComponent}!GetModelMatrix@{GetModelMatrix}}
+\index{GetModelMatrix@{GetModelMatrix}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{GetModelMatrix()}{GetModelMatrix()}}
+{\footnotesize\ttfamily glm\+::mat4 Transform\+Component\+::\+Get\+Model\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the model matrix of the Translate component. 
+
+\begin{DoxyReturn}{Returns}
+returns the model matrix of the Translate component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transform_component_a07510e9014663febd69f9c00666a3951}\label{class_transform_component_a07510e9014663febd69f9c00666a3951}} 
+\index{TransformComponent@{TransformComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_transform_component_a4e84c8415bc74787d8392182de9c15df}\label{class_transform_component_a4e84c8415bc74787d8392182de9c15df}} 
+\index{TransformComponent@{TransformComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the Translate component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+\mbox{\Hypertarget{class_transform_component_aae8fd949d2ecb08fc12fd0bdee8c2ddc}\label{class_transform_component_aae8fd949d2ecb08fc12fd0bdee8c2ddc}} 
+\index{TransformComponent@{TransformComponent}!Orientation@{Orientation}}
+\index{Orientation@{Orientation}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Orientation()}{Orientation()}}
+{\footnotesize\ttfamily const glm\+::quat\& Transform\+Component\+::\+Orientation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Orientation of the Translate component. 
+
+\begin{DoxyReturn}{Returns}
+returns the Orientation of the Translate component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transform_component_a4c090d0fa38ebead21ec208fbb26d5c5}\label{class_transform_component_a4c090d0fa38ebead21ec208fbb26d5c5}} 
+\index{TransformComponent@{TransformComponent}!Pitch@{Pitch}}
+\index{Pitch@{Pitch}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Pitch()}{Pitch()}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Pitch (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the object around the X axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_afa045f69a5721b753fdcfb9abb465e32}\label{class_transform_component_afa045f69a5721b753fdcfb9abb465e32}} 
+\index{TransformComponent@{TransformComponent}!Position@{Position}}
+\index{Position@{Position}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Position()}{Position()}}
+{\footnotesize\ttfamily const glm\+::vec3\& Transform\+Component\+::\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the position of the Translate component. 
+
+\begin{DoxyReturn}{Returns}
+returns the position of the Translate component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transform_component_ace336994b66a5dd69c33f86edbe578ad}\label{class_transform_component_ace336994b66a5dd69c33f86edbe578ad}} 
+\index{TransformComponent@{TransformComponent}!Roll@{Roll}}
+\index{Roll@{Roll}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Roll()}{Roll()}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Roll (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the object around the Z axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_a2417252e806d5f67a5cdb25bd4e90a42}\label{class_transform_component_a2417252e806d5f67a5cdb25bd4e90a42}} 
+\index{TransformComponent@{TransformComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+{\em p\+\_\+\+Axis} & the axis to rotate around. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_aabc8784119f8794363bc1b3cfe12c4a7}\label{class_transform_component_aabc8784119f8794363bc1b3cfe12c4a7}} 
+\index{TransformComponent@{TransformComponent}!Rotate@{Rotate}}
+\index{Rotate@{Rotate}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Rotate()}{Rotate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Rotate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle,  }\item[{float}]{p\+\_\+\+X\+Axis,  }\item[{float}]{p\+\_\+\+Y\+Axis,  }\item[{float}]{p\+\_\+\+Z\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+{\em p\+\_\+\+X\+Axis} & the X axis value to rotate around. \\
+\hline
+{\em p\+\_\+\+Y\+Axis} & the Y axis value to rotate around. \\
+\hline
+{\em p\+\_\+\+Z\+Axis} & the Z axis value to rotate around. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_af4c4f5e4e950d6d67eebd13a708ca23a}\label{class_transform_component_af4c4f5e4e950d6d67eebd13a708ca23a}} 
+\index{TransformComponent@{TransformComponent}!Scale@{Scale}}
+\index{Scale@{Scale}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Scale()}{Scale()}}
+{\footnotesize\ttfamily const glm\+::vec3\& Transform\+Component\+::\+Scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Scale of the Translate component. 
+
+\begin{DoxyReturn}{Returns}
+returns the Scale of the Translate component. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_transform_component_a1daa4e89db099d77bf04ccf30c0ea07b}\label{class_transform_component_a1daa4e89db099d77bf04ccf30c0ea07b}} 
+\index{TransformComponent@{TransformComponent}!ScaleUp@{ScaleUp}}
+\index{ScaleUp@{ScaleUp}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{ScaleUp()}{ScaleUp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Scale\+Up (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+scales the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Scale\+Vector} & the scale. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_a7f94e013cbae914fcffd9bb9d8364a49}\label{class_transform_component_a7f94e013cbae914fcffd9bb9d8364a49}} 
+\index{TransformComponent@{TransformComponent}!ScaleUp@{ScaleUp}}
+\index{ScaleUp@{ScaleUp}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{ScaleUp()}{ScaleUp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Scale\+Up (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+X\+Axis,  }\item[{float}]{p\+\_\+\+Y\+Axis,  }\item[{float}]{p\+\_\+\+Z\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+scales the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+X\+Axis} & the X axis scale value. \\
+\hline
+{\em p\+\_\+\+Y\+Axis} & the Y axis scale value. \\
+\hline
+{\em p\+\_\+\+Z\+Axis} & the Z axis scale value. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_a8ed8e408395067f6622a2eb935e40437}\label{class_transform_component_a8ed8e408395067f6622a2eb935e40437}} 
+\index{TransformComponent@{TransformComponent}!Translate@{Translate}}
+\index{Translate@{Translate}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Translate()}{Translate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Translate (\begin{DoxyParamCaption}\item[{const glm\+::vec3 \&}]{p\+\_\+\+Translate\+Vector }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Translate\+Vector} & the translate vector, used to move the object. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_a0d28658f165570312e1563b65b3a49a9}\label{class_transform_component_a0d28658f165570312e1563b65b3a49a9}} 
+\index{TransformComponent@{TransformComponent}!Translate@{Translate}}
+\index{Translate@{Translate}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Translate()}{Translate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Translate (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+X\+Axis,  }\item[{float}]{p\+\_\+\+Y\+Axis,  }\item[{float}]{p\+\_\+\+Z\+Axis }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Translates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+X\+Axis} & the X axis translation. \\
+\hline
+{\em p\+\_\+\+Y\+Axis} & the Y axis translation. \\
+\hline
+{\em p\+\_\+\+Z\+Axis} & the Z axis translation. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_transform_component_accd65ad684a25f6b97132d5479dc906f}\label{class_transform_component_accd65ad684a25f6b97132d5479dc906f}} 
+\index{TransformComponent@{TransformComponent}!Yaw@{Yaw}}
+\index{Yaw@{Yaw}!TransformComponent@{TransformComponent}}
+\subsubsection{\texorpdfstring{Yaw()}{Yaw()}}
+{\footnotesize\ttfamily void Transform\+Component\+::\+Yaw (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Rotates the object around the Y axis. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Angle} & the rotation angle. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_transform_component_8h}{Transform\+Component.\+h}}\end{DoxyCompactItemize}

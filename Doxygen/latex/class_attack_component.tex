@@ -1,0 +1,106 @@
+\hypertarget{class_attack_component}{}\section{Attack\+Component Class Reference}
+\label{class_attack_component}\index{AttackComponent@{AttackComponent}}
+
+
+A class that stores the properties necessary for an entity to attack.  
+
+
+
+
+{\ttfamily \#include $<$Attack\+Component.\+h$>$}
+
+Inheritance diagram for Attack\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_attack_component}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_attack_component_a3101ccb496d676e22c900a0d13a421ea}{Attack\+Component}} (float p\+\_\+\+Attack\+Damage, float p\+\_\+\+Attack\+Distance, float p\+\_\+\+Attack\+Speed)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_attack_component_a4a8e4feceb164aaaf8f0d53b76dd6efc}\label{class_attack_component_a4a8e4feceb164aaaf8f0d53b76dd6efc}} 
+\mbox{\hyperlink{class_attack_component_a4a8e4feceb164aaaf8f0d53b76dd6efc}{$\sim$\+Attack\+Component}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attack_component_a92aca094d9d41cddca1a730e672cb835}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Update the attack component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_attack_component_a25a304233ac871cfec61b6cc744b10bb}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the component. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_attack_component_a9a71b675729b8570570c4f1105848288}\label{class_attack_component_a9a71b675729b8570570c4f1105848288}} 
+float \mbox{\hyperlink{class_attack_component_a9a71b675729b8570570c4f1105848288}{Get\+Attack\+Distance}} () const
+\begin{DoxyCompactList}\small\item\em Returns the attack distance, of the entity. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_attack_component_a65d94be45a6265e0a831755b78b170e5}\label{class_attack_component_a65d94be45a6265e0a831755b78b170e5}} 
+bool \mbox{\hyperlink{class_attack_component_a65d94be45a6265e0a831755b78b170e5}{Can\+Attack}} () const
+\begin{DoxyCompactList}\small\item\em Returns whether the entity can attack. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary for an entity to attack. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_attack_component_a3101ccb496d676e22c900a0d13a421ea}\label{class_attack_component_a3101ccb496d676e22c900a0d13a421ea}} 
+\index{AttackComponent@{AttackComponent}!AttackComponent@{AttackComponent}}
+\index{AttackComponent@{AttackComponent}!AttackComponent@{AttackComponent}}
+\subsubsection{\texorpdfstring{AttackComponent()}{AttackComponent()}}
+{\footnotesize\ttfamily Attack\+Component\+::\+Attack\+Component (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Attack\+Damage,  }\item[{float}]{p\+\_\+\+Attack\+Distance,  }\item[{float}]{p\+\_\+\+Attack\+Speed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Attack\+Damage} & the damage the entity can do. \\
+\hline
+{\em p\+\_\+\+Attack\+Distance} & how far the entity\textquotesingle{}s attack goes. \\
+\hline
+{\em p\+\_\+\+Attack\+Speed} & the rate the entity can attack. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_attack_component_a25a304233ac871cfec61b6cc744b10bb}\label{class_attack_component_a25a304233ac871cfec61b6cc744b10bb}} 
+\index{AttackComponent@{AttackComponent}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!AttackComponent@{AttackComponent}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Attack\+Component\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & the message being sent to the component. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_a1cd106256bf1791f9c6ab347776c7788}{Component}}.
+
+\mbox{\Hypertarget{class_attack_component_a92aca094d9d41cddca1a730e672cb835}\label{class_attack_component_a92aca094d9d41cddca1a730e672cb835}} 
+\index{AttackComponent@{AttackComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!AttackComponent@{AttackComponent}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Attack\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Update the attack component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & the time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_component_ac080e9fa054949464c796b65a4b26b93}{Component}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_attack_component_8h}{Attack\+Component.\+h}}\end{DoxyCompactItemize}

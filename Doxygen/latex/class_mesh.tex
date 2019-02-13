@@ -1,0 +1,81 @@
+\hypertarget{class_mesh}{}\section{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+
+
+A class that deals with a model mesh.  
+
+
+
+
+{\ttfamily \#include $<$Mesh.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_mesh_a0659b5a9b01ef022c904edae670bd31a}{Mesh}} (std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ p\+\_\+\+Vertices, std\+::vector$<$ unsigned int $>$ p\+\_\+\+Indices, std\+::vector$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ p\+\_\+\+Textures)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_mesh_add468c3caa50934f33b92ef0b131bdbc}{Render}} (const unsigned int p\+\_\+\+Shader\+Program)
+\begin{DoxyCompactList}\small\item\em Render the mesh with a given shader program. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_mesh_a49d22a483336417e41a7943f733b9c5e}\label{class_mesh_a49d22a483336417e41a7943f733b9c5e}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$ \mbox{\hyperlink{class_mesh_a49d22a483336417e41a7943f733b9c5e}{m\+\_\+\+Vertices}}
+\begin{DoxyCompactList}\small\item\em Stores the vertices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a9bde92cfa4f0cf17859494a8e2012eff}\label{class_mesh_a9bde92cfa4f0cf17859494a8e2012eff}} 
+std\+::vector$<$ unsigned int $>$ \mbox{\hyperlink{class_mesh_a9bde92cfa4f0cf17859494a8e2012eff}{m\+\_\+\+Indices}}
+\begin{DoxyCompactList}\small\item\em Stores the indices. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_aa60b78edeaf5dc1189cb3ffad0131b72}\label{class_mesh_aa60b78edeaf5dc1189cb3ffad0131b72}} 
+std\+::vector$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$ \mbox{\hyperlink{class_mesh_aa60b78edeaf5dc1189cb3ffad0131b72}{m\+\_\+\+Textures}}
+\begin{DoxyCompactList}\small\item\em Stores the textures. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_mesh_a15b7a86ef4dfa1616ff8c9ca734fb6f5}\label{class_mesh_a15b7a86ef4dfa1616ff8c9ca734fb6f5}} 
+unsigned int \mbox{\hyperlink{class_mesh_a15b7a86ef4dfa1616ff8c9ca734fb6f5}{m\+\_\+\+Vertex\+Array\+Object}}
+\begin{DoxyCompactList}\small\item\em Stores the vertex array objects. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class that deals with a model mesh. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_mesh_a0659b5a9b01ef022c904edae670bd31a}\label{class_mesh_a0659b5a9b01ef022c904edae670bd31a}} 
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{Mesh()}{Mesh()}}
+{\footnotesize\ttfamily Mesh\+::\+Mesh (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_vertex}{Vertex}} $>$}]{p\+\_\+\+Vertices,  }\item[{std\+::vector$<$ unsigned int $>$}]{p\+\_\+\+Indices,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_texture}{Texture}} $>$}]{p\+\_\+\+Textures }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Vertices} & the mesh\textquotesingle{}s vertices. \\
+\hline
+{\em p\+\_\+\+Indices} & the mesh\textquotesingle{}s indices. \\
+\hline
+{\em p\+\_\+\+Textures} & the mesh\textquotesingle{}s textures. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_mesh_add468c3caa50934f33b92ef0b131bdbc}\label{class_mesh_add468c3caa50934f33b92ef0b131bdbc}} 
+\index{Mesh@{Mesh}!Render@{Render}}
+\index{Render@{Render}!Mesh@{Mesh}}
+\subsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void Mesh\+::\+Render (\begin{DoxyParamCaption}\item[{const unsigned int}]{p\+\_\+\+Shader\+Program }\end{DoxyParamCaption})}
+
+
+
+Render the mesh with a given shader program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Shader\+Program} & the shader program, used to render the mesh. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_mesh_8h}{Mesh.\+h}}\end{DoxyCompactItemize}

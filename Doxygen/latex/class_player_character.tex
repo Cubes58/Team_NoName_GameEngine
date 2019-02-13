@@ -1,0 +1,173 @@
+\hypertarget{class_player_character}{}\section{Player\+Character Class Reference}
+\label{class_player_character}\index{PlayerCharacter@{PlayerCharacter}}
+
+
+A class that stores the properties necessary to create a player character -\/ the object responds to the player\textquotesingle{}s input, and the camera follows the object around the scene.  
+
+
+
+
+{\ttfamily \#include $<$Player\+Character.\+h$>$}
+
+Inheritance diagram for Player\+Character\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_character}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_character_adfaef348eb262071e4dfb1965e9baa73}{Player\+Character}} (const std\+::string \&p\+\_\+\+Model\+Name, const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation, const glm\+::vec3 \&p\+\_\+\+Scale, float p\+\_\+\+Health=100.\+0f, float p\+\_\+\+Player\+Movement\+Speed=0.\+35f, float p\+\_\+\+Player\+Rotation\+Speed=0.\+045f)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_player_character_ab6a5a717f24d001ff820dbf64ce77718}\label{class_player_character_ab6a5a717f24d001ff820dbf64ce77718}} 
+\mbox{\hyperlink{class_player_character_ab6a5a717f24d001ff820dbf64ce77718}{$\sim$\+Player\+Character}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_character_a8b2f1ccb7f3ae744f9ecb9a80537e5ee}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the game object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_character_a7185322cbdc51cc339bfcada0c8fdb29}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_player_character_a6f60f1eec2f55e72a86ee5d1b1b3d361}{Handle\+Cursor\+Input}} (double p\+\_\+\+Delta\+Mouse\+X\+Position, double p\+\_\+\+Delta\+Mouse\+Y\+Position)
+\begin{DoxyCompactList}\small\item\em Uses the cursor input to rotate the camera component and translate component. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_camera_view_state_8h_a63f3f328e010721669880ed43f58cabf}{Camera\+View\+State}} \mbox{\hyperlink{class_player_character_a7a1a39b5ecd9b71c5d7a8a282b4ae96a}{Camera\+Perspective}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Camera\+Perspective of the object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_player_character_a93e89332fa54a179bdb73d25df23a270}{Get\+Mouse\+Sensitivity}} () const
+\begin{DoxyCompactList}\small\item\em Gets the object\textquotesingle{}s mouse sensitivity. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_player_character_ad399d3e443c27f450d8f7a32054484de}{Inverse\+Rotation}} () const
+\begin{DoxyCompactList}\small\item\em Gets the inverse rotation of the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary to create a player character -\/ the object responds to the player\textquotesingle{}s input, and the camera follows the object around the scene. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_player_character_adfaef348eb262071e4dfb1965e9baa73}\label{class_player_character_adfaef348eb262071e4dfb1965e9baa73}} 
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\index{PlayerCharacter@{PlayerCharacter}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{PlayerCharacter()}{PlayerCharacter()}}
+{\footnotesize\ttfamily Player\+Character\+::\+Player\+Character (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale,  }\item[{float}]{p\+\_\+\+Health = {\ttfamily 100.0f},  }\item[{float}]{p\+\_\+\+Player\+Movement\+Speed = {\ttfamily 0.35f},  }\item[{float}]{p\+\_\+\+Player\+Rotation\+Speed = {\ttfamily 0.045f} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & name of the model, used by the object. \\
+\hline
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object \\
+\hline
+{\em p\+\_\+\+Scale} & starting scale of the object. \\
+\hline
+{\em p\+\_\+\+Health} & starting health of the object. \\
+\hline
+{\em p\+\_\+\+Player\+Movement\+Speed} & starting movement speed of the object. \\
+\hline
+{\em p\+\_\+\+Player\+Rotation\+Speed} & starting rotation speed of the object. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_player_character_a7a1a39b5ecd9b71c5d7a8a282b4ae96a}\label{class_player_character_a7a1a39b5ecd9b71c5d7a8a282b4ae96a}} 
+\index{PlayerCharacter@{PlayerCharacter}!CameraPerspective@{CameraPerspective}}
+\index{CameraPerspective@{CameraPerspective}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{CameraPerspective()}{CameraPerspective()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_camera_view_state_8h_a63f3f328e010721669880ed43f58cabf}{Camera\+View\+State}} Player\+Character\+::\+Camera\+Perspective (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the Camera\+Perspective of the object. 
+
+\begin{DoxyReturn}{Returns}
+returns the Camera\+Perspective of the object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_character_a93e89332fa54a179bdb73d25df23a270}\label{class_player_character_a93e89332fa54a179bdb73d25df23a270}} 
+\index{PlayerCharacter@{PlayerCharacter}!GetMouseSensitivity@{GetMouseSensitivity}}
+\index{GetMouseSensitivity@{GetMouseSensitivity}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{GetMouseSensitivity()}{GetMouseSensitivity()}}
+{\footnotesize\ttfamily float Player\+Character\+::\+Get\+Mouse\+Sensitivity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the object\textquotesingle{}s mouse sensitivity. 
+
+\begin{DoxyReturn}{Returns}
+returns the object\textquotesingle{}s mouse sensitivity. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_character_a6f60f1eec2f55e72a86ee5d1b1b3d361}\label{class_player_character_a6f60f1eec2f55e72a86ee5d1b1b3d361}} 
+\index{PlayerCharacter@{PlayerCharacter}!HandleCursorInput@{HandleCursorInput}}
+\index{HandleCursorInput@{HandleCursorInput}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{HandleCursorInput()}{HandleCursorInput()}}
+{\footnotesize\ttfamily void Player\+Character\+::\+Handle\+Cursor\+Input (\begin{DoxyParamCaption}\item[{double}]{p\+\_\+\+Delta\+Mouse\+X\+Position,  }\item[{double}]{p\+\_\+\+Delta\+Mouse\+Y\+Position }\end{DoxyParamCaption})}
+
+
+
+Uses the cursor input to rotate the camera component and translate component. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Mouse\+X\+Position} & the difference between the X axis mouse position and the previous X axis mouse position. \\
+\hline
+{\em p\+\_\+\+Delta\+Mouse\+Y\+Position} & the difference between the Y axis mouse position and the previous Y axis mouse position. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_player_character_ad399d3e443c27f450d8f7a32054484de}\label{class_player_character_ad399d3e443c27f450d8f7a32054484de}} 
+\index{PlayerCharacter@{PlayerCharacter}!InverseRotation@{InverseRotation}}
+\index{InverseRotation@{InverseRotation}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{InverseRotation()}{InverseRotation()}}
+{\footnotesize\ttfamily bool Player\+Character\+::\+Inverse\+Rotation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the inverse rotation of the object. 
+
+\begin{DoxyReturn}{Returns}
+returns the inverse rotation of the object. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_player_character_a7185322cbdc51cc339bfcada0c8fdb29}\label{class_player_character_a7185322cbdc51cc339bfcada0c8fdb29}} 
+\index{PlayerCharacter@{PlayerCharacter}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void Player\+Character\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a162f15f809f5181e3264b9f4d768bea2}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_player_character_a8b2f1ccb7f3ae744f9ecb9a80537e5ee}\label{class_player_character_a8b2f1ccb7f3ae744f9ecb9a80537e5ee}} 
+\index{PlayerCharacter@{PlayerCharacter}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!PlayerCharacter@{PlayerCharacter}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void Player\+Character\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the game object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a3d4444ab3efd5e3041014da90a66c081}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_player_character_8h}{Player\+Character.\+h}}\end{DoxyCompactItemize}

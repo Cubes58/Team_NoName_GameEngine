@@ -1,0 +1,772 @@
+{
+  "GameObjects": [
+    {
+      "modelName": "floor", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        0.7644873189418102, 
+        0.0, 
+        0.6446387664243929, 
+        0.0
+      ], 
+      "position": [
+        -39.097269986386756, 
+        34.45462757350846, 
+        111.1605159318519
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8731379796516693, 
+        0.0, 
+        0.4874731464294224, 
+        0.0
+      ], 
+      "position": [
+        13.203362731521885, 
+        0.0, 
+        -14.247537944585595
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -11.604594124035899, 
+        0.0, 
+        -68.79318218048068
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "attackDamage": 20, 
+      "attackDistance": 30, 
+      "attackSpeed": 15, 
+      "health": 500, 
+      "maxHealth": 500, 
+      "modelName": "warTower", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        111.9683379141553, 
+        0.0, 
+        -107.66386108982135
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyTower"
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -42.371406806428496, 
+        34.454627573508475, 
+        -44.48995709457088
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "attackDamage": 20, 
+      "attackDistance": 30, 
+      "attackSpeed": 15, 
+      "health": 500, 
+      "maxHealth": 500, 
+      "modelName": "warTower", 
+      "orientation": [
+        0.7079399930980615, 
+        -0.0, 
+        0.7062725863095047, 
+        -0.0
+      ], 
+      "position": [
+        -113.71351250211768, 
+        0.0, 
+        99.1228094620939
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyTower"
+    }, 
+    {
+      "attackDamage": 20, 
+      "attackDistance": 30, 
+      "attackSpeed": 15, 
+      "health": 500, 
+      "maxHealth": 500, 
+      "modelName": "warTower", 
+      "orientation": [
+        0.688745886974046, 
+        0.0, 
+        -0.72500282977126, 
+        0.0
+      ], 
+      "position": [
+        109.87787026343179, 
+        0.0, 
+        109.29630125663664
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyTower"
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        98.73210924788303, 
+        34.454627573508475, 
+        14.905299097398682
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8091625212151174, 
+        0.0, 
+        0.5875848996194462, 
+        0.0
+      ], 
+      "position": [
+        20.033821063248254, 
+        0.0, 
+        35.22353658676656
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -8.810390619461746, 
+        -1.4210854715202004e-14, 
+        -12.334169289785066
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.19828930933312858, 
+        0.0, 
+        0.9801435353070436, 
+        0.0
+      ], 
+      "position": [
+        -52.909998232091155, 
+        0.0, 
+        26.314522238187372
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8731379796516693, 
+        0.0, 
+        0.4874731464294224, 
+        0.0
+      ], 
+      "position": [
+        -24.465601028328898, 
+        -2.842170943040401e-14, 
+        31.456565160734122
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -49.923851872281546, 
+        0.0, 
+        -37.6586213280268
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "health": 100, 
+      "maxHealth": 100, 
+      "modelName": "duck", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PlayerCharacter", 
+      "uniformMovementSpeed": 0.35
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.6980658215073909, 
+        0.0, 
+        -0.7160335947727672, 
+        0.0
+      ], 
+      "position": [
+        91.68054514066287, 
+        0.0, 
+        69.76444582630945
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.09238747163544887, 
+        0.0, 
+        0.9957231317413524, 
+        0.0
+      ], 
+      "position": [
+        74.10706330057643, 
+        0.0, 
+        -26.896851128502064
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8122397628074973, 
+        0.0, 
+        0.5833237246284609, 
+        0.0
+      ], 
+      "position": [
+        -87.47651840643478, 
+        0.0, 
+        -49.17530152782153
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "flag", 
+      "orientation": [
+        0.8604789804378248, 
+        0.0, 
+        0.50948594114527, 
+        0.0
+      ], 
+      "position": [
+        -90.59023454047826, 
+        0.0, 
+        -83.51859982377675
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EndLevelCollectable"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.39538876888140173, 
+        0.0, 
+        0.9185138656778401, 
+        0.0
+      ], 
+      "position": [
+        -14.638237340870944, 
+        0.0, 
+        63.998001251676065
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        0.6561048811853086, 
+        0.5823160986233363, 
+        0.14151177635722176, 
+        -0.4587033500217024
+      ], 
+      "position": [
+        -18.9624253609406, 
+        34.45462757350846, 
+        41.59755553842059
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        0.869344798317814, 
+        0.0, 
+        -0.4942060518020387, 
+        0.0
+      ], 
+      "position": [
+        26.84401827773887, 
+        34.45462757350846, 
+        108.98821121292792
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        0.5887985997470441, 
+        0.0, 
+        -0.8082797838223597, 
+        0.0
+      ], 
+      "position": [
+        -81.27448199771308, 
+        34.45462757350846, 
+        45.88276747584598
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8731379796516693, 
+        0.0, 
+        0.4874731464294224, 
+        0.0
+      ], 
+      "position": [
+        -16.71869556014527, 
+        0.0, 
+        -27.740782586008983
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "rock", 
+      "orientation": [
+        0.8731379796516693, 
+        0.0, 
+        0.4874731464294224, 
+        0.0
+      ], 
+      "position": [
+        42.22677620469627, 
+        -2.842170943040401e-14, 
+        -3.428582015914266
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "acceleration": [
+        0.75, 
+        0.01, 
+        0
+      ], 
+      "modelName": "planet", 
+      "orientation": [
+        0.6846689807350889, 
+        0.3090664731341913, 
+        -0.4075114346881349, 
+        -0.5192694219785955
+      ], 
+      "position": [
+        37.00950638228033, 
+        34.45462757350846, 
+        -5.327073097018825
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "DynamicEnvironmentObject", 
+      "velocity": [
+        0.55, 
+        0.002, 
+        0
+      ]
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -95.01130989995525, 
+        1.4210854715202004e-14, 
+        -91.0094282555969
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -85.58512786647542, 
+        1.4210854715202004e-14, 
+        -91.87601069654112
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -95.20133147493195, 
+        1.4210854715202004e-14, 
+        -80.2202607626253
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -66.30171297733443, 
+        -1.4210854715202004e-14, 
+        -68.97698125630981
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.3460098343208816, 
+        0.0, 
+        0.9382308855251121, 
+        0.0
+      ], 
+      "position": [
+        -38.513043193047125, 
+        -1.4210854715202004e-14, 
+        -57.174152247584715
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.837755274391917, 
+        0.0, 
+        0.546045877402736, 
+        0.0
+      ], 
+      "position": [
+        -13.740900536104046, 
+        -1.4210854715202004e-14, 
+        -40.19525605190927
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -87.75800565216954, 
+        -1.4210854715202004e-14, 
+        -73.28546732828308
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }, 
+    {
+      "modelName": "bush", 
+      "orientation": [
+        0.9907813418261031, 
+        0.0, 
+        -0.1354707816810206, 
+        0.0
+      ], 
+      "position": [
+        -80.82074879309693, 
+        1.4210854715202004e-14, 
+        -82.65396604148259
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    }
+  ]
+}

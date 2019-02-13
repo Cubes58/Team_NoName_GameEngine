@@ -1,0 +1,105 @@
+\hypertarget{class_end_level_collectable}{}\section{End\+Level\+Collectable Class Reference}
+\label{class_end_level_collectable}\index{EndLevelCollectable@{EndLevelCollectable}}
+
+
+A class that stores the properties necessary to create an object that switches scenes, when collided with (checkpoint).  
+
+
+
+
+{\ttfamily \#include $<$End\+Level\+Collectable.\+h$>$}
+
+Inheritance diagram for End\+Level\+Collectable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_end_level_collectable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_end_level_collectable_aab33bc117864056954cfe06477e3f506}{End\+Level\+Collectable}} (const std\+::string \&p\+\_\+\+Model\+Name, const glm\+::vec3 \&p\+\_\+\+Position, const glm\+::quat \&p\+\_\+\+Orientation, const glm\+::vec3 \&p\+\_\+\+Scale, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_default_game}{Default\+Game}} $>$ p\+\_\+\+Game)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_end_level_collectable_a50935b7356fceab619380949d5795543}\label{class_end_level_collectable_a50935b7356fceab619380949d5795543}} 
+\mbox{\hyperlink{class_end_level_collectable_a50935b7356fceab619380949d5795543}{$\sim$\+End\+Level\+Collectable}} ()=default
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_level_collectable_a6d04aaa0751a21b0d4922339d6524887}{On\+Update}} (float p\+\_\+\+Delta\+Time) override
+\begin{DoxyCompactList}\small\item\em Updates the object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_level_collectable_aabbe03b0e87e7dbc04948b022f399de0}{On\+Message}} (const std\+::string \&p\+\_\+\+Message) override
+\begin{DoxyCompactList}\small\item\em Sends a message to the object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+A class that stores the properties necessary to create an object that switches scenes, when collided with (checkpoint). 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_end_level_collectable_aab33bc117864056954cfe06477e3f506}\label{class_end_level_collectable_aab33bc117864056954cfe06477e3f506}} 
+\index{EndLevelCollectable@{EndLevelCollectable}!EndLevelCollectable@{EndLevelCollectable}}
+\index{EndLevelCollectable@{EndLevelCollectable}!EndLevelCollectable@{EndLevelCollectable}}
+\subsubsection{\texorpdfstring{EndLevelCollectable()}{EndLevelCollectable()}}
+{\footnotesize\ttfamily End\+Level\+Collectable\+::\+End\+Level\+Collectable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Model\+Name,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Position,  }\item[{const glm\+::quat \&}]{p\+\_\+\+Orientation,  }\item[{const glm\+::vec3 \&}]{p\+\_\+\+Scale,  }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_default_game}{Default\+Game}} $>$}]{p\+\_\+\+Game }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Model\+Name} & name of the model, used by the object. \\
+\hline
+{\em p\+\_\+\+Position} & starting position of the object. \\
+\hline
+{\em p\+\_\+\+Orientation} & starting orientation of the object \\
+\hline
+{\em p\+\_\+\+Scale} & starting scale of the object. \\
+\hline
+{\em p\+\_\+\+Game} & a game pointer, so it can switch the scene, to the next one, when collided with. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_end_level_collectable_aabbe03b0e87e7dbc04948b022f399de0}\label{class_end_level_collectable_aabbe03b0e87e7dbc04948b022f399de0}} 
+\index{EndLevelCollectable@{EndLevelCollectable}!OnMessage@{OnMessage}}
+\index{OnMessage@{OnMessage}!EndLevelCollectable@{EndLevelCollectable}}
+\subsubsection{\texorpdfstring{OnMessage()}{OnMessage()}}
+{\footnotesize\ttfamily void End\+Level\+Collectable\+::\+On\+Message (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{p\+\_\+\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Sends a message to the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Message} & message being sent to the object. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a162f15f809f5181e3264b9f4d768bea2}{Game\+Object}}.
+
+\mbox{\Hypertarget{class_end_level_collectable_a6d04aaa0751a21b0d4922339d6524887}\label{class_end_level_collectable_a6d04aaa0751a21b0d4922339d6524887}} 
+\index{EndLevelCollectable@{EndLevelCollectable}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!EndLevelCollectable@{EndLevelCollectable}}
+\subsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void End\+Level\+Collectable\+::\+On\+Update (\begin{DoxyParamCaption}\item[{float}]{p\+\_\+\+Delta\+Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Updates the object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+\_\+\+Delta\+Time} & time passed. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_game_object_a3d4444ab3efd5e3041014da90a66c081}{Game\+Object}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Game\+Engine\+Architecture/include/\mbox{\hyperlink{_end_level_collectable_8h}{End\+Level\+Collectable.\+h}}\end{DoxyCompactItemize}
