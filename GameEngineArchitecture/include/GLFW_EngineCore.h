@@ -10,6 +10,7 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
+#include "ShaderProgram.h"
 
 #include "IEngineCore.h"
 
@@ -78,16 +79,8 @@ private:
 	GLuint m_Font_VBO;	//!< The font vertex buffer object.
 	GLuint m_Font_VAO;	//!< The font vertex array object.
 
-	GLuint m_DefaultShaderProgram;	//!< The default model rendering shader.
-	GLuint m_FontShaderProgram;	//!< The font shader, to render text.
-
-	/*!
-		\brief Loads a shader program.
-		\param p_VertexShaderFile the vertex shader file path.
-		\param p_FragmentShaderFile the fragment shader file path.
-		\param p_ShaderProgram the shader program ID.
-	*/
-	void LoadShader(const std::string &p_VertexShaderFile, const std::string &p_FragmentShaderFile, GLuint &p_ShaderProgram);
+	ShaderProgram m_DefaultShaderProgram;	//!< The default model rendering shader.
+	ShaderProgram m_FontShaderProgram; //!< The font shader, to render text.
 	/*!
 		\brief Sets the default model shaders.
 	*/
