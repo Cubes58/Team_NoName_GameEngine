@@ -104,27 +104,7 @@
         1
       ], 
       "type": "StaticEnvironmentObject"
-    }, 
-    {
-      "modelName": "tree", 
-      "orientation": [
-        0.9927175742755455, 
-        0.0, 
-        -0.12046500622370271, 
-        0.0
-      ], 
-      "position": [
-        27.131304783595603, 
-        -1.4210854715202004e-14, 
-        40.42048958237548
-      ], 
-      "scale": [
-        1, 
-        1, 
-        1
-      ], 
-      "type": "StaticEnvironmentObject"
-    }, 
+    },
     {
       "health": 100, 
       "maxHealth": 100, 

@@ -91,17 +91,13 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 	p_Game->m_InputHandler = std::make_shared<InputHandler>(p_Game);
 	p_Game->SetScene(s_STARTING_LEVEL);
 
-	auto previousTime = glfwGetTime();
 	// Game loop.
 	while (!glfwWindowShouldClose(m_Window) && p_Game->IsRunning()) {
-		auto currentTime = glfwGetTime();
-		auto deltaTime = currentTime - previousTime;
-		previousTime = currentTime;
 
 		p_Game->m_InputHandler->HandleInputs(m_KeyPressBuffer, m_KeyReleaseBuffer);
 		p_Game->m_InputHandler->HandleCursorInput(m_MouseXPosition, m_MouseYPosition);
 
-		p_Game->Update((float)deltaTime); // Update game logic.
+		m_PhysicsEngine.Update(p_Game);
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
 
 		// Swap the buffers.

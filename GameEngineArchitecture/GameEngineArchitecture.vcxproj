@@ -43,6 +43,7 @@
     <ClInclude Include="include\ModelComponent.h" />
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
+    <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
@@ -60,6 +61,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Mesh.cpp" />
     <ClCompile Include="source\Model.cpp" />
+    <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />

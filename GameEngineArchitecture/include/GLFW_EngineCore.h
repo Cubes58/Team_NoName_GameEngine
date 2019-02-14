@@ -12,6 +12,7 @@
 #include <glm/mat4x4.hpp>
 
 #include "IEngineCore.h"
+#include "PhysicsEngine.h"
 
 class Game;
 class Model;
@@ -24,6 +25,8 @@ class CameraComponent;
 class GLFW_EngineCore : public IEngineCore {
 private:
 	GLFWwindow* m_Window;	//!< The window, where everything is rendered.
+
+	PhysicsEngine m_PhysicsEngine;
 
 	static int m_ScreenWidth;	//!< The screen width.
 	static int m_ScreenHeight;	//!< The screen height.
