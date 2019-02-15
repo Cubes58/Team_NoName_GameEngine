@@ -82,7 +82,7 @@ void DefaultGame::Render() {
 	if(!m_SwitchingScene)
 		m_CurrentScene->Render(m_EngineInterface);
 
-	m_EngineInterface->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
+	m_EngineInterface->m_FontRenderer->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
 }
 
 unsigned int DefaultGame::GetNextScene() const {

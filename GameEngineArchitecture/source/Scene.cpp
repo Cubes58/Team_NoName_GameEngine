@@ -214,10 +214,12 @@ void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
 
 		// Player GUI information.
 		glm::vec3 playerPosition = iter->second->GetComponent<TransformComponent>()->Position();
-		p_EngineInterface->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
-		p_EngineInterface->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
+		//p_EngineInterface->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
+		//p_EngineInterface->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
+		p_EngineInterface->m_FontRenderer->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
+		p_EngineInterface->m_FontRenderer->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
 	}
-	p_EngineInterface->RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
+	p_EngineInterface->m_FontRenderer->RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
 
 	DisplayUnsuccessfullyLoadedModels(p_EngineInterface);
 }
@@ -256,10 +258,10 @@ void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_Eng
 	float gapBetweenTextRow = 0.041f;
 
 	if(unsuccessfullyLoadedModels.size() > 0)
-		p_EngineInterface->RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
+		p_EngineInterface->m_FontRenderer->RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
 	for (const auto &unsuccessfulModel : unsuccessfullyLoadedModels) {
 		windowPosition.y -= gapBetweenTextRow;
-		p_EngineInterface->RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
+		p_EngineInterface->m_FontRenderer->RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
 	}
 }
 

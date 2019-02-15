@@ -3,7 +3,7 @@
 
 
 
-FontRenderer::FontRenderer(std::string &p_FontPath, int p_ScreenWidth, int p_ScreenHeight, GLuint p_DefaultShaderID)
+FontRenderer::FontRenderer(const std::string & p_FontPath, int p_ScreenWidth, int p_ScreenHeight, GLuint p_DefaultShaderID)
 {
 	m_FontPath = p_FontPath;
 	m_ScreenWidth = p_ScreenWidth;
@@ -16,7 +16,7 @@ FontRenderer::FontRenderer(std::string &p_FontPath, int p_ScreenWidth, int p_Scr
 
 void FontRenderer::InitFont()
 {
-	const char* l_fontType = m_FontPath.c_str();
+	
 	// FreeType.
 	FT_Library ft;
 
@@ -96,6 +96,11 @@ void FontRenderer::InitFont()
 	glBindVertexArray(0);
 }
 
+void FontRenderer::SetShader(const GLchar * p_VertexPath, const GLchar * p_FragmentPath)
+{
+	m_FontShaderProgram.CompileShader(p_VertexPath, p_FragmentPath);
+}
+
 void FontRenderer::RenderText(const std::string & p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour)
 {
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<float>(m_ScreenWidth), 0.0f, static_cast<float>(m_ScreenHeight));
@@ -107,7 +112,7 @@ void FontRenderer::RenderText(const std::string & p_Text, float p_XPosition, flo
 	m_FontShaderProgram.SetMat4("projection", projection);
 
 	// Activate corresponding render state.
-	m_FontShaderProgram.SetVec3("textColour", p_Colour.x, p_Colour.y, p_Colour.z);
+	m_FontShaderProgram.SetVec3("textColour", p_Colour);
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(m_Font_VAO);
 
@@ -154,7 +159,7 @@ void FontRenderer::RenderText(const std::string & p_Text, float p_XPosition, flo
 	glUseProgram(m_DefaultShaderID);
 }
 
-void FontRenderer::SetFont(const std::string & p_FontPath)
+void FontRenderer::SetFont(const std::string &p_FontPath)
 {
 	m_FontPath = p_FontPath;
 	InitFont();

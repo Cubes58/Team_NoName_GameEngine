@@ -11,6 +11,7 @@
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 #include "ShaderProgram.h"
+#include "FontRenderer.h"
 
 #include "IEngineCore.h"
 
@@ -65,31 +66,14 @@ private:
 		\param p_Height the height to resize the window.
 	*/
 	static void WindowResizeCallbackEvent(GLFWwindow *p_Window, int p_Width, int p_Height);
-	
-	/**
-		* A structure to represent a Character.
-	*/
-	struct Character {
-		GLuint m_TextureID;		// ID handle of the glyph texture.
-		glm::ivec2 m_Size;		// Size of the glyph.
-		glm::ivec2 m_Bearing;	// Offset from baseline to left/top of the glyph.
-		GLuint m_Advance;		// Horizontal offset to advance to next glyph.
-	};
-	std::map<GLchar, Character> m_Characters;	//!< A map of the characters.
-	GLuint m_Font_VBO;	//!< The font vertex buffer object.
-	GLuint m_Font_VAO;	//!< The font vertex array object.
 
 	ShaderProgram m_DefaultShaderProgram;	//!< The default model rendering shader.
-	ShaderProgram m_FontShaderProgram; //!< The font shader, to render text.
+	
+	
 	/*!
 		\brief Sets the default model shaders.
 	*/
 	void SetDefaultShaders();
-	/*!
-		\brief Sets the default font shaders.
-	*/
-	void SetupDefaultFont();
-
 public:
 	GLFW_EngineCore() = default;	//!< Default constructor.
 	~GLFW_EngineCore() override;	//!< Default destructor.
@@ -126,13 +110,4 @@ public:
 		\param p_ModelMatrix the model matrix, the position of the model.
 	*/
 	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) override;
-	/*!
-		\brief Used to render text.
-		\param p_Text the text to be displayed.
-		\param p_XPosition the screen's X position, of where the text should be rendered.
-		\param p_YPosition the screen's Y position, of where the text should be rendered.
-		\param p_Scale the text's scale.
-		\param p_Colour the colour of the text.
-	*/
-	void RenderText(const std::string &p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour) override;
 };

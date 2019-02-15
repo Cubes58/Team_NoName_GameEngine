@@ -10,7 +10,7 @@ class FontRenderer
 
 private:
 
-	FontRenderer(std::string &p_FontPath, int p_ScreenWidth, int p_ScreenHeight, GLuint p_DefaultShaderID);
+	
 
 	int m_ScreenWidth;
 	int m_ScreenHeight;
@@ -39,6 +39,7 @@ private:
 	void InitFont();
 
 public:
+	FontRenderer(const std::string & p_FontPath, int p_ScreenWidth, int p_ScreenHeight, GLuint p_DefaultShaderID);
 
 	void SetShader(const GLchar *p_VertexPath, const GLchar *p_FragmentPath);
 
