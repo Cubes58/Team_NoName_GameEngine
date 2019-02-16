@@ -83,6 +83,8 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 	// Enable face culling.
 	glEnable(GL_CULL_FACE);
 
+	glfwSwapInterval(0);
+
 	return true;
 }
 
