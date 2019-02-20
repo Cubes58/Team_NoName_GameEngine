@@ -1,11 +1,25 @@
 #include "..\include\PhysicsEngine.h"
 
-PhysicsEngine::PhysicsEngine()
+PhysicsEngine::PhysicsEngine(std::shared_ptr<Game> p_Game)
 {
 	m_InitialTime = std::chrono::system_clock::now();
+	m_Game = p_Game;
+	m_QuadTree = nullptr;
 }
 
-void PhysicsEngine::Update(std::shared_ptr<Game> p_Game)
+void PhysicsEngine::GiveObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects)
+{
+	if (m_QuadTree != nullptr) {
+		delete m_QuadTree;
+		m_QuadTree = nullptr;
+	}
+	m_QuadTree = new QuadTree(0, BoundingBox(-100, -100, 200, 250));
+	for (auto l_Itr = p_Objects.begin(); l_Itr != p_Objects.end(); l_Itr++) {
+		m_QuadTree->Insert(l_Itr->second);
+	}
+}
+
+void PhysicsEngine::Update()
 {
 	m_CurrentTime = std::chrono::system_clock::now();
 	m_ElapsedSeconds = m_CurrentTime - m_FrameStartTime;
@@ -21,7 +35,8 @@ void PhysicsEngine::Update(std::shared_ptr<Game> p_Game)
 	m_AccumulatedSeconds += m_ElapsedSeconds;
 	//std::cout << "Accumulated seconds: " << m_AccumulatedSeconds.count() << "s" << std::endl;
 	while (m_AccumulatedSeconds >= m_FramePeriod) {
-		p_Game->Update(m_FramePeriod.count());
+		m_Game->Update(m_FramePeriod.count());
+		std::cout << "Frame ratio (R/P): " << m_FramePeriod.count() / m_ElapsedSeconds.count() << std::endl;
 		std::cout << "physics fixed fps: " << 1 / m_FramePeriod.count() << std::endl;
 		std::cout << "physics frame period: " << m_AccumulatedSeconds.count() << "s" << std::endl;
 		m_AccumulatedSeconds -= m_FramePeriod;

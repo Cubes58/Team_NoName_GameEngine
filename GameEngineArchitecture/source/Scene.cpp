@@ -266,3 +266,8 @@ void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_Eng
 std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> Scene::GetObjectsRequiringInput() const {
 	return m_ObjectsRequiringInput;
 }
+
+std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> Scene::GetObjects() const
+{
+	return m_GameObjects;
+}

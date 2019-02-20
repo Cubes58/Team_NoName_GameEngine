@@ -9,6 +9,8 @@
 
 #include <glm/mat4x4.hpp>
 
+#include "PhysicsEngine.h"
+
 class Game;
 class Model;
 class CameraComponent;
@@ -19,6 +21,8 @@ class CameraComponent;
 
 class IEngineCore {
 public:
+	PhysicsEngine * m_PhysicsEngine;
+
 	virtual ~IEngineCore() = default;	//!< Default virtual constructor.
 
 	/*!

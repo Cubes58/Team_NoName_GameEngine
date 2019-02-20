@@ -2,6 +2,10 @@
 #include "Game.h"
 #include <chrono>
 #include <iostream>
+#include <unordered_map>
+#include <typeindex>
+#include "GameObject.h"
+#include "QuadTree.h"
 
 class PhysicsEngine {
 private:
@@ -12,7 +16,12 @@ private:
 	std::chrono::duration<double> m_SecondLimit = std::chrono::duration<double>(0.25);
 	std::chrono::duration<double> m_AccumulatedSeconds;
 
+	std::shared_ptr<Game> m_Game;
+
+	QuadTree* m_QuadTree;
+	//std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> m_Objects;
 public:
-	PhysicsEngine();
-	void Update(std::shared_ptr<Game> p_Game);
+	PhysicsEngine(std::shared_ptr<Game> p_Game);
+	void GiveObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects);
+	void Update();
 };

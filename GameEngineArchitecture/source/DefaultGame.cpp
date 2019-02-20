@@ -68,6 +68,8 @@ void DefaultGame::SetScene(unsigned int p_SceneNumber) {
 			"\nNOT FOUND, ELEMENT LOCATION: " << iter->first << "\tSCENE LOCATION: " << iter->second << std::endl;
 	}
 
+	m_EngineInterface->m_PhysicsEngine->GiveObjects(m_CurrentScene->GetObjects());
+
 	m_InputHandler->SetObjectsRequiringInput(m_CurrentScene->GetObjectsRequiringInput());
 	m_InputHandler->LoadKeyBinds(m_InputHandler->GetKeyBindFile());
 }

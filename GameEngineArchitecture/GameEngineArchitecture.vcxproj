@@ -45,6 +45,7 @@
     <ClInclude Include="include\MovementComponent.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
+    <ClInclude Include="include\QuadTree.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
@@ -63,6 +64,7 @@
     <ClCompile Include="source\Model.cpp" />
     <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
+    <ClCompile Include="source\QuadTree.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />
