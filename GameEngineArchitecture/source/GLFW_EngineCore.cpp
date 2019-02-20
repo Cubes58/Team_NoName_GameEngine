@@ -69,9 +69,6 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 	m_KeyReleaseBuffer.resize(m_KeyBufferSize);
 	std::fill(m_KeyReleaseBuffer.begin(), m_KeyReleaseBuffer.end(), false);
 
-	// Set the shaders to the given default ones.
-	m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
-
 	// Enable depth test.
 	glEnable(GL_DEPTH_TEST);
 
@@ -86,9 +83,11 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 }
 
 bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
+	m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
 	p_Game->m_EngineInterface = std::make_shared<GLFW_EngineCore>(*this);
 	p_Game->m_InputHandler = std::make_shared<InputHandler>(p_Game);
 	p_Game->SetScene(s_STARTING_LEVEL);
+	
 
 	auto previousTime = glfwGetTime();
 	// Game loop.
@@ -102,8 +101,11 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 
 		
 		p_Game->Update((float)deltaTime); // Update game logic.
-		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
 		m_RenderEngine->Update(deltaTime);
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
+		
 
 		// Swap the buffers.
 		glfwSwapBuffers(m_Window);

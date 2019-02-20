@@ -135,6 +135,9 @@
     <ClInclude Include="include\RenderEngine.h">
       <Filter>Header Files\Graphic Engine</Filter>
     </ClInclude>
+    <ClInclude Include="include\SkyBox.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -191,6 +194,9 @@
     <ClCompile Include="source\RenderEngine.cpp">
       <Filter>Source Files\Graphic Engine</Filter>
     </ClCompile>
+    <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">
@@ -203,6 +209,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\fontShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

@@ -153,6 +153,6 @@ public:
 		\return returns the view matrix of the camera component.
 	*/
 	glm::mat4 GetViewMatrix() const { 
-		return glm::translate(glm::mat4_cast(m_Orientation), m_Position); 
+		return glm::translate(glm::mat4_cast(m_Orientation), m_Position);
 	}
 };

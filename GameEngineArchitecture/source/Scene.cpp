@@ -196,7 +196,7 @@ void Scene::UnloadLevel() {
 }
 
 void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
-	p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
+	//p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
 
 	// Draw the game objects.
 	for (auto gameObject : m_GameObjects) {

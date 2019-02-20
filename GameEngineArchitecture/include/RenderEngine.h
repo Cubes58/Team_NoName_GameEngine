@@ -13,6 +13,8 @@
 
 #include "ShaderProgram.h"
 #include "FontRenderer.h"
+#include "SkyBox.h"
+
 #include "ModelComponent.h"
 #include "CameraComponent.h"
 
@@ -39,18 +41,22 @@ private:
 public:
 
 	RenderEngine(int p_ScreenWidth,  int p_ScreenHeight);
-	std::shared_ptr<FontRenderer> m_FontRenderer;
+	 std::shared_ptr<FontRenderer> m_FontRenderer;
+	 std::shared_ptr<Skybox> m_Skybox;
 
 	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix);
 	void Update(double p_DeltaTime);
+	void Render();
 
 
 	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);
 	void SetGameObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_GameObjects);
 	void SetDefaultShader();
 	void SetCurrentShader(std::shared_ptr<ShaderProgram> p_ShaderProgram);
-	void SetLightParams();
-	void SetShaderParams();
+	void SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram);
+	void SetShaderParams(std::shared_ptr<ShaderProgram> p_ShaderProgram);
+	void RenderText(const std::string &p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour);
+
 	
 
 
