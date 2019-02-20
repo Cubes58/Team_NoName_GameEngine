@@ -132,6 +132,9 @@
     <ClInclude Include="include\FontRenderer.h">
       <Filter>Header Files\Graphic Engine</Filter>
     </ClInclude>
+    <ClInclude Include="include\RenderEngine.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -183,6 +186,9 @@
       <Filter>Source Files\Graphic Engine</Filter>
     </ClCompile>
     <ClCompile Include="source\FontRenderer.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderEngine.cpp">
       <Filter>Source Files\Graphic Engine</Filter>
     </ClCompile>
   </ItemGroup>
