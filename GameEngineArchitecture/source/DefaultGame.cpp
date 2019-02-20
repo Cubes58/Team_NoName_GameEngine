@@ -76,13 +76,15 @@ void DefaultGame::Update(float p_DeltaTime) {
 	m_SwitchingScene = false;
 
 	m_CurrentScene->Update(p_DeltaTime);
+
+	m_EngineInterface->m_RenderEngine->SetCamera(m_CurrentScene->GetCamera());
 }
 
 void DefaultGame::Render() {
 	if(!m_SwitchingScene)
 		m_CurrentScene->Render(m_EngineInterface);
 
-	m_EngineInterface->m_FontRenderer->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
+	m_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
 }
 
 unsigned int DefaultGame::GetNextScene() const {

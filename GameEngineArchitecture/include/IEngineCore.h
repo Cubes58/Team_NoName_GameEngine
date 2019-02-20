@@ -8,6 +8,7 @@
 #include <memory>
 
 #include <glm/mat4x4.hpp>
+#include "RenderEngine.h"
 #include "FontRenderer.h"
 
 class Game;
@@ -22,7 +23,8 @@ class IEngineCore {
 public:
 	virtual ~IEngineCore() = default;	//!< Default virtual constructor.
 
-	FontRenderer* m_FontRenderer;
+	RenderEngine* m_RenderEngine;
+
 	/*!
 		\brief A pure virtual method, used to initialise the window.
 		\param p_Width the window width.
@@ -43,15 +45,5 @@ public:
 		\param p_Blue the blue colour's strength.
 	*/
 	virtual void RenderColouredBackground(float p_Red, float p_Green, float p_Blue) = 0;
-	/*!
-		\brief A pure virtual method, set the camera.
-		\param p_Camera the camera that will be followed.
-	*/
-	virtual	void SetCamera(const std::shared_ptr<CameraComponent> p_Camera) = 0;
-	/*!
-		\brief A pure virtual method, used to render a model.
-		\param p_Model the pointer to the model that will be rendered.
-		\param p_ModelMatrix the model matrix, the position of the model.
-	*/
-	virtual void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) = 0;
+	
 };

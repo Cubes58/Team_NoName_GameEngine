@@ -70,7 +70,8 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 	std::fill(m_KeyReleaseBuffer.begin(), m_KeyReleaseBuffer.end(), false);
 
 	// Set the shaders to the given default ones.
-	SetDefaultShaders();
+	m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
+
 	// Enable depth test.
 	glEnable(GL_DEPTH_TEST);
 
@@ -99,9 +100,10 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 		p_Game->m_InputHandler->HandleInputs(m_KeyPressBuffer, m_KeyReleaseBuffer);
 		p_Game->m_InputHandler->HandleCursorInput(m_MouseXPosition, m_MouseYPosition);
 
-		m_DefaultShaderProgram.ErrorChecker();
+		
 		p_Game->Update((float)deltaTime); // Update game logic.
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
+		m_RenderEngine->Update(deltaTime);
 
 		// Swap the buffers.
 		glfwSwapBuffers(m_Window);
@@ -150,38 +152,4 @@ void GLFW_EngineCore::WindowResizeCallbackEvent(GLFWwindow *p_Window, int p_Widt
 	m_ScreenWidth = p_Width;
 	m_ScreenHeight = p_Height;
 	glViewport(0, 0, p_Width, p_Height);
-}
-
-// Loading some default shaders to get things up and running.
-void GLFW_EngineCore::SetDefaultShaders() {
-	
-	m_DefaultShaderProgram.CompileShader("resources/shaders/defaultShader.vert", "resources/shaders/defaultShader.frag");
-	m_FontRenderer = new FontRenderer("resources/fonts/arial.ttf", m_ScreenWidth, m_ScreenHeight, m_DefaultShaderProgram.GetID());
-	m_FontRenderer->SetShader("resources/shaders/fontShader.vert", "resources/shaders/fontShader.frag");
-
-	
-	// set the default shader
-	glUseProgram(m_DefaultShaderProgram.GetID());
-}
-
-void GLFW_EngineCore::SetCamera(const std::shared_ptr<CameraComponent> p_Camera) {
-	// Set the view and projection components of our shader to the camera values.
-	glm::mat4 projection = glm::perspective(glm::radians(p_Camera->m_FieldOfView), (float)m_ScreenWidth / (float)m_ScreenHeight, 0.1f, 100.0f);
-
-	m_DefaultShaderProgram.SetMat4("projection", projection);
-	m_DefaultShaderProgram.SetMat4("view", p_Camera->GetViewMatrix());
-
-	// Be sure to activate shader when setting uniforms/drawing objects.
-	m_DefaultShaderProgram.SetVec3("objectColour", 1.0f, 0.6f, 0.61f);
-	m_DefaultShaderProgram.SetVec3("lightColour", 1.0f, 1.0f, 1.0f);
-	m_DefaultShaderProgram.SetVec3("lightPos", 0.0f, 2.0f, -2.0f);
-	m_DefaultShaderProgram.SetVec3("viewPos", p_Camera->Position());
-
-}
-
-void GLFW_EngineCore::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) {
-	//glUniformMatrix4fv(glGetUniformLocation(m_DefaultShaderProgram.GetID(), "model"), 1, GL_FALSE, glm::value_ptr(p_ModelMatrix));
-	m_DefaultShaderProgram.SetMat4("model", p_ModelMatrix);
-
-	p_Model->Render(m_DefaultShaderProgram.GetID());
 }

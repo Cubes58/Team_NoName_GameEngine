@@ -25,7 +25,7 @@ class CameraComponent;
 
 class GLFW_EngineCore : public IEngineCore {
 private:
-	GLFWwindow* m_Window;	//!< The window, where everything is rendered.
+	GLFWwindow * m_Window;	//!< The window, where everything is rendered.
 
 	static int m_ScreenWidth;	//!< The screen width.
 	static int m_ScreenHeight;	//!< The screen height.
@@ -67,13 +67,7 @@ private:
 	*/
 	static void WindowResizeCallbackEvent(GLFWwindow *p_Window, int p_Width, int p_Height);
 
-	ShaderProgram m_DefaultShaderProgram;	//!< The default model rendering shader.
-	
-	
-	/*!
-		\brief Sets the default model shaders.
-	*/
-	void SetDefaultShaders();
+
 public:
 	GLFW_EngineCore() = default;	//!< Default constructor.
 	~GLFW_EngineCore() override;	//!< Default destructor.
@@ -98,16 +92,4 @@ public:
 		\param p_Blue the blue colour's strength.
 	*/
 	void RenderColouredBackground(float p_Red, float p_Green, float p_Blue) override;
-
-	/*!
-		\brief Sets the camera.
-		\param p_Camera the camera that will be followed.
-	*/
-	void SetCamera(const std::shared_ptr<CameraComponent> p_Camera) override;
-	/*!
-		\brief Used to render a model.
-		\param p_Model the pointer to the model that will be rendered.
-		\param p_ModelMatrix the model matrix, the position of the model.
-	*/
-	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) override;
 };
