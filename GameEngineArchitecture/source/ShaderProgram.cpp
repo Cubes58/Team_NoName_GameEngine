@@ -285,17 +285,17 @@ void ShaderProgram::SetVec4(const std::string & p_Name, float p_XValue, float p_
 
 void ShaderProgram::SetMat2(const std::string & p_Name, const glm::mat2 & p_Mat) const
 {
-	glUniformMatrix2fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, &p_Mat[0][0]);
+	glUniformMatrix2fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, glm::value_ptr(p_Mat));
 }
 
 void ShaderProgram::SetMat3(const std::string & p_Name, const glm::mat3 & p_Mat) const
 {
-	glUniformMatrix3fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, &p_Mat[0][0]);
+	glUniformMatrix3fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, glm::value_ptr(p_Mat));
 }
 
 void ShaderProgram::SetMat4(const std::string & p_Name, const glm::mat4 & p_Mat) const
 {
-	glUniformMatrix4fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, &p_Mat[0][0]);
+	glUniformMatrix4fv(glGetUniformLocation(m_ID, p_Name.c_str()), 1, GL_FALSE, glm::value_ptr(p_Mat));
 }
 
 unsigned int ShaderProgram::GetID() const

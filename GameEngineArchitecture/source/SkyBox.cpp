@@ -58,12 +58,12 @@ Skybox::Skybox(float p_SkyboxSize)
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GL_FLOAT), (GLvoid*)0);
 
-	m_TextureList.push_back("resources/textures/skybox/ny.png");
-	m_TextureList.push_back("resources/textures/skybox/nz.png");
-	m_TextureList.push_back("resources/textures/skybox/nx.png");
-	m_TextureList.push_back("resources/textures/skybox/py.png");
-	m_TextureList.push_back("resources/textures/skybox/pz.png");
-	m_TextureList.push_back("resources/textures/skybox/px.png");
+	m_TextureList.push_back("resources/textures/skybox/ssNY.bmp");
+	m_TextureList.push_back("resources/textures/skybox/ssNZ.bmp");
+	m_TextureList.push_back("resources/textures/skybox/ssNX.bmp");
+	m_TextureList.push_back("resources/textures/skybox/ssPY.bmp");
+	m_TextureList.push_back("resources/textures/skybox/ssPZ.bmp");
+	m_TextureList.push_back("resources/textures/skybox/ssPX.bmp");
 
 	m_SkyboxOrientation.push_back(GL_TEXTURE_CUBE_MAP_NEGATIVE_Y);
 	m_SkyboxOrientation.push_back(GL_TEXTURE_CUBE_MAP_NEGATIVE_Z);
@@ -80,7 +80,7 @@ Skybox::Skybox(float p_SkyboxSize)
 
 }
 
-GLuint Skybox::createTexture(std::vector<std::string> p_TextureList)
+GLuint Skybox::createTexture(std::vector<std::string> &p_TextureList)
 {
 	GLuint l_textureID;
 	glGenTextures(1, &l_textureID);
@@ -137,13 +137,6 @@ void Skybox::Render()
 	glBindVertexArray(m_VaoHandler);
 	glDrawArrays(GL_TRIANGLES, 0, 36);
 	glBindVertexArray(0);
-}
-
-void Skybox::SetParams(glm::mat4 p_Projection, glm::mat4 p_ViewMatrix)
-{
-	glUseProgram(m_ShaderProgram->GetID());
-	m_ShaderProgram->SetMat4("projection", p_Projection);
-	m_ShaderProgram->SetMat4("view", p_ViewMatrix);
 }
 
 int Skybox::GetTextureID()

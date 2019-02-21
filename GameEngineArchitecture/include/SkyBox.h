@@ -27,7 +27,7 @@ private:
 	std::vector<std::string> m_TextureList;
 	std::vector<unsigned int> m_SkyboxOrientation;
 
-	GLuint createTexture(std::vector<std::string> p_TextureList);
+	GLuint createTexture(std::vector<std::string> &p_TextureList);
 	void bindTextures();
 
 public:
@@ -37,7 +37,6 @@ public:
 
 	void Render();
 	void Update(float p_DeltaTime);
-	void SetParams(glm::mat4 p_Projection, glm::mat4 p_ViewMatrix);
 	
 	int GetTextureID();
 	std::shared_ptr<ShaderProgram> GetShaderProgram();
