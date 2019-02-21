@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "IEngineCore.h"
+#include "RenderEngine.h"
 #include "ModelManager.h"
 
 #include "PlayerCharacter.h"
@@ -185,7 +186,9 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 				"\nOBJECT TYPE: " << type << std::endl;
 			continue;
 		}
+		
 	}
+	RenderEngineInstance.SetGameObjects(&m_GameObjects);
 	return true;
 }
 
@@ -193,33 +196,23 @@ void Scene::UnloadLevel() {
 	// Memory should clean itself (smart pointers). Just clear the references.
 	m_GameObjects.clear();
 	m_ObjectsRequiringInput.clear();
+
 }
 
 void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
-	//p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
 
-	// Draw the game objects.
-	for (auto gameObject : m_GameObjects) {
-		// Make sure the object has a model and transform component - so it can be rendered.
-		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
-		auto transformComponent = gameObject.second->GetComponent<TransformComponent>();
-
-		if (modelComponent != nullptr && transformComponent != nullptr)
-			p_EngineInterface->m_RenderEngine->DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix());
-	}
+	p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
+	RenderEngineInstance.Render();
 
 	auto iter = m_GameObjects.find(typeid(PlayerCharacter));
 	if (iter != m_GameObjects.end()) {
-		p_EngineInterface->m_RenderEngine->SetCamera(iter->second->GetComponent<CameraComponent>());
 
 		// Player GUI information.
 		glm::vec3 playerPosition = iter->second->GetComponent<TransformComponent>()->Position();
-		//p_EngineInterface->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
-		//p_EngineInterface->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
-		p_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
-		p_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
+		RenderEngineInstance.RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
+		RenderEngineInstance.RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
 	}
-	p_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
+	RenderEngineInstance.RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
 
 	DisplayUnsuccessfullyLoadedModels(p_EngineInterface);
 }
@@ -257,6 +250,9 @@ void Scene::Update(float p_DeltaTime) {
 	for (auto gameObject : m_GameObjects) {
 		gameObject.second->OnUpdate(p_DeltaTime);
 	}
+
+	RenderEngineInstance.SetGameObjects(&m_GameObjects);
+	RenderEngineInstance.Update(p_DeltaTime);
 }
 
 void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_EngineInterface) {
@@ -266,10 +262,10 @@ void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_Eng
 	float gapBetweenTextRow = 0.041f;
 
 	if(unsuccessfullyLoadedModels.size() > 0)
-		p_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
+		RenderEngineInstance.RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
 	for (const auto &unsuccessfulModel : unsuccessfullyLoadedModels) {
 		windowPosition.y -= gapBetweenTextRow;
-		p_EngineInterface->m_RenderEngine->m_FontRenderer->RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
+		RenderEngineInstance.RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
 	}
 }
 

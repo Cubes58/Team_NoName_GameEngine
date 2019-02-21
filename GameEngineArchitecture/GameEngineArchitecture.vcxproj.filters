@@ -138,6 +138,15 @@
     <ClInclude Include="include\SkyBox.h">
       <Filter>Header Files\Graphic Engine</Filter>
     </ClInclude>
+    <ClInclude Include="include\CubemapCamera.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameBufferObject.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PostProcessor.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp">
@@ -195,6 +204,15 @@
       <Filter>Source Files\Graphic Engine</Filter>
     </ClCompile>
     <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CubemapCamera.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FrameBufferObject.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProcessor.cpp">
       <Filter>Source Files\Graphic Engine</Filter>
     </ClCompile>
   </ItemGroup>

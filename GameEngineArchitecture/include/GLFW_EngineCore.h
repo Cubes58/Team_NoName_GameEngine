@@ -10,8 +10,6 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
-#include "ShaderProgram.h"
-#include "FontRenderer.h"
 
 #include "IEngineCore.h"
 

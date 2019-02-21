@@ -11,6 +11,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
+#include "RenderEngine.h"
+
 #include "Game.h"
 #include "InputHandler.h"
 #include "ModelComponent.h"
@@ -83,7 +85,8 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 }
 
 bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
-	m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
+	//m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
+	RenderEngineInstance.Init(m_ScreenWidth, m_ScreenHeight);
 	p_Game->m_EngineInterface = std::make_shared<GLFW_EngineCore>(*this);
 	p_Game->m_InputHandler = std::make_shared<InputHandler>(p_Game);
 	p_Game->SetScene(s_STARTING_LEVEL);
@@ -101,9 +104,6 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 
 		
 		p_Game->Update((float)deltaTime); // Update game logic.
-		m_RenderEngine->Update(deltaTime);
-
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
 		
 

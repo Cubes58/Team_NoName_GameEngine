@@ -8,8 +8,6 @@
 #include <memory>
 
 #include <glm/mat4x4.hpp>
-#include "RenderEngine.h"
-#include "FontRenderer.h"
 
 class Game;
 class Model;
@@ -22,8 +20,6 @@ class CameraComponent;
 class IEngineCore {
 public:
 	virtual ~IEngineCore() = default;	//!< Default virtual constructor.
-
-	RenderEngine* m_RenderEngine;
 
 	/*!
 		\brief A pure virtual method, used to initialise the window.
