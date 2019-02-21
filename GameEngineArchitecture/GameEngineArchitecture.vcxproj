@@ -23,6 +23,8 @@
     <ClInclude Include="include\CameraComponent.h" />
     <ClInclude Include="include\CameraViewState.h" />
     <ClInclude Include="include\Collision.h" />
+    <ClInclude Include="include\CollisionEnums.h" />
+    <ClInclude Include="include\CollisionHelper.h" />
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DynamicEnvironmentObject.h" />
@@ -38,6 +40,7 @@
     <ClInclude Include="include\IEngineCore.h" />
     <ClInclude Include="include\InputCommandFactory.h" />
     <ClInclude Include="include\InputHandler.h" />
+    <ClInclude Include="include\BodyComponent.h" />
     <ClInclude Include="include\Mesh.h" />
     <ClInclude Include="include\Model.h" />
     <ClInclude Include="include\ModelComponent.h" />
@@ -46,11 +49,13 @@
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
     <ClInclude Include="include\QuadTree.h" />
+    <ClInclude Include="include\Random.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\CollisionHelper.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
     <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
     <ClCompile Include="source\EndLevelCollectable.cpp" />
@@ -65,6 +70,7 @@
     <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
+    <ClCompile Include="source\Random.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />

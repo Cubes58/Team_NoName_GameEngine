@@ -9,14 +9,12 @@ PhysicsEngine::PhysicsEngine(std::shared_ptr<Game> p_Game)
 
 void PhysicsEngine::GiveObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects)
 {
+	m_Objects = p_Objects;
 	if (m_QuadTree != nullptr) {
 		delete m_QuadTree;
 		m_QuadTree = nullptr;
 	}
 	m_QuadTree = new QuadTree(0, BoundingBox(-100, -100, 200, 250));
-	for (auto l_Itr = p_Objects.begin(); l_Itr != p_Objects.end(); l_Itr++) {
-		m_QuadTree->Insert(l_Itr->second);
-	}
 }
 
 void PhysicsEngine::Update()
@@ -40,5 +38,22 @@ void PhysicsEngine::Update()
 		std::cout << "physics fixed fps: " << 1 / m_FramePeriod.count() << std::endl;
 		std::cout << "physics frame period: " << m_AccumulatedSeconds.count() << "s" << std::endl;
 		m_AccumulatedSeconds -= m_FramePeriod;
+	}
+}
+
+void PhysicsEngine::PhysicsFrame()
+{
+	if (m_Objects.size() > 0) {
+		m_QuadTree->Clear();
+		for (auto l_Itr = m_Objects.begin(); l_Itr != m_Objects.end(); ++l_Itr) {
+			m_QuadTree->Insert(l_Itr->second);
+		}
+
+		for (auto l_Object : m_Objects) {
+			std::vector<std::shared_ptr<GameObject>> l_NearbyObjects;
+			glm::vec3 l_Pos = l_Object.second->GetComponent<TransformComponent>()->Position();
+			m_QuadTree->Retrieve(l_Pos.x, l_Pos.y, l_NearbyObjects);
+
+		}
 	}
 }

@@ -6,6 +6,7 @@
 #include <typeindex>
 #include "GameObject.h"
 #include "QuadTree.h"
+#include "CollisionHelper.h"
 
 class PhysicsEngine {
 private:
@@ -18,10 +19,12 @@ private:
 
 	std::shared_ptr<Game> m_Game;
 
+	CollisionHelper m_CollisionHelper;
 	QuadTree* m_QuadTree;
-	//std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> m_Objects;
+	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> m_Objects;
 public:
 	PhysicsEngine(std::shared_ptr<Game> p_Game);
 	void GiveObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects);
 	void Update();
+	void PhysicsFrame();
 };
