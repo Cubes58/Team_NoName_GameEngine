@@ -101,7 +101,6 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 		p_Game->m_InputHandler->HandleCursorInput(m_MouseXPosition, m_MouseYPosition);
 
 		m_PhysicsEngine->Update();
-		p_Game->Update((float)deltaTime); // Update game logic.
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
 		
 
