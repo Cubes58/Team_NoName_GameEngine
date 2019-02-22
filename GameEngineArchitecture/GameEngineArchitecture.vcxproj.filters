@@ -34,6 +34,11 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{96c2ade4-1b28-4fe3-9ed4-5368c9827204}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{807e3d24-cfa0-48f2-8351-f02a5e5dc589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Ai">
+      <UniqueIdentifier>{88e9c8b4-5bc0-4fa5-906e-12629e46692f}</UniqueIdentifier>
     <Filter Include="Header Files\Engines">
       <UniqueIdentifier>{feeb7c1f-a4d3-4366-9ceb-2f6505475922}</UniqueIdentifier>
     </Filter>
@@ -128,6 +133,11 @@
     <ClInclude Include="include\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Graph.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Node.h">
+      <Filter>Header Files\AI</Filter>
     <ClInclude Include="include\PhysicsEngine.h">
       <Filter>Header Files\Engines</Filter>
     </ClInclude>
@@ -213,6 +223,11 @@
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="source\Node.cpp">
+      <Filter>Source Files\Ai</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph.cpp">
+      <Filter>Source Files\Ai</Filter>
     <ClCompile Include="source\PhysicsEngine.cpp">
       <Filter>Source Files\Engines</Filter>
     </ClCompile>
