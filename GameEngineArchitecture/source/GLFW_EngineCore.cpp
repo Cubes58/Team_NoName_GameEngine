@@ -81,28 +81,26 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 	// Enable face culling.
 	glEnable(GL_CULL_FACE);
 
+	glfwSwapInterval(0);
+
 	return true;
 }
 
 bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
-	//m_RenderEngine = new RenderEngine(m_ScreenWidth, m_ScreenHeight);
+  m_PhysicsEngine = new PhysicsEngine(p_Game);
 	RenderEngineInstance.Init(m_ScreenWidth, m_ScreenHeight);
+  
 	p_Game->m_EngineInterface = std::make_shared<GLFW_EngineCore>(*this);
 	p_Game->m_InputHandler = std::make_shared<InputHandler>(p_Game);
 	p_Game->SetScene(s_STARTING_LEVEL);
-	
 
-	auto previousTime = glfwGetTime();
 	// Game loop.
 	while (!glfwWindowShouldClose(m_Window) && p_Game->IsRunning()) {
-		auto currentTime = glfwGetTime();
-		auto deltaTime = currentTime - previousTime;
-		previousTime = currentTime;
 
 		p_Game->m_InputHandler->HandleInputs(m_KeyPressBuffer, m_KeyReleaseBuffer);
 		p_Game->m_InputHandler->HandleCursorInput(m_MouseXPosition, m_MouseYPosition);
 
-		
+		m_PhysicsEngine->Update();
 		p_Game->Update((float)deltaTime); // Update game logic.
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
 		
