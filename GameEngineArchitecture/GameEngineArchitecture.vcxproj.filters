@@ -34,12 +34,15 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{96c2ade4-1b28-4fe3-9ed4-5368c9827204}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Graphic Engine">
+      <UniqueIdentifier>{6473456e-4dfd-457d-a2fa-2006bdfcb0ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic Engine">
+      <UniqueIdentifier>{1c96ef3d-cd24-4059-a0d6-a195fb11390f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GLFW_EngineCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\IEngineCore.h">
@@ -120,11 +123,32 @@
     <ClInclude Include="include\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\ShaderProgram.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GLFW_EngineCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FontRenderer.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RenderEngine.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SkyBox.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CubemapCamera.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameBufferObject.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PostProcessor.h">
+      <Filter>Header Files\Graphic Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\GLFW_EngineCore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -167,6 +191,30 @@
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="source\GLFW_EngineCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShaderProgram.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FontRenderer.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderEngine.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CubemapCamera.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FrameBufferObject.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProcessor.cpp">
+      <Filter>Source Files\Graphic Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">
@@ -179,6 +227,12 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\fontShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

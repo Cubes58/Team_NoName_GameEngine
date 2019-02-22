@@ -41,24 +41,5 @@ public:
 		\param p_Blue the blue colour's strength.
 	*/
 	virtual void RenderColouredBackground(float p_Red, float p_Green, float p_Blue) = 0;
-	/*!
-		\brief A pure virtual method, set the camera.
-		\param p_Camera the camera that will be followed.
-	*/
-	virtual	void SetCamera(const std::shared_ptr<CameraComponent> p_Camera) = 0;
-	/*!
-		\brief A pure virtual method, used to render a model.
-		\param p_Model the pointer to the model that will be rendered.
-		\param p_ModelMatrix the model matrix, the position of the model.
-	*/
-	virtual void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) = 0;
-	/*!
-		\brief A pure virtual method, used to render text.
-		\param p_Text the text to be displayed.
-		\param p_XPosition the screen's X position, of where the text should be rendered.
-		\param p_YPosition the screen's Y position, of where the text should be rendered.
-		\param p_Scale the text's scale.
-		\param p_Colour the colour of the text.
-	*/
-	virtual void RenderText(const std::string &p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour) = 0;
+	
 };
