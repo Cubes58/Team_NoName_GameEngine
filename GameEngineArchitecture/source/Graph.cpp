@@ -7,7 +7,7 @@ Graph::Graph(float x, float y, float z)
 	{
 		for (int j = 0; j < s_m_iRow; j++)
 		{
-			m_Graph[j][i] = new Node(x, y, z);
+			m_Graph[j][i] = new Node(x, y, z, j, i);
 		}
 	}
 
