@@ -159,3 +159,44 @@ unsigned int Model::TextureFromFile(const char *p_FilePath, const std::string &p
 
 	return textureID;
 }
+
+unsigned int Model::TextureCubeFromFile(std::vector<const char*> p_FilePath, const std::string & p_Directory, bool p_Gamma)
+{
+	unsigned int l_textureID;
+	glGenTextures(1, &l_textureID);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, l_textureID);
+
+	int l_ImageWidth, l_ImageHeight, l_NrComponents;
+	unsigned char* l_TextureData;
+
+	for (GLuint i = 0; i < p_FilePath.size(); i++)
+	{
+		l_TextureData = stbi_load(p_FilePath[i], &l_ImageWidth, &l_ImageHeight, &l_NrComponents, 0);
+
+		if (l_TextureData)
+		{
+			GLenum format;
+			if (l_NrComponents == 1)
+				format = GL_RED;
+			else if (l_NrComponents == 3)
+				format = GL_RGB;
+			else if (l_NrComponents == 4)
+				format = GL_RGBA;
+
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, format, l_ImageWidth, l_ImageHeight, 0, format, GL_UNSIGNED_BYTE, l_TextureData);
+		}
+		else
+		{
+			std::cout << "Texture failed to load from: " << p_FilePath[i] << std::endl;
+		}
+		stbi_image_free(l_TextureData);
+	}
+
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+
+	return l_textureID;
+}

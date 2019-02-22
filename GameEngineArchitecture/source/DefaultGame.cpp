@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "IEngineCore.h"
+#include "RenderEngine.h"
 #include "FileSystemHelper.h"
 #include "InputHandler.h"
 #include "Scene.h"
@@ -68,6 +69,8 @@ void DefaultGame::SetScene(unsigned int p_SceneNumber) {
 			"\nNOT FOUND, ELEMENT LOCATION: " << iter->first << "\tSCENE LOCATION: " << iter->second << std::endl;
 	}
 
+	m_EngineInterface->m_PhysicsEngine->GiveObjects(m_CurrentScene->GetObjects());
+
 	m_InputHandler->SetObjectsRequiringInput(m_CurrentScene->GetObjectsRequiringInput());
 	m_InputHandler->LoadKeyBinds(m_InputHandler->GetKeyBindFile());
 }
@@ -79,10 +82,12 @@ void DefaultGame::Update(float p_DeltaTime) {
 }
 
 void DefaultGame::Render() {
-	if(!m_SwitchingScene)
+	if (!m_SwitchingScene)
+	{
 		m_CurrentScene->Render(m_EngineInterface);
-
-	m_EngineInterface->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
+		
+	}
+	RenderEngineInstance.RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
 }
 
 unsigned int DefaultGame::GetNextScene() const {
