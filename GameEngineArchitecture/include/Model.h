@@ -74,4 +74,14 @@ public:
 		\return Returns the texture ID.
 	*/
 	static unsigned int TextureFromFile(const char *p_FilePath, const std::string &p_Directory, bool p_Gamma = false);
+
+
+	/*!
+	\brief Loads textures from a file/folder.
+	\param p_FilePath the file where the texture is.
+	\param p_Directory the directory where the textures are located.
+	\param p_Gamma if the texture needs to be gamma corrected
+	\return Returns the texture ID.
+	*/
+	static unsigned int TextureCubeFromFile(std::vector<const char *> p_FilePath, const std::string &p_Directory, bool p_Gamma = false);
 };

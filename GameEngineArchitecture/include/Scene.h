@@ -19,6 +19,7 @@ class InputHandler;
 class GameObject;
 class PlayerCharacter;
 class DefaultGame;
+class CameraComponent;
 
 /*! \class Scene
 	\brief A class that manages the level and gameplay.
@@ -69,6 +70,7 @@ public:
 		\param p_EngineInterface the engine interface pointer.
 	*/
 	void Render(std::shared_ptr<IEngineCore> p_EngineInterface);
+	std::shared_ptr<CameraComponent> GetCamera();
 
 	/*!
 		\brief Gets the objects that require input.
