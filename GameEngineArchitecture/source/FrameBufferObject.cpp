@@ -62,6 +62,7 @@ FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, int p_DepthBuffe
 	m_FrameHeight = p_Height;
 
 	InitFrameBuffer(p_DepthBufferType);
+	UnbindFrameBuffer();
 }
 
 FrameBufferObject::FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_Position, float p_Size)
