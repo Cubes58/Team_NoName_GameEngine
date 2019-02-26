@@ -11,6 +11,8 @@
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 
+#include "FrameBufferType.h"
+
 class GameObject;
 class ShaderProgram;
 class CameraComponent;

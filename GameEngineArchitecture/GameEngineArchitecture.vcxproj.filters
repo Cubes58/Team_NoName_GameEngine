@@ -234,6 +234,9 @@
     <ClInclude Include="include\ContrastChanger.h">
       <Filter>Include\Graphics Engine\PostProcessing</Filter>
     </ClInclude>
+    <ClInclude Include="include\FrameBufferType.h">
+      <Filter>Include\Enums</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">

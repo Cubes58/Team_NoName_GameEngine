@@ -1,16 +1,16 @@
 #include "FrameBufferObject.h"
 
-void FrameBufferObject::InitFrameBuffer(int p_Type)
+void FrameBufferObject::InitFrameBuffer()
 {
 	CreateFrameBuffer();
 	CreateTextureAttachment();
 
-	if (p_Type == DEPTH_RENDER_BUFFER)
+	if (m_TypeIndicator == FrameBufferType::DEPTH_RENDER_BUFFER)
 	{
 		CreateDepthBufferAttachment();
 	}
 
-	else if (p_Type == DEPTH_TEXTURE)
+	else if (m_TypeIndicator == FrameBufferType::DEPTH_TEXTURE)
 	{
 		CreateDepthTextureAttachment();
 	}
@@ -56,12 +56,13 @@ void FrameBufferObject::CreateDepthBufferAttachment()
 	
 }
 
-FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType)
+FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, FrameBufferType p_Type)
 {
 	m_FrameWidth = p_Width;
 	m_FrameHeight = p_Height;
+	m_TypeIndicator = p_Type;
 
-	InitFrameBuffer(p_DepthBufferType);
+	InitFrameBuffer();
 	UnbindFrameBuffer();
 }
 

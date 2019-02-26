@@ -10,6 +10,7 @@
 
 #include "CubemapCamera.h"
 #include "RenderEngine.h"
+#include "FrameBufferType.h"
 
 
 
@@ -34,9 +35,10 @@ private:
 
 	CubeMapCamera m_CubeMapCamera; //!< Camera for generating cubemaps
 	RenderEngine *m_RenderEngine = nullptr; //!< Pointer to the engine for rendering 
+	FrameBufferType m_TypeIndicator;
 
 
-	void InitFrameBuffer(int p_Type); //!< Initialises the framebuffer
+	void InitFrameBuffer(); //!< Initialises the framebuffer
 	void CreateFrameBuffer(); //!< Creates the framebuffer object;
 	void CreateTextureAttachment(); //!< Creates and adds the texture attachment (Colour)
 	void CreateDepthTextureAttachment(); //!< Creates and adds the texture attachment (Depth)
@@ -48,7 +50,7 @@ public:
 	static const constexpr int DEPTH_TEXTURE = 1;
 	static const constexpr int DEPTH_RENDER_BUFFER = 2;
 
-	FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType);
+	FrameBufferObject(int p_Width, int p_Height, FrameBufferType p_Type);
 	FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_Position, float p_Size);
 
 	void CleanUp(); //!< Clean up the FBOs after destruction

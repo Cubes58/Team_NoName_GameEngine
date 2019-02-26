@@ -1,4 +1,5 @@
 #include "ImageRenderer.h"
+#include "FrameBufferType.h"
 
 ImageRenderer::ImageRenderer()
 {
@@ -7,7 +8,7 @@ ImageRenderer::ImageRenderer()
 
 ImageRenderer::ImageRenderer(int p_Width, int p_Height)
 {
-	m_FBO = new FrameBufferObject(p_Width, p_Height, 0);
+	m_FBO = new FrameBufferObject(p_Width, p_Height, FrameBufferType::NONE);
 }
 
 void ImageRenderer::Render()

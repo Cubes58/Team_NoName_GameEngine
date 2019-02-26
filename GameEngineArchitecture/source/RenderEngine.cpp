@@ -34,7 +34,7 @@ void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
 	m_ScreenWidth = p_ScreenWidth;
 	m_ScreenHeight = p_ScreenHeight;
 
-	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(p_ScreenWidth, p_ScreenHeight, 1);
+	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(p_ScreenWidth, p_ScreenHeight, FrameBufferType::DEPTH_TEXTURE);
 	m_PostProcessor = std::make_shared<PostProcessor>();
 	m_PostProcessor->InitPostProcessing();
 	InitShaders();
@@ -58,10 +58,9 @@ void RenderEngine::Update(double p_DeltaTime)
 void RenderEngine::Render()
 {
 	ClearScreen();
-	SetDefaultShader();
+
 	RenderSceneObjects();
 	m_Skybox->Render();
-	SetDefaultShader();
 
 	RenderFrameBuffers();
 }
@@ -137,7 +136,7 @@ void RenderEngine::SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram
 void RenderEngine::SetShaderParams(std::shared_ptr<ShaderProgram> p_ShaderProgram)
 {
 	glUseProgram(p_ShaderProgram->GetID());
-	glm::mat4 projection = glm::perspective(glm::radians(m_Camera->m_FieldOfView), (float)m_ScreenWidth / (float)m_ScreenHeight, 0.1f, 300.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(m_Camera->m_FieldOfView), (float)m_ScreenWidth / (float)m_ScreenHeight, 0.1f, 1000.0f);
 
 	p_ShaderProgram->ErrorChecker();
 	p_ShaderProgram->SetMat4("projection", projection);
