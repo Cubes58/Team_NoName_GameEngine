@@ -26,6 +26,7 @@
     <ClInclude Include="include\CollisionEnums.h" />
     <ClInclude Include="include\CollisionHelper.h" />
     <ClInclude Include="include\Component.h" />
+    <ClInclude Include="include\ContrastChanger.h" />
     <ClInclude Include="include\CubemapCamera.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DynamicEnvironmentObject.h" />
@@ -38,6 +39,7 @@
     <ClInclude Include="include\Graph.h" />
     <ClInclude Include="include\FontRenderer.h" />
     <ClInclude Include="include\HealthComponent.h" />
+    <ClInclude Include="include\ImageRenderer.h" />
     <ClInclude Include="include\InputCommands.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\GLFW_EngineCore.h" />
@@ -62,9 +64,11 @@
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
+    <ClInclude Include="include\VBOQuad.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CollisionHelper.cpp" />
+    <ClCompile Include="source\ContrastChanger.cpp" />
     <ClCompile Include="source\CubemapCamera.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
     <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
@@ -75,6 +79,7 @@
     <ClCompile Include="source\GLAD\glad.c" />
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
     <ClCompile Include="source\Graph.cpp" />
+    <ClCompile Include="source\ImageRenderer.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -92,8 +97,11 @@
     <ClCompile Include="source\SkyBox.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />
+    <ClCompile Include="source\VBOQuad.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\shaders\contrastShader.frag" />
+    <None Include="resources\shaders\contrastShader.vert" />
     <None Include="resources\shaders\defaultShader.frag" />
     <None Include="resources\shaders\defaultShader.vert" />
     <None Include="resources\shaders\fontShader.frag" />

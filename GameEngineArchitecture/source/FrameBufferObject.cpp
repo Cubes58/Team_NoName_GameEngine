@@ -56,12 +56,10 @@ void FrameBufferObject::CreateDepthBufferAttachment()
 	
 }
 
-FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType, int p_NumberOfTextures)
+FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType)
 {
 	m_FrameWidth = p_Width;
 	m_FrameHeight = p_Height;
-	
-	m_ColourBuffers.resize(p_NumberOfTextures);
 
 	InitFrameBuffer(p_DepthBufferType);
 }
@@ -112,11 +110,8 @@ void FrameBufferObject::CleanUp()
 	glDeleteTextures(1, &m_FrameBufferTextureID);
 
 	glDeleteRenderbuffers(1, &m_DepthBuffer);
+	glDeleteRenderbuffers(1, &m_ColourBuffer);
 
-	for(auto l_Buffer : m_ColourBuffers)
-	{
-		glDeleteRenderbuffers(1, &l_Buffer);
-	}
 }
 
 void FrameBufferObject::BindFrameBuffer()

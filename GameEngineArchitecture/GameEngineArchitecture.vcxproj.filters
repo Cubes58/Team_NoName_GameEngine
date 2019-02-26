@@ -4,9 +4,6 @@
     <ClCompile Include="source\CollisionHelper.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\CubemapCamera.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\DefaultGame.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -17,12 +14,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyTower.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\FontRenderer.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\FrameBufferObject.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\GLAD\glad.c">
@@ -43,12 +34,6 @@
     <ClCompile Include="source\main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Mesh.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Model.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\Node.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -58,25 +43,13 @@
     <ClCompile Include="source\PlayerCharacter.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\PostProcessor.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\QuadTree.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\Random.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\RenderEngine.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\Scene.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ShaderProgram.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\SkyBox.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
@@ -84,6 +57,42 @@
     </ClCompile>
     <ClCompile Include="source\STB_IMAGE\stb_image.c">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FontRenderer.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mesh.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Model.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShaderProgram.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VBOQuad.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FrameBufferObject.cpp">
+      <Filter>Source\Graphics Engine\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImageRenderer.cpp">
+      <Filter>Source\Graphics Engine\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProcessor.cpp">
+      <Filter>Source\Graphics Engine\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CubemapCamera.cpp">
+      <Filter>Source\Graphics Engine\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ContrastChanger.cpp">
+      <Filter>Source\Graphics Engine\PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderEngine.cpp">
+      <Filter>Source\Graphics Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -135,16 +144,7 @@
     <ClInclude Include="include\InputHandler.h">
       <Filter>Include\Input</Filter>
     </ClInclude>
-    <ClInclude Include="include\CubemapCamera.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
     <ClInclude Include="include\FontRenderer.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FrameBufferObject.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PostProcessor.h">
       <Filter>Include\Graphics Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\RenderEngine.h">
@@ -216,6 +216,24 @@
     <ClInclude Include="include\Scene.h">
       <Filter>Include\Game</Filter>
     </ClInclude>
+    <ClInclude Include="include\VBOQuad.h">
+      <Filter>Include\Graphics Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameBufferObject.h">
+      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CubemapCamera.h">
+      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PostProcessor.h">
+      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ImageRenderer.h">
+      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ContrastChanger.h">
+      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">
@@ -234,6 +252,12 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="resources\shaders\skybox.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\contrastShader.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\contrastShader.vert">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>
@@ -279,6 +303,15 @@
     </Filter>
     <Filter Include="Include\Game\Game Objects">
       <UniqueIdentifier>{20b0e9b6-cccc-4e8f-8f8a-cb8deefe2ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics Engine">
+      <UniqueIdentifier>{5a523e67-df6e-4f61-8fb6-1f6ee97720a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Graphics Engine\PostProcessing">
+      <UniqueIdentifier>{1698371a-2823-42b0-aaab-6bb761db0fcb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics Engine\PostProcessing">
+      <UniqueIdentifier>{50b69cf1-b9d9-4d57-b2a3-9fae1d8056f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

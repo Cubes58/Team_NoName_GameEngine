@@ -4,6 +4,7 @@
 #include "FontRenderer.h"
 #include "SkyBox.h"
 #include "FrameBufferObject.h"
+#include "PostProcessor.h"
 
 #include "ModelComponent.h"
 #include "CameraComponent.h"
@@ -28,6 +29,17 @@ void RenderEngine::InitShaders()
 	SetDefaultShader();
 }
 
+void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
+{
+	m_ScreenWidth = p_ScreenWidth;
+	m_ScreenHeight = p_ScreenHeight;
+
+	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(p_ScreenWidth, p_ScreenHeight, 1);
+	m_PostProcessor = std::make_shared<PostProcessor>();
+	m_PostProcessor->InitPostProcessing();
+	InitShaders();
+}
+
 void RenderEngine::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 & p_ModelMatrix)
 {
 	m_DefaultShader->SetMat4("model", p_ModelMatrix);
@@ -45,7 +57,18 @@ void RenderEngine::Update(double p_DeltaTime)
 
 void RenderEngine::Render()
 {
+	ClearScreen();
+	SetDefaultShader();
+	RenderSceneObjects();
+	m_Skybox->Render();
+	SetDefaultShader();
 
+	RenderFrameBuffers();
+}
+
+void RenderEngine::RenderSceneObjects()
+{
+	SetDefaultShader();
 	for (auto gameObject : *m_GameObjects) {
 		// Make sure the object has a model and transform component - so it can be rendered.
 		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
@@ -54,15 +77,28 @@ void RenderEngine::Render()
 		if (modelComponent != nullptr && transformComponent != nullptr)
 			DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix());
 	}
-
 	m_Skybox->Render();
-	SetDefaultShader();
 }
 
 void RenderEngine::RenderFrameBuffers(CubeMapCamera &p_Camera)
 {
 
 }
+
+void RenderEngine::RenderFrameBuffers()
+{
+	m_SceneFrameBuffer->BindFrameBuffer();
+	ClearScreen();
+	RenderSceneObjects();
+	m_SceneFrameBuffer->UnbindFrameBuffer();
+
+	//glDisable(GL_CLIP_DISTANCE0);
+	glClear(GL_COLOR_BUFFER_BIT);
+	m_PostProcessor->DoPostProcessing(m_SceneFrameBuffer->GetColourTexture());
+	
+
+}
+
 
 void RenderEngine::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
 {
@@ -129,10 +165,8 @@ void RenderEngine::RenderText(const std::string & p_Text, float p_XPosition, flo
 	m_FontRenderer->RenderText(p_Text, p_XPosition, p_YPosition, p_Scale, p_Colour);
 }
 
-void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
+void RenderEngine::ClearScreen()
 {
-	m_ScreenWidth = p_ScreenWidth;
-	m_ScreenHeight = p_ScreenHeight;
-
-	InitShaders();
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 }
+

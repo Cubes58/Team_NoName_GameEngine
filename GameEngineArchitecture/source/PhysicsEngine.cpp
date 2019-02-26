@@ -29,14 +29,14 @@ void PhysicsEngine::Update()
 		m_ElapsedSeconds = m_SecondLimit;
 		//std::cout << "Elapsed time to high" << std::endl;
 	}
-	std::cout << "engine fps: " << 1 / m_ElapsedSeconds.count() << "s" << std::endl;
+	//std::cout << "engine fps: " << 1 / m_ElapsedSeconds.count() << "s" << std::endl;
 	m_AccumulatedSeconds += m_ElapsedSeconds;
 	//std::cout << "Accumulated seconds: " << m_AccumulatedSeconds.count() << "s" << std::endl;
 	while (m_AccumulatedSeconds >= m_FramePeriod) {
 		m_Game->Update(m_FramePeriod.count());
-		std::cout << "Frame ratio (R/P): " << m_FramePeriod.count() / m_ElapsedSeconds.count() << std::endl;
+		/*std::cout << "Frame ratio (R/P): " << m_FramePeriod.count() / m_ElapsedSeconds.count() << std::endl;
 		std::cout << "physics fixed fps: " << 1 / m_FramePeriod.count() << std::endl;
-		std::cout << "physics frame period: " << m_AccumulatedSeconds.count() << "s" << std::endl;
+		std::cout << "physics frame period: " << m_AccumulatedSeconds.count() << "s" << std::endl;*/
 		m_AccumulatedSeconds -= m_FramePeriod;
 	}
 }

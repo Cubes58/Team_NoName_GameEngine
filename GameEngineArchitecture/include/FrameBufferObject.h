@@ -25,7 +25,7 @@ private:
 	bool m_MultiSampledTarget = false; //!< For Multi textured objects
 
 	unsigned int m_ColourTexture; //!< Colour texture of the scene
-	std::vector<unsigned int> m_ColourBuffers; //!< Colour buffer list for rendering (adapted for multi targetting)
+	unsigned int m_ColourBuffer; //!< Colour buffer list for rendering (adapted for multi targetting)
 
 	unsigned int m_DepthTexture; //!< Depth of the scene
 	unsigned int m_DepthBuffer; //!< Buffer of the depth for rendering
@@ -48,7 +48,7 @@ public:
 	static const constexpr int DEPTH_TEXTURE = 1;
 	static const constexpr int DEPTH_RENDER_BUFFER = 2;
 
-	FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType, int p_NumberOfTextures);
+	FrameBufferObject(int p_Width, int p_Height, int p_DepthBufferType);
 	FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_Position, float p_Size);
 
 	void CleanUp(); //!< Clean up the FBOs after destruction
