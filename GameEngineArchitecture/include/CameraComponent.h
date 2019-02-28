@@ -25,20 +25,20 @@ public:
 	/*!
 		\brief Default constructor for the camera, it initialises the class' variables.
 	*/
-	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(45.0f) {}
+	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(45) {}
+	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 		\param p_Orientation starting orientation of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(45) {}
+	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(60.0f) {}
 	~CameraComponent() = default;	//!< Default destructor.
 
 

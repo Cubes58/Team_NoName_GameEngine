@@ -9,11 +9,10 @@
 #include <vector>
 
 #include "CubemapCamera.h"
-#include "RenderEngine.h"
 #include "FrameBufferType.h"
 
 
-
+class RenderEngine;
 
 class FrameBufferObject
 {

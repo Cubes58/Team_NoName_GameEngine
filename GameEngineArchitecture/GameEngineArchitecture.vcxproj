@@ -107,6 +107,10 @@
     <None Include="resources\shaders\defaultShader.vert" />
     <None Include="resources\shaders\fontShader.frag" />
     <None Include="resources\shaders\fontShader.vert" />
+    <None Include="resources\shaders\shadowShader.frag" />
+    <None Include="resources\shaders\shadowShader.vert" />
+    <None Include="resources\shaders\shadowShaderDepth.frag" />
+    <None Include="resources\shaders\shadowShaderDepth.vert" />
     <None Include="resources\shaders\skybox.frag" />
     <None Include="resources\shaders\skybox.vert" />
   </ItemGroup>

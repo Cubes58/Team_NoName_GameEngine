@@ -239,12 +239,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\shaders\defaultShader.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\defaultShader.vert">
-      <Filter>Resources</Filter>
-    </None>
     <None Include="resources\shaders\fontShader.frag">
       <Filter>Resources</Filter>
     </None>
@@ -261,6 +255,24 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="resources\shaders\contrastShader.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\shadowShader.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\shadowShader.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\shadowShaderDepth.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\shadowShaderDepth.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\defaultShader.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\defaultShader.vert">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>
@@ -315,6 +327,9 @@
     </Filter>
     <Filter Include="Source\Graphics Engine\PostProcessing">
       <UniqueIdentifier>{50b69cf1-b9d9-4d57-b2a3-9fae1d8056f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Graphics Engine\Shadows">
+      <UniqueIdentifier>{cce6858b-7240-48b8-bf9e-bbf3e3b5e227}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

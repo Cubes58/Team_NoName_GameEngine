@@ -23,15 +23,6 @@ void VBOQuad::Render()
 	glBindVertexArray(0);
 }
 
-void VBOQuad::BindTextureUnits(int p_ProgramHandle, int p_TextureID)
-{
-	GLuint l_Location = glGetUniformLocation(p_ProgramHandle, "QuadTexture");
-	glUniform1i(l_Location, 0);
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, p_TextureID);
-}
-
 unsigned int VBOQuad::GetVaoHandle()
 {
 	return m_VaoHandle;

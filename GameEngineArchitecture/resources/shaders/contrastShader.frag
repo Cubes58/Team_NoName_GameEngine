@@ -25,4 +25,6 @@ void main(void)
  
  // calculate brightness
  out_Colour.rgb *= brightness;
+
+ //out_Colour = vec4(1.0 - out_Colour.r, 1.0 - out_Colour.g, 1.0 - out_Colour.b, 1.0);
 }
