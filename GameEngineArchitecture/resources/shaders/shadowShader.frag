@@ -10,7 +10,6 @@ out vec4 FragColour;
 uniform vec3 lightPos; 
 uniform vec3 viewPos;
 uniform vec3 lightColour;
-uniform vec3 objectColour;
 
 uniform sampler2D texture_diffuse1;
 uniform sampler2D shadowMap;
@@ -32,9 +31,6 @@ float ShadowCalculation(vec4 p_FragPosLightSpace) {
 	vec3 normal = normalize(Normal);
 	vec3 lightDir = normalize(lightPos - FragPos);
 	float bias = max(0.05f * (1.0f - dot(normal, lightDir)), 0.005f);
-	
-	// Check whether current frag pos is in a shadow.
-	// float shadow = currentDepth - bias > closestDepth ? 1.0f : 0.0f;
 	
 	// PCF
 	float shadow = 0.0f;
@@ -61,7 +57,7 @@ void main() {
 	vec3 normal = normalize(Normal);
 	
 	// Ambient.
-	vec3 ambient = 0.3f * colour;
+	vec3 ambient = lightColour * colour;
 	
 	// Diffuse.
 	vec3 lightDir = normalize(lightPos - FragPos);

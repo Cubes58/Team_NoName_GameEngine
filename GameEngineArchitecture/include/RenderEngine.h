@@ -22,6 +22,7 @@ class Model;
 class CubeMapCamera;
 class FrameBufferObject;
 class PostProcessor;
+class Light;
 
 
 #define RenderEngineInstance RenderEngine::Instance()
@@ -43,6 +44,9 @@ private:
 	std::shared_ptr<FrameBufferObject> m_ShadowFrameBuffer;
 	std::shared_ptr<PostProcessor> m_PostProcessor;
 
+	std::shared_ptr<GameObject> m_PlayerObject;
+
+	Light* m_Sun;
 
 	int m_ScreenWidth, m_ScreenHeight;
 

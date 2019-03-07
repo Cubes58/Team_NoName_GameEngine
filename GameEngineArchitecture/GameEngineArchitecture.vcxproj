@@ -48,6 +48,7 @@
     <ClInclude Include="include\InputCommandFactory.h" />
     <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\BodyComponent.h" />
+    <ClInclude Include="include\Light.h" />
     <ClInclude Include="include\Mesh.h" />
     <ClInclude Include="include\Model.h" />
     <ClInclude Include="include\ModelComponent.h" />
@@ -62,6 +63,8 @@
     <ClInclude Include="include\RenderEngine.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\ShaderProgram.h" />
+    <ClInclude Include="include\ShadowBox.h" />
+    <ClInclude Include="include\ShadowRenderer.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
@@ -83,6 +86,7 @@
     <ClCompile Include="source\ImageRenderer.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
+    <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Mesh.cpp" />
     <ClCompile Include="source\Model.cpp" />
@@ -95,6 +99,8 @@
     <ClCompile Include="source\RenderEngine.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\ShaderProgram.cpp" />
+    <ClCompile Include="source\ShadowBox.cpp" />
+    <ClCompile Include="source\ShadowRenderer.cpp" />
     <ClCompile Include="source\SkyBox.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />

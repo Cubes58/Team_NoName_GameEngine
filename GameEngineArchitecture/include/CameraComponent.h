@@ -21,24 +21,27 @@ public:
 	glm::vec3 m_Position;	//!< Position of the camera.
 	glm::quat m_Orientation;	//!< Orientation of the camera.
 	float m_FieldOfView;	//!< Camera's Field of view.
+	float m_NearPlane; //!< Near Clip Plane of the view frustrum
+	float m_FarPlane; //!< Far Clip Plane of the view frustrum
+	float m_AspectRatio; //!< Aspect Ratio of the screen
 
 	/*!
 		\brief Default constructor for the camera, it initialises the class' variables.
 	*/
-	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
+	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(45.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
+	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(45.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 		\param p_Orientation starting orientation of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(60.0f) {}
+	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(45.0f) {}
 	~CameraComponent() = default;	//!< Default destructor.
 
 
@@ -131,6 +134,24 @@ public:
 	void LookAt(const glm::vec3 &p_Target) { 
 		m_Orientation = (glm::toQuat(glm::lookAt(m_Position, p_Target, glm::vec3(0, 1, 0)))); 
 	}
+
+	/*!
+	\brief Gets the position of the camera component.
+	\return returns the position of the camera component.
+	*/
+	void SetAspectRatio(float p_AspectRatio){
+		m_AspectRatio = p_AspectRatio;
+	}
+
+	/*!
+	\brief Gets the position of the camera component.
+	\return returns the position of the camera component.
+	*/
+	void SetClipPlanes(glm::vec2 p_ClipPlanes) {
+		m_NearPlane = p_ClipPlanes.x;
+		m_FarPlane = p_ClipPlanes.y;
+	}
+
 
 	/*!
 		\brief Gets the position of the camera component.

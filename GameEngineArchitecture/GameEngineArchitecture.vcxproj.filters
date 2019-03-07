@@ -94,6 +94,15 @@
     <ClCompile Include="source\RenderEngine.cpp">
       <Filter>Source\Graphics Engine</Filter>
     </ClCompile>
+    <ClCompile Include="source\Light.cpp">
+      <Filter>Source\Graphics Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShadowBox.cpp">
+      <Filter>Source\Graphics Engine\Shadows</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShadowRenderer.cpp">
+      <Filter>Source\Graphics Engine\Shadows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h">
@@ -237,6 +246,15 @@
     <ClInclude Include="include\FrameBufferType.h">
       <Filter>Include\Enums</Filter>
     </ClInclude>
+    <ClInclude Include="include\Light.h">
+      <Filter>Include\Graphics Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShadowBox.h">
+      <Filter>Include\Graphics Engine\Shadows</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShadowRenderer.h">
+      <Filter>Include\Graphics Engine\Shadows</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\fontShader.frag">
@@ -330,6 +348,9 @@
     </Filter>
     <Filter Include="Include\Graphics Engine\Shadows">
       <UniqueIdentifier>{cce6858b-7240-48b8-bf9e-bbf3e3b5e227}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Graphics Engine\Shadows">
+      <UniqueIdentifier>{b8b03d74-3666-4f5e-b82a-3fcdcf6b210a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

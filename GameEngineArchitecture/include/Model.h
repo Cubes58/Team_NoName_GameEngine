@@ -15,9 +15,12 @@
 /*! \class Model
 	\brief A class that stores the properties necessary to create a model.
 */
+class ModelComponent;
 
 class Model {
 private:
+	friend ModelComponent;
+
 	std::vector<Mesh> m_Meshes;	//!< Stores the model's meshes.
 	std::string m_Directory;	//!< Stores the directory.
 	std::vector<Texture> m_Textures;	//!< Stores the model's textures.

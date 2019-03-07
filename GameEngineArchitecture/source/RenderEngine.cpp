@@ -5,6 +5,7 @@
 #include "SkyBox.h"
 #include "FrameBufferObject.h"
 #include "PostProcessor.h"
+#include "Light.h"
 
 #include "ModelComponent.h"
 #include "CameraComponent.h"
@@ -15,6 +16,21 @@
 #include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
+
+
+void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
+{
+	m_ScreenWidth = p_ScreenWidth;
+	m_ScreenHeight = p_ScreenHeight;
+
+	m_Sun = new Light(glm::vec3(0.0f, 10.0f, 00.0f), glm::vec3(0.5f, 0.5f, 0.5f));
+	
+	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(p_ScreenWidth, p_ScreenHeight, FrameBufferType::DEPTH_TEXTURE);
+	m_ShadowFrameBuffer = std::make_shared<FrameBufferObject>(1024, 1024, FrameBufferType::SHADOW_BUFFER);
+	m_PostProcessor = std::make_shared<PostProcessor>();
+	m_PostProcessor->InitPostProcessing();
+	InitShaders();
+}
 
 void RenderEngine::InitShaders()
 {
@@ -35,18 +51,6 @@ void RenderEngine::InitShaders()
 
 }
 
-void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
-{
-	m_ScreenWidth = p_ScreenWidth;
-	m_ScreenHeight = p_ScreenHeight;
-
-	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(p_ScreenWidth, p_ScreenHeight, FrameBufferType::DEPTH_TEXTURE);
-	m_ShadowFrameBuffer = std::make_shared<FrameBufferObject>(1024, 1024, FrameBufferType::SHADOW_BUFFER);
-	m_PostProcessor = std::make_shared<PostProcessor>();
-	m_PostProcessor->InitPostProcessing();
-	InitShaders();
-}
-
 void RenderEngine::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 & p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram)
 {
 	p_ShaderProgram->ErrorChecker();
@@ -59,47 +63,41 @@ void RenderEngine::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 & p
 void RenderEngine::Update(double p_DeltaTime)
 {
 	m_Skybox->GetShaderProgram()->ErrorChecker();
+	
 	SetShaderParams(m_Skybox->GetShaderProgram());
 	SetLightParams(m_Skybox->GetShaderProgram());
 
-	m_DefaultShader->ErrorChecker();
-	SetShaderParams(m_DefaultShader);
-	SetLightParams(m_DefaultShader);
-
-	m_ShadowShader->ErrorChecker();
-	SetShaderParams(m_ShadowShader);
-	SetLightParams(m_ShadowShader);
-
-	m_DepthShader->ErrorChecker();
-	SetShaderParams(m_DepthShader);
-	SetLightParams(m_DepthShader);
 }
 
 void RenderEngine::Render()
 {
+	glEnable(GL_CLIP_DISTANCE0);
 	ClearScreen();
-
 	RenderFrameBuffers();
 
-	/*RenderSceneObjects(m_DefaultShader);
+	//Used for debugging shaders/when not using framebuffers to render
+	/*RenderSceneObjects(m_ShadowShader);
 	m_Skybox->Render();*/
 }
 
 void RenderEngine::RenderFrameBuffers()
 {
-	m_ShadowFrameBuffer->BindFrameBuffer();
+	/*m_ShadowFrameBuffer->BindFrameBuffer();
 	glClear(GL_DEPTH_BUFFER_BIT);
 	RenderSceneObjects(m_DepthShader);
 	m_ShadowFrameBuffer->UnbindFrameBuffer();
 
+	//Binds the shadow texture to the shader
 	glUseProgram(m_ShadowShader->GetID());
 	glActiveTexture(GL_TEXTURE1);
 	glBindTexture(GL_TEXTURE_2D, m_ShadowFrameBuffer->GetDepthTexture());
-	m_ShadowShader->SetInt("shadowMap", 1);
+	m_ShadowShader->SetInt("shadowMap", 1);*/
 
 	m_SceneFrameBuffer->BindFrameBuffer();
 	ClearScreen();
 	RenderSceneObjects(m_DefaultShader);
+	
+	m_DefaultShader->ErrorChecker();
 	m_Skybox->Render();
 	m_SceneFrameBuffer->UnbindFrameBuffer();
 
@@ -111,6 +109,8 @@ void RenderEngine::RenderFrameBuffers()
 void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram)
 {
 	glUseProgram(p_ShaderProgram->GetID());
+	SetShaderParams(p_ShaderProgram);
+	SetLightParams(p_ShaderProgram);
 	m_DefaultShader->ErrorChecker();
 	for (auto gameObject : *m_GameObjects) {
 		// Make sure the object has a model and transform component - so it can be rendered.
@@ -120,6 +120,8 @@ void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderPro
 		if (modelComponent != nullptr && transformComponent != nullptr)
 			DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix(), p_ShaderProgram);
 	}
+	p_ShaderProgram->SetMat4("model", m_Sun->GetModelMatrix());
+	m_Sun->Render();
 	
 }
 
@@ -134,6 +136,7 @@ void RenderEngine::SetGameObjects(std::unordered_multimap<std::type_index, std::
 	auto iter = m_GameObjects->find(typeid(PlayerCharacter));
 	if (iter != m_GameObjects->end())
 	{
+		m_PlayerObject = iter->second;
 		m_Camera = iter->second->GetComponent<CameraComponent>();
 	}
 }
@@ -146,17 +149,15 @@ void RenderEngine::SetDefaultShader()
 void RenderEngine::SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram)
 {
 	glUseProgram(p_ShaderProgram->GetID());
-	glm::vec3 l_LightPos = glm::vec3(0.0f, 20.0f, 20.0f);
-	glm::mat4 l_LightProjection, l_LightView, l_LightSpaceMatrix;
-	//Setup light params for shadow mapping
-	l_LightProjection = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.1f, 1000.0f);
-	l_LightView = glm::lookAt(l_LightPos, glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	l_LightSpaceMatrix = l_LightProjection * l_LightView;
-	// Be sure to activate shader when setting uniforms/drawing objects.
-	p_ShaderProgram->SetMat4("lightSpaceMatrix", l_LightSpaceMatrix);
+
+	float l_AspectRatio = m_ScreenWidth / m_ScreenHeight;
+	float l_FrustrumLength = 1000.0f - 0.1f;
+	m_Sun->SetProjectionMatrix(glm::vec2(0.1f, 1000.f), l_AspectRatio, m_Camera->m_FieldOfView, l_FrustrumLength);
+
+	p_ShaderProgram->SetMat4("lightSpaceMatrix", m_Sun->GetSpaceMatrix());
 	p_ShaderProgram->SetVec3("objectColour", 1.0f, 0.6f, 0.61f);
-	p_ShaderProgram->SetVec3("lightColour", 0.3f, 0.3f, 0.3f);
-	p_ShaderProgram->SetVec3("lightPos", l_LightPos);
+	p_ShaderProgram->SetVec3("lightColour", m_Sun->GetColour());
+	p_ShaderProgram->SetVec3("lightPos", m_Sun->GetPosition());
 }
 
 void RenderEngine::SetShaderParams(std::shared_ptr<ShaderProgram> p_ShaderProgram)
