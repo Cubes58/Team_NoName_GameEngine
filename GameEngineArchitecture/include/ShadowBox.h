@@ -3,6 +3,9 @@
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 #include <memory>
+#include <vector>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/quaternion.hpp>
 
 class CameraComponent;
 

@@ -1,7 +1,6 @@
 #include "ShadowBox.h"
 #include "CameraComponent.h"
-#include <vector>
-#include <glm/gtx/quaternion.hpp>
+
 
 std::vector<glm::vec4> ShadowBox::CalculateFrustrumPoints(glm::mat4 p_Rotation, glm::vec3 p_ForwardVector, glm::vec3 p_CenterPointNear, glm::vec3 p_CenterPointFar)
 {
