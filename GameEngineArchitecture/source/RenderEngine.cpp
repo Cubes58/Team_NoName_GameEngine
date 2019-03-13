@@ -95,7 +95,7 @@ void RenderEngine::RenderFrameBuffers()
 
 	m_SceneFrameBuffer->BindFrameBuffer();
 	ClearScreen();
-	RenderSceneObjects(m_DefaultShader);
+	RenderSceneObjects(m_ShadowShader);
 	
 	m_DefaultShader->ErrorChecker();
 	m_Skybox->Render();

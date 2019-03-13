@@ -32,7 +32,7 @@ private:
 	void CalculateWidthsAndHeights();
 
 public:
-	ShadowBox(std::shared_ptr<CameraComponent> p_SceneCamera, glm::mat4 p_LightViewMatrix, float p_AspectRatio);
+	ShadowBox(std::shared_ptr<CameraComponent> p_SceneCamera, glm::mat4 p_LightViewMatrix);
 
 	void Update();
 
@@ -41,8 +41,4 @@ public:
 	float GetWidth();
 	float GetHeight();
 	float GetLength();
-
-	void SetAspectRation();
-
-
 };

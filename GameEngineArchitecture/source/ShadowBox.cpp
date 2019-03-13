@@ -50,11 +50,11 @@ void ShadowBox::CalculateWidthsAndHeights()
 	m_NearHeight = m_NearWidth / m_AspectRatio;
 }
 
-ShadowBox::ShadowBox(std::shared_ptr<CameraComponent> p_SceneCamera, glm::mat4 p_LightViewMatrix, float p_AspectRatio)
+ShadowBox::ShadowBox(std::shared_ptr<CameraComponent> p_SceneCamera, glm::mat4 p_LightViewMatrix)
 {
 	this->m_LightViewMatrix = p_LightViewMatrix;
 	this->m_SceneCamera = p_SceneCamera;
-	this->m_AspectRatio = p_AspectRatio;
+	this->m_AspectRatio = p_SceneCamera->m_AspectRatio;
 
 	CalculateWidthsAndHeights();
 }
