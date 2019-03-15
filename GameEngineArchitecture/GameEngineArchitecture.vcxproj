@@ -63,8 +63,6 @@
     <ClInclude Include="include\RenderEngine.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\ShaderProgram.h" />
-    <ClInclude Include="include\ShadowBox.h" />
-    <ClInclude Include="include\ShadowRenderer.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
@@ -99,8 +97,6 @@
     <ClCompile Include="source\RenderEngine.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\ShaderProgram.cpp" />
-    <ClCompile Include="source\ShadowBox.cpp" />
-    <ClCompile Include="source\ShadowRenderer.cpp" />
     <ClCompile Include="source\SkyBox.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />
@@ -109,6 +105,8 @@
   <ItemGroup>
     <None Include="resources\shaders\contrastShader.frag" />
     <None Include="resources\shaders\contrastShader.vert" />
+    <None Include="resources\shaders\debugShader.frag" />
+    <None Include="resources\shaders\debugShader.vert" />
     <None Include="resources\shaders\defaultShader.frag" />
     <None Include="resources\shaders\defaultShader.vert" />
     <None Include="resources\shaders\fontShader.frag" />
@@ -124,7 +122,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

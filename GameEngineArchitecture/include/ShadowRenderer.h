@@ -23,22 +23,23 @@ private:
 
 	ShadowBox* m_ShadowBox;
 	FrameBufferObject* m_FrameBuffer;
-	ShaderProgram* m_ShadowShader;
+	std::shared_ptr<ShaderProgram> m_ShadowShader;
 
 	RenderEngine *m_RenderEngine = nullptr; //!< Pointer to the engine for rendering 
 
 	void Prepare(glm::vec3 p_SunPosition);
-	void PrepareShadowMap();
 	void UpdateLightViewMatrix(glm::vec3 p_Direction, glm::vec3 p_Center);
 	void UpdateOrthoProjectionMatrix(float p_Width, float p_Height, float p_Length);
 	void CreateOffsetMatrix();
 
 public:
-	ShadowRenderer(int p_ShadowSize, std::shared_ptr<CameraComponent> p_SceneCamera, RenderEngine *p_RenderEngine);
+	ShadowRenderer(int p_ShadowSize, RenderEngine *p_RenderEngine);
 
 	int GetShadowMap();
 	glm::mat4 GetLightViewMatrix();
 	glm::mat4 GetShadowSpaceMatrix();
+
+	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);
 
 	void Render(glm::vec3 p_SunPosition);
 	void SetShaderParams();

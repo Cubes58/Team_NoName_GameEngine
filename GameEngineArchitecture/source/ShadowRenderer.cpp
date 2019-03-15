@@ -9,17 +9,18 @@
 
 
 
-ShadowRenderer::ShadowRenderer(int p_ShadowSize, std::shared_ptr<CameraComponent> p_SceneCamera, RenderEngine * p_RenderEngine)
+ShadowRenderer::ShadowRenderer(int p_ShadowSize, RenderEngine* p_RenderEngine)
 {
 	m_ProjectionMatrix = glm::mat4();
 	m_LightViewMatrix = glm::mat4();
 	m_ProjViewMatrix = glm::mat4();
 	m_OffsetMatrix = glm::mat4();
 
-	m_ShadowShader = new ShaderProgram();
+	m_ShadowShader = std::make_shared<ShaderProgram>();
 	m_ShadowShader->CompileShader("resources/shaders/shadowShaderDepth.vert", "resources/shaders/shadowShaderDepth.frag");
+	m_RenderEngine = p_RenderEngine;
 
-	m_ShadowBox = new ShadowBox(p_SceneCamera, m_LightViewMatrix);
+	m_ShadowBox = new ShadowBox(m_LightViewMatrix);
 	m_FrameBuffer = new FrameBufferObject(p_ShadowSize, p_ShadowSize, FrameBufferType::SHADOW_BUFFER);
 }
 
@@ -84,12 +85,18 @@ void ShadowRenderer::Render(glm::vec3 p_SunPosition)
 	m_FrameBuffer->BindFrameBuffer();
 	glEnable(GL_DEPTH_TEST);
 	glClear(GL_DEPTH_BUFFER_BIT);
-	m_RenderEngine->RenderSceneObjects(std::make_shared<ShaderProgram>(m_ShadowShader));
+	m_RenderEngine->RenderSceneObjects(m_ShadowShader);
 	m_FrameBuffer->UnbindFrameBuffer();
 }
 
 void ShadowRenderer::SetShaderParams()
 {
-	m_RenderEngine->SetLightParams(std::make_shared<ShaderProgram>(m_ShadowShader));
-	m_RenderEngine->SetShaderParams(std::make_shared<ShaderProgram>(m_ShadowShader));
+	m_RenderEngine->SetLightParams(m_ShadowShader);
+	m_RenderEngine->SetShaderParams(m_ShadowShader);
+	m_ShadowShader->SetMat4("projectionViewMatrix", m_ProjViewMatrix);
+}
+
+void ShadowRenderer::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
+{
+	m_ShadowBox->SetCamera(p_Camera);
 }

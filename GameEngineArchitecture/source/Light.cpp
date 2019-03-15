@@ -76,6 +76,7 @@ void Light::GenerateModelMatrix()
 
 void Light::GenerateProjectionMatrix(glm::vec2 p_ClipPlanes, float p_AspectRatio, float p_FieldOfView, float p_FrustrumLength)
 {
+	m_LightProjectionMatrix = glm::mat4();
 	float l_YScale = (float)((1.0f / glm::tan(glm::radians(p_FieldOfView / 2.f))));
 	float l_XScale = l_YScale / p_AspectRatio;
 

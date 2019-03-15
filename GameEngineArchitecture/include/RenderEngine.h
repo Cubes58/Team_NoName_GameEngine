@@ -12,6 +12,7 @@
 #include <glm/mat4x4.hpp>
 
 #include "FrameBufferType.h"
+#include "VBOQuad.h"
 
 class GameObject;
 class ShaderProgram;
@@ -36,6 +37,7 @@ private:
 	std::shared_ptr<ShaderProgram> m_DefaultShader;
 	std::shared_ptr<ShaderProgram> m_ShadowShader;
 	std::shared_ptr<ShaderProgram> m_DepthShader;
+	std::shared_ptr<ShaderProgram> m_DebugShader;
 
 	std::shared_ptr<FontRenderer> m_FontRenderer;
 	std::shared_ptr<Skybox> m_Skybox;
@@ -46,9 +48,14 @@ private:
 
 	std::shared_ptr<GameObject> m_PlayerObject;
 
+	glm::mat4 m_ProjectionMatrix;
+
 	Light* m_Sun;
 
 	int m_ScreenWidth, m_ScreenHeight;
+	unsigned int DepthFBO, DepthMap;
+
+	VBOQuad debugQuad;
 
 	void InitShaders();
 
@@ -66,8 +73,10 @@ public:
 	void Update(double p_DeltaTime);
 	void Render();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
+	void RenderDebugging();
 	void RenderFrameBuffers(CubeMapCamera &p_Camera);
 	void RenderFrameBuffers();
+	void GenerateProjectionMatrix();
 
 
 	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);

@@ -97,12 +97,6 @@
     <ClCompile Include="source\Light.cpp">
       <Filter>Source\Graphics Engine</Filter>
     </ClCompile>
-    <ClCompile Include="source\ShadowBox.cpp">
-      <Filter>Source\Graphics Engine\Shadows</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ShadowRenderer.cpp">
-      <Filter>Source\Graphics Engine\Shadows</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h">
@@ -154,9 +148,6 @@
       <Filter>Include\Input</Filter>
     </ClInclude>
     <ClInclude Include="include\FontRenderer.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\RenderEngine.h">
       <Filter>Include\Graphics Engine</Filter>
     </ClInclude>
     <ClInclude Include="include\ShaderProgram.h">
@@ -249,11 +240,8 @@
     <ClInclude Include="include\Light.h">
       <Filter>Include\Graphics Engine</Filter>
     </ClInclude>
-    <ClInclude Include="include\ShadowBox.h">
-      <Filter>Include\Graphics Engine\Shadows</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ShadowRenderer.h">
-      <Filter>Include\Graphics Engine\Shadows</Filter>
+    <ClInclude Include="include\RenderEngine.h">
+      <Filter>Include\Graphics Engine\Renderer</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,6 +279,12 @@
       <Filter>Resources</Filter>
     </None>
     <None Include="resources\shaders\defaultShader.vert">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\debugShader.frag">
+      <Filter>Resources</Filter>
+    </None>
+    <None Include="resources\shaders\debugShader.vert">
       <Filter>Resources</Filter>
     </None>
   </ItemGroup>
@@ -351,6 +345,9 @@
     </Filter>
     <Filter Include="Source\Graphics Engine\Shadows">
       <UniqueIdentifier>{b8b03d74-3666-4f5e-b82a-3fcdcf6b210a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Graphics Engine\Renderer">
+      <UniqueIdentifier>{e73ee488-bc04-44f4-ad51-313536ac28c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

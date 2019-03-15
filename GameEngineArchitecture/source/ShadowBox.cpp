@@ -1,5 +1,7 @@
 #include "ShadowBox.h"
 #include "CameraComponent.h"
+#include <iostream>
+#include <vector>
 
 
 std::vector<glm::vec4> ShadowBox::CalculateFrustrumPoints(glm::mat4 p_Rotation, glm::vec3 p_ForwardVector, glm::vec3 p_CenterPointNear, glm::vec3 p_CenterPointFar)
@@ -21,6 +23,7 @@ std::vector<glm::vec4> ShadowBox::CalculateFrustrumPoints(glm::mat4 p_Rotation, 
 	glm::vec3 l_NearBottom = glm::vec3(p_CenterPointNear + glm::vec3(l_DownVector.x * m_NearHeight,
 		l_DownVector.y * m_NearHeight, l_DownVector.z * m_NearHeight));
 
+	
 	std::vector<glm::vec4> l_Points;
 	l_Points.resize(8);
 	l_Points[0] = CalculateFrustrumCorner(l_FarTop, l_RightVector, m_FarWidth);
@@ -50,13 +53,10 @@ void ShadowBox::CalculateWidthsAndHeights()
 	m_NearHeight = m_NearWidth / m_AspectRatio;
 }
 
-ShadowBox::ShadowBox(std::shared_ptr<CameraComponent> p_SceneCamera, glm::mat4 p_LightViewMatrix)
+ShadowBox::ShadowBox(glm::mat4 p_LightViewMatrix)
 {
 	this->m_LightViewMatrix = p_LightViewMatrix;
-	this->m_SceneCamera = p_SceneCamera;
-	this->m_AspectRatio = p_SceneCamera->m_AspectRatio;
-
-	CalculateWidthsAndHeights();
+	
 }
 
 void ShadowBox::Update()
@@ -133,4 +133,11 @@ float ShadowBox::GetHeight()
 float ShadowBox::GetLength()
 {
 	return m_MaxZ - m_MinZ;
+}
+
+void ShadowBox::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
+{
+	this->m_SceneCamera = p_Camera;
+	this->m_AspectRatio = p_Camera->m_AspectRatio;
+	CalculateWidthsAndHeights();
 }
