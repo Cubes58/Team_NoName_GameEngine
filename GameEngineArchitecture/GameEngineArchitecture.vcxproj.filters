@@ -31,9 +31,6 @@
     <ClCompile Include="source\GLFW_EngineCore.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="source\Graph.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\InputHandler.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -47,9 +44,6 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\Model.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Node.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\PhysicsEngine.cpp">
@@ -84,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="source\STB_IMAGE\stb_image.c">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph.cpp">
+      <Filter>Source\Artificial Intelligence</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GraphNode.cpp">
+      <Filter>Source\Artificial Intelligence</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,9 +198,6 @@
     <ClInclude Include="include\Graph.h">
       <Filter>Include\Artificial Intelligence</Filter>
     </ClInclude>
-    <ClInclude Include="include\Node.h">
-      <Filter>Include\Artificial Intelligence</Filter>
-    </ClInclude>
     <ClInclude Include="include\GLFW_EngineCore.h">
       <Filter>Include\Engine Core</Filter>
     </ClInclude>
@@ -215,6 +212,12 @@
     </ClInclude>
     <ClInclude Include="include\Scene.h">
       <Filter>Include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphNode.h">
+      <Filter>Include\Artificial Intelligence</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BehaviourNodes.h">
+      <Filter>Include\Artificial Intelligence</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -279,6 +282,9 @@
     </Filter>
     <Filter Include="Include\Game\Game Objects">
       <UniqueIdentifier>{20b0e9b6-cccc-4e8f-8f8a-cb8deefe2ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Artificial Intelligence">
+      <UniqueIdentifier>{958acbaa-47c9-4c83-9c3d-4bcc0fe662df}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
