@@ -49,10 +49,13 @@ private:
 	std::shared_ptr<GameObject> m_PlayerObject;
 
 	glm::mat4 m_ProjectionMatrix;
+	glm::mat4 m_LightView, m_LightProjection, m_LightSpaceMatrix;
 
 	Light* m_Sun;
 
 	int m_ScreenWidth, m_ScreenHeight;
+	const unsigned int m_ShadowWidth = 1024;
+	const unsigned int m_ShadowHeight = 1024;
 	unsigned int DepthFBO, DepthMap;
 
 	VBOQuad debugQuad;

@@ -12,7 +12,7 @@ uniform vec3 viewPos;
 uniform vec3 lightColour;
 
 uniform sampler2D texture_diffuse1;
-uniform sampler2D shadowMap;
+uniform sampler2D depthMap;
 
 float ShadowCalculation(vec4 p_FragPosLightSpace) {
 	// Perform perspective division.
@@ -22,7 +22,7 @@ float ShadowCalculation(vec4 p_FragPosLightSpace) {
 	projCoords = projCoords * 0.5 + 0.5;
 	
 	// Get the closestdepth value from the light's perspective (using [0,1] range p_FragPosLightSpace as coords).
-	float closestDepth = texture(shadowMap, projCoords.xy).r;
+	float closestDepth = texture(depthMap, projCoords.xy).r;
 	
 	// Get the depth value of the current fragment, from the light's perspective.
 	float currentDepth = projCoords.z;
@@ -35,10 +35,10 @@ float ShadowCalculation(vec4 p_FragPosLightSpace) {
 	// PCF
 	float shadow = 0.0f;
 	
-	vec2 texelSize = 1.0f / textureSize(shadowMap, 0);
+	vec2 texelSize = 1.0f / textureSize(depthMap, 0);
 	for (int x = -1; x <= 1; ++x) {
 		for (int y = -1; y <= 1; ++y) {
-			float pcfDepth = texture(shadowMap, projCoords.xy + vec2(x,y) * texelSize).r;
+			float pcfDepth = texture(depthMap, projCoords.xy + vec2(x,y) * texelSize).r;
 			shadow += currentDepth - bias > pcfDepth ? 1.0f : 0.0f;
 		}
 	}
