@@ -136,16 +136,16 @@ public:
 	}
 
 	/*!
-	\brief Gets the position of the camera component.
-	\return returns the position of the camera component.
+		\brief Sets the aspect ratio of the camera component.
+		\param p_AspectRatio the aspect ratio of the camera
 	*/
 	void SetAspectRatio(float p_AspectRatio){
 		m_AspectRatio = p_AspectRatio;
 	}
 
 	/*!
-	\brief Gets the position of the camera component.
-	\return returns the position of the camera component.
+		\brief Sets the clip planes of the camera component.
+		\param p_ClipPlanes the near and far clip planes (stored in x and y)
 	*/
 	void SetClipPlanes(glm::vec2 p_ClipPlanes) {
 		m_NearPlane = p_ClipPlanes.x;

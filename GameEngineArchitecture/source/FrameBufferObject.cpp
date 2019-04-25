@@ -23,13 +23,21 @@ void FrameBufferObject::InitFrameBuffer()
 		CreateTextureAttachment();
 		CreateDepthTextureAttachment();
 		break;
-	case FrameBufferType::SHADOW_BUFFER:
+	case FrameBufferType::DIRECTIONAL_SHADOW:
 		CreateFrameBuffer();
+		CreateDepthTextureAttachment();
 		glDrawBuffer(GL_NONE);
 		glReadBuffer(GL_NONE);
-		CreateDepthTextureAttachment();
+		break;
+	case FrameBufferType::POINT_SHADOW:
+		CreateFrameBuffer();
+		CreateDepthCubeTextureAttachment();
+		glDrawBuffer(GL_NONE);
+		glReadBuffer(GL_NONE);
 		break;
 	}
+	glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 
 }
 
@@ -65,6 +73,20 @@ void FrameBufferObject::CreateDepthTextureAttachment()
 	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, m_DepthTexture, 0);
 }
 
+void FrameBufferObject::CreateDepthCubeTextureAttachment()
+{
+	glGenTextures(1, &m_DepthTexture);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, m_DepthTexture);
+	for (unsigned int i = 0; i < 6; ++i)
+		glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_DEPTH_COMPONENT, m_FrameWidth, m_FrameHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_R, GL_CLAMP_TO_EDGE);
+	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, m_DepthTexture, 0);
+}
+
 void FrameBufferObject::CreateDepthBufferAttachment()
 {
 	glGenRenderbuffers(1, &m_DepthBuffer);
@@ -82,7 +104,7 @@ FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, FrameBufferType 
 	m_TypeIndicator = p_Type;
 
 	InitFrameBuffer();
-	UnbindFrameBuffer();
+	
 }
 
 FrameBufferObject::FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_Position, float p_Size)
@@ -141,10 +163,10 @@ void FrameBufferObject::BindFrameBuffer()
 	glViewport(0, 0, m_FrameWidth, m_FrameHeight);
 }
 
-void FrameBufferObject::UnbindFrameBuffer()
+void FrameBufferObject::UnbindFrameBuffer(float p_Width, float p_Height)
 {
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
-	glViewport(0, 0, 800, 600);
+	glViewport(0, 0, p_Width, p_Height);
 }
 
 void FrameBufferObject::BindToReadBuffer()

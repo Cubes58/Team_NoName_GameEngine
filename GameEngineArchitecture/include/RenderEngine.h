@@ -24,6 +24,7 @@ class CubeMapCamera;
 class FrameBufferObject;
 class PostProcessor;
 class Light;
+class Shadows;
 
 
 #define RenderEngineInstance RenderEngine::Instance()
@@ -36,15 +37,14 @@ private:
 	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> *m_GameObjects;	//!< Stores every game object.
 	std::shared_ptr<ShaderProgram> m_DefaultShader;
 	std::shared_ptr<ShaderProgram> m_ShadowShader;
-	std::shared_ptr<ShaderProgram> m_DepthShader;
 	std::shared_ptr<ShaderProgram> m_DebugShader;
 
 	std::shared_ptr<FontRenderer> m_FontRenderer;
 	std::shared_ptr<Skybox> m_Skybox;
 	std::shared_ptr<CameraComponent> m_Camera;
 	std::shared_ptr<FrameBufferObject> m_SceneFrameBuffer;
-	std::shared_ptr<FrameBufferObject> m_ShadowFrameBuffer;
 	std::shared_ptr<PostProcessor> m_PostProcessor;
+	std::shared_ptr<Shadows> m_ShadowRenderer;
 
 	std::shared_ptr<GameObject> m_PlayerObject;
 
@@ -52,6 +52,8 @@ private:
 	glm::mat4 m_LightView, m_LightProjection, m_LightSpaceMatrix;
 
 	Light* m_Sun;
+
+	bool m_IsDirectionalShadows = false;
 
 	int m_ScreenWidth, m_ScreenHeight;
 	const unsigned int m_ShadowWidth = 1024;

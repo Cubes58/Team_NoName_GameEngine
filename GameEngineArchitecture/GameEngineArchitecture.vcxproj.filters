@@ -97,6 +97,9 @@
     <ClCompile Include="source\Light.cpp">
       <Filter>Source\Graphics Engine</Filter>
     </ClCompile>
+    <ClCompile Include="source\Shadows.cpp">
+      <Filter>Source\Graphics Engine\Shadows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h">
@@ -242,6 +245,9 @@
     </ClInclude>
     <ClInclude Include="include\RenderEngine.h">
       <Filter>Include\Graphics Engine\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Shadows.h">
+      <Filter>Include\Graphics Engine\Shadows</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

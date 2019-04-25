@@ -41,6 +41,7 @@ private:
 	void CreateFrameBuffer(); //!< Creates the framebuffer object;
 	void CreateTextureAttachment(); //!< Creates and adds the texture attachment (Colour)
 	void CreateDepthTextureAttachment(); //!< Creates and adds the texture attachment (Depth)
+	void CreateDepthCubeTextureAttachment(); //!< Creates and adds the texture attachment (Depth, cube variant)
 	void CreateDepthBufferAttachment(); //!< Creates and adds the buffer for rendering
 
 
@@ -54,7 +55,7 @@ public:
 
 	void CleanUp(); //!< Clean up the FBOs after destruction
 	void BindFrameBuffer(); //!< Bind the frame buffer to the current context
-	void UnbindFrameBuffer(); //!< Unbinds the frame buffer from the current context, returns it to screen
+	void UnbindFrameBuffer(float p_Width, float p_Height); //!< Unbinds the frame buffer from the current context, returns it to screen
 
 	void BindToReadBuffer(); //!< Binds the current frame buffer to a read buffer
 	void ResolveToFrameBuffer(int p_ReadBuffer, FrameBufferObject p_OutputFrameBuffer); //!< Passer between multiple frame buffers

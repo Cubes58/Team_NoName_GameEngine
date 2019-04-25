@@ -63,6 +63,7 @@
     <ClInclude Include="include\RenderEngine.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\ShaderProgram.h" />
+    <ClInclude Include="include\Shadows.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
     <ClInclude Include="include\TransformComponent.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="source\RenderEngine.cpp" />
     <ClCompile Include="source\Scene.cpp" />
     <ClCompile Include="source\ShaderProgram.cpp" />
+    <ClCompile Include="source\Shadows.cpp" />
     <ClCompile Include="source\SkyBox.cpp" />
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />
