@@ -21,7 +21,9 @@ void PostProcessor::InitPostProcessing()
 
 void PostProcessor::DoPostProcessing(int p_ColourTexture)
 {
+	//Render the quad after each effect - encapsulate in a fbo for multipassing
 	Start();
 	m_ContrastChanger->Render(p_ColourTexture);
+	m_ScreenQuad.Render();
 	End();
 }

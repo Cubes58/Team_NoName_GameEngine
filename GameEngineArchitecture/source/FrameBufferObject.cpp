@@ -4,6 +4,7 @@
 
 void FrameBufferObject::InitFrameBuffer()
 {
+	float borderColor[] = { 1.0, 1.0, 1.0, 1.0 };
 	switch (m_TypeIndicator)
 	{
 	case FrameBufferType::NONE:
@@ -24,10 +25,22 @@ void FrameBufferObject::InitFrameBuffer()
 		CreateDepthTextureAttachment();
 		break;
 	case FrameBufferType::DIRECTIONAL_SHADOW:
-		CreateFrameBuffer();
-		CreateDepthTextureAttachment();
+		glGenFramebuffers(1, &m_FrameBuffer);
+		// create depth texture
+		glGenTextures(1, &m_DepthTexture);
+		glBindTexture(GL_TEXTURE_2D, m_DepthTexture);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, m_FrameWidth, m_FrameHeight, 0, GL_DEPTH_COMPONENT, GL_FLOAT, NULL);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+		glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
+		// attach depth texture as FBO's depth buffer
+		glBindFramebuffer(GL_FRAMEBUFFER, m_FrameBuffer);
+		glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_DepthTexture, 0);
 		glDrawBuffer(GL_NONE);
 		glReadBuffer(GL_NONE);
+		glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		break;
 	case FrameBufferType::POINT_SHADOW:
 		CreateFrameBuffer();
@@ -64,13 +77,13 @@ void FrameBufferObject::CreateDepthTextureAttachment()
 {
 	glGenTextures(1, &m_DepthTexture);
 	glBindTexture(GL_TEXTURE_2D, m_DepthTexture);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, m_FrameWidth, m_FrameHeight, 0, GL_DEPTH_COMPONENT,
-		GL_FLOAT, NULL);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16, m_FrameWidth, m_FrameHeight, 0, GL_DEPTH_COMPONENT,
+		GL_FLOAT, 0);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-	glFramebufferTexture(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, m_DepthTexture, 0);
+	glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, m_DepthTexture, 0);
 }
 
 void FrameBufferObject::CreateDepthCubeTextureAttachment()
@@ -93,8 +106,6 @@ void FrameBufferObject::CreateDepthBufferAttachment()
 	glBindRenderbuffer(GL_RENDERBUFFER, m_DepthBuffer);
 	glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT24, m_FrameWidth, m_FrameHeight);
 	glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, m_DepthBuffer);
-
-	
 }
 
 FrameBufferObject::FrameBufferObject(int p_Width, int p_Height, FrameBufferType p_Type)
@@ -142,18 +153,6 @@ FrameBufferObject::FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_P
 
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-
-}
-
-void FrameBufferObject::CleanUp()
-{
-	glDeleteFramebuffers(1, &m_FrameBuffer);
-	glDeleteTextures(1, &m_ColourTexture);
-	glDeleteTextures(1, &m_DepthTexture);
-	glDeleteTextures(1, &m_FrameBufferTextureID);
-
-	glDeleteRenderbuffers(1, &m_DepthBuffer);
-	glDeleteRenderbuffers(1, &m_ColourBuffer);
 
 }
 

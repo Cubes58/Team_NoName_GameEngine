@@ -1,5 +1,6 @@
 #pragma once
 #include "ImageRenderer.h"
+#include "VBOQuad.h"
 #include "ShaderProgram.h"
 
 
@@ -7,7 +8,7 @@
 class ContrastChanger
 {
 private:
-	ImageRenderer *m_Renderer;
+	VBOQuad* m_screenQuad;
 	
 
 

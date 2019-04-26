@@ -71,16 +71,6 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 	m_KeyReleaseBuffer.resize(m_KeyBufferSize);
 	std::fill(m_KeyReleaseBuffer.begin(), m_KeyReleaseBuffer.end(), false);
 
-	// Enable depth test.
-	glEnable(GL_DEPTH_TEST);
-
-	// Enable alpha transparency.
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-	// Enable face culling.
-	glEnable(GL_CULL_FACE);
-
 	glfwSwapInterval(0);
 
 	return true;

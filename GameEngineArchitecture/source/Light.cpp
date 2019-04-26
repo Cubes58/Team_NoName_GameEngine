@@ -92,7 +92,7 @@ Light::Light()
 {
 	m_LightPosition = glm::vec3(0.0f, 5.0f, 0.0f);
 	m_LightColour = glm::vec3(1.0f, 1.0f, 1.0f);
-
+	GenerateModelMatrix();
 	InitDebugModel();
 }
 
@@ -100,7 +100,7 @@ Light::Light(glm::vec3 p_LightPosition, glm::vec3 p_LightColour)
 {
 	m_LightPosition = p_LightPosition;
 	m_LightColour = p_LightColour;
-
+	GenerateModelMatrix();
 	InitDebugModel();
 }
 
@@ -156,5 +156,5 @@ const glm::mat4 & Light::GetModelMatrix() const
 const glm::mat4 &Light::GetSpaceMatrix()
 {
 	m_LightViewMatrix = glm::lookAt(m_LightPosition, glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-	return glm::mat4(m_LightProjectionMatrix * m_LightViewMatrix);
+	return m_LightViewMatrix;
 }

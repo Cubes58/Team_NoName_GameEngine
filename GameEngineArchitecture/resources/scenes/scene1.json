@@ -1,5 +1,25 @@
 {
   "GameObjects": [
+   {
+      "modelName": "floor", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "StaticEnvironmentObject"
+    },
     {
       "modelName": "flag", 
       "orientation": [
@@ -127,26 +147,7 @@
       ], 
       "type": "PlayerCharacter", 
       "uniformMovementSpeed": 0.35
-    }, 
-    {
-      "modelName": "floor", 
-      "orientation": [
-        1.0, 
-        0.0, 
-        0.0, 
-        0.0
-      ], 
-      "position": [
-        0.0, 
-        -1.0, 
-        0.0
-      ], 
-      "scale": [
-        1, 
-        1, 
-        1
-      ], 
-      "type": "StaticEnvironmentObject"
     }
+   
   ]
 }
