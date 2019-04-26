@@ -23,8 +23,8 @@ Graph::Graph(glm::vec3 p_Pos, float p_distance, glm::vec2 p_numberOfNodes)
 		m_Graph.push_back(temp);
 
 	}
-	m_numberOfNodes = p_numberOfNodes;
-	m_distance = p_distance;
+	m_NumberOfNodes = p_numberOfNodes;
+	m_Distance = p_distance;
 }
 
 std::list<GraphNode*> Graph::GetThePath(glm::vec3 p_start, glm::vec3 p_goal)
@@ -35,37 +35,37 @@ std::list<GraphNode*> Graph::GetThePath(glm::vec3 p_start, glm::vec3 p_goal)
 	GraphNode* tempGoalNode;
 	GraphNode* tempStartNode;
 
-	m_openList.clear();
-	m_closedList.clear();
+	m_OpenList.clear();
+	m_ClosedList.clear();
 
     //tempNode = FindNode(p_start);
-	m_openList.push_back(FindNode(p_start));
+	m_OpenList.push_back(FindNode(p_start));
 	tempGoalNode = FindNode(p_goal);
 	tempStartNode = FindNode(p_start);
-	m_openList.front()->setTheG(0.0f); m_openList.front()->setTheF(0.0f);
+	m_OpenList.front()->SetTheG(0.0f); m_OpenList.front()->SetTheF(0.0f);
 
-	for (int i = 0; i < m_numberOfNodes.x; i++)
+	for (int i = 0; i < m_NumberOfNodes.x; i++)
 	{
-		for (int j = 0; j < m_numberOfNodes.y; j++)
+		for (int j = 0; j < m_NumberOfNodes.y; j++)
 		{
-			m_Graph.at(i).at(j)->setThePerant(nullptr);
+			m_Graph.at(i).at(j)->SetThePerant(nullptr);
 		}
 	}
 
-	while (!m_openList.empty())
+	while (!m_OpenList.empty())
 	{
-		tempNode = m_openList.front();
+		tempNode = m_OpenList.front();
 
-		for (auto* i : m_openList)
+		for (auto* i : m_OpenList)
 		{
-			if (i->getTheF() < tempNode->getTheF())	{ tempNode = i; }
+			if (i->GetTheF() < tempNode->GetTheF())	{ tempNode = i; }
 		}
 
-		m_openList.remove(tempNode);
-		m_closedList.push_back(tempNode);
+		m_OpenList.remove(tempNode);
+		m_ClosedList.push_back(tempNode);
 
-		if (tempNode->getID().first == tempGoalNode->getID().first and
-		tempNode->getID().second == tempGoalNode->getID().second)
+		if (tempNode->GetID().first == tempGoalNode->GetID().first and
+		tempNode->GetID().second == tempGoalNode->GetID().second)
 		{
 			std::cout << "Goal Reached!!!" << std::endl;
 			return ConstructThePath(tempStartNode, tempGoalNode);
@@ -73,39 +73,39 @@ std::list<GraphNode*> Graph::GetThePath(glm::vec3 p_start, glm::vec3 p_goal)
 
 		for (auto * j : GatherTheChildren(tempNode))
 		{
-			if (j->checkNodeType() == "InvalidNode")
+			if (j->CheckNodeType() == "InvalidNode")
 				continue;
 
-			m_isInClosedList = false;
-			for (auto* k : m_closedList) {
-				if (k == j) { m_isInClosedList = true;}
+			m_IsInClosedList = false;
+			for (auto* k : m_ClosedList) {
+				if (k == j) { m_IsInClosedList = true;}
 			}
 
-			if (m_isInClosedList)
+			if (m_IsInClosedList)
 				continue;
 
-			if (j->getTheDiagonal()) { GValueTemp = tempNode->getTheG() + 1.4f; }
-			else if (!j->getTheDiagonal()) { GValueTemp = tempNode->getTheG() + 1; };
+			if (j->getTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1.4f; }
+			else if (!j->getTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1; };
 
-			m_isInOpenList = false;
-			for (auto* l : m_openList)
+			m_IsInOpenList = false;
+			for (auto* l : m_OpenList)
 			{
 				if (l == j) {
-					m_isInOpenList = true; 
+					m_IsInOpenList = true; 
 				}
 			}
 
-			if (GValueTemp < j->getTheG() or !m_isInOpenList) {
+			if (GValueTemp < j->GetTheG() or !m_IsInOpenList) {
 
-				j->setTheG(GValueTemp);
-			    j->setTheH(CalculateH(tempNode->getNodesPos(), p_goal));
-				j->setTheF(j->getTheG() + j->getTheH());
+				j->SetTheG(GValueTemp);
+			    j->SetTheH(CalculateH(tempNode->GetNodesPos(), p_goal));
+				j->SetTheF(j->GetTheG() + j->GetTheH());
 
-				j->setThePerant(tempNode);
-				m_storeLast = j;
+				j->SetThePerant(tempNode);
+				m_StoreLast = j;
 
-				if (!m_isInOpenList)
-					m_openList.push_back(j);
+				if (!m_IsInOpenList)
+					m_OpenList.push_back(j);
 
 			}
 			
@@ -114,25 +114,25 @@ std::list<GraphNode*> Graph::GetThePath(glm::vec3 p_start, glm::vec3 p_goal)
 	}
 
 
-	return ConstructThePath(tempStartNode, m_storeLast);
+	return ConstructThePath(tempStartNode, m_StoreLast);
 }
 
-void Graph::setNodeInvalid(GraphNode * p_Node)
+void Graph::SetNodeInvalid(GraphNode * p_Node)
 {
-	m_Graph.at(p_Node->getID().first).at(p_Node->getID().second) = new InvalidNode(p_Node->getNodesPos(), p_Node->getID().first, p_Node->getID().second);
+	m_Graph.at(p_Node->GetID().first).at(p_Node->GetID().second) = new InvalidNode(p_Node->GetNodesPos(), p_Node->GetID().first, p_Node->GetID().second);
 }
 
 GraphNode * Graph::FindNode(glm::vec3 p_nodePos)
 {
 	GraphNode* tempNode; tempNode = new NormalNode(glm::vec3(10000.f, 10000.f, 10000.f), 1000, 1000);
 
-	for (int i = 0; i < m_numberOfNodes.x; i++)
+	for (int i = 0; i < m_NumberOfNodes.x; i++)
 	{
-		for (int j = 0; j < m_numberOfNodes.y; j++)
+		for (int j = 0; j < m_NumberOfNodes.y; j++)
 		{
-			if (m_Graph.at(i).at(j)->checkNodeType() != "InvalidNode")
+			if (m_Graph.at(i).at(j)->CheckNodeType() != "InvalidNode")
 			{
-				if (CalculateH(tempNode->getNodesPos(), p_nodePos) > (CalculateH(m_Graph.at(i).at(j)->getNodesPos(), p_nodePos)))
+				if (CalculateH(tempNode->GetNodesPos(), p_nodePos) > (CalculateH(m_Graph.at(i).at(j)->GetNodesPos(), p_nodePos)))
 				{
 					tempNode = m_Graph.at(i).at(j);
 				}
@@ -146,12 +146,12 @@ GraphNode * Graph::FindNode(glm::vec3 p_nodePos)
 
 GraphNode * Graph::GetNode(int p_idx, int p_idy)
 {
-	for (int i = 0; i < m_numberOfNodes.x; i++)
+	for (int i = 0; i < m_NumberOfNodes.x; i++)
 	{
-		for (int j = 0; j < m_numberOfNodes.y; j++)
+		for (int j = 0; j < m_NumberOfNodes.y; j++)
 		{
-			if (m_Graph.at(i).at(j)->getID().first == p_idx and 
-			m_Graph.at(i).at(j)->getID().second == p_idy)
+			if (m_Graph.at(i).at(j)->GetID().first == p_idx and 
+			m_Graph.at(i).at(j)->GetID().second == p_idy)
 			{
 				return m_Graph.at(i).at(j);
 			}
@@ -164,42 +164,42 @@ GraphNode * Graph::GetNode(int p_idx, int p_idy)
 
 std::list<GraphNode*> Graph::GatherTheChildren(GraphNode * p_node)
 {
-	m_childList.clear();
+	m_ChildList.clear();
 
 	auto getCloseNode = [&](std::list<GraphNode*> p_TempList, int x = 0, int y = 0) {
-		m_childList.push_back(m_Graph.at(p_node->getID().first + x).at(p_node->getID().second + y));
-		m_Graph.at(p_node->getID().first + x).at(p_node->getID().second + y)->setTheDiagonal(false);
-		if (x != 0 and y != 0) { m_Graph.at(p_node->getID().first + x).at(p_node->getID().second + y)->setTheDiagonal(true); }
+		m_ChildList.push_back(m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y));
+		m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->GetTheDiagonal(false);
+		if (x != 0 and y != 0) { m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->GetTheDiagonal(true); }
 	};
 
-	if (p_node->getID().first != 0) { getCloseNode(m_childList, -1, 0); }
-	if (p_node->getID().first != m_numberOfNodes.x - 1) { getCloseNode(m_childList, 1, 0); }
-	if (p_node->getID().second != m_numberOfNodes.y - 1) { getCloseNode(m_childList, 0, 1); }
-	if (p_node->getID().second != 0) { getCloseNode(m_childList, 0, -1); }
+	if (p_node->GetID().first != 0) { getCloseNode(m_ChildList, -1, 0); }
+	if (p_node->GetID().first != m_NumberOfNodes.x - 1) { getCloseNode(m_ChildList, 1, 0); }
+	if (p_node->GetID().second != m_NumberOfNodes.y - 1) { getCloseNode(m_ChildList, 0, 1); }
+	if (p_node->GetID().second != 0) { getCloseNode(m_ChildList, 0, -1); }
 
-	if (p_node->getID().first != m_numberOfNodes.x - 1 and p_node->getID().second != m_numberOfNodes.y - 1) { getCloseNode(m_childList, 1, 1); }
-	if (p_node->getID().first != 0 and p_node->getID().second != m_numberOfNodes.y - 1) { getCloseNode(m_childList, -1, 1); }
-	if (p_node->getID().first != 0 and p_node->getID().second != 0) { getCloseNode(m_childList, -1, -1); }
-	if (p_node->getID().first != m_numberOfNodes.x - 1 and p_node->getID().second != 0) { getCloseNode(m_childList, 1, -1); }
+	if (p_node->GetID().first != m_NumberOfNodes.x - 1 and p_node->GetID().second != m_NumberOfNodes.y - 1) { getCloseNode(m_ChildList, 1, 1); }
+	if (p_node->GetID().first != 0 and p_node->GetID().second != m_NumberOfNodes.y - 1) { getCloseNode(m_ChildList, -1, 1); }
+	if (p_node->GetID().first != 0 and p_node->GetID().second != 0) { getCloseNode(m_ChildList, -1, -1); }
+	if (p_node->GetID().first != m_NumberOfNodes.x - 1 and p_node->GetID().second != 0) { getCloseNode(m_ChildList, 1, -1); }
 
-	return m_childList;
+	return m_ChildList;
 }
 
 std::list<GraphNode*> Graph::ConstructThePath(GraphNode * p_startNode, GraphNode * p_endNode)
 {
 
-	m_pathList.clear();
+	m_PathList.clear();
 	GraphNode* currentNode = p_endNode;
 
 	while (currentNode != p_startNode)
 	{
-		m_pathList.push_front(currentNode);
-		currentNode = currentNode->getThePerant();
+		m_PathList.push_front(currentNode);
+		currentNode = currentNode->GetThePerant();
 
 		//So each node stores where it came from, and it will work backwards to create a the path
 	}
 
-	return m_pathList;
+	return m_PathList;
 
 	//return std::list<GraphNode*>();
 }

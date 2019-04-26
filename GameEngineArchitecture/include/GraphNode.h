@@ -3,59 +3,98 @@
 #include <glm/glm.hpp>
 #include <string>
 
-class GraphNode{
+/*! The data that must be in a node that is used for the graph */
+
+class GraphNode {
 
 public:
 
-	virtual void setNodePos(glm::vec3 p_nodesPosition) { m_pos = p_nodesPosition; }
-	virtual glm::vec3 getNodesPos() { return m_pos; }
-	virtual std::string checkNodeType() = 0;
+	virtual void SetNodePos(glm::vec3 p_NodesPosition) { m_Pos = p_NodesPosition; }//!< Constructs Node
+																				   /*!
+																				   \param p_NodesPosition sets Pos
+																				   */
+	virtual glm::vec3 GetNodesPos() { return m_Pos; }//!< Gets the position of the Node
+	virtual std::string CheckNodeType() = 0; //!< Checks if the node is Invalid
 
-	virtual void setTheG(float p_setG) { m_G = p_setG; };
-	virtual void setTheF(float p_setF) { m_F = p_setF; };
-	virtual void setTheH(float p_setH) { m_H = p_setH; };
-	virtual void setTheDiagonal(bool p_b) { m_isDiagonal = p_b; };
+	virtual void SetTheG(float p_SetG) { m_G = p_SetG; };//!< Set Method
+													     /*!
+													     \param p_SetG the new G value
+														 */
+	virtual void SetTheF(float p_SetF) { m_F = p_SetF; };//!< Set Method
+														 /*!
+														 \param p_SetF the new F value
+														 */
+	virtual void SetTheH(float p_SetH) { m_H = p_SetH; };//!< Set Method
+														 /*!
+														 \param p_SetH the new H value
+														 */
+	virtual void GetTheDiagonal(bool p_B) { m_IsDiagonal = p_B; };//!< Set Method
+																  /*!
+																  \param p_B set Diagonal 
+																  */
 
-	virtual GraphNode* getThePerant() { return m_perantNode; }; 
-	virtual void setThePerant(GraphNode* p_Node) { m_perantNode = p_Node; }; 
-	virtual void setID(int p_x, int p_y) { m_idX = p_x; m_idY = p_y; }
-	virtual std::pair<int, int> getID() { return std::make_pair(m_idX, m_idY); };
+	virtual GraphNode* GetThePerant() { return m_PerantNode; }; //!< Gets the perant Node
+	virtual void SetThePerant(GraphNode* p_Node) { m_PerantNode = p_Node; }; //!< Set Method
+																			 /*!
+																			 \param p_Node sets perant node
+																			 */
+	virtual void SetID(int p_X, int p_Y) { m_IdX = p_X; m_IdY = p_Y; }//!< Set Method
+																	  /*!
+																	  \param p_X sets X
+																	  \param p_Y sets Y
+																	  */
+	virtual std::pair<int, int> GetID() { return std::make_pair(m_IdX, m_IdY); }; //!< Get Method
 
-	virtual float getTheG() { return m_G; };
-	virtual float getTheF() { return m_F; };
-	virtual float getTheH() { return m_H; };
-	virtual float getTheDiagonal() { return m_isDiagonal; };
+	virtual float GetTheG() { return m_G; }; //!< Set G
+	virtual float GetTheF() { return m_F; }; //!< Set F
+	virtual float GetTheH() { return m_H; }; //!< Set H
+	virtual bool GetTheDiagonal() { return m_IsDiagonal; }; //!< Set the Diagonal
 
 
 protected:
 
-	int m_idX; int m_idY;
-	GraphNode * m_perantNode;
-	glm::vec3 m_pos;
-	float m_F;
-	float m_G;
-	float m_H;
-	bool m_isDiagonal;
+	int m_IdX; //!< x id
+	int m_IdY; //!< y id
+	GraphNode * m_PerantNode; //!< The Prevoius Node
+	glm::vec3 m_Pos; //!< Its Position 
+	float m_F; //!< F value
+	float m_G; //!< G value
+	float m_H; //!< H value
+	bool m_IsDiagonal; //!< Is it a Diagonal 
 
 };
+
+/*! A node that cannot be explored */
 
 class InvalidNode : public GraphNode {
 
 public:
 
-	InvalidNode(glm::vec3 p_pos, int p_idX, int p_idY) { setNodePos(p_pos); setID(p_idX, p_idY); }
-	std::string checkNodeType() override { return "InvalidNode"; }
+	InvalidNode(glm::vec3 p_Pos, int p_IdX, int p_IdY) { SetNodePos(p_Pos); SetID(p_IdX, p_IdY); } //!< Constructer
+																								   /*!
+																								   \param p_Pos its position
+																								   \param p_IdX id for x
+																								   \param p_IdY id for y
+																								   */
+	std::string CheckNodeType() override { return "InvalidNode"; } //!< Return String
 
 private:
 
 };
 
+/*! A node that cannot be explored */
+
 class NormalNode : public GraphNode {
 
 public:
 
-	NormalNode(glm::vec3 p_pos, int p_idX, int p_idY) { setNodePos(p_pos); setID(p_idX, p_idY); }
-	std::string checkNodeType() override { return "NormalNode"; }
+	NormalNode(glm::vec3 p_Pos, int p_IdX, int p_IdY) { SetNodePos(p_Pos); SetID(p_IdX, p_IdY); }  //!< Constructer
+																								   /*!
+																								   \param p_Pos its position
+																								   \param p_IdX id for x
+																								   \param p_IdY id for y
+																								   */
+	std::string CheckNodeType() override { return "NormalNode"; } //!< Return String
 
 private:
 

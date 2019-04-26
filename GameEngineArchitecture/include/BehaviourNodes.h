@@ -2,59 +2,69 @@
 #include <iostream>
 #include <list>
 
+/*! Interface class for the Behaviour Nodes*/
+
 class BehaviourNode {
 
 public:
-	virtual bool run() = 0;
+	virtual bool Run() = 0; //!< Run the Node
 };
 
+/*! This class handles all the nodes that will be in the tree*/
+
 class CompositeNode : public BehaviourNode {
-//This class is used to store all the children of a node
+//
 private:
-	std::list<BehaviourNode*> m_childrenList; 
+	std::list<BehaviourNode*> m_ChildrenList; //!< List of children nodes
 public:
-	const std::list<BehaviourNode*>& getTheChildren() const { return m_childrenList; }
-	void addTheChildren(BehaviourNode* p_child) { m_childrenList.emplace_back(p_child);	}
+	const std::list<BehaviourNode*>& GetTheChildren() const { return m_ChildrenList; } //!< Gets the list of children
+	void addTheChildren(BehaviourNode* p_Child) { m_ChildrenList.emplace_back(p_Child);	} //!< Adds to the list of children
 };
+
+/*! This class is used to see which node will return true*/
 
 class Selector : public CompositeNode {
 
 public:
-	bool run() override {
+	bool Run() override {//!< Run the Node
 
-		for (BehaviourNode* BN : getTheChildren()) 
+		for (BehaviourNode* BN : GetTheChildren()) 
 		{
-			if (BN->run()) { return true; } //Run will work as long as one child is working
+			if (BN->Run()) { return true; } //Run will return true as long as one child is working
 		}
 		return false;
 	}
 
 };
 
+/*! This class is the sequance of the nodes*/
+
 class Sequence : public CompositeNode {
 
 public:
-	bool run() override {
-		for (BehaviourNode* BN : getTheChildren())
+	bool Run() override {//!< Run the Node
+		for (BehaviourNode* BN : GetTheChildren())
 		{
-			if (!BN->run()) { return false; } //every child needs to work for this one
+			if (!BN->Run()) { return false; } //every child needs to work for this one
 		}
 		return true;
 	}
 };
 
+/*! An example of a conditional leaf node*/
+
 class LeafNodeRageExample : public BehaviourNode
 {
 private : 
 
-	int m_rage; //Just rage for this example
+	int m_Rage; //!< Just rage for this example
 
 public:
 
-	void giveMeInt(int p_rage) { m_rage = p_rage; } //Stores new Value
+	void GiveMeInt(int p_Rage) { m_Rage = p_Rage; } //!< Stores new Value
 
-	bool run() override {
-		if (m_rage <= 100){ //This part will be the condition of the node
+	bool Run() override { //!< Run the Node
+		if (m_Rage <= 100){ //This part will be the condition of the node
 			return true;  
 			std::cout << "Enemy Has Embrace the Void and it drove him Mad" << std::endl;
 		}
@@ -62,6 +72,8 @@ public:
 		std::cout << "Enemy is calm..... for now" << std::endl;
 	}
 };
+
+/*! An example of a action leaf node*/
 
 class LeafNodeActionExample : public BehaviourNode
 {
@@ -73,7 +85,7 @@ public:
 
 	//void giveMeInt(int p_rage) { m_rage = p_rage; } //Stores new Value
 
-	bool run() override {
+	bool Run() override { //!< Run the Node
 		
 		std::cout << "AUGHHHHH!!!!!!" << std::endl;
 		return true;
