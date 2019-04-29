@@ -32,6 +32,7 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\CommandArgumentTypes.h" />
     <ClInclude Include="include\HealthComponent.h" />
+    <ClInclude Include="include\ImGuiLevelEditor.h" />
     <ClInclude Include="include\InputCommands.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\GLFW_EngineCore.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="source\EnemyTower.cpp" />
     <ClCompile Include="source\GLAD\glad.c" />
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
+    <ClCompile Include="source\ImGuiLevelEditor.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\main.cpp" />

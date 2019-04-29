@@ -120,6 +120,9 @@
     <ClInclude Include="include\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\ImGuiLevelEditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\GLFW_EngineCore.cpp">
@@ -166,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImGuiLevelEditor.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
