@@ -158,7 +158,7 @@ FrameBufferObject::FrameBufferObject(RenderEngine *p_RenderEngine, glm::vec3 p_P
 
 void FrameBufferObject::BindFrameBuffer()
 {
-	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, m_FrameBuffer);
+	glBindFramebuffer(GL_FRAMEBUFFER, m_FrameBuffer);
 	glViewport(0, 0, m_FrameWidth, m_FrameHeight);
 }
 

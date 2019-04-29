@@ -21,7 +21,7 @@ Shadows::Shadows(float p_Width, float p_Height, bool p_IsDirectional)
 
 void Shadows::Prepare(glm::vec3 p_SunPosition)
 {
-	glm::mat4 shadowProj = glm::perspective(glm::radians(90.0f), (float)m_Width / (float)m_Height, 0.1f, 1000.f);
+	glm::mat4 shadowProj = glm::perspective(glm::radians(90.0f), (float)m_Width / (float)m_Height, 0.1f, 200.f);
 	std::vector<glm::mat4> shadowTransforms;
 	shadowTransforms.push_back(shadowProj * glm::lookAt(p_SunPosition, p_SunPosition + glm::vec3(1.0f, 0.0f, 0.0f), glm::vec3(0.0f, -1.0f, 0.0f)));
 	shadowTransforms.push_back(shadowProj * glm::lookAt(p_SunPosition, p_SunPosition + glm::vec3(-1.0f, 0.0f, 0.0f), glm::vec3(0.0f, -1.0f, 0.0f)));

@@ -24,9 +24,9 @@ void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
 	m_ScreenWidth = p_ScreenWidth;
 	m_ScreenHeight = p_ScreenHeight;
 	m_NearPlane = 0.1f;
-	m_FarPlane = 1000.f;
+	m_FarPlane = 300.f;
 	m_IsDirectionalShadows = true;
-	m_Sun = new Light(glm::vec3(-2.0f, 50.0f, -1.0f), glm::vec3(1.f));
+	m_Sun = new Light(glm::vec3(1.0f, 50.0f, -1.0f), glm::vec3(1.f));
 	m_ShadowRenderer = std::make_shared<Shadows>(m_ShadowWidth, m_ShadowHeight, m_IsDirectionalShadows);
 	m_PostProcessor = std::make_shared<PostProcessor>();
 	m_PostProcessor->InitPostProcessing();
@@ -36,6 +36,7 @@ void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
 
 	// Enable depth test.
 	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
 
 	// Enable alpha transparency.
 	glEnable(GL_BLEND);
@@ -102,6 +103,7 @@ void RenderEngine::Render()
 	{
 		m_DefaultShader->ErrorChecker();
 		m_ShadowRenderer->Prepare(m_Sun->GetPosition());
+		glClear(GL_DEPTH_BUFFER_BIT);
 		RenderSceneObjects(m_ShadowRenderer->Render());
 		m_ShadowRenderer->End(m_ScreenWidth, m_ScreenHeight);
 		
@@ -110,6 +112,7 @@ void RenderEngine::Render()
 	{
 		m_DefaultShader->ErrorChecker();
 		m_ShadowRenderer->Prepare(m_Sun->GetPosition());
+		glClear(GL_DEPTH_BUFFER_BIT);
 		RenderSceneObjects(m_ShadowRenderer->Render());
 		m_ShadowRenderer->End(m_ScreenWidth, m_ScreenHeight);
 	}
@@ -119,6 +122,13 @@ void RenderEngine::Render()
 	m_ShadowShader->Use();
 	m_ShadowShader->SetInt("depthMap", m_ShadowRenderer->GetShadowMap());
 	RenderSceneObjects(m_ShadowShader);
+	
+	m_DefaultShader->Use();
+	m_DefaultShader->ErrorChecker();
+	m_DefaultShader->SetMat4("model", m_Sun->GetModelMatrix());
+	SetShaderParams(m_DefaultShader);
+	SetLightParams(m_DefaultShader);
+	m_Sun->Render();
 	
 
 	m_Skybox->Render();
@@ -193,18 +203,13 @@ void RenderEngine::SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram
 {
 	p_ShaderProgram->Use();
 	p_ShaderProgram->ErrorChecker();
-	//glm::mat4 m_LightProjection = glm::ortho(-((float)m_ShadowWidth * 0.1f), ((float)m_ShadowWidth * 0.1f), -((float)m_ShadowHeight * 0.1f), ((float)m_ShadowHeight * 0.1f), m_NearPlane, m_FarPlane);
 	glm::mat4 lightProjection;
 	glm::mat4 lightView;
 	glm::mat4 lightSpaceMatrix;
 
-	float nearPlane = 0.1f;
-	float farPlane = 10000.f;
-
-	lightProjection = glm::ortho(-farPlane, farPlane, farPlane, farPlane, nearPlane, farPlane);
-	lightView = glm::lookAt(m_Sun->GetPosition(), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	lightProjection = glm::ortho(-10.f, 10.f, -10.f, 10.f, m_NearPlane, m_FarPlane);
+	lightView = glm::lookAt(m_Sun->GetPosition(), -m_Sun->GetPosition(), glm::vec3(0.0f, 1.0f, 0.0f));
 	lightSpaceMatrix = lightProjection * lightView;
-
 
 	p_ShaderProgram->SetMat4("lightSpaceMatrix", lightSpaceMatrix);
 	p_ShaderProgram->SetVec3("lightColour", m_Sun->GetColour());
@@ -215,11 +220,11 @@ void RenderEngine::SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram
 void RenderEngine::SetShaderParams(std::shared_ptr<ShaderProgram> p_ShaderProgram)
 {
 	p_ShaderProgram->Use();
-	glm::mat4 projection = glm::perspective(glm::radians(m_Camera->m_FieldOfView), (float)m_ScreenWidth / (float)m_ScreenHeight, 0.1f, 1000.0f);
+	glm::mat4 projection = glm::perspective(glm::radians(m_Camera->m_FieldOfView), (float)m_ScreenWidth / (float)m_ScreenHeight, m_NearPlane, m_FarPlane);
 	
 	p_ShaderProgram->ErrorChecker();
-	p_ShaderProgram->SetFloat("near_plane", 0.1f);
-	p_ShaderProgram->SetFloat("far_plane", 1000.f);
+	p_ShaderProgram->SetFloat("near_plane", m_NearPlane);
+	p_ShaderProgram->SetFloat("far_plane", m_FarPlane);
 	p_ShaderProgram->SetMat4("projection", projection);
 	p_ShaderProgram->SetMat4("view", m_Camera->GetViewMatrix());
 	p_ShaderProgram->SetMat4("viewSky", glm::mat4(glm::mat3(m_Camera->GetViewMatrix())));

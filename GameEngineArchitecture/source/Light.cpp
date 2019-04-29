@@ -2,52 +2,50 @@
 
 void Light::InitDebugModel()
 {
-	// set up vertex and normal data
 	float vertices[] = {
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
-
-		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f,  1.0f,
-
-		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
-
-		0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-		0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-		0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-		0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
-		0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-		0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
-
-		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-		0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-		-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
-		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
-
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
-		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
+		// back face
+		-1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f, // bottom-left
+		1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 1.0f, 1.0f, // top-right
+		1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 1.0f, 0.0f, // bottom-right         
+		1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 1.0f, 1.0f, // top-right
+		-1.0f, -1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 0.0f, // bottom-left
+		-1.0f,  1.0f, -1.0f,  0.0f,  0.0f, -1.0f, 0.0f, 1.0f, // top-left
+		// front face
+		-1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.0f, // bottom-left
+		1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 0.0f, // bottom-right
+		1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 1.0f, // top-right
+		1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f, 1.0f, // top-right
+		-1.0f,  1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 1.0f, // top-left
+		-1.0f, -1.0f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f, 0.0f, // bottom-left
+		// left face
+		-1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f, // top-right
+		-1.0f,  1.0f, -1.0f, -1.0f,  0.0f,  0.0f, 1.0f, 1.0f, // top-left
+		-1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f, // bottom-left
+		-1.0f, -1.0f, -1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 1.0f, // bottom-left
+		-1.0f, -1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 0.0f, 0.0f, // bottom-right
+		-1.0f,  1.0f,  1.0f, -1.0f,  0.0f,  0.0f, 1.0f, 0.0f, // top-right
+		// right face
+		1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f, // top-left
+		1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f, // bottom-right
+		1.0f,  1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 1.0f, 1.0f, // top-right         
+		1.0f, -1.0f, -1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 1.0f, // bottom-right
+		1.0f,  1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 1.0f, 0.0f, // top-left
+		1.0f, -1.0f,  1.0f,  1.0f,  0.0f,  0.0f, 0.0f, 0.0f, // bottom-left     
+		// bottom face
+		-1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f, // top-right
+		 1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 1.0f, 1.0f, // top-left
+		 1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f, // bottom-left
+		 1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 1.0f, 0.0f, // bottom-left
+		-1.0f, -1.0f,  1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 0.0f, // bottom-right
+		-1.0f, -1.0f, -1.0f,  0.0f, -1.0f,  0.0f, 0.0f, 1.0f, // top-right
+		// top face
+		-1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f, // top-left
+		 1.0f,  1.0f , 1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f, // bottom-right
+		 1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 1.0f, // top-right     
+		 1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 1.0f, 0.0f, // bottom-right
+		-1.0f,  1.0f, -1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 1.0f, // top-left
+		-1.0f,  1.0f,  1.0f,  0.0f,  1.0f,  0.0f, 0.0f, 0.0f  // bottom-left        
 	};
-
-	
 	glGenVertexArrays(1, &m_VaoHandler);
 	glGenBuffers(1, &m_VboHandler);
 
@@ -56,12 +54,14 @@ void Light::InitDebugModel()
 	glBindBuffer(GL_ARRAY_BUFFER, m_VboHandler);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	// position attribute
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	// normal attribute
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+	glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindVertexArray(0);
 
 	GenerateModelMatrix();
 }
@@ -74,24 +74,27 @@ void Light::GenerateModelMatrix()
 	m_LightModelMatrix = l_TransformMatrix * l_RotationMatrix * l_ScaleMatrix;
 }
 
-void Light::GenerateProjectionMatrix(glm::vec2 p_ClipPlanes, float p_AspectRatio, float p_FieldOfView, float p_FrustrumLength)
+void Light::GenerateViewMatrix()
 {
-	m_LightProjectionMatrix = glm::mat4();
-	float l_YScale = (float)((1.0f / glm::tan(glm::radians(p_FieldOfView / 2.f))));
-	float l_XScale = l_YScale / p_AspectRatio;
+	glm::vec3 l_Front;
+	l_Front.x = cos(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+	l_Front.y = sin(glm::radians(m_Pitch));
+	l_Front.z = sin(glm::radians(m_Yaw)) * cos(glm::radians(m_Pitch));
+	m_FrontVector = glm::normalize(l_Front);
 
-	m_LightProjectionMatrix[0][0] = l_XScale;
-	m_LightProjectionMatrix[1][1] = l_YScale;
-	m_LightProjectionMatrix[2][2] = -((p_ClipPlanes.y + p_ClipPlanes.x) / p_FrustrumLength);
-	m_LightProjectionMatrix[2][3] = -1;
-	m_LightProjectionMatrix[3][2] = -((2 * p_ClipPlanes.x * p_ClipPlanes.y) / p_FrustrumLength);
-	m_LightProjectionMatrix[3][3] = 0;
+	m_RightVector = glm::normalize(glm::cross(m_FrontVector, glm::vec3(0, 1, 0)));
+	m_UpVector = glm::normalize(glm::cross(m_RightVector, m_FrontVector));
+
+	m_LightViewMatrix = glm::lookAt(m_LightPosition, m_LightPosition + m_FrontVector, m_UpVector);
 }
+
 
 Light::Light()
 {
-	m_LightPosition = glm::vec3(0.0f, 5.0f, 0.0f);
+	m_LightPosition = glm::vec3(0.0f, 50.0f, 0.0f);
 	m_LightColour = glm::vec3(1.0f, 1.0f, 1.0f);
+	m_Pitch = 0.0f;
+	m_Yaw = -90.0f;
 	GenerateModelMatrix();
 	InitDebugModel();
 }
@@ -100,7 +103,21 @@ Light::Light(glm::vec3 p_LightPosition, glm::vec3 p_LightColour)
 {
 	m_LightPosition = p_LightPosition;
 	m_LightColour = p_LightColour;
+	m_Pitch = 0.0f;
+	m_Yaw = -90.0f;
 	GenerateModelMatrix();
+	GenerateViewMatrix();
+	InitDebugModel();
+}
+
+Light::Light(glm::vec3 p_LightPosition, glm::vec3 p_LightColour, float p_Pitch, float p_Yaw)
+{
+	m_LightPosition = p_LightPosition;
+	m_LightColour = p_LightColour;
+	m_Pitch = p_Pitch;
+	m_Yaw = p_Yaw;
+	GenerateModelMatrix();
+	GenerateViewMatrix();
 	InitDebugModel();
 }
 
@@ -133,9 +150,11 @@ void Light::SetColour(float p_Red, float p_Green, float p_Blue)
 	m_LightColour = glm::vec3(p_Red, p_Green, p_Blue);
 }
 
-void Light::SetProjectionMatrix(glm::vec2 p_ClipPlanes, float p_AspectRatio, float p_FieldOfView, float p_FrustrumLength)
+void Light::SetRotation(float p_Pitch, float p_Yaw)
 {
-	GenerateProjectionMatrix(p_ClipPlanes, p_AspectRatio, p_FieldOfView, p_FrustrumLength);
+	m_Pitch = p_Pitch;
+	m_Yaw = p_Yaw;
+	GenerateViewMatrix();
 }
 
 const glm::vec3 & Light::GetPosition() const
@@ -153,8 +172,8 @@ const glm::mat4 & Light::GetModelMatrix() const
 	return m_LightModelMatrix;
 }
 
-const glm::mat4 &Light::GetSpaceMatrix()
+const glm::mat4 &Light::GetViewMatrix()
 {
-	m_LightViewMatrix = glm::lookAt(m_LightPosition, glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+	//GenerateViewMatrix();
 	return m_LightViewMatrix;
 }

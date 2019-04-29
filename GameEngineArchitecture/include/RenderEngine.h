@@ -55,8 +55,8 @@ private:
 	bool m_IsDirectionalShadows = false;
 
 	int m_ScreenWidth, m_ScreenHeight;
-	const unsigned int m_ShadowWidth = 1024;
-	const unsigned int m_ShadowHeight = 1024;
+	const unsigned int m_ShadowWidth = 2048;
+	const unsigned int m_ShadowHeight = 2048;
 
 	float m_NearPlane;
 	float m_FarPlane;
