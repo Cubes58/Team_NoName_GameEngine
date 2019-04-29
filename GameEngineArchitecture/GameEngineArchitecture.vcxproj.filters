@@ -85,6 +85,15 @@
     <ClCompile Include="source\STB_IMAGE\stb_image.c">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="source\MemoryManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ZoneAllocator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DoubleEndedStackAllocator.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h">
@@ -216,6 +225,27 @@
     <ClInclude Include="include\Scene.h">
       <Filter>Include\Game</Filter>
     </ClInclude>
+    <ClInclude Include="include\MemoryManager.h">
+      <Filter>Include\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryBlock.h">
+      <Filter>Include\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ZoneAllocator.h">
+      <Filter>Include\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DoubleEndedStackAllocator.h">
+      <Filter>Include\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MyTestClass.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vector.h">
+      <Filter>Include\Memory\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HashMap.h">
+      <Filter>Include\Memory\Containers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">
@@ -279,6 +309,12 @@
     </Filter>
     <Filter Include="Include\Game\Game Objects">
       <UniqueIdentifier>{20b0e9b6-cccc-4e8f-8f8a-cb8deefe2ebb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Memory">
+      <UniqueIdentifier>{153bd17d-831e-494f-884c-f8b2c06a6d2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\Memory\Containers">
+      <UniqueIdentifier>{15459cb2-7cdb-4344-adfb-944b0cb30a2e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
