@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h" />
+    <ClInclude Include="include\BehaviourNodes.h" />
     <ClInclude Include="include\CameraComponent.h" />
     <ClInclude Include="include\CameraViewState.h" />
     <ClInclude Include="include\Collision.h" />
@@ -50,7 +51,7 @@
     <ClInclude Include="include\ModelComponent.h" />
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
-    <ClInclude Include="include\Node.h" />
+    <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
     <ClInclude Include="include\QuadTree.h" />
@@ -80,7 +81,7 @@
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\Mesh.cpp" />
     <ClCompile Include="source\Model.cpp" />
-    <ClCompile Include="source\Node.cpp" />
+    <ClCompile Include="source\GraphNode.cpp" />
     <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
@@ -105,7 +106,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
