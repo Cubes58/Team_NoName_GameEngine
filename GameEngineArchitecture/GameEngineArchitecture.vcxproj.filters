@@ -88,133 +88,220 @@
     <ClCompile Include="source\CollisionChecker.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\Components">
+      <UniqueIdentifier>{45c12769-b373-4e01-8752-c905df6e1a7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameObjects">
+      <UniqueIdentifier>{acf57b54-47e1-4758-9387-4c4cb1e57b69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{20c41863-ec7b-4599-9594-90f9b8e7448b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{234f2e6b-cb26-4d07-b683-1e264ae2fed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers">
+      <UniqueIdentifier>{5356f47e-26e7-4530-9a28-ca3d312394e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enums">
+      <UniqueIdentifier>{f7f2dd4b-abd3-4d33-90f6-7823aa3eef7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{96c2ade4-1b28-4fe3-9ed4-5368c9827204}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MemoryManager">
+      <UniqueIdentifier>{1ff2e012-b9b1-46cd-a421-33cec779902e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MemoryManager\Containers">
+      <UniqueIdentifier>{87cb6bca-7a64-4c4d-936c-b167a47de72f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Tools">
+      <UniqueIdentifier>{46956e04-4e74-421e-ad04-7ae58c5cf7d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Artificialntelligence">
+      <UniqueIdentifier>{a3690df3-ff95-4d86-ac61-48e2af844d57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderEngine">
+      <UniqueIdentifier>{8fd9a262-56fb-42e3-b0bc-77f084b3e34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\PhysicsEngine">
+      <UniqueIdentifier>{7c49368b-810c-4d9b-bbe0-41004f16f20c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\EngineCore">
+      <UniqueIdentifier>{07b51d86-721b-4c10-ac79-e801557f16fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Game">
+      <UniqueIdentifier>{3fd60b5e-deb6-4333-a8f8-2424a9f53123}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\AttackComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BodyComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
     <ClInclude Include="include\CameraComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CollisionEnums.h">
-      <Filter>Include\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CommandArgumentTypes.h">
-      <Filter>Include\Enums</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
     <ClInclude Include="include\Component.h">
-      <Filter>Include\Game\Components</Filter>
+      <Filter>Header Files\Components</Filter>
     </ClInclude>
-    <ClInclude Include="include\DynamicEnvironmentObject.h">
-      <Filter>Include\Game\Game Objects</Filter>
+    <ClInclude Include="include\GameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="include\EndLevelCollectable.h">
-      <Filter>Include\Game\Game Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\EnemyTower.h">
-      <Filter>Include\Game\Game Objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ModelManager.h">
-      <Filter>Include\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ModelComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MovementComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="include\TransformComponent.h">
-      <Filter>Include\Game\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="include\InputCommandFactory.h">
-      <Filter>Include\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="include\InputCommands.h">
-      <Filter>Include\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="include\InputHandler.h">
-      <Filter>Include\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CubemapCamera.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FontRenderer.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FrameBufferObject.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PostProcessor.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\RenderEngine.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ShaderProgram.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\SkyBox.h">
-      <Filter>Include\Graphics Engine</Filter>
+    <ClInclude Include="include\PlayerCharacter.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="include\StaticEnvironmentObject.h">
-      <Filter>Include\Game\Game Objects</Filter>
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TransformComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ModelComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputHandler.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ModelManager.h">
+      <Filter>Header Files\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputCommands.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\InputCommandFactory.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DynamicEnvironmentObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyTower.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MovementComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HealthComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CommandArgumentTypes.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AttackComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EndLevelCollectable.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="include\CameraViewState.h">
-      <Filter>Include\Enums</Filter>
+      <Filter>Header Files\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="include\Collision.h">
-      <Filter>Include\Physics Engine</Filter>
+    <ClInclude Include="include\MyTestClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionEnums.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\GameObject.h">
       <Filter>Include\Game\Game Objects</Filter>
+     </ClInclude>
+    <ClInclude Include="include\CollisionHelper.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\PlayerCharacter.h">
-      <Filter>Include\Game\Game Objects</Filter>
+    <ClInclude Include="include\BodyComponent.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\QuadTree.h">
-      <Filter>Include\Physics Engine</Filter>
+    <ClInclude Include="include\BehaviourNodes.h">
+      <Filter>Header Files\Artificialntelligence</Filter>
     </ClInclude>
-    <ClInclude Include="include\HealthComponent.h">
-      <Filter>Include\Game\Components</Filter>
+    <ClInclude Include="include\Collision.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CubemapCamera.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DoubleEndedStackAllocator.h">
+      <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
     <ClInclude Include="include\FileSystemHelper.h">
-      <Filter>Include\Tools</Filter>
+      <Filter>Header Files\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="include\Random.h">
-      <Filter>Include\Tools</Filter>
+    <ClInclude Include="include\FontRenderer.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\Mesh.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\Model.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PhysicsEngine.h">
-      <Filter>Include\Physics Engine</Filter>
+    <ClInclude Include="include\FrameBufferObject.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\Graph.h">
-      <Filter>Include\Artificial Intelligence</Filter>
+      <Filter>Header Files\Artificialntelligence</Filter>
     </ClInclude>
-    <ClInclude Include="include\Node.h">
-      <Filter>Include\Artificial Intelligence</Filter>
+    <ClInclude Include="include\GraphNode.h">
+      <Filter>Header Files\Artificialntelligence</Filter>
+    </ClInclude>
+    <ClInclude Include="include\HashMap.h">
+      <Filter>Header Files\MemoryManager\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryBlock.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MemoryManager.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysicsEngine.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PostProcessor.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Mesh.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Model.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\QuadTree.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ShaderProgram.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Vector.h">
+      <Filter>Header Files\MemoryManager\Containers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SkyBox.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ZoneAllocator.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Random.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RenderEngine.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\GLFW_EngineCore.h">
-      <Filter>Include\Engine Core</Filter>
+      <Filter>Header Files\EngineCore</Filter>
     </ClInclude>
     <ClInclude Include="include\IEngineCore.h">
-      <Filter>Include\Engine Core</Filter>
+      <Filter>Header Files\EngineCore</Filter>
     </ClInclude>
     <ClInclude Include="include\DefaultGame.h">
-      <Filter>Include\Game</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="include\Game.h">
-      <Filter>Include\Game</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="include\Scene.h">
-      <Filter>Include\Game</Filter>
+      <Filter>Header Files\Game</Filter>
     </ClInclude>
     <ClInclude Include="include\AABBComponent.h">
       <Filter>Include\Game\Components</Filter>
@@ -233,67 +320,118 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="resources\shaders\defaultShader.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\defaultShader.vert">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\fontShader.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\fontShader.vert">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\skybox.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\skybox.vert">
-      <Filter>Resources</Filter>
-    </None>
+    <ClCompile Include="source\GLFW_EngineCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DefaultGame.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GLAD\glad.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="source\STB_IMAGE\stb_image.c">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InputHandler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\JSON\jsoncpp.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DynamicEnvironmentObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerCharacter.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EndLevelCollectable.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyTower.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StaticEnvironmentObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CollisionHelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CubemapCamera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DoubleEndedStackAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FontRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FrameBufferObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GraphNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\MemoryManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PhysicsEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProcessor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuadTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Random.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShaderProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ZoneAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Include">
-      <UniqueIdentifier>{bda6f82d-ec56-4448-a077-4cc51454fb74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{a6b277e3-210c-4583-85b2-95dc7e5bdb30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{c996bb8e-4cf4-4a24-953f-f908710435f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Managers">
-      <UniqueIdentifier>{edbd8b00-9e15-43cb-a4cb-55f8a23968ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Enums">
-      <UniqueIdentifier>{90440d30-bb12-48c3-8879-3c2343c89eba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Input">
-      <UniqueIdentifier>{40b51930-6107-4f98-87a7-7c8115510034}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Graphics Engine">
-      <UniqueIdentifier>{433a3f6b-7f3c-4df3-b920-c1534a9ea750}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Physics Engine">
-      <UniqueIdentifier>{14533dd3-4ea7-4bfe-b2d8-122c785f431a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Tools">
-      <UniqueIdentifier>{1b710704-ddcc-4310-889a-bee96eddd022}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Artificial Intelligence">
-      <UniqueIdentifier>{da9a6632-8b89-4619-9550-12cbfcb474c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Engine Core">
-      <UniqueIdentifier>{937c2546-ae62-47f1-8e38-e4dd6e74fa17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game">
-      <UniqueIdentifier>{b64ac252-c46b-481c-a41e-3ed2ccee9568}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game\Components">
-      <UniqueIdentifier>{346db063-aa82-4b48-8036-a9d58f239c1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game\Game Objects">
-      <UniqueIdentifier>{20b0e9b6-cccc-4e8f-8f8a-cb8deefe2ebb}</UniqueIdentifier>
-    </Filter>
+    <None Include="resources\shaders\defaultShader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\defaultShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\fontShader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\fontShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\skybox.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
