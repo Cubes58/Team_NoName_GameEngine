@@ -108,6 +108,9 @@ void FontRenderer::RenderText(const std::string & p_Text, float p_XPosition, flo
 	float pixelValueX = p_XPosition * m_ScreenWidth;
 	float pixelValueY = p_YPosition * m_ScreenHeight;
 
+	//Enable Blending for the text gaps
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	glUseProgram(m_FontShaderProgram.GetID());
 	m_FontShaderProgram.SetMat4("projection", projection);
 

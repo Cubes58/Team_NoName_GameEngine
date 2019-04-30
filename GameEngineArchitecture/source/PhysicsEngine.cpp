@@ -28,6 +28,7 @@ void PhysicsEngine::Update()
 	if (m_ElapsedSeconds > m_SecondLimit) {
 		m_ElapsedSeconds = m_SecondLimit;
 	}
+
 	std::cout << "engine fps: " << 1 / m_ElapsedSeconds << "s" << std::endl;
 	m_AccumulatedSeconds += m_ElapsedSeconds;
 	while (m_AccumulatedSeconds >= m_FramePeriod) {

@@ -201,7 +201,6 @@ void Scene::UnloadLevel() {
 
 void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
 
-	p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
 	RenderEngineInstance.Render();
 
 	auto iter = m_GameObjects.find(typeid(PlayerCharacter));
@@ -215,14 +214,6 @@ void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
 	RenderEngineInstance.RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
 
 	DisplayUnsuccessfullyLoadedModels(p_EngineInterface);
-}
-
-std::shared_ptr<CameraComponent> Scene::GetCamera()
-{
-	auto iter = m_GameObjects.find(typeid(PlayerCharacter));
-		if (iter != m_GameObjects.end()) {
-			return iter->second->GetComponent<CameraComponent>();
-		}
 }
 
 void Scene::Update(float p_DeltaTime) {
