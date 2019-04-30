@@ -1,32 +1,63 @@
+/**
+@file BehaviourNode.h
+@brief Creates a behavouir tree for the game AI
+*/
+
 #pragma once
 #include <iostream>
 #include <list>
 
-/*! Interface class for the Behaviour Nodes*/
+/*! \BehaviourNode
+    \Interface class for the Behaviour Nodes
+*/
 
 class BehaviourNode {
 
 public:
-	virtual bool Run() = 0; //!< Run the Node
+
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+
+	virtual bool Run() = 0; 
 };
 
-/*! This class handles all the nodes that will be in the tree*/
+/*! \CompositeNode
+    \This class handles all the nodes that will be in the tree
+*/
 
 class CompositeNode : public BehaviourNode {
 //
 private:
 	std::list<BehaviourNode*> m_ChildrenList; //!< List of children nodes
 public:
-	const std::list<BehaviourNode*>& GetTheChildren() const { return m_ChildrenList; } //!< Gets the list of children
-	void addTheChildren(BehaviourNode* p_Child) { m_ChildrenList.emplace_back(p_Child);	} //!< Adds to the list of children
+	/*!
+	\brief get the children
+	\return a list of children nodes 
+	*/
+	const std::list<BehaviourNode*>& GetTheChildren() const { return m_ChildrenList; } 
+	/*!
+	\brief adds 
+	\param p_NodesPosition sets Pos
+	*/
+	void AddTheChildren(BehaviourNode* p_Child) { m_ChildrenList.emplace_back(p_Child);	} //!< Adds to the list of children
 };
 
-/*! This class is used to see which node will return true*/
+/*! \Selector
+    \This class is used to see which node will return true
+*/
 
 class Selector : public CompositeNode {
 
 public:
-	bool Run() override {//!< Run the Node
+
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+
+	bool Run() override {
 
 		for (BehaviourNode* BN : GetTheChildren()) 
 		{
@@ -37,12 +68,21 @@ public:
 
 };
 
-/*! This class is the sequance of the nodes*/
+/*! \Sequence
+    \This class is the sequance of the nodes
+*/
 
 class Sequence : public CompositeNode {
 
 public:
-	bool Run() override {//!< Run the Node
+
+
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+
+	bool Run() override {
 		for (BehaviourNode* BN : GetTheChildren())
 		{
 			if (!BN->Run()) { return false; } //every child needs to work for this one
@@ -51,7 +91,9 @@ public:
 	}
 };
 
-/*! An example of a conditional leaf node*/
+/*! \LeafNodeRageExample
+    \An example of a conditional leaf node
+*/
 
 class LeafNodeRageExample : public BehaviourNode
 {
@@ -61,9 +103,20 @@ private :
 
 public:
 
+
+	/*!
+	\brief Give me an int set method
+	\param p_Rage int that tells us what the rage is
+	*/
+
 	void GiveMeInt(int p_Rage) { m_Rage = p_Rage; } //!< Stores new Value
 
-	bool Run() override { //!< Run the Node
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+
+	bool Run() override { 
 		if (m_Rage <= 100){ //This part will be the condition of the node
 			return true;  
 			std::cout << "Enemy Has Embrace the Void and it drove him Mad" << std::endl;
@@ -73,7 +126,10 @@ public:
 	}
 };
 
-/*! An example of a action leaf node*/
+/*! \LeafNodeActionExample
+    \An example of a conditional leaf node
+*/
+
 
 class LeafNodeActionExample : public BehaviourNode
 {
@@ -85,7 +141,13 @@ public:
 
 	//void giveMeInt(int p_rage) { m_rage = p_rage; } //Stores new Value
 
-	bool Run() override { //!< Run the Node
+
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+
+	bool Run() override { 
 		
 		std::cout << "AUGHHHHH!!!!!!" << std::endl;
 		return true;
