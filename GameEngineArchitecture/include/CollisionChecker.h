@@ -5,8 +5,9 @@
 #include <glm/glm.hpp>
 #include "CollisionEnums.h"
 #include "GameObject.h"
+#include "AABBComponent.h"
 
-class CollisionHelper {
+class CollisionChecker {
 private:
 	float m_PlaneThickness = 1.0f;
 public:

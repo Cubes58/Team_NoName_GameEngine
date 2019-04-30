@@ -1,3 +1,8 @@
+/**
+@file Grah.h
+@brief Data of the graph of nodes for pathfinding aswell as helper methods to navigate it
+*/
+
 #pragma once
 #include <vector>
 #include <list>
@@ -7,44 +12,63 @@
 
 class GraphNode;
 
-/*! Graph class to build the 2d vector of nodes, it also contains methods that handles this graph*/
+/*! \Graph
+    \class to build the 2d vector of nodes, it also contains methods that handles this graph
+*/
 
 class Graph {
 
 
 public:
 
-	Graph(glm::vec3 p_Pos, float p_Distance, glm::vec2 p_NumberOfNodes); //!< Constructs Graph
-																		   /*!
-																		   \param p_Pos start pos of graph
-																		   \param p_Distance distance between nodes
-																		   \param p_NumberOfNodes how many nodes in the 2d Vector
-																		   */
+	/*!
+	\brief Constructs Graph
+	\param p_Pos start pos of graph
+	\param p_Distance distance between nodes
+	\param p_NumberOfNodes how many nodes in the 2d Vector
+	*/
 
-	std::list<GraphNode*> GetThePath(glm::vec3 p_Start, glm::vec3 p_Goal); //!< Gets a path
-																		   /*!
-																		   \param p_Start start of path
-																		   \param p_Goal the final node of the path														
-																		   */
+	Graph(glm::vec3 p_Pos, float p_Distance, glm::vec2 p_NumberOfNodes); 
+																		   
+	/*!
+	\brief Gets a path
+	\param p_Start start of path
+	\param p_Goal the final node of the path
+	\return list of nodes that will become the path
+	*/
 
-	std::vector<std::vector<GraphNode*>> GetGraph() { return m_Graph; }; //!< Gets the graph
+	std::list<GraphNode*> GetThePath(glm::vec3 p_Start, glm::vec3 p_Goal); 
 
-	void SetNodeInvalid(GraphNode* p_Node); //!< Sets a node invalid
-	                                        /*!
-							                \param p_Node the node that will be made invalid
-						                    */
+	/*!
+	\brief Gets the graph
+	\return a 2d vector
+	*/
 
+	std::vector<std::vector<GraphNode*>> GetGraph() { return m_Graph; }; 
 
-	GraphNode * FindNode(glm::vec3 p_NodePos); //!< Used to find a node
-											   /*!
-											   \param p_NodePos find the node nearest to this
-										       */
+	/*!
+	\brief Sets a node invalid
+	\param p_Node the node that will be made invalid
+	*/
 
-	GraphNode * GetNode(int p_Idx, int p_Idy); //!< used to get a node
-											   /*!
-											   \param p_Idx id used to find node
-											   \param p_Idy id used to find node
-											   */
+	void SetNodeInvalid(GraphNode* p_Node); 
+
+	/*!
+	\brief Finds the node
+    \param p_NodePos find the node nearest to this
+	\return Node
+	*/
+
+	GraphNode * FindNode(glm::vec3 p_NodePos); 
+
+	/*!
+	\brief used to get a node
+	\param p_Idx id used to find node
+	\param p_Idy id used to find node
+	\return Node
+	*/
+
+	GraphNode * GetNode(int p_Idx, int p_Idy); 
 	
 protected:
 
@@ -56,21 +80,31 @@ protected:
 
     std::vector<std::vector<GraphNode*>> m_Graph; //!< The Graph with all the nodes contained
 
-	std::list<GraphNode*> GatherTheChildren(GraphNode* p_Node);  //!< Gathers the 8 nodes around the current node
-															     /*!
-															     \param p_Node the current node
-																 */
+	/*!
+	\brief Gathers the 8 nodes around the current node
+	\param p_Node the current node
+	\return 8 child nodes
+	*/
 
-	std::list<GraphNode*> ConstructThePath(GraphNode* p_StartNode, GraphNode* p_EndNode);  //!< used to create the path of nodes
-																						   /*!
-																						   \param p_StartNode the start of the path
-																						   \param p_EndNode the end of the path
-																						   */
-	float CalculateH(glm::vec3 p_Start, glm::vec3 p_End);  //!< calculates the distance between nodes
-											      		   /*!
-														   \param p_Start start position 
-														   \param p_End end position 
-														   */
+	std::list<GraphNode*> GatherTheChildren(GraphNode* p_Node);  
+
+	/*!
+	\brief used to create the path of nodes 
+	\param p_StartNode the start of the path
+    \param p_EndNode the end of the path
+	\return path
+	*/
+
+	std::list<GraphNode*> ConstructThePath(GraphNode* p_StartNode, GraphNode* p_EndNode); 
+
+	/*!
+	\brief alculates the distance between nodes
+	\param p_Start start position
+	\param p_End end position
+	\return distance
+	*/
+
+	float CalculateH(glm::vec3 p_Start, glm::vec3 p_End);  
 
 	std::list<GraphNode*> m_ClosedList;  //!< A list containing the nodes that have been looked at
 	std::list<GraphNode*> m_OpenList;   //!< A list containing the nodes that are not done with yet

@@ -1,6 +1,6 @@
-#include "..\include\CollisionHelper.h"
+#include "..\include\CollisionChecker.h"
 
-CollisionEnums CollisionHelper::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p_PointPlane, glm::vec3 p_Normal)
+CollisionEnums CollisionChecker::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p_PointPlane, glm::vec3 p_Normal)
 {
 	glm::vec3 l_Vec = p_PointTest - p_PointPlane;
 	float l_Dist = glm::dot(l_Vec, p_Normal);
@@ -13,7 +13,7 @@ CollisionEnums CollisionHelper::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p
 	return CollisionEnums::ON_PLANE;
 }
 
-CollisionEnums CollisionHelper::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p_Normal, float p_Offset)
+CollisionEnums CollisionChecker::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p_Normal, float p_Offset)
 {
 	float l_Dist = glm::dot(p_PointTest, p_Normal) - p_Offset;
 	if (l_Dist > m_PlaneThickness) {
@@ -25,7 +25,7 @@ CollisionEnums CollisionHelper::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p
 	return CollisionEnums::ON_PLANE;
 }
 
-bool CollisionHelper::PointSphere(float p_Radius, glm::vec3 p_CirclePos, glm::vec3 p_Point)
+bool CollisionChecker::PointSphere(float p_Radius, glm::vec3 p_CirclePos, glm::vec3 p_Point)
 {
 	glm::vec3 l_Vec = p_CirclePos - p_Point;
 	float l_DistSqr = glm::dot(l_Vec, l_Vec);
@@ -35,7 +35,7 @@ bool CollisionHelper::PointSphere(float p_Radius, glm::vec3 p_CirclePos, glm::ve
 	return false;
 }
 
-bool CollisionHelper::SphereSphere(float p_ARadius, glm::vec3 p_ACirclePos, float p_BRadius, glm::vec3 p_BCirclePos)
+bool CollisionChecker::SphereSphere(float p_ARadius, glm::vec3 p_ACirclePos, float p_BRadius, glm::vec3 p_BCirclePos)
 {
 	glm::vec3 l_Vec = p_BCirclePos - p_ACirclePos;
 	float l_DistSqr = glm::dot(l_Vec, l_Vec);
@@ -47,7 +47,7 @@ bool CollisionHelper::SphereSphere(float p_ARadius, glm::vec3 p_ACirclePos, floa
 	return false;
 }
 
-bool CollisionHelper::SpherePlane(float p_Radius, glm::vec3 p_CirclePos, glm::vec3 p_Point, glm::vec3 p_Normal)
+bool CollisionChecker::SpherePlane(float p_Radius, glm::vec3 p_CirclePos, glm::vec3 p_Point, glm::vec3 p_Normal)
 {
 	glm::vec3 l_Vec = p_CirclePos - p_Point;
 	float l_Dist = glm::dot(l_Vec, p_Normal);
@@ -58,7 +58,7 @@ bool CollisionHelper::SpherePlane(float p_Radius, glm::vec3 p_CirclePos, glm::ve
 	return false;
 }
 
-bool CollisionHelper::PointAABB(glm::vec3 p_CornerA, glm::vec3 p_CornerB, glm::vec3 p_Point)
+bool CollisionChecker::PointAABB(glm::vec3 p_CornerA, glm::vec3 p_CornerB, glm::vec3 p_Point)
 {
 	if (p_Point.x > p_CornerA.x and p_Point.x < p_CornerB.x and
 		p_Point.y > p_CornerA.y and p_Point.y < p_CornerB.y and
@@ -68,7 +68,7 @@ bool CollisionHelper::PointAABB(glm::vec3 p_CornerA, glm::vec3 p_CornerB, glm::v
 	return false;
 }
 
-bool CollisionHelper::AABBAABB(glm::vec3 p_ACornerA, glm::vec3 p_ACornerB, glm::vec3 p_BCornerA, glm::vec3 p_BCornerB)
+bool CollisionChecker::AABBAABB(glm::vec3 p_ACornerA, glm::vec3 p_ACornerB, glm::vec3 p_BCornerA, glm::vec3 p_BCornerB)
 {
 	if (p_ACornerA.x > p_BCornerB.x and
 		p_ACornerB.x > p_BCornerA.x and

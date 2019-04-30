@@ -16,3 +16,5 @@ Naming standard, Snake/Camel case, examples:
 - Static variables: s_MyVariable;
 - Global variables: g_MyVariable;
 - Static class variables: s_m_MyVariable;
+
+- Method name: MyMethod();

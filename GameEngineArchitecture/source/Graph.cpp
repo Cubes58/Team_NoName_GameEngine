@@ -168,8 +168,8 @@ std::list<GraphNode*> Graph::GatherTheChildren(GraphNode * p_node)
 
 	auto getCloseNode = [&](std::list<GraphNode*> p_TempList, int x = 0, int y = 0) {
 		m_ChildList.push_back(m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y));
-		m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->GetTheDiagonal(false);
-		if (x != 0 and y != 0) { m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->GetTheDiagonal(true); }
+		m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->SetTheDiagonal(false);
+		if (x != 0 and y != 0) { m_Graph.at(p_node->GetID().first + x).at(p_node->GetID().second + y)->SetTheDiagonal(true); }
 	};
 
 	if (p_node->GetID().first != 0) { getCloseNode(m_ChildList, -1, 0); }

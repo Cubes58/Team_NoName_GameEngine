@@ -15,9 +15,12 @@
 /*! \class Model
 	\brief A class that stores the properties necessary to create a model.
 */
+class ModelComponent;
 
 class Model {
 private:
+	friend ModelComponent;
+
 	std::vector<Mesh> m_Meshes;	//!< Stores the model's meshes.
 	std::string m_Directory;	//!< Stores the directory.
 	std::vector<Texture> m_Textures;	//!< Stores the model's textures.
@@ -27,18 +30,21 @@ private:
 		\param p_Path the file path to the model.
 	*/
 	bool LoadModel(std::string p_Path);
+
 	/*!
 		\brief Processes the model node.
 		\param p_Node the ai node.
 		\param p_Scene the ai scene.
 	*/
 	void ProcessNode(aiNode *p_Node, const aiScene *p_Scene);
+
 	/*!
 		\brief Processes the model mesh.
 		\param p_Path the ai mesh.
 		\param p_Scene the ai scene.
 	*/
 	Mesh ProcessMesh(aiMesh *p_Mesh, const aiScene *p_Scene);
+
 	/*!
 		\brief Loads the model material textures.
 		\param p_Material the model's material.
