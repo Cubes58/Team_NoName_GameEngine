@@ -6,6 +6,7 @@
 #include <glm/glm.hpp>
 #include "GameObject.h"
 #include "TransformComponent.h"
+#include "AABBComponent.h"
 
 
 class BoundingBox {

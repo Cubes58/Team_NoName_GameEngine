@@ -1,6 +1,93 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <ClCompile Include="source\CubemapCamera.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DefaultGame.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DynamicEnvironmentObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EndLevelCollectable.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyTower.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FontRenderer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FrameBufferObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GLAD\glad.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GLFW_EngineCore.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graph.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InputHandler.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\JSON\jsoncpp.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mesh.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Model.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Node.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PhysicsEngine.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerCharacter.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PostProcessor.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuadTree.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Random.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\RenderEngine.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Scene.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ShaderProgram.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\SkyBox.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\StaticEnvironmentObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\STB_IMAGE\stb_image.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PhysicsObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CollisionChecker.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -123,6 +210,9 @@
     <ClInclude Include="include\CollisionEnums.h">
       <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
+    <ClInclude Include="include\GameObject.h">
+      <Filter>Include\Game\Game Objects</Filter>
+     </ClInclude>
     <ClInclude Include="include\CollisionHelper.h">
       <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
@@ -212,6 +302,21 @@
     </ClInclude>
     <ClInclude Include="include\Scene.h">
       <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AABBComponent.h">
+      <Filter>Include\Game\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysicsObject.h">
+      <Filter>Include\Game\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BodyEnums.h">
+      <Filter>Include\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionResolver.h">
+      <Filter>Include\Physics Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionChecker.h">
+      <Filter>Include\Physics Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
