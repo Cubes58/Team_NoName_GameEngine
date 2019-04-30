@@ -20,15 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h" />
+    <ClInclude Include="include\BodyEnums.h" />
+    <ClInclude Include="include\BehaviourNodes.h" />
     <ClInclude Include="include\CameraComponent.h" />
     <ClInclude Include="include\CameraViewState.h" />
+    <ClInclude Include="include\AABBComponent.h" />
     <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\CollisionEnums.h" />
-    <ClInclude Include="include\CollisionHelper.h" />
+    <ClInclude Include="include\CollisionChecker.h" />
+    <ClInclude Include="include\CollisionResolver.h" />
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\ContrastChanger.h" />
     <ClInclude Include="include\CubemapCamera.h" />
+    <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
+    <ClInclude Include="include\DoubleEndedStackAllocator.h" />
     <ClInclude Include="include\DynamicEnvironmentObject.h" />
     <ClInclude Include="include\EndLevelCollectable.h" />
     <ClInclude Include="include\EnemyTower.h" />
@@ -39,6 +45,7 @@
     <ClInclude Include="include\CommandArgumentTypes.h" />
     <ClInclude Include="include\Graph.h" />
     <ClInclude Include="include\FontRenderer.h" />
+    <ClInclude Include="include\HashMap.h" />
     <ClInclude Include="include\HealthComponent.h" />
     <ClInclude Include="include\ImageRenderer.h" />
     <ClInclude Include="include\InputCommands.h" />
@@ -49,12 +56,15 @@
     <ClInclude Include="include\InputHandler.h" />
     <ClInclude Include="include\BodyComponent.h" />
     <ClInclude Include="include\Light.h" />
+    <ClInclude Include="include\MemoryBlock.h" />
+    <ClInclude Include="include\MemoryManager.h" />
     <ClInclude Include="include\Mesh.h" />
     <ClInclude Include="include\Model.h" />
     <ClInclude Include="include\ModelComponent.h" />
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
-    <ClInclude Include="include\Node.h" />
+    <ClInclude Include="include\MyTestClass.h" />
+    <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
     <ClInclude Include="include\QuadTree.h" />
@@ -72,8 +82,14 @@
   <ItemGroup>
     <ClCompile Include="source\CollisionHelper.cpp" />
     <ClCompile Include="source\ContrastChanger.cpp" />
+    <ClInclude Include="include\Vector.h" />
+    <ClInclude Include="include\ZoneAllocator.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\CollisionChecker.cpp" />
     <ClCompile Include="source\CubemapCamera.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
+    <ClCompile Include="source\DoubleEndedStackAllocator.cpp" />
     <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
     <ClCompile Include="source\EndLevelCollectable.cpp" />
     <ClCompile Include="source\EnemyTower.cpp" />
@@ -87,10 +103,12 @@
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\MemoryManager.cpp" />
     <ClCompile Include="source\Mesh.cpp" />
     <ClCompile Include="source\Model.cpp" />
-    <ClCompile Include="source\Node.cpp" />
+    <ClCompile Include="source\GraphNode.cpp" />
     <ClCompile Include="source\PhysicsEngine.cpp" />
+    <ClCompile Include="source\PhysicsObject.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
     <ClCompile Include="source\Random.cpp" />
@@ -103,6 +121,7 @@
     <ClCompile Include="source\StaticEnvironmentObject.cpp" />
     <ClCompile Include="source\STB_IMAGE\stb_image.c" />
     <ClCompile Include="source\VBOQuad.cpp" />
+    <ClCompile Include="source\ZoneAllocator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\contrastShader.frag" />
@@ -124,7 +143,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -213,7 +232,7 @@
       <DisableSpecificWarnings>26495;6001;4018;4098;6308;6386;26451;4099;</DisableSpecificWarnings>
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -239,7 +258,7 @@
       <DisableSpecificWarnings>26495;6001;4018;4098;6308;6386;26451;4099;</DisableSpecificWarnings>
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -267,7 +286,7 @@
       <DisableSpecificWarnings>26495;6001;4018;4098;6308;6386;26451;4838;</DisableSpecificWarnings>
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -296,7 +315,7 @@
       <DisableSpecificWarnings>26495;6001;4018;4098;6308;6386;26451;4838;</DisableSpecificWarnings>
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
-      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

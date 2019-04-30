@@ -24,10 +24,11 @@ void QuadTree::Split()
 	int x = m_Box.x;
 	int y = m_Box.y;
 
-	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x + subWidth, y, subWidth, subHeight)));
-	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x, y, subWidth, subHeight)));
-	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x, y + subHeight, subWidth, subHeight)));
-	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x + subWidth, y + subHeight, subWidth, subHeight)));
+	//(0,0) in top left
+	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x, y, subWidth, subHeight)));//top left quad
+	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x + subWidth, y, subWidth, subHeight)));//top right quad
+	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x + subWidth, y + subHeight, subWidth, subHeight)));//bot right quad
+	m_Nodes.push_back(new QuadTree(m_Level + 1, BoundingBox(x, y + subHeight, subWidth, subHeight)));//bot left quad
 }
 
 int QuadTree::GetIndex(float x, float y)

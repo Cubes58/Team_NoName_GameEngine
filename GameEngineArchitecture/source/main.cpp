@@ -1,6 +1,6 @@
 #define USE_GLFW 1
 #ifdef USE_GLFW
-	#include "GLFW_EngineCore.h"
+#include "GLFW_EngineCore.h"
 #endif
 
 #include <memory>
@@ -8,7 +8,11 @@
 #include "Game.h"
 #include "DefaultGame.h"
 
-int main(int argc, char* argv[]) {
+#include "MemoryManager.h"
+
+int main(int p_Argc, char* p_Argv[]) {
+	MemoryManagerInstance;
+
 	std::shared_ptr<IEngineCore> engineCore;
 
 #ifdef USE_GLFW
