@@ -25,6 +25,16 @@ int main(int p_Argc, char* p_Argv[]) {
 	MemoryManagerInstance;
 
 	// Hash Map Test 1:
+	unsigned int hasMapSize = 100;
+	HashMap<std::string, MyTestClass> myHashMap(hasMapSize);
+
+
+
+
+
+
+
+
 
 
 	// Vector Test 1:

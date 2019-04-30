@@ -195,7 +195,7 @@ void ZoneAllocator::FreeMemory(ZoneNode *p_ZoneNode) {
 			nextNextNode->m_PreviousNode = newFreeZoneNode;
 
 		newFreeZoneNode->m_PreviousNode = previousNode;
-		if(nextNode != nullptr)
+		if(previousNode != nullptr)
 			previousNode->m_NextNode = newFreeZoneNode;
 
 		// Zero the data.

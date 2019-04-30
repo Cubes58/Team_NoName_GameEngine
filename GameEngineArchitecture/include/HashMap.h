@@ -29,7 +29,7 @@ private:
 
 public:
 	HashMap(unsigned int p_Capacity = 150u) : m_Capacity(p_Capacity), m_Size(0u) {
-		m_MemoryNode = MemoryManagerInstance.ZoneAllocate(sizeof(HashNode) * m_Capacity);
+		m_MemoryNode = MemoryManagerInstance.ZoneAllocate(sizeof(HashNode<KeyType, ValueType>) * m_Capacity);
 		m_StartNode = reinterpret_cast<HashNode<KeyType, ValueType>*>(m_MemoryNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock);
 	}
 	~HashMap() {
