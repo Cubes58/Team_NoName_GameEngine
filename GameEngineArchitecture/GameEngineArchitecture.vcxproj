@@ -32,7 +32,10 @@
     <ClInclude Include="include\Game.h" />
     <ClInclude Include="include\CommandArgumentTypes.h" />
     <ClInclude Include="include\HealthComponent.h" />
+    <ClInclude Include="include\imgui.h" />
     <ClInclude Include="include\ImGuiLevelEditor.h" />
+    <ClInclude Include="include\imgui_impl_glfw.h" />
+    <ClInclude Include="include\imgui_impl_opengl3.h" />
     <ClInclude Include="include\InputCommands.h" />
     <ClInclude Include="include\GameObject.h" />
     <ClInclude Include="include\GLFW_EngineCore.h" />
@@ -56,7 +59,14 @@
     <ClCompile Include="source\EnemyTower.cpp" />
     <ClCompile Include="source\GLAD\glad.c" />
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
+    <ClCompile Include="source\imgui.cpp" />
     <ClCompile Include="source\ImGuiLevelEditor.cpp" />
+    <ClCompile Include="source\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="source\imgui_demo.cpp" />
+    <ClCompile Include="source\imgui_draw.cpp" />
+    <ClCompile Include="source\imgui_impl_glfw.cpp" />
+    <ClCompile Include="source\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="source\imgui_impl_win32.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\main.cpp" />
@@ -77,7 +87,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
