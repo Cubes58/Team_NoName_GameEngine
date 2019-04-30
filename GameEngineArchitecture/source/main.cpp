@@ -46,6 +46,7 @@ int main(int p_Argc, char* p_Argv[]) {
 	}
 
 	myVector.PushBack(255u);
+	std::cout << myVector[myVector.NumberOfElements() - 1] << std::endl;
 
 	std::cout << std::endl << std::endl;
 	if(true) {

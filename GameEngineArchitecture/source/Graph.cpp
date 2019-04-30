@@ -84,8 +84,8 @@ std::list<GraphNode*> Graph::GetThePath(glm::vec3 p_start, glm::vec3 p_goal)
 			if (m_IsInClosedList)
 				continue;
 
-			if (j->getTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1.4f; }
-			else if (!j->getTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1; };
+			if (j->GetTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1.4f; }
+			else if (!j->GetTheDiagonal()) { GValueTemp = tempNode->GetTheG() + 1; };
 
 			m_IsInOpenList = false;
 			for (auto* l : m_OpenList)

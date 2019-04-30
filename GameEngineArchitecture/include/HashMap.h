@@ -47,8 +47,12 @@ public:
 	void Remove(KeyType p_Key) {
 
 	}
+	void Remove(HashNode<KeyType, ValueType> p_HashNode) {
+		Remove(p_HashNode.m_Key);
+	}
 
 	HashNode<KeyType, ValueType> *Get(KeyType p_Key) {
+
 
 
 		return nullptr;
