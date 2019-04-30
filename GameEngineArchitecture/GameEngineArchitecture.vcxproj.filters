@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="source\CollisionHelper.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="source\CubemapCamera.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -83,6 +80,12 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="source\STB_IMAGE\stb_image.c">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PhysicsObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CollisionChecker.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -165,9 +168,6 @@
     <ClInclude Include="include\Collision.h">
       <Filter>Include\Physics Engine</Filter>
     </ClInclude>
-    <ClInclude Include="include\CollisionHelper.h">
-      <Filter>Include\Physics Engine</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameObject.h">
       <Filter>Include\Game\Game Objects</Filter>
     </ClInclude>
@@ -215,6 +215,21 @@
     </ClInclude>
     <ClInclude Include="include\Scene.h">
       <Filter>Include\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AABBComponent.h">
+      <Filter>Include\Game\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysicsObject.h">
+      <Filter>Include\Game\Game Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BodyEnums.h">
+      <Filter>Include\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionResolver.h">
+      <Filter>Include\Physics Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionChecker.h">
+      <Filter>Include\Physics Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

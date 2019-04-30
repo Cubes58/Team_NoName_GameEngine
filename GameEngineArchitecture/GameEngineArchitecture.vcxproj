@@ -20,13 +20,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\AttackComponent.h" />
+    <ClInclude Include="include\BodyEnums.h" />
     <ClInclude Include="include\CameraComponent.h" />
     <ClInclude Include="include\CameraViewState.h" />
+    <ClInclude Include="include\AABBComponent.h" />
     <ClInclude Include="include\Collision.h" />
     <ClInclude Include="include\CollisionEnums.h" />
-    <ClInclude Include="include\CollisionHelper.h" />
+    <ClInclude Include="include\CollisionChecker.h" />
+    <ClInclude Include="include\CollisionResolver.h" />
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\CubemapCamera.h" />
+    <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DynamicEnvironmentObject.h" />
     <ClInclude Include="include\EndLevelCollectable.h" />
@@ -64,7 +68,7 @@
     <ClInclude Include="include\TransformComponent.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="source\CollisionHelper.cpp" />
+    <ClCompile Include="source\CollisionChecker.cpp" />
     <ClCompile Include="source\CubemapCamera.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
     <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
@@ -82,6 +86,7 @@
     <ClCompile Include="source\Model.cpp" />
     <ClCompile Include="source\Node.cpp" />
     <ClCompile Include="source\PhysicsEngine.cpp" />
+    <ClCompile Include="source\PhysicsObject.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
     <ClCompile Include="source\Random.cpp" />
