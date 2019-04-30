@@ -8,7 +8,7 @@
 
 #include "MemoryManager.h"
 
-#define VECTOR_GROWTH_SCALAR 2u
+#define VECTOR_GROWTH_SCALAR 2u	//!< The vector's capacity growth scalar, when the vector needs to find more space, to fit more elements in.
 
 /*! \class Vector
 	\brief A container class that stores elements in a contiguous block of memory.
@@ -105,6 +105,15 @@ public:
 			// Inform the zone allocator that the old zone is no longer in use.
 			MemoryManagerInstance.FreeZoneMemory(oldZoneNode);
 		}
+
+		if(m_Size < m_Capacity) {
+			m_Data[m_Size] = p_Element;
+			++m_Size;
+			++m_NumberOfElements;
+
+			return true;
+		}
+
 		return false;
 	}
 
@@ -114,7 +123,7 @@ public:
 		\return Returns nothing.
 	*/
 	void Remove(unsigned int p_Index) {
-		if(m_Size > 0u) {
+		if(m_Size > 0u && p_Index < m_Capacity) {
 			// Set a char pointer to the start of the element that's going to be deleted.
 			unsigned char *pointerToIndexElement = reinterpret_cast<unsigned char *>(m_Data + (sizeof(Type) * p_Index));
 			// Zero the memory at that location.

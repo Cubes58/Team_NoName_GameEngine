@@ -166,7 +166,10 @@ void ZoneAllocator::FreeMemory(ZoneNode *p_ZoneNode) {
 			nextNextNode->m_PreviousNode = newFreeZoneNode;
 
 		// Zero the data.
-		std::memset(newFreeZoneNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock, 0, newFreeZoneNode->m_ManagedMemoryBlock.m_SizeOfManagedData);
+		//std::memset(newFreeZoneNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock, 0, newFreeZoneNode->m_ManagedMemoryBlock.m_SizeOfManagedData);
+
+		// Ensure the start node is a valid node, even after nodes have been merged/wiped.
+		m_StartNode = newFreeZoneNode;
 	}
 	else if(!isZoneNodeOccupied(nextNode)) {
 		// Merge this zone with the next one.
@@ -188,12 +191,18 @@ void ZoneAllocator::FreeMemory(ZoneNode *p_ZoneNode) {
 
 		// Amend the node pointers.
 		newFreeZoneNode->m_NextNode = nextNextNode;
-
 		if (nextNextNode != nullptr)
 			nextNextNode->m_PreviousNode = newFreeZoneNode;
 
+		newFreeZoneNode->m_PreviousNode = previousNode;
+		if(previousNode != nullptr)
+			previousNode->m_NextNode = newFreeZoneNode;
+
 		// Zero the data.
 		std::memset(newFreeZoneNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock, 0, newFreeZoneNode->m_ManagedMemoryBlock.m_SizeOfManagedData);
+
+		// Ensure the start node is a valid node, even after nodes have been merged/wiped.
+		m_StartNode = newFreeZoneNode;
 	}
 	else if(!isZoneNodeOccupied(previousNode)) {
 		// Merge this zone with the previous one.
@@ -215,12 +224,18 @@ void ZoneAllocator::FreeMemory(ZoneNode *p_ZoneNode) {
 
 		// Amend the node pointers.
 		newFreeZoneNode->m_PreviousNode = previousPreviousNode;
-
 		if(previousPreviousNode != nullptr)
 			previousPreviousNode->m_NextNode = newFreeZoneNode;
 
+		newFreeZoneNode->m_NextNode = nextNode;
+		if(nextNode != nullptr)
+			nextNode->m_PreviousNode = newFreeZoneNode;
+
 		// Zero the data.
 		std::memset(newFreeZoneNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock, 0, newFreeZoneNode->m_ManagedMemoryBlock.m_SizeOfManagedData);
+
+		// Ensure the start node is a valid node, even after nodes have been merged/wiped.
+		m_StartNode = newFreeZoneNode;
 	}
 	else {
 		// It's its own block of unoccupied memory.
@@ -231,8 +246,8 @@ void ZoneAllocator::FreeMemory(ZoneNode *p_ZoneNode) {
 
 		// Zero the data.
 		std::memset(p_ZoneNode->m_ManagedMemoryBlock.m_StartOfMemoryBlock, 0, p_ZoneNode->m_ManagedMemoryBlock.m_SizeOfManagedData);
-	}
 
-	// Ensure the start node is a valid node, even after nodes have been merged/wiped.
-	m_StartNode = p_ZoneNode;
+		// Ensure the start node is a valid node, even after nodes have been merged/wiped.
+		m_StartNode = p_ZoneNode;
+	}
 }
