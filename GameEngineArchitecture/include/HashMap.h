@@ -1,30 +1,39 @@
 #pragma once
 
+#include <functional>
+
 #include "MemoryManager.h"
 
+namespace CC {
 template <typename KeyType, typename ValueType>
 struct HashNode {
 	ValueType m_Value;
 	KeyType m_Key;
 
-	HashNode *m_LesserChild;
-	HashNode *m_GreaterChild;
+	HashNode *m_Left;
+	HashNode *m_Right;
 
-	HashNode(KeyType p_Key, ValueType p_value) 
-		: m_Key(p_Key), m_Value(p_value) {  }
+	HashNode() = default;
+	HashNode(KeyType p_Key, ValueType p_value)
+		: m_Key(p_Key), m_Value(p_value) {
+	}
+	HashNode(KeyType p_Key, ValueType p_value, HashNode *p_Left, HashNode *p_Right)
+		: m_Key(p_Key), m_Value(p_value), m_Left(p_Left), m_Right(p_Right) {
+	}
 };
 
 template <typename KeyType, typename ValueType>
 class HashMap {
 private:
+	std::list<unsigned int> m_EmptySpace;	//!< A list of spaces that are free, within the allocated block of memory. 
 	ZoneNode *m_MemoryNode = nullptr;
 	HashNode<KeyType, ValueType> *m_StartNode;
 
 	unsigned int m_Size;
 	unsigned int m_Capacity;
 
-	int HashFunction(KeyType p_Key) {
-		return (int)(p_Key % 13u);
+	inline unsigned int HashFunction(KeyType p_Key) const {
+		return std::hash<KeyType>{}(p_Key);
 	}
 
 public:
@@ -37,14 +46,19 @@ public:
 	}
 
 	void Insert(HashNode<KeyType, ValueType> p_HashNode) {
-		// Add the hash node.
-		// Check to see if the map outgrows the capacity, if it does move it to a larger area, and double the capacity.
+		unsigned int hashValue = HashFunction(p_HashNode.m_Key);
+
+		bool b = true;
+
 	}
 	void Insert(KeyType p_Key, ValueType p_Value) {
 		Insert(HashNode<KeyType, ValueType>(p_Key, p_Value));
 	}
 
 	void Remove(KeyType p_Key) {
+		unsigned int hashValue = HashFunction(p_Key);
+
+
 
 	}
 	void Remove(HashNode<KeyType, ValueType> p_HashNode) {
@@ -52,6 +66,7 @@ public:
 	}
 
 	HashNode<KeyType, ValueType> *Get(KeyType p_Key) {
+		unsigned int hashValue = HashFunction(p_Key);
 
 
 
@@ -62,3 +77,4 @@ public:
 		return m_Size;
 	}
 };
+}

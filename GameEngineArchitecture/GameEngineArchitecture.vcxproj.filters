@@ -165,9 +165,6 @@
     <ClInclude Include="include\MemoryManager.h">
       <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
-    <ClInclude Include="include\Node.h">
-      <Filter>Header Files\Artificialntelligence</Filter>
-    </ClInclude>
     <ClInclude Include="include\PhysicsEngine.h">
       <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>

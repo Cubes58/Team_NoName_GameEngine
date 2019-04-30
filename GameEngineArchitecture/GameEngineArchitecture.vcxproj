@@ -56,7 +56,6 @@
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
     <ClInclude Include="include\MyTestClass.h" />
-    <ClInclude Include="include\Node.h" />
     <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
