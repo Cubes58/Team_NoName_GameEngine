@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 class MyTestClass {
 public:
 	unsigned int m_Number = 10000u;
