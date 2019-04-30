@@ -25,9 +25,11 @@ void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
 	m_ScreenHeight = p_ScreenHeight;
 	m_NearPlane = 0.1f;
 	m_FarPlane = 300.f;
-	m_IsDirectionalShadows = true;
-	m_Sun = new Light(glm::vec3(1.0f, 50.0f, -1.0f), glm::vec3(1.f));
+	m_ShadowDistance = m_ShadowWidth;
+	m_IsDirectionalShadows = false;
+	m_Sun = new Light(glm::vec3(10.0f, 100.0f, -10.0f), glm::vec3(1.f));
 	m_ShadowRenderer = std::make_shared<Shadows>(m_ShadowWidth, m_ShadowHeight, m_IsDirectionalShadows);
+	m_SceneFrameBuffer = std::make_shared<FrameBufferObject>(m_ScreenWidth, m_ScreenHeight, FrameBufferType::NONE);
 	m_PostProcessor = std::make_shared<PostProcessor>();
 	m_PostProcessor->InitPostProcessing();
 	InitShaders();
@@ -42,8 +44,6 @@ void RenderEngine::Init(int p_ScreenWidth, int p_ScreenHeight)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	// Enable face culling.
-
 }
 
 void RenderEngine::InitShaders()
@@ -53,6 +53,7 @@ void RenderEngine::InitShaders()
 
 	m_FontRenderer = std::make_shared<FontRenderer>("resources/fonts/arial.ttf", m_ScreenWidth, m_ScreenHeight, m_DefaultShader->GetID());
 	m_FontRenderer->SetShader("resources/shaders/fontShader.vert", "resources/shaders/fontShader.frag");
+
 	//Setup Shadow Shaders
 	if (m_IsDirectionalShadows)
 	{
@@ -99,30 +100,21 @@ void RenderEngine::Render()
 {
 	glEnable(GL_DEPTH_TEST);
 	ClearScreen();
-	if (m_IsDirectionalShadows)
-	{
-		m_DefaultShader->ErrorChecker();
-		m_ShadowRenderer->Prepare(m_Sun->GetPosition());
-		glClear(GL_DEPTH_BUFFER_BIT);
-		RenderSceneObjects(m_ShadowRenderer->Render());
-		m_ShadowRenderer->End(m_ScreenWidth, m_ScreenHeight);
-		
-	}
-	else
-	{
-		m_DefaultShader->ErrorChecker();
-		m_ShadowRenderer->Prepare(m_Sun->GetPosition());
-		glClear(GL_DEPTH_BUFFER_BIT);
-		RenderSceneObjects(m_ShadowRenderer->Render());
-		m_ShadowRenderer->End(m_ScreenWidth, m_ScreenHeight);
-	}
+	
+	
+	m_DefaultShader->ErrorChecker();
+	m_ShadowRenderer->Prepare(m_Sun->GetPosition(), m_NearPlane, m_FarPlane);
+	glClear(GL_DEPTH_BUFFER_BIT);
+	RenderSceneObjects(m_ShadowRenderer->Render());
+	m_ShadowRenderer->End(m_ScreenWidth, m_ScreenHeight);
 	
 	m_DefaultShader->ErrorChecker();
 	ClearScreen();
 	m_ShadowShader->Use();
 	m_ShadowShader->SetInt("depthMap", m_ShadowRenderer->GetShadowMap());
 	RenderSceneObjects(m_ShadowShader);
-	
+
+
 	m_DefaultShader->Use();
 	m_DefaultShader->ErrorChecker();
 	m_DefaultShader->SetMat4("model", m_Sun->GetModelMatrix());
@@ -139,16 +131,16 @@ void RenderEngine::Render()
 
 void RenderEngine::RenderFrameBuffers()
 {
-	/*m_DefaultShader->ErrorChecker();
+	m_DefaultShader->ErrorChecker();
 	m_SceneFrameBuffer->BindFrameBuffer();
 	ClearScreen();
 	RenderSceneObjects(m_ShadowShader);
 	m_Skybox->Render();
-	m_SceneFrameBuffer->UnbindFrameBuffer();
+	m_SceneFrameBuffer->UnbindFrameBuffer(m_ScreenWidth, m_ScreenHeight);
 
 	
 	glClear(GL_COLOR_BUFFER_BIT);
-	m_PostProcessor->DoPostProcessing(m_SceneFrameBuffer->GetColourTexture());*/
+	m_PostProcessor->DoPostProcessing(m_SceneFrameBuffer->GetColourTexture());
 }
 
 void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram)
@@ -181,6 +173,8 @@ void RenderEngine::RenderDebugging()
 void RenderEngine::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
 {
 	m_Camera = p_Camera;
+	m_Camera->SetAspectRatio(m_ScreenWidth / m_ScreenHeight);
+	m_Camera->SetClipPlanes(glm::vec2(m_NearPlane, m_FarPlane));
 }
 
 void RenderEngine::SetGameObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> *p_GameObjects)
@@ -203,12 +197,12 @@ void RenderEngine::SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram
 {
 	p_ShaderProgram->Use();
 	p_ShaderProgram->ErrorChecker();
-	glm::mat4 lightProjection;
-	glm::mat4 lightView;
-	glm::mat4 lightSpaceMatrix;
+	glm::mat4 lightProjection = glm::mat4(1.0);
+	glm::mat4 lightView = glm::mat4(1.0);
+	glm::mat4 lightSpaceMatrix = glm::mat4(1.0);
 
-	lightProjection = glm::ortho(-10.f, 10.f, -10.f, 10.f, m_NearPlane, m_FarPlane);
-	lightView = glm::lookAt(m_Sun->GetPosition(), -m_Sun->GetPosition(), glm::vec3(0.0f, 1.0f, 0.0f));
+	lightProjection = glm::ortho<float>(-m_ShadowDistance, m_ShadowDistance, -m_ShadowDistance, m_ShadowDistance, m_NearPlane, m_FarPlane);
+	lightView = glm::lookAt(m_Sun->GetPosition(), glm::vec3(0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 	lightSpaceMatrix = lightProjection * lightView;
 
 	p_ShaderProgram->SetMat4("lightSpaceMatrix", lightSpaceMatrix);

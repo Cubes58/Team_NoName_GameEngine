@@ -27,6 +27,7 @@ class Light;
 class Shadows;
 
 
+
 #define RenderEngineInstance RenderEngine::Instance()
 
 class RenderEngine {
@@ -57,6 +58,7 @@ private:
 	int m_ScreenWidth, m_ScreenHeight;
 	const unsigned int m_ShadowWidth = 2048;
 	const unsigned int m_ShadowHeight = 2048;
+	int m_ShadowDistance = 1000;
 
 	float m_NearPlane;
 	float m_FarPlane;
@@ -80,10 +82,7 @@ public:
 	void Render();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void RenderDebugging();
-	void RenderFrameBuffers(CubeMapCamera &p_Camera);
 	void RenderFrameBuffers();
-	void GenerateProjectionMatrix();
-
 
 	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);
 	void SetGameObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> *p_GameObjects);

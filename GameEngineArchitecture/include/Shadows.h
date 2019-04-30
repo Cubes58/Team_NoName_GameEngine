@@ -21,7 +21,7 @@ private:
 public:
 	Shadows(float p_Width, float p_Height, bool p_IsDirectional);
 
-	void Prepare(glm::vec3 p_SunPosition);
+	void Prepare(glm::vec3 p_SunPosition, float p_NearClip, float p_FarClip);
 	std::shared_ptr<ShaderProgram> Render();
 	void End(unsigned int p_Width, unsigned int p_Height);
 	unsigned int GetShadowMap();

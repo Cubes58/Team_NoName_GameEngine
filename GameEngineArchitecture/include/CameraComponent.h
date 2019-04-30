@@ -169,6 +169,10 @@ public:
 		return m_Orientation; 
 	}
 
+	glm::mat4 GetRotationMatrix() const {
+		return glm::mat4_cast(m_Orientation);
+	}
+
 	/*!
 		\brief Gets the view matrix of the camera component.
 		\return returns the view matrix of the camera component.
