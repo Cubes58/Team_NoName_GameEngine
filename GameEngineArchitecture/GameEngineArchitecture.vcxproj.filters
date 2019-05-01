@@ -1,112 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="source\CollisionHelper.cpp">
-    <ClCompile Include="source\CubemapCamera.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\DefaultGame.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\DynamicEnvironmentObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\EndLevelCollectable.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\EnemyTower.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\GLAD\glad.c">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\GLFW_EngineCore.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Graph.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\InputHandler.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\JSON\jsoncpp.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Node.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\PhysicsEngine.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\PlayerCharacter.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\QuadTree.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Random.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Scene.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\StaticEnvironmentObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\STB_IMAGE\stb_image.c">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\FontRenderer.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Mesh.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Model.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\SkyBox.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ShaderProgram.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\VBOQuad.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\FrameBufferObject.cpp">
-      <Filter>Source\Graphics Engine\PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ImageRenderer.cpp">
-      <Filter>Source\Graphics Engine\PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\PostProcessor.cpp">
-      <Filter>Source\Graphics Engine\PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\CubemapCamera.cpp">
-      <Filter>Source\Graphics Engine\PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ContrastChanger.cpp">
-      <Filter>Source\Graphics Engine\PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="source\RenderEngine.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Light.cpp">
-      <Filter>Source\Graphics Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="source\Shadows.cpp">
-      <Filter>Source\Graphics Engine\Shadows</Filter>
-    </ClCompile>
-    <ClCompile Include="source\PhysicsObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="source\CollisionChecker.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <Filter Include="Source Files">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
@@ -130,9 +24,6 @@
     </Filter>
     <Filter Include="Source Files\Tools">
       <UniqueIdentifier>{234f2e6b-cb26-4d07-b683-1e264ae2fed6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\Managers">
-      <UniqueIdentifier>{5356f47e-26e7-4530-9a28-ca3d312394e8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Enums">
       <UniqueIdentifier>{f7f2dd4b-abd3-4d33-90f6-7823aa3eef7b}</UniqueIdentifier>
@@ -190,20 +81,9 @@
     <ClInclude Include="include\InputHandler.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="include\ModelManager.h">
-      <Filter>Header Files\Managers</Filter>
-    </ClInclude>
     <ClInclude Include="include\InputCommands.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="include\InputHandler.h">
-      <Filter>Include\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FontRenderer.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ShaderProgram.h">
-      <Filter>Include\Graphics Engine</Filter>
     <ClInclude Include="include\InputCommandFactory.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
@@ -234,18 +114,6 @@
     <ClInclude Include="include\MyTestClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\CollisionEnums.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameObject.h">
-      <Filter>Include\Game\Game Objects</Filter>
-     </ClInclude>
-    <ClInclude Include="include\CollisionHelper.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\BodyComponent.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
-    </ClInclude>
     <ClInclude Include="include\BehaviourNodes.h">
       <Filter>Header Files\Artificialntelligence</Filter>
     </ClInclude>
@@ -260,12 +128,6 @@
     </ClInclude>
     <ClInclude Include="include\FileSystemHelper.h">
       <Filter>Header Files\Tools</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FontRenderer.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FrameBufferObject.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\Graph.h">
       <Filter>Header Files\Artificialntelligence</Filter>
@@ -303,9 +165,6 @@
     <ClInclude Include="include\Vector.h">
       <Filter>Header Files\MemoryManager\Containers</Filter>
     </ClInclude>
-    <ClInclude Include="include\SkyBox.h">
-      <Filter>Header Files\PhysicsEngine</Filter>
-    </ClInclude>
     <ClInclude Include="include\ZoneAllocator.h">
       <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
@@ -330,52 +189,56 @@
     <ClInclude Include="include\Scene.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="include\AABBComponent.h">
-      <Filter>Include\Game\Components</Filter>
+    <ClInclude Include="include\SkyBox.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\PhysicsObject.h">
-      <Filter>Include\Game\Game Objects</Filter>
+    <ClInclude Include="include\FontRenderer.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\BodyEnums.h">
-      <Filter>Include\Enums</Filter>
+    <ClInclude Include="include\CollisionChecker.h">
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\CollisionResolver.h">
-      <Filter>Include\Physics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\VBOQuad.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\FrameBufferObject.h">
-      <Filter>Include\Graphics Engine\PostProcessing</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CubemapCamera.h">
-      <Filter>Include\Graphics Engine\PostProcessing</Filter>
-    </ClInclude>
-    <ClInclude Include="include\PostProcessor.h">
-      <Filter>Include\Graphics Engine\PostProcessing</Filter>
-    </ClInclude>
-    <ClInclude Include="include\ImageRenderer.h">
-      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+      <Filter>Header Files\PhysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\ContrastChanger.h">
-      <Filter>Include\Graphics Engine\PostProcessing</Filter>
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\FrameBufferType.h">
-      <Filter>Include\Enums</Filter>
+    <ClInclude Include="include\ImageRenderer.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\Light.h">
-      <Filter>Include\Graphics Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\RenderEngine.h">
-      <Filter>Include\Graphics Engine\Renderer</Filter>
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\Shadows.h">
-      <Filter>Include\Graphics Engine\Shadows</Filter>
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\CollisionChecker.h">
-      <Filter>Include\Physics Engine</Filter>
+    <ClInclude Include="include\VBOQuad.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BodyEnums.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CollisionEnums.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameBufferObject.h">
+      <Filter>Header Files\RenderEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FrameBufferType.h">
+      <Filter>Header Files\Enums</Filter>
+    </ClInclude>
+    <ClInclude Include="include\PhysicsObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\BodyComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\AABBComponent.h">
+      <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ModelManager.h">
+      <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -424,9 +287,6 @@
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="source\CollisionHelper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\CubemapCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -472,6 +332,27 @@
     <ClCompile Include="source\ZoneAllocator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\ContrastChanger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ImageRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Light.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PhysicsObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Shadows.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VBOQuad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CollisionChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="resources\shaders\defaultShader.frag">
@@ -492,97 +373,29 @@
     <None Include="resources\shaders\skybox.vert">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="resources\shaders\contrastShader.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\contrastShader.vert">
-      <Filter>Resources</Filter>
-    </None>
     <None Include="resources\shaders\shadowShader.frag">
-      <Filter>Resources</Filter>
+      <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\shadowShader.vert">
-      <Filter>Resources</Filter>
+      <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\shadowShaderDepth.frag">
-      <Filter>Resources</Filter>
+      <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\shadowShaderDepth.vert">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\defaultShader.frag">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\defaultShader.vert">
-      <Filter>Resources</Filter>
-    </None>
-    <None Include="resources\shaders\debugShader.frag">
-      <Filter>Resources</Filter>
+      <Filter>Resource Files</Filter>
     </None>
     <None Include="resources\shaders\debugShader.vert">
-      <Filter>Resources</Filter>
+      <Filter>Resource Files</Filter>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Include">
-      <UniqueIdentifier>{bda6f82d-ec56-4448-a077-4cc51454fb74}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source">
-      <UniqueIdentifier>{a6b277e3-210c-4583-85b2-95dc7e5bdb30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resources">
-      <UniqueIdentifier>{c996bb8e-4cf4-4a24-953f-f908710435f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Managers">
-      <UniqueIdentifier>{edbd8b00-9e15-43cb-a4cb-55f8a23968ae}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Enums">
-      <UniqueIdentifier>{90440d30-bb12-48c3-8879-3c2343c89eba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Input">
-      <UniqueIdentifier>{40b51930-6107-4f98-87a7-7c8115510034}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Graphics Engine">
-      <UniqueIdentifier>{433a3f6b-7f3c-4df3-b920-c1534a9ea750}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Physics Engine">
-      <UniqueIdentifier>{14533dd3-4ea7-4bfe-b2d8-122c785f431a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Tools">
-      <UniqueIdentifier>{1b710704-ddcc-4310-889a-bee96eddd022}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Artificial Intelligence">
-      <UniqueIdentifier>{da9a6632-8b89-4619-9550-12cbfcb474c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Engine Core">
-      <UniqueIdentifier>{937c2546-ae62-47f1-8e38-e4dd6e74fa17}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game">
-      <UniqueIdentifier>{b64ac252-c46b-481c-a41e-3ed2ccee9568}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game\Components">
-      <UniqueIdentifier>{346db063-aa82-4b48-8036-a9d58f239c1e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Game\Game Objects">
-      <UniqueIdentifier>{20b0e9b6-cccc-4e8f-8f8a-cb8deefe2ebb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Graphics Engine">
-      <UniqueIdentifier>{5a523e67-df6e-4f61-8fb6-1f6ee97720a4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Graphics Engine\PostProcessing">
-      <UniqueIdentifier>{1698371a-2823-42b0-aaab-6bb761db0fcb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Graphics Engine\PostProcessing">
-      <UniqueIdentifier>{50b69cf1-b9d9-4d57-b2a3-9fae1d8056f4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Graphics Engine\Shadows">
-      <UniqueIdentifier>{cce6858b-7240-48b8-bf9e-bbf3e3b5e227}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Graphics Engine\Shadows">
-      <UniqueIdentifier>{b8b03d74-3666-4f5e-b82a-3fcdcf6b210a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Include\Graphics Engine\Renderer">
-      <UniqueIdentifier>{e73ee488-bc04-44f4-ad51-313536ac28c8}</UniqueIdentifier>
-    </Filter>
+    <None Include="resources\shaders\debugShader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\contrastShader.vert">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resources\shaders\contrastShader.frag">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

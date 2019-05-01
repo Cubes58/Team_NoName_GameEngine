@@ -14,6 +14,7 @@
 #include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
+#include "PhysicsObject.h"
 
 #include "ModelComponent.h"
 #include "TransformComponent.h"
@@ -162,6 +163,37 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 			type = typeNode.asString();
 		}
 
+		// Get the size of the AABB node.
+		glm::vec3 AABB(1.0f, 1.0f, 1.0f);
+		const Json::Value AABBNode = gameObjects[i]["AABBSize"];
+		if(AABBNode.type() != Json::nullValue) {
+			AABB.x = AABBNode[0].asFloat();
+			AABB.y = AABBNode[1].asFloat();
+			AABB.z = AABBNode[2].asFloat();
+		}
+
+		// Get the object mass node node.
+		float objectMass(10.0f);
+		const Json::Value objectMassNode = gameObjects[i]["objectMass"];
+		if(objectMassNode.type() != Json::nullValue) {
+			objectMass = objectMassNode.asFloat();
+		}
+
+		// Get the body type node.
+		const Json::Value bodyTypeNode = gameObjects[i]["bodyType"];
+		std::string bodyType = "Static";
+		if(bodyTypeNode.type() != Json::nullValue) {
+			bodyType = bodyTypeNode.asString();
+		}
+
+		BodyType bodyCompType = BodyType::STATIC;
+		if(bodyType == "Dynamic")
+			bodyCompType = BodyType::DYNAMIC;
+		else if(bodyType == "Static")
+			bodyCompType = BodyType::STATIC;
+		else
+			bodyCompType = BodyType::KINEMATIC;
+
 		if (type == "PlayerCharacter") {
 			m_GameObjects.emplace(typeid(PlayerCharacter), std::make_shared<PlayerCharacter>(modelName, position, orientation, scale, health, uniformMovementSpeed));
 			auto iter = m_GameObjects.find(typeid(PlayerCharacter));
@@ -179,6 +211,9 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 		}
 		else if (type == "EndLevelCollectable") {
 			m_GameObjects.emplace(typeid(EndLevelCollectable), std::make_shared<EndLevelCollectable>(modelName, position, orientation, scale, p_Game));
+		}
+		else if(type == "PhysicsObject") {
+			m_GameObjects.emplace(typeid(PhysicsObject), std::make_shared<PhysicsObject>(modelName, position, AABB, orientation, scale, objectMass, bodyCompType));
 		}
 		else {
 			std::cout << "ERROR::CANNOT LOAD OBJECT!" << 

@@ -1,4 +1,6 @@
-#include "..\include\PhysicsEngine.h"
+#include "PhysicsEngine.h"
+
+#include "BodyComponent.h"
 
 PhysicsEngine::PhysicsEngine(std::shared_ptr<Game> p_Game)
 {
@@ -37,6 +39,8 @@ void PhysicsEngine::Update()
 		std::cout << "physics fixed fps: " << 1 / m_FramePeriod << std::endl;
 		std::cout << "physics frame period: " << m_AccumulatedSeconds << "s" << std::endl;
 		m_AccumulatedSeconds -= m_FramePeriod;
+
+		PhysicsFrame();
 	}
 }
 
@@ -47,6 +51,9 @@ void PhysicsEngine::PhysicsFrame()
 			if (l_Itr->second->GetComponent<AABBComponent>()->Check(m_Objects)) {
 				l_Itr->second->GetComponent<AABBComponent>()->Resolve();
 			}
+		}
+		if(l_Itr->second->GetComponent<BodyComponent>() != nullptr) {
+			l_Itr->second->GetComponent<BodyComponent>()->ApplyForce(glm::vec3(0.0f, -9.81, 0.0f));
 		}
 		l_Itr->second->OnUpdate(m_FramePeriod);
 	}

@@ -6,7 +6,7 @@
 
 class BodyComponent : public Component {
 private:
-	BodyType m_BodyType = BodyType::KINEMATIC;
+	BodyType m_BodyType = BodyType::DYNAMIC;
 	void Integrate(float p_DeltaTime) {
 		m_Velocity += m_Acceleration * p_DeltaTime;
 		m_Position += m_Velocity * p_DeltaTime;
