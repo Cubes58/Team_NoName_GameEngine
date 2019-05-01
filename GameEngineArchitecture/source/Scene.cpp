@@ -226,7 +226,7 @@ void Scene::ImGuiRender()
 {
 	static bool show_test_window = true;
 	static bool show_another_window = false;
-	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+	ImVec4 clear_color = ImColor(114, 144, 144);// ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
 	ImGui_ImplGlfw_NewFrame();
 
@@ -237,6 +237,7 @@ void Scene::ImGuiRender()
 		float* fp = &(tc->m_Position.y);
 
 		ImGui::Text("Hello, world!");
+		ImGui::Text("Hello, world");
 		ImGui::SliderFloat("float", fp, 0.0f, 2.0f);
 		ImGui::ColorEdit3("clear color", (float*)&clear_color);
 		if (ImGui::Button("Test Window")) show_test_window ^= 1;
