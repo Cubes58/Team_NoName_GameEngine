@@ -120,16 +120,10 @@
     <ClInclude Include="include\Collision.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\ImGuiLevelEditor.h">
+    <ClInclude Include="external\include\ImGui\imgui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\imgui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_glfw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_opengl3.h">
+    <ClInclude Include="external\include\ImGui\imgui_impl_glfw.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -179,9 +173,6 @@
     <ClCompile Include="source\StaticEnvironmentObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="source\ImGuiLevelEditor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\ImGui\imgui_widgets.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -192,9 +183,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\imgui_impl_glfw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\imgui_impl_opengl3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\imgui_impl_win32.cpp">

@@ -1,18 +1,24 @@
-//#include "imgui_impl_glfw.h"
-//#include "imgui.h"
-//#include "ImGuiLevelEditor.h"
-//
-//
-//
-//ImGuiLevelEditor::ImGuiLevelEditor()
-//{
-//	
-//}
-//
-//
-//ImGuiLevelEditor::~ImGuiLevelEditor()
-//{
-//}
+/*#include "imgui_impl_glfw.h"
+#include "imgui.h"
+#include "ImGuiLevelEditor.h"
+#include <imgui_internal.h>
+
+
+ImGuiLevelEditor::ImGuiLevelEditor()
+{
+	ImGui::CreateContext();
+	ImGui_ImplOpenGL3_Init("m_LevelEditor", true);
+
+	ImGui_ImplOpenGL3_NewFrame();
+
+	ImGui::Render();
+	ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+}
+
+
+ImGuiLevelEditor::~ImGuiLevelEditor()
+{
+}*/
 
 
 #include "imgui.h"
@@ -155,7 +161,7 @@ int main(int, char**)
 			static float f = 0.0f;
 			static int counter = 0;
 
-			ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
+			ImGui::Begin("Level Editor");                          // Create a window called "Hello, world!" and append into it.
 
 			ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
 			ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state

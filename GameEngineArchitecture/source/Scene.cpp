@@ -222,6 +222,45 @@ void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
 	DisplayUnsuccessfullyLoadedModels(p_EngineInterface);
 }
 
+void Scene::ImGuiRender()
+{
+	static bool show_test_window = true;
+	static bool show_another_window = false;
+	ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+	ImGui_ImplGlfw_NewFrame();
+
+	{
+		auto playerCharacter = m_GameObjects.find(typeid(PlayerCharacter));
+		std::shared_ptr<TransformComponent> tc = playerCharacter->second->GetComponent<TransformComponent>();
+
+		float* fp = &(tc->m_Position.y);
+
+		ImGui::Text("Hello, world!");
+		ImGui::SliderFloat("float", fp, 0.0f, 2.0f);
+		ImGui::ColorEdit3("clear color", (float*)&clear_color);
+		if (ImGui::Button("Test Window")) show_test_window ^= 1;
+		if (ImGui::Button("Another Window")) show_another_window ^= 1;
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	}
+
+	if (show_another_window)
+	{
+		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Another Window", &show_another_window);
+		ImGui::Text("Hello");
+		ImGui::End();
+	}
+
+	if (show_test_window)
+	{
+		ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+		ImGui::ShowDemoWindow(&show_test_window);
+	}
+
+	ImGui::Render();
+}
+
 void Scene::Update(float p_DeltaTime) {
 	// Checks whether the player is within the range of any enemy towers.
 	auto defenceTowers = m_GameObjects.equal_range(typeid(EnemyTower));
