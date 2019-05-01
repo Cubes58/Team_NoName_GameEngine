@@ -20,6 +20,26 @@
       "command": "MovePlayerRightCommand",
       "inputType": "press"
     },
+	{
+      "key": "W",
+      "command": "StopForwardCommand",
+      "inputType": "release"
+    },
+    {
+      "key": "A",
+      "command": "StopLeftCommand",
+      "inputType": "release"
+    },
+    {
+      "key": "S",
+      "command": "StopBackwardCommand",
+      "inputType": "release"
+    },
+    {
+      "key": "D",
+      "command": "StopRightCommand",
+      "inputType": "release"
+    },
     {
       "key": "E",
       "command": "RotatePlayerRightCommand",

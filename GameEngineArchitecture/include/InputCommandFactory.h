@@ -27,12 +27,22 @@ private:
 		Register("NextSceneCommand", CommandArgumentType::GAME, &NextSceneCommand::Create);
 		Register("PreviousSceneCommand", CommandArgumentType::GAME, &PreviousSceneCommand::Create);
 		Register("ReloadInputConfigurationCommand", CommandArgumentType::INPUT_HANDLER, &ReloadInputConfigurationCommand::Create);
+
 		Register("RotatePlayerLeftCommand", CommandArgumentType::PLAYER, &RotatePlayerLeftCommand::Create);
 		Register("RotatePlayerRightCommand", CommandArgumentType::PLAYER, &RotatePlayerRightCommand::Create);
+		Register("StopRotateLeftCommand", CommandArgumentType::PLAYER, &StopRotateLeftCommand::Create);
+		Register("StopRotateRightCommand", CommandArgumentType::PLAYER, &StopRotateRightCommand::Create);
+
 		Register("MovePlayerForwardCommand", CommandArgumentType::PLAYER, &MovePlayerForwardCommand::Create);
 		Register("MovePlayerBackwardCommand", CommandArgumentType::PLAYER, &MovePlayerBackwardCommand::Create);
 		Register("MovePlayerLeftCommand", CommandArgumentType::PLAYER, &MovePlayerLeftCommand::Create);
 		Register("MovePlayerRightCommand", CommandArgumentType::PLAYER, &MovePlayerRightCommand::Create);
+
+		Register("StopForwardCommand", CommandArgumentType::PLAYER, &StopForwardCommand::Create);
+		Register("StopBackwardCommand", CommandArgumentType::PLAYER, &StopBackwardCommand::Create);
+		Register("StopLeftCommand", CommandArgumentType::PLAYER, &StopLeftCommand::Create);
+		Register("StopRightCommand", CommandArgumentType::PLAYER, &StopRightCommand::Create);
+
 		Register("SetCameraFirstPersonPerspectiveCommand", CommandArgumentType::PLAYER, &SetCameraFirstPersonPerspectiveCommand::Create);
 		Register("SetCameraThirdPersonPerspectiveCommand", CommandArgumentType::PLAYER, &SetCameraThirdPersonPerspectiveCommand::Create);
 		Register("SetCameraPerspectiveCommand", CommandArgumentType::PLAYER, &SetCameraPerspectiveCommand::Create);

@@ -20,9 +20,11 @@ private:
 
 	//QuadTree* m_QuadTree;
 	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> m_Objects;
+	CollisionChecker m_CollisionChecker;
 public:
 	PhysicsEngine(std::shared_ptr<Game> p_Game);
 	void GiveObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects);
 	void Update();
 	void PhysicsFrame();
+	void CollisionChecks();
 };

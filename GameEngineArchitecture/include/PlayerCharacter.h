@@ -31,6 +31,8 @@ private:
 	glm::vec3 m_OriginalPosition;	//!< Stores the player's starting position, so it can be reset.
 	glm::quat m_OriginalOrientation;	//!< Stores the player's starting orientation, so it can be reset.
 
+	glm::vec3 m_TranslationVector = glm::vec3(0,0,0);
+	float m_RotationValue = 0;
 public:
 	/*!
 		\brief Constructor.
@@ -43,7 +45,7 @@ public:
 		\param p_PlayerRotationSpeed starting rotation speed of the object.
 	*/
 	PlayerCharacter(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, 
-		const glm::vec3 &p_Scale, float p_Health = 100.0f, float p_PlayerMovementSpeed = 0.35f, float p_PlayerRotationSpeed = 0.045f);
+		const glm::vec3 &p_Scale, const glm::vec3 &p_AABBSize, float p_Health = 100.0f, float p_PlayerMovementSpeed = 0.35f, float p_PlayerRotationSpeed = 0.045f);
 	~PlayerCharacter() = default;	//!< Default destructor.
 
 	/*!

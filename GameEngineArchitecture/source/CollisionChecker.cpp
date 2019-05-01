@@ -70,11 +70,11 @@ bool CollisionChecker::PointAABB(glm::vec3 p_CornerA, glm::vec3 p_CornerB, glm::
 
 bool CollisionChecker::AABBAABB(glm::vec3 p_ACornerA, glm::vec3 p_ACornerB, glm::vec3 p_BCornerA, glm::vec3 p_BCornerB)
 {
-	if (p_ACornerA.x > p_BCornerB.x and
+	if (p_ACornerA.x < p_BCornerB.x and
 		p_ACornerB.x > p_BCornerA.x and
-		p_ACornerA.y > p_BCornerB.y and
+		p_ACornerA.y < p_BCornerB.y and
 		p_ACornerB.y > p_BCornerA.y and
-		p_ACornerA.z > p_BCornerB.z and
+		p_ACornerA.z < p_BCornerB.z and
 		p_ACornerB.z > p_BCornerA.z) {
 		return true;
 	}

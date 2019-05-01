@@ -21,7 +21,7 @@
       "type": "PhysicsObject",
 	  "AABBSize": [
 		1000, 
-		10, 
+		1, 
 		1000
 	  ],
 	  "objectMass": 10.0,
@@ -78,7 +78,7 @@
       "position": [
         0.0, 
         10.0, 
-        1.0
+        5.0
       ], 
       "scale": [
         1, 
@@ -87,11 +87,11 @@
       ], 
       "type": "PhysicsObject",
 	  "AABBSize": [
-		10, 
-		10, 
-		10
+		2, 
+		1, 
+		2
 	  ],
-	  "objectMass": 1000.0,
+	  "objectMass": 100000000.0,
 	  "bodyType": "Dynamic"
     },
     {
@@ -171,7 +171,7 @@
       ], 
       "position": [
         0.0, 
-        0.0, 
+        1, 
         0.0
       ], 
       "scale": [
@@ -180,7 +180,12 @@
         1
       ], 
       "type": "PlayerCharacter", 
-      "uniformMovementSpeed": 0.35
+      "uniformMovementSpeed": 0.35,
+	  "AABBSize": [
+		1, 
+		1, 
+		1
+	  ]
     }
   ]
 }

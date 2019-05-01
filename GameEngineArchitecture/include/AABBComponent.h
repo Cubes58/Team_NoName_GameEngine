@@ -12,7 +12,7 @@ public:
 	glm::vec3 m_CornerA;
 	glm::vec3 m_CornerB;
 	glm::vec3 m_Size;
-	glm::vec3 m_PrevPos;
+	glm::vec3 m_Pos;
 
 	AABBComponent(glm::vec3 p_Pos, glm::vec3 p_Size) {
 		m_CornerA.x = p_Pos.x - (p_Size.x / 2.0f);
@@ -24,6 +24,7 @@ public:
 		m_CornerB.z = p_Pos.z + (p_Size.z / 2.0f);
 
 		m_Size = p_Size;
+		m_Pos = p_Pos;
 	}
 
 	void SetPosition(glm::vec3 p_Pos) {
@@ -35,25 +36,11 @@ public:
 		m_CornerB.y = p_Pos.y + (m_Size.y / 2.0f);
 		m_CornerB.z = p_Pos.z + (m_Size.z / 2.0f);
 
-		m_PrevPos = p_Pos;
+		m_Pos = p_Pos;
 	}
 
-	bool Check(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> p_Objects) {
-		for (auto l_Itr = p_Objects.begin(); l_Itr != p_Objects.end(); ++l_Itr) {
-			if (l_Itr->second->GetComponent<AABBComponent>() != nullptr) {
-				glm::vec3 l_CornerA = l_Itr->second->GetComponent<AABBComponent>()->m_CornerA;
-				glm::vec3 l_CornerB = l_Itr->second->GetComponent<AABBComponent>()->m_CornerB;
-				if (m_CollisionChecker.AABBAABB(m_CornerA, m_CornerB, l_CornerA, l_CornerB)) {
-					return true;
-				}
-			}
-			//Other checks
-		}
-		return false;
-	}
-
-	void Resolve() {
-		SetPosition(m_PrevPos);
+	glm::vec3 GetPosition() {
+		return m_Pos;
 	}
 
 	void OnUpdate(float p_DeltaTime) override {

@@ -41,9 +41,20 @@ public:
 		m_DragCo = p_DragCo;
 		m_FrictionCo = p_FrictionCo;
 	}
+	BodyComponent(glm::vec3 p_Pos, float p_Mass) {
+		m_Position = p_Pos;
+		m_Velocity = glm::vec3(0, 0, 0);
+		m_Acceleration = glm::vec3(0, 0, 0);
+
+		m_Mass = p_Mass;
+	}
 
 	void ApplyForce(glm::vec3 p_Force) {
 		m_Acceleration += (p_Force / m_Mass);
+	}
+
+	void ApplyAcceleration(glm::vec3 p_Accel) {
+		m_Acceleration += p_Accel;
 	}
 
 	void SetType(BodyType p_BodyType) {

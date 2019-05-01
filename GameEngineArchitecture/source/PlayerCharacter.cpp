@@ -4,18 +4,24 @@
 #include "ModelComponent.h"
 #include "CameraComponent.h"
 #include "HealthComponent.h"
+#include "AABBComponent.h"
+#include "BodyComponent.h"
 
-PlayerCharacter::PlayerCharacter(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, const glm::vec3 &p_Scale, float p_Health, float p_PlayerVelocity, float p_PlayerRotationSpeed)
+PlayerCharacter::PlayerCharacter(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, const glm::vec3 &p_Scale, const glm::vec3 &p_AABBSize, float p_Health, float p_PlayerVelocity, float p_PlayerRotationSpeed)
 	: m_CameraState(CameraViewState::FIRST_PERSON_CAMERA), m_PlayerMovementSpeed(p_PlayerVelocity), m_PlayerRotationSpeed(p_PlayerRotationSpeed), m_OriginalPosition(p_Position), m_OriginalOrientation(p_Orientation) {
 	AddComponent(std::make_shared<ModelComponent>(p_ModelName));
 	AddComponent(std::make_shared<TransformComponent>(p_Position, p_Orientation, p_Scale));
 	AddComponent(std::make_shared<CameraComponent>(p_Position, p_Orientation));
 	AddComponent(std::make_shared<HealthComponent>(p_Health));
+	AddComponent(std::make_shared<AABBComponent>(p_Position, p_AABBSize));
 }
 
 void PlayerCharacter::OnUpdate(float p_DeltaTime) {
 	// Get the transform component details.
 	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	transform->Translate(m_TranslationVector * p_DeltaTime * inverse(transform->m_Orientation));
+	transform->Yaw(m_RotationValue * p_DeltaTime);
+	GetComponent<AABBComponent>()->SetPosition(transform->m_Position);
 	glm::quat inverseOrientation = inverse(transform->m_Orientation);
 
 	switch (m_CameraState) {
@@ -46,32 +52,42 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 	}
 	else if (p_Message.compare(0, 12, "RotateCamera") == 0) {
 		std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
-		float rotationValue;
+		m_RotationValue = 0;
 		if (p_Message == "RotateCameraLeft")
-			rotationValue = m_PlayerRotationSpeed;
-		else
-			rotationValue = -m_PlayerRotationSpeed;
+			m_RotationValue = m_PlayerRotationSpeed;
+		else if (p_Message == "RotateCameraRight")
+			m_RotationValue = -m_PlayerRotationSpeed;
 
 		// Inverse the player rotation.
 		if (m_InverseRotation) 
-			rotationValue *= -1;
+			m_RotationValue *= -1;
 
-		transform->Yaw(rotationValue);
+		//transform->Yaw(m_RotationValue);
 	}
 	else if (p_Message.compare(0, 10, "MovePlayer") == 0) {
 		// Determine the correct translation vector.
-		glm::vec3 translationVector(0.0f, 0.0f, 0.0f);
+		
 		if (p_Message == "MovePlayerForward")
-			translationVector.z = -m_PlayerMovementSpeed;
+			m_TranslationVector.z = -m_PlayerMovementSpeed;
 		else if (p_Message == "MovePlayerBackward")
-			translationVector.z = m_PlayerMovementSpeed;
+			m_TranslationVector.z = m_PlayerMovementSpeed;
 		else if (p_Message == "MovePlayerLeft")
-			translationVector.x = -m_PlayerMovementSpeed;
+			m_TranslationVector.x = -m_PlayerMovementSpeed;
 		else if (p_Message == "MovePlayerRight")
-			translationVector.x = m_PlayerMovementSpeed;
+			m_TranslationVector.x = m_PlayerMovementSpeed;
 
-		std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
-		transform->Translate(translationVector * inverse(transform->m_Orientation));
+		//std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+		//transform->Translate(m_TranslationVector * inverse(transform->m_Orientation));
+	}
+	else if (p_Message.compare(0, 10, "StopPlayer") == 0) {
+		if (p_Message == "StopPlayerRight")
+			m_TranslationVector.x = 0;
+		else if (p_Message == "StopPlayerLeft")
+			m_TranslationVector.x = 0;
+		else if (p_Message == "StopPlayerForward")
+			m_TranslationVector.z = 0;
+		else if (p_Message == "StopPlayerBackward")
+			m_TranslationVector.z = 0;
 	}
 	else if (p_Message == "HitByEnemyTower") {
 		GetComponent<HealthComponent>()->OnMessage("HitByEnemyTower");
@@ -90,8 +106,13 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 }
 
 void PlayerCharacter::HandleCursorInput(double p_DeltaMouseXPosition, double p_DeltaMouseYPosition) {
+	//GetComponent<TransformComponent>()->Pitch(p_DeltaMouseYPosition);
+	//GetComponent<TransformComponent>()->Yaw(p_DeltaMouseXPosition);
+	
+	
 	double rotationAngleLeftRight = glm::radians(p_DeltaMouseXPosition * m_MouseSensitivity);
 
 	// Rotate around the Y axis - player can rotate left/right, to look around.
 	GetComponent<TransformComponent>()->Rotate((float)((m_InverseRotation) ? (rotationAngleLeftRight) : (rotationAngleLeftRight  * -1.0f)), glm::vec3(0.0f, 1.0f, 0.0f));
+	
 }
