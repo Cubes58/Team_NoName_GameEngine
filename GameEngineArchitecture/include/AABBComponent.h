@@ -1,7 +1,8 @@
 #pragma once
 
-#include "Component.h"
 #include <glm/glm.hpp>
+
+#include "Component.h"
 #include "CollisionChecker.h"
 
 class AABBComponent : public Component {
@@ -41,8 +42,8 @@ public:
 		for (auto l_Itr = p_Objects.begin(); l_Itr != p_Objects.end(); ++l_Itr) {
 			if (l_Itr->second->GetComponent<AABBComponent>() != nullptr) {
 				glm::vec3 l_CornerA = l_Itr->second->GetComponent<AABBComponent>()->m_CornerA;
-				glm::vec3 l_CornerA = l_Itr->second->GetComponent<AABBComponent>()->m_CornerB;
-				if (m_CollisionChecker.AABBAABB(m_CornerA, m_CornerB, m_CornerA, m_CornerB)) {
+				glm::vec3 l_CornerB = l_Itr->second->GetComponent<AABBComponent>()->m_CornerB;
+				if (m_CollisionChecker.AABBAABB(m_CornerA, m_CornerB, l_CornerA, l_CornerB)) {
 					return true;
 				}
 			}
@@ -51,7 +52,6 @@ public:
 		return false;
 	}
 
-	//TODO
 	void Resolve() {
 		SetPosition(m_PrevPos);
 	}

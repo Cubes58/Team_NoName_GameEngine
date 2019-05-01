@@ -1,4 +1,4 @@
-#include "..\include\CollisionChecker.h"
+#include "CollisionChecker.h"
 
 CollisionEnums CollisionChecker::HalfSpaceTest(glm::vec3 p_PointTest, glm::vec3 p_PointPlane, glm::vec3 p_Normal)
 {
