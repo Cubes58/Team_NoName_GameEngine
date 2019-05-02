@@ -9,8 +9,8 @@
 #include "ZoneAllocator.h"
 
 #define NUMBER_OF_BYTES_PER_MEGABYTE 1000000u
-#define STACK_SIZE_IN_MEGABYTES 512u
-#define ZONE_SIZE_IN_MEGABYTES 256u
+#define STACK_SIZE_IN_MEGABYTES 1024u
+#define ZONE_SIZE_IN_MEGABYTES 512u
 
 #define MemoryManagerInstance MemoryManager::Instance()
 

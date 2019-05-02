@@ -3,8 +3,10 @@
 #include <cstdlib>
 #include <string>
 
+#include "PolymorphicInstanceManager.h"
+
 MemoryManager::MemoryManager() : m_DoubleEndedStackAllocator(STACK_SIZE_IN_MEGABYTES * NUMBER_OF_BYTES_PER_MEGABYTE),
-m_ZoneAllocator(m_DoubleEndedStackAllocator.Allocate(ZONE_SIZE_IN_MEGABYTES * NUMBER_OF_BYTES_PER_MEGABYTE, true)) {
+	m_ZoneAllocator(m_DoubleEndedStackAllocator.Allocate(ZONE_SIZE_IN_MEGABYTES * NUMBER_OF_BYTES_PER_MEGABYTE, true)) {
 }
 
 MemoryManager::~MemoryManager() {
