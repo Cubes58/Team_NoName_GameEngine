@@ -32,6 +32,11 @@
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\ContrastChanger.h" />
     <ClInclude Include="include\CubemapCamera.h" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_glfw.h" />
+    <ClInclude Include="include\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="include\imgui_internal.h" />
     <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DoubleEndedStackAllocator.h" />
@@ -101,6 +106,8 @@
     <ClCompile Include="source\imgui.cpp" />
     <ClCompile Include="source\imgui_demo.cpp" />
     <ClCompile Include="source\imgui_draw.cpp" />
+    <ClCompile Include="source\imgui_glfw.cpp" />
+    <ClCompile Include="source\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\Light.cpp" />
@@ -145,7 +152,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

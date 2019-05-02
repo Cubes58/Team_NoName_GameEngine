@@ -152,11 +152,33 @@ void RenderEngine::ImGuiRender()
 		std::shared_ptr<TransformComponent> tc = m_PlayerObject->GetComponent<TransformComponent>();
 
 
-		float* fp = &tc->m_Position.y;
+		float* fpx = &tc->m_Position.x;
+		float* fpy = &tc->m_Position.y;///x y z slider
+		float* fpz = &tc->m_Position.z;
+		//TODO aabb is 111
+		//loading 
+		static int item = 1;
+
+		static int currentSelectedGameObjectType = 0;
+		static int currentSelectedGameObjectMesh = 0;
+		const char* gameObjectTypes[] = { "StaticEnvironmentObject", "SpinningEnvironmentObject", "PlayerCharacter" };
+
 
 		//static float f = 0.0f;
 		ImGui::Text("Hello, world!");
-		ImGui::SliderFloat("float", fp, 0.0f, 2.0f);
+		//ImGui::GetWindowDrawList()
+		ImGui::ListBox("select item", &m_GameObjects, gam)
+		/*ImGui::Combo("select item", &currentSelectedGameObjectType, gameObjectTypes, IM_ARRAYSIZE(gameObjectTypes)
+		ImGui::ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
+		{
+			if (values.empty()) { return false; }
+			return ListBox(label, currIndex, vector_getter,
+				static_cast<void*>(&values), values.size());
+		}*/
+		
+		ImGui::SliderFloat("float", fpx, 0.0f, 2.0f);
+		ImGui::SliderFloat("float", fpy, 0.0f, 2.0f);
+		ImGui::SliderFloat("float", fpz, 0.0f, 2.0f);
 		ImGui::ColorEdit3("clear color", (float*)&clear_color);
 		if (ImGui::Button("Test Window")) show_test_window ^= 1;
 		if (ImGui::Button("Another Window")) show_another_window ^= 1;
