@@ -15,6 +15,9 @@
 #include "VBOQuad.h"
 #include "Primitives.h"
 
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
+
 class GameObject;
 class ShaderProgram;
 class CameraComponent;
@@ -81,6 +84,7 @@ public:
 	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void Update(double p_DeltaTime);
 	void Render();
+	void ImGuiRender();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void RenderQuadDebug();
 	void RenderPhysicsDebug(const glm::mat4 & p_ModelMatrix);
