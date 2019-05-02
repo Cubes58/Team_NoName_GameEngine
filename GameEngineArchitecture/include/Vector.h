@@ -10,12 +10,11 @@
 
 #define VECTOR_GROWTH_SCALAR 2u	//!< The vector's capacity growth scalar, when the vector needs to find more space, to fit more elements in.
 
+//! Custom Container.
+namespace CC {
 /*! \class Vector
 	\brief A container class that stores elements in a contiguous block of memory.
 */
-
-//! Custom Containers.
-namespace CC {
 template <typename Type>
 class Vector {
 private:
@@ -128,8 +127,6 @@ public:
 			unsigned char *pointerToIndexElement = reinterpret_cast<unsigned char *>(m_Data + (sizeof(Type) * p_Index));
 			// Zero the memory at that location.
 			std::memset(&m_Data[p_Index], 0u, sizeof(Type));
-
-			//m_Data + (sizeof(Type) * p_Index) = null;
 
 			m_EmptySpace.push_back(p_Index);
 			--m_NumberOfElements;
