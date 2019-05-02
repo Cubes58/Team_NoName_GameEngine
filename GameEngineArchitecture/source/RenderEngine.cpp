@@ -12,6 +12,11 @@
 #include "CameraComponent.h"
 #include "TransformComponent.h"
 
+#include "Scene.h"
+#include "ImGui/imgui.h"
+#include "ImGui/imgui_impl_glfw.h"
+#include "ImGui/imgui_impl_opengl3.h"
+
 #include "PlayerCharacter.h"
 #include "StaticEnvironmentObject.h"
 #include "DynamicEnvironmentObject.h"
@@ -124,9 +129,47 @@ void RenderEngine::Render()
 	
 
 	m_Skybox->Render();
+	ImGuiRender();
 	//RenderDebugging();
 	
-	
+}
+
+void RenderEngine::ImGuiRender()
+{
+	static bool show_test_window = true;
+	static bool show_another_window = false;
+	ImVec4 clear_color = ImColor(114, 144, 144);// ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
+
+												//ImGui_ImplGlfw_NewFrame();
+	ImGui_ImplOpenGL3_NewFrame();
+	{
+		std::shared_ptr<TransformComponent> tc = m_PlayerObject->GetComponent<TransformComponent>();
+		float* fp = &(tc->m_Position.y);
+
+		ImGui::Text("Hello, world!");
+		ImGui::Text("Hello, world");
+		ImGui::Text("Level Editor");
+		ImGui::SliderFloat("float", fp, 0.0f, 2.0f);
+		ImGui::ColorEdit3("clear color", (float*)&clear_color);
+		if (ImGui::Button("Test Window")) show_test_window ^= 1;
+		if (ImGui::Button("Another Window")) show_another_window ^= 1;
+		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	}
+	if (show_another_window)
+	{
+		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Another Window", &show_another_window);
+		ImGui::Text("Hello");
+		ImGui::End();
+	}
+
+	if (show_test_window)
+	{
+		ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+		ImGui::ShowDemoWindow(&show_test_window);
+	}
+
+	ImGui::Render();
 }
 
 void RenderEngine::RenderFrameBuffers()

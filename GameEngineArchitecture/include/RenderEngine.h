@@ -80,6 +80,7 @@ public:
 	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void Update(double p_DeltaTime);
 	void Render();
+	void ImGuiRender();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void RenderDebugging();
 	void RenderFrameBuffers();

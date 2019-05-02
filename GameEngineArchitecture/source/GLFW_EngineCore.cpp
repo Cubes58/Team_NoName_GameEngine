@@ -77,6 +77,7 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 }
 
 bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
+	ImGui_ImplGlfw_InitForOpenGL(m_Window, false);
   m_PhysicsEngine = new PhysicsEngine(p_Game);
 	RenderEngineInstance.Init(m_ScreenWidth, m_ScreenHeight);
   
@@ -92,12 +93,14 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 
 		m_PhysicsEngine->Update();
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
-		
+		p_Game->imguiRender();
 
 		// Swap the buffers.
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
 	}
+
+	ImGui_ImplGlfw_Shutdown();
 
 	return true;
 }
@@ -134,6 +137,7 @@ void GLFW_EngineCore::KeyCallbackEvent(GLFWwindow *p_Window, int p_Key, int p_Sc
 	if (glfwGetKey(p_Window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
 		glfwSetWindowShouldClose(p_Window, true);
 	}
+	ImGui_ImplGlfw_KeyCallback(p_Window, p_Key, p_ScanCode, p_Action, p_Mods);
 }
 
 void GLFW_EngineCore::WindowResizeCallbackEvent(GLFWwindow *p_Window, int p_Width, int p_Height) {
