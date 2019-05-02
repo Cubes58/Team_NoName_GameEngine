@@ -195,7 +195,7 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 			bodyCompType = BodyType::KINEMATIC;
 
 		if (type == "PlayerCharacter") {
-			m_GameObjects.emplace(typeid(PlayerCharacter), std::make_shared<PlayerCharacter>(modelName, position, orientation, scale, health, uniformMovementSpeed));
+			m_GameObjects.emplace(typeid(PlayerCharacter), std::make_shared<PlayerCharacter>(modelName, position, orientation, scale, AABB, health, uniformMovementSpeed));
 			auto iter = m_GameObjects.find(typeid(PlayerCharacter));
 			if (iter != m_GameObjects.end())
 				m_ObjectsRequiringInput.insert(*iter);
@@ -273,9 +273,9 @@ void Scene::Update(float p_DeltaTime) {
 		}
 	}
 
-	for (auto gameObject : m_GameObjects) {
-		gameObject.second->OnUpdate(p_DeltaTime);
-	}
+	//for (auto gameObject : m_GameObjects) {
+	//	gameObject.second->OnUpdate(p_DeltaTime);
+	//}
 
 	RenderEngineInstance.SetGameObjects(&m_GameObjects);
 	RenderEngineInstance.Update(p_DeltaTime);

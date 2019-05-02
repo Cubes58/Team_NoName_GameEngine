@@ -228,6 +228,80 @@ public:
 	};
 };
 
+/*! \class StopRotateRightCommand
+	\brief An InputCommand child class, which rotates a game object right.
+*/
+class StopRotateRightCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopRotateRightCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopRotateCameraRight");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopRotateRightCommand>(p_ObjectArguments);
+	};
+};
+
+/*! \class StopRotateLeftCommand
+	\brief An InputCommand child class, which rotates a game object right.
+*/
+class StopRotateLeftCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopRotateLeftCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopRotateCameraLeft");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopRotateLeftCommand>(p_ObjectArguments);
+	};
+};
+
 /*! \class MovePlayerForwardCommand
 	\brief An InputCommand child class, which moves a game object forward.
 */
@@ -373,6 +447,154 @@ public:
 	*/
 	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
 		return std::make_shared<MovePlayerRightCommand>(p_ObjectArguments);
+	};
+};
+
+/*! \class StopForwardCommand
+	\brief An InputCommand child class, which :D.
+*/
+class StopForwardCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopForwardCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopPlayerForward");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopForwardCommand>(p_ObjectArguments);
+	};
+};
+
+/*! \classStopBackwardCommand
+	\brief An InputCommand child class, which :D.
+*/
+class StopBackwardCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopBackwardCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopPlayerBackward");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopBackwardCommand>(p_ObjectArguments);
+	};
+};
+
+/*! \classStopLeftCommand
+	\brief An InputCommand child class, which :D.
+*/
+class StopLeftCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopLeftCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopPlayerLeft");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopLeftCommand>(p_ObjectArguments);
+	};
+};
+
+/*! \classStopLeftCommand
+	\brief An InputCommand child class, which :D.
+*/
+class StopRightCommand : public InputCommand {
+private:
+	std::weak_ptr<GameObject> m_GameObject;
+
+public:
+	/*!
+		\brief Constructor.
+		\param p_Arguments the arguments required.
+	*/
+	StopRightCommand(std::vector<std::any> p_Arguments) {
+		if (p_Arguments.size() > 0) {
+			if (p_Arguments[0].has_value())
+				m_GameObject = std::any_cast<std::shared_ptr<GameObject>>(p_Arguments[0]);
+		}
+	}
+
+	/*!
+		\brief Called to execute the command.
+	*/
+	void Execute() {
+		if (auto validGameObject = m_GameObject.lock())
+			validGameObject->OnMessage("StopPlayerRight");
+	}
+
+	/*!
+		\brief Static function, called to create a generic Inputcommand pointer to this class type.
+		\param p_ObjectArguments the arguments required.
+		\return Returns a pointer to an InputCommand object, which now refers to this class type.
+	*/
+	static std::shared_ptr<InputCommand> __stdcall Create(std::vector<std::any> p_ObjectArguments) {
+		return std::make_shared<StopRightCommand>(p_ObjectArguments);
 	};
 };
 
