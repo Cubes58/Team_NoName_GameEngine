@@ -254,7 +254,7 @@ public:
 		else
 			parentNodeOfTheOneToRemove->m_Right = leftChildNode;
 
-		// Fix the broken leaf.
+		// Fix the broken (right) leaf, of the left child node.
 
 
 		// Remove the data of the hash node requested.
