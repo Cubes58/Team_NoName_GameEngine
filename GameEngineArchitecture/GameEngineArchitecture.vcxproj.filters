@@ -243,6 +243,9 @@
     <ClInclude Include="include\Primitives.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
+    <ClInclude Include="include\PolymorphicInstanceManager.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\GLFW_EngineCore.cpp">
@@ -357,6 +360,9 @@
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="source\Primitives.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PolymorphicInstanceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
