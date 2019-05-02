@@ -13,6 +13,7 @@
 #include "TransformComponent.h"
 
 #include "Scene.h"
+#include "ModelManager.h"
 
 
 #include "PlayerCharacter.h"
@@ -153,36 +154,21 @@ void RenderEngine::ImGuiRender()
 
 
 		float* fpx = &tc->m_Position.x;
-		float* fpy = &tc->m_Position.y;///x y z slider
+		float* fpy = &tc->m_Position.y;
 		float* fpz = &tc->m_Position.z;
 		//TODO aabb is 111
 		//loading 
-		static int item = 1;
 
-		static int currentSelectedGameObjectType = 0;
-		static int currentSelectedGameObjectMesh = 0;
-		const char* gameObjectTypes[] = { "StaticEnvironmentObject", "SpinningEnvironmentObject", "PlayerCharacter" };
-
-
-		//static float f = 0.0f;
-		ImGui::Text("Hello, world!");
-		//ImGui::GetWindowDrawList()
-		ImGui::ListBox("select item", &m_GameObjects, gam)
-		/*ImGui::Combo("select item", &currentSelectedGameObjectType, gameObjectTypes, IM_ARRAYSIZE(gameObjectTypes)
-		ImGui::ListBox(const char* label, int* currIndex, std::vector<std::string>& values)
-		{
-			if (values.empty()) { return false; }
-			return ListBox(label, currIndex, vector_getter,
-				static_cast<void*>(&values), values.size());
-		}*/
-		
-		ImGui::SliderFloat("float", fpx, 0.0f, 2.0f);
-		ImGui::SliderFloat("float", fpy, 0.0f, 2.0f);
-		ImGui::SliderFloat("float", fpz, 0.0f, 2.0f);
-		ImGui::ColorEdit3("clear color", (float*)&clear_color);
-		if (ImGui::Button("Test Window")) show_test_window ^= 1;
-		if (ImGui::Button("Another Window")) show_another_window ^= 1;
-		ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	//	//static float f = 0.0f;
+	ImGui::Text("Hello, world!");
+	ImGui::SliderFloat("X axis", fpx, 0.0f, 2.0f);
+	ImGui::SliderFloat("Y axis", fpy, 0.0f, 2.0f);
+	ImGui::SliderFloat("Z axis", fpz, 0.0f, 2.0f);
+	ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	if (ImGui::Button("Add Object")) MODEL_MANAGER.GetModel("longWall");
+	if (ImGui::Button("Test Window")) show_test_window ^= 1;
+	//if (ImGui::Button("Another Window")) show_another_window ^= 1;
+	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
 	}
 
 	// 2. Show another simple window, this time using an explicit Begin/End pair
