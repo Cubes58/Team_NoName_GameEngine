@@ -24,7 +24,7 @@ void PhysicsObject::ApplyForce(glm::vec3 p_Force)
 
 void PhysicsObject::SetPosition(glm::vec3 p_Pos)
 {
-	GetComponent<BodyComponent>()->m_Position = p_Pos;
+	//GetComponent<BodyComponent>()->m_Position = p_Pos;
 	GetComponent<AABBComponent>()->SetPosition(p_Pos);
 	GetComponent<TransformComponent>()->m_Position = p_Pos;
 }
