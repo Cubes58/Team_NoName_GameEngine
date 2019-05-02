@@ -65,14 +65,16 @@ public:
 		\param p_Element The element to add, to the container.
 		\return Returns nothing.
 	*/
-	bool PushBack(Type p_Element) {
+	bool PushBack(Type p_Element, unsigned int &p_ElementIndex = 0) {
 		if(m_Size < m_Capacity || m_EmptySpace.size() > 0u) {
 			if(m_EmptySpace.size() == 0u) {
 				m_Data[m_Size] = p_Element;
+				p_ElementIndex = m_Size;
 				++m_Size;
 			}
 			else {
 				m_Data[m_EmptySpace.front()] = p_Element;
+				p_ElementIndex = m_EmptySpace.front();
 				m_EmptySpace.pop_front();
 			}
 			++m_NumberOfElements;
@@ -107,12 +109,12 @@ public:
 
 		if(m_Size < m_Capacity) {
 			m_Data[m_Size] = p_Element;
+			p_ElementIndex = m_Size;
 			++m_Size;
 			++m_NumberOfElements;
 
 			return true;
 		}
-
 		return false;
 	}
 

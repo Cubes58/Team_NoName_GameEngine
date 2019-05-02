@@ -11,6 +11,7 @@
 #include "ModelComponent.h"
 #include "CameraComponent.h"
 #include "TransformComponent.h"
+#include "AABBComponent.h"
 
 #include "Scene.h"
 #include "ModelManager.h"
@@ -69,8 +70,11 @@ void RenderEngine::InitShaders()
 		m_ShadowShader = std::make_shared<ShaderProgram>();
 		m_ShadowShader->CompileShader("resources/shaders/pointShadowShader.vert", "resources/shaders/pointShadowShader.frag");
 	}
-	m_DebugShader = std::make_shared <ShaderProgram>();
-	m_DebugShader->CompileShader("resources/shaders/debugShader.vert", "resources/shaders/debugShader.frag");
+	m_QuadDebugShader = std::make_shared <ShaderProgram>();
+	m_QuadDebugShader->CompileShader("resources/shaders/debugShader.vert", "resources/shaders/debugShader.frag");
+	m_DebugShader = std::make_shared<ShaderProgram>();
+	m_DebugShader->CompileShader("resources/shaders/physicsDebug.vert", "resources/shaders/physicsDebug.frag");
+	
 
 	
 	//Setup Skybox Shaders
@@ -78,16 +82,6 @@ void RenderEngine::InitShaders()
 
 	m_DefaultShader->ErrorChecker();
 	m_DefaultShader->Use();
-
-}
-
-void RenderEngine::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 & p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram)
-{
-	p_ShaderProgram->Use();
-	p_ShaderProgram->ErrorChecker();
-	p_ShaderProgram->SetMat4("model", p_ModelMatrix);
-	p_ShaderProgram->ErrorChecker();
-	p_Model->Render(p_ShaderProgram->GetID());
 
 }
 
@@ -221,23 +215,52 @@ void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderPro
 		// Make sure the object has a model and transform component - so it can be rendered.
 		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
 		auto transformComponent = gameObject.second->GetComponent<TransformComponent>();
+		auto physicsComponent = gameObject.second->GetComponent<AABBComponent>();
 
 		if (modelComponent != nullptr && transformComponent != nullptr)
 			DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix(), p_ShaderProgram);
+		if (physicsComponent != nullptr && transformComponent != nullptr) {
+			glm::mat4 l_ModelMatrix;
+			glm::mat4 l_TransMatrix = glm::translate(glm::mat4(1.0f), transformComponent->Position());
+			glm::mat4 l_ScaleMatrix = glm::scale(glm::mat4(1.0f), physicsComponent->m_Size);
+			glm::mat4 l_RotMatrix = glm::mat4_cast(transformComponent->Orientation());
+
+			l_ModelMatrix = l_TransMatrix * l_RotMatrix * l_ScaleMatrix;
+			RenderPhysicsDebug(l_ModelMatrix);
+		}
 	}
 }
 
-void RenderEngine::RenderDebugging()
+void RenderEngine::DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 & p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram)
+{
+	p_ShaderProgram->Use();
+	p_ShaderProgram->ErrorChecker();
+	p_ShaderProgram->SetMat4("model", p_ModelMatrix);
+	p_ShaderProgram->ErrorChecker();
+	p_Model->Render(p_ShaderProgram->GetID());
+}
+
+void RenderEngine::RenderQuadDebug()
 {
 	glViewport(0, 0, m_ScreenWidth, m_ScreenHeight);
 	ClearScreen();
-	m_DebugShader->Use();
-	SetShaderParams(m_DebugShader);
-	m_DebugShader->SetInt("depthMap", m_ShadowRenderer->GetShadowMap());
+	m_QuadDebugShader->Use();
+	SetShaderParams(m_QuadDebugShader);
+	m_QuadDebugShader->SetInt("depthMap", m_ShadowRenderer->GetShadowMap());
 	m_DebugQuad.Render();
 }
 
-void RenderEngine::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
+void RenderEngine::RenderPhysicsDebug(const glm::mat4 & p_ModelMatrix)
+{
+	glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	m_DebugShader->Use();
+	SetShaderParams(m_DebugShader);
+	m_DebugShader->SetMat4("model", p_ModelMatrix);
+	m_PrimitiveModels.renderCube();
+	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+}
+
+void RenderEngine::SetCamera(CameraComponent *p_Camera)
 {
 	m_Camera = p_Camera;
 	m_Camera->SetAspectRatio(m_ScreenWidth / m_ScreenHeight);

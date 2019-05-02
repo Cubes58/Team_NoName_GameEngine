@@ -72,6 +72,8 @@
     <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
+    <ClInclude Include="include\PolymorphicInstanceManager.h" />
+    <ClInclude Include="include\Primitives.h" />
     <ClInclude Include="include\QuadTree.h" />
     <ClInclude Include="include\Random.h" />
     <ClInclude Include="include\PostProcessor.h" />
@@ -119,6 +121,8 @@
     <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PhysicsObject.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
+    <ClCompile Include="source\PolymorphicInstanceManager.cpp" />
+    <ClCompile Include="source\Primitives.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
     <ClCompile Include="source\Random.cpp" />
     <ClCompile Include="source\PostProcessor.cpp" />
