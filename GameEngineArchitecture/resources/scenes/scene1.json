@@ -2,9 +2,9 @@
   "GameObjects": [
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        3, 
+        8, 
+        28
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -33,9 +33,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        28, 
+        8, 
+        3
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -64,9 +64,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        3, 
+        8, 
+        28
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -95,9 +95,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        3, 
+        8, 
+        28
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -127,8 +127,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        16, 
+        1.5
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -180,8 +180,8 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
+        6, 
+        5.5, 
         2
       ], 
       "ObjectDrag": 15, 
@@ -211,9 +211,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        3, 
+        8, 
+        28
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -243,8 +243,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        16, 
+        1.5
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -274,8 +274,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        5, 
+        12
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -305,8 +305,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        6.5, 
+        27
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -335,8 +335,8 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
+        12, 
+        5, 
         2
       ], 
       "ObjectDrag": 15, 
@@ -367,8 +367,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        6.5, 
+        27
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -397,8 +397,8 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
+        12, 
+        5, 
         2
       ], 
       "ObjectDrag": 15, 
@@ -429,8 +429,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        16, 
+        1.5
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -459,9 +459,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        28, 
+        8, 
+        3
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -490,9 +490,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        3, 
+        8, 
+        28
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -521,9 +521,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        28, 
+        8, 
+        3
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -552,9 +552,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        28, 
+        8, 
+        3
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -583,9 +583,9 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
-        2
+        0, 
+        0, 
+        0
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -615,8 +615,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        5, 
+        12
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 
@@ -645,8 +645,8 @@
     }, 
     {
       "AABBSize": [
-        2, 
-        2, 
+        27, 
+        6.5, 
         2
       ], 
       "ObjectDrag": 15, 
@@ -677,8 +677,8 @@
     {
       "AABBSize": [
         2, 
-        2, 
-        2
+        6.5, 
+        27
       ], 
       "ObjectDrag": 15, 
       "ObjectFriction": 27, 

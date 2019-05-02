@@ -148,17 +148,16 @@ void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderPro
 		// Make sure the object has a model and transform component - so it can be rendered.
 		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
 		auto transformComponent = gameObject.second->GetComponent<TransformComponent>();
-		auto physicsComponent = gameObject.second->GetComponent<AABBComponent>();
+		auto aabbBoxComponent = gameObject.second->GetComponent<AABBComponent>();
 
 		if (modelComponent != nullptr && transformComponent != nullptr)
 			DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix(), p_ShaderProgram);
-		if (physicsComponent != nullptr && transformComponent != nullptr) {
-			glm::mat4 l_ModelMatrix;
-			glm::mat4 l_TransMatrix = glm::translate(glm::mat4(1.0f), transformComponent->Position());
-			glm::mat4 l_ScaleMatrix = glm::scale(glm::mat4(1.0f), physicsComponent->m_Size);
-			glm::mat4 l_RotMatrix = glm::mat4_cast(transformComponent->Orientation());
+		if (aabbBoxComponent != nullptr && transformComponent != nullptr) {
+			glm::mat4 l_ModelMatrix = glm::mat4(1.0);
+			glm::mat4 l_TransMatrix = glm::translate(glm::mat4(1.0f), aabbBoxComponent->GetPosition());
+			glm::mat4 l_ScaleMatrix = glm::scale(glm::mat4(1.0f), aabbBoxComponent->m_Size / 2.f);
 
-			l_ModelMatrix = l_TransMatrix * l_RotMatrix * l_ScaleMatrix;
+			l_ModelMatrix = l_TransMatrix * l_ScaleMatrix;
 			RenderPhysicsDebug(l_ModelMatrix);
 		}
 	}
