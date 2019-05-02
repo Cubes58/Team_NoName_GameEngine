@@ -83,6 +83,18 @@ public:
 	void Rotate(float p_Angle, float p_XAxis, float p_YAxis, float p_ZAxis) { 
 		m_Orientation *= glm::angleAxis(p_Angle, glm::vec3(p_XAxis, p_YAxis, p_ZAxis) * m_Orientation); 
 	}
+	/*!
+	* Rotate method
+	* @param[in] x The angle to be rotated in the x axis
+	* @param[in] y The angle to be rotated in the y axis
+	* @param[in] z The angle to be rotated in the z axis
+	*/
+	void Rotate(float x, float y, float z) {
+		glm::quat qPitch = glm::angleAxis(x, glm::vec3(1, 0, 0));
+		glm::quat qYaw = glm::angleAxis(y, glm::vec3(0, 1, 0));
+		glm::quat qRoll = glm::angleAxis(z, glm::vec3(0, 0, 1));
+		m_Orientation = glm::normalize(qYaw * m_Orientation * qPitch);
+	}
 
 	/*!
 		\brief scales the object.
@@ -107,6 +119,7 @@ public:
 	*/
 	void Yaw(float p_Angle) { 
 		Rotate(p_Angle, 0.0f, 1.0f, 0.0f); 
+		//Rotate(0.0f, p_Angle, 0.0f);
 	}
 	/*!
 		\brief Rotates the object around the X axis.
@@ -114,6 +127,7 @@ public:
 	*/
 	void Pitch(float p_Angle) { 
 		Rotate(p_Angle, 1.0f, 0.0f, 0.0f); 
+		//Rotate(p_Angle, 0.0f, 0.0f);
 	}
 	/*!
 		\brief Rotates the object around the Z axis.
@@ -121,6 +135,7 @@ public:
 	*/
 	void Roll(float p_Angle) { 
 		Rotate(p_Angle, 0.0f, 0.0f, 1.0f); 
+		//Rotate(0.0f, 0.0f, p_Angle);
 	}
 
 	/*!

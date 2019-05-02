@@ -22,43 +22,36 @@ public:
 	\brief Constructs Node
 	\param p_NodesPosition sets Pos
 	*/
-
 	virtual void SetNodePos(glm::vec3 p_NodesPosition) { m_Pos = p_NodesPosition; }
 
 	/*!
 	\brief Gets the position of the Node
 	\return node pos
-	*/
-
+  */
 	virtual glm::vec3 GetNodesPos() { return m_Pos; }
 
 	/*!
 	\brief Checks if the node is Invalid
 	\return the type of a node as a string
 	*/
-
-
 	virtual std::string CheckNodeType() = 0;
 
 	/*!
 	\brief Set Method
 	\param p_SetG the new G value
 	*/
-
 	virtual void SetTheG(float p_SetG) { m_G = p_SetG; };
 
 	/*!
 	\brief Set Method
 	\param p_SetF the new F value
 	*/
-
 	virtual void SetTheF(float p_SetF) { m_F = p_SetF; };
 
 	/*!
 	\brief Set Method
 	\param p_SetH the new H value
 	*/
-
 	virtual void SetTheH(float p_SetH) { m_H = p_SetH; };
 
 	/*!
@@ -72,15 +65,12 @@ public:
 	\brief Get Method
 	\return The perant node
 	*/
-
 	virtual GraphNode* GetThePerant() { return m_PerantNode; };
 
 	/*!
 	\brief Set Method
 	\param p_Node set the perant node
 	*/
-
-
 	virtual void SetThePerant(GraphNode* p_Node) { m_PerantNode = p_Node; };
 
 	/*!
@@ -120,7 +110,6 @@ public:
 	*/
 	virtual bool GetTheDiagonal() { return m_IsDiagonal; };
 
-
 protected:
 
 	int m_IdX; //!< x id
@@ -157,17 +146,12 @@ public:
 	*/
 
 	std::string CheckNodeType() override { return "InvalidNode"; } //!< Return String
-
-private:
-
 };
 
 /*! \class NormalNode
 	\brief A node that cannot be explored
 */
-
 class NormalNode : public GraphNode {
-
 public:
 
 	/*!
@@ -176,18 +160,11 @@ public:
 	\param p_IdX id for x
 	\param p_IdY id for y
 	*/
-
 	NormalNode(glm::vec3 p_Pos, int p_IdX, int p_IdY) { SetNodePos(p_Pos); SetID(p_IdX, p_IdY); }
 
 	/*!
 	\brief Get Method
 	\return String to find out type
 	*/
-
 	std::string CheckNodeType() override { return "NormalNode"; }
-
-private:
-
-
 };
-

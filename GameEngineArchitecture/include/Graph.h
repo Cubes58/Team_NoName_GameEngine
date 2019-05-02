@@ -29,7 +29,6 @@ public:
 	*/
 
 	Graph(glm::vec3 p_Pos, float p_Distance, glm::vec2 p_NumberOfNodes);
-
 	/*!
 	\brief Gets a path
 	\param p_Start start of path
@@ -43,7 +42,6 @@ public:
 	\brief Gets the graph
 	\return a 2d vector
 	*/
-
 	std::vector<std::vector<GraphNode*>> GetGraph() { return m_Graph; };
 
 	/*!
@@ -58,7 +56,6 @@ public:
 	\param p_NodePos find the node nearest to this
 	\return Node
 	*/
-
 	GraphNode * FindNode(glm::vec3 p_NodePos);
 
 	/*!
@@ -67,18 +64,15 @@ public:
 	\param p_Idy id used to find node
 	\return Node
 	*/
-
 	GraphNode * GetNode(int p_Idx, int p_Idy);
 
 	/*!
-    \brief alculates the distance between nodes
+    \brief calculates the distance between nodes
     \param p_Start start position
     \param p_End end position
     \return distance
     */
-
 	float CalculateH(glm::vec3 p_Start, glm::vec3 p_End);
-
 
 protected:
 
@@ -104,9 +98,7 @@ protected:
 	\param p_EndNode the end of the path
 	\return path
 	*/
-
 	std::list<GraphNode*> ConstructThePath(GraphNode* p_StartNode, GraphNode* p_EndNode);
-
 
 	std::list<GraphNode*> m_ClosedList;  //!< A list containing the nodes that have been looked at
 	std::list<GraphNode*> m_OpenList;   //!< A list containing the nodes that are not done with yet

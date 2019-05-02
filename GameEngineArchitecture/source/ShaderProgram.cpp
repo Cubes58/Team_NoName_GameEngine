@@ -119,7 +119,7 @@ void ShaderProgram::CompileShader(const GLchar *p_VertexPath, const GLchar *p_Fr
 
 	}
 	catch (std::ifstream::failure e) {
-		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ" << e.what() << std::endl;
+		std::cout << "ERROR::SHADER::FILE_NOT_SUCCESFULLY_READ: " << e.what() << std::endl;
 	}
 
 	const char *l_VertShaderCode = l_VertexCode.c_str();
@@ -154,8 +154,11 @@ void ShaderProgram::CompileShader(const GLchar *p_VertexPath, const GLchar *p_Fr
 	// Link shaders, to create a shader program.
 	m_ID = glCreateProgram();
 	glAttachShader(m_ID, l_Vertex);
+	ErrorChecker();
 	glAttachShader(m_ID, l_Fragment);
+	ErrorChecker();
 	glAttachShader(m_ID, l_Geometry);
+	ErrorChecker();
 	glLinkProgram(m_ID);
 
 	// Print linking errors, if any.

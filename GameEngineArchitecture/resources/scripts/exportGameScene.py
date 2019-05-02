@@ -31,15 +31,42 @@ for curr_obj in selected_obj:
     gameObjectAttackDamage = 20
     gameObjectAttackDistance = 30
     gameObjectAttackSpeed = 15
+    # AABB Component
+    gameObjectAABBSize = [2, 2, 2]
+    # Body Component
+    gameObjectMass = 25
+    gameObjectRest = 10
+    gameObjectDrag = 15
+    gameObjectFriction = 27
+    # Body Type
+    gameObjectBodyType = "Static"
 
     if curr_obj.find("duck") >= 0:
         gameObjectType = "PlayerCharacter"
         gameObjectModel = "duck"
         gameObjectHealth = 100
         gameObjectMaxHealth = 100
+    elif curr_obj.find("littleWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "littleWall"
+    elif curr_obj.find("tallWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "tallWall"
+    elif curr_obj.find("normalWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "normalWall"
+    elif curr_obj.find("longWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "longWall"
+    elif curr_obj.find("anotherWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "anotherWall"
     elif curr_obj.find("floor") >= 0:
-        gameObjectType = "StaticEnvironmentObject"
+        gameObjectType = "PhysicsObject"
         gameObjectModel = "floor"
+    elif curr_obj.find("floorWall") >= 0:
+        gameObjectType = "PhysicsObject"
+        gameObjectModel = "floorWall"
     elif curr_obj.find("grass") >= 0:
         gameObjectType = "StaticEnvironmentObject"
         gameObjectModel = "grass"
@@ -90,7 +117,22 @@ for curr_obj in selected_obj:
         gameObjectVelocity = [0.55, 0.002, 0]
 
     if gameObjectType != "":
-        if gameObjectType == "PlayerCharacter":
+        if gameObjectType == "PhysicsObject":
+            jsonData['GameObjects'].append({
+                'modelName': gameObjectModel,
+                'type': gameObjectType,
+                'position': [translation[0], translation[1], translation[2]],
+                'orientation': [orientation[0], orientation[1], orientation[2], orientation[3]],
+                'scale': [1, 1, 1],
+                'bodyType': gameObjectBodyType,
+                'AABBSize': gameObjectAABBSize,
+                'objectMass': gameObjectMass,
+                'objectRest': gameObjectRest,
+                'ObjectRest': gameObjectRest,
+                'ObjectDrag': gameObjectDrag,
+                'ObjectFriction': gameObjectFriction
+            })
+        elif gameObjectType == "PlayerCharacter":
             jsonData['GameObjects'].append({
                 'modelName': gameObjectModel,
                 'type': gameObjectType,
@@ -141,9 +183,9 @@ for curr_obj in selected_obj:
                 'scale': [1, 1, 1]
             })
 
-print orientation
+#print orientation
 
-print jsonData
+#print jsonData
 
-with open('E:\\Documents\\Source Control Code Projects\\Game Engine Achitecture\\Game Engine Architecture\\GameEngineArchitecture\\resources\\scenes\\scene3.json', 'w') as outfile:
+with open('E:\\Documents\\Source Control Code Projects\\Team_NoName\\GameEngineArchitecture\\resources\\scenes\\scene13.json', 'w') as outfile:
     json.dump(jsonData, outfile, sort_keys=True, indent=2)

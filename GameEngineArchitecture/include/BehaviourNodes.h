@@ -1,4 +1,3 @@
-
 /**
 @file BehaviourNode.h
 @brief Creates a behavouir tree for the game AI
@@ -29,9 +28,6 @@ public:
 	virtual bool Run() = 0;
 };
 
-/*! \class CompositeNode
-	\brief This class handles all the nodes that will be in the tree
-*/
 
 class CompositeNode : public BehaviourNode {
 	//
@@ -55,9 +51,7 @@ public:
 */
 
 class Selector : public CompositeNode {
-
 public:
-
 	/*!
 	\brief Run the Node
 	\return did it run or not
@@ -76,7 +70,6 @@ public:
 
 /*! \class Sequence
 	\brief This class is the sequance of the nodes
-*/
 
 class Sequence : public CompositeNode {
 
@@ -94,7 +87,6 @@ public:
 		return true;
 	}
 };
-
 
 /*! \class DistanceLeafNode
 	\brief An example of a conditional leaf node
@@ -139,7 +131,6 @@ public:
 	\param p_List Used to see if a list is empty
 	*/
 	void GiveMeList(std::list<GraphNode*> p_List) { m_List = p_List; }
-
 	/*!
 	\brief Run the Node
 	\return did it run or not
@@ -227,8 +218,7 @@ public:
 	\brief Run the Node
 	\return did it run or not
 	*/
-	bool Run() override {
-		
+	bool Run() override {		
 		return false;
 	}
 	//call that methods pointer and pass in the goal
@@ -254,6 +244,3 @@ public:
 //properties you wont have to re use this code
 
 //I hope this helps this can be confusing (i keep mixing up selector and sequance)
-
-
-
