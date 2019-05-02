@@ -7,6 +7,9 @@
 #pragma once
 #include <iostream>
 #include <list>
+//#include <stdlib.h>    
+//#include <time.h>
+#include "Graph.h"
 
 class GraphNode;
 
@@ -114,11 +117,11 @@ public:
 	*/
 	bool Run() override {
 		const static float m_Max = 100.0f;
-		if (m_Distance <= m_Max) { //This part is the condition of the node
+		if (m_Distance < m_Max) { //This part is the condition of the node
 			std::cout << "Target Is Near" << std::endl;
-			return true;
+			return false;
 		}
-		else return false;
+		else return true;
 	}
 };
 
@@ -144,9 +147,9 @@ public:
 	bool Run() override {
 		if (m_List.empty()) { //This part is the condition of the node
 			std::cout << "List is empty" << std::endl;
-			return true;
+			return false;
 		}
-		else return false;
+		else return true;
 	}
 };
 
@@ -158,15 +161,77 @@ class LeafNodeActionExample : public BehaviourNode
 {
 private:
 
+	std::string m_String; //!< Just rage for this example
 public:
+	/*!
+	\brief Give me a string set method
+	\param p_String a string that tells us what the console wil display is
+	*/
+	void GiveMeString(std::string p_String) { m_String = p_String; }
 	/*!
 	\brief Run the Node
 	\return did it run or not
 	*/
 	bool Run() override {
-		std::cout << "AUGHHHHH!!!!!!" << std::endl;
-		return true;
+		//std::cout << m_String << std::endl;
+		return false;
 	}
+};
+
+/*! \class LeafNodeActionExample
+	\brief An example of a conditional leaf node
+*/
+
+class WanderActionExample : public BehaviourNode
+{
+private:
+	//Store Object Pointer
+	int m_GoalX; //!< goal X
+	int m_GoalY; //!< goal Y
+	int m_RandomX; //!< total of Nodes
+	int m_RandomY; //!< total of Nodes
+public:
+	/*!
+	\brief Give me a string set method
+	\param p_IntOne used to pass in random X
+	\param p_IntTwo used to pass in random Y
+	*/
+	void GiveMeInts(int p_IntOne, int p_IntTwo) { m_RandomX = p_IntOne; m_RandomY = p_IntTwo; };
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+	bool Run() override {	
+		m_GoalX = rand() % m_RandomX;
+		m_GoalY = rand() % m_RandomY;
+		return false;
+	}
+	//call that methods pointer and pass in the goal
+};
+
+
+class AttackActionExample : public BehaviourNode
+{
+private:
+	//Store Object Pointer
+	int m_GoalX; //!< goal X
+	int m_GoalY; //!< goal Y
+public:
+	/*!
+	\brief Give me a string set method
+	\param p_IDOne to find the x node
+	\param p_IDTwo to find the y node
+	*/
+	void GiveMeInts(int p_IDOne, int p_IntTwo) { m_GoalX = p_IDOne; m_GoalY = p_IntTwo; };
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+	bool Run() override {
+		
+		return false;
+	}
+	//call that methods pointer and pass in the goal
 };
 
 //Inside a NPC 

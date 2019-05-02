@@ -8,7 +8,7 @@ Graph::Graph(glm::vec3 p_Pos, float p_distance, glm::vec2 p_numberOfNodes)
 		int x, y; x = p_Pos.x + (i * p_distance); y = p_Pos.y;
 		std::vector < GraphNode*> temp;
 		
-		for (float j = 0; j < (int)p_numberOfNodes.y; j++){	
+		for (int j = 0; j < (int)p_numberOfNodes.y; j++)	{
 			int z; z = p_Pos.z + (j * p_distance);
 			temp.push_back(new NormalNode(glm::vec3(x, y, z), i, j));
 		}
