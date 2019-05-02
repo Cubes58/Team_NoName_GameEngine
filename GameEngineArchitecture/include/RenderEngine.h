@@ -13,6 +13,7 @@
 
 #include "FrameBufferType.h"
 #include "VBOQuad.h"
+#include "Primitives.h"
 
 class GameObject;
 class ShaderProgram;
@@ -38,6 +39,7 @@ private:
 	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> *m_GameObjects;	//!< Stores every game object.
 	std::shared_ptr<ShaderProgram> m_DefaultShader;
 	std::shared_ptr<ShaderProgram> m_ShadowShader;
+	std::shared_ptr<ShaderProgram> m_QuadDebugShader;
 	std::shared_ptr<ShaderProgram> m_DebugShader;
 
 	std::shared_ptr<FontRenderer> m_FontRenderer;
@@ -64,6 +66,7 @@ private:
 	float m_FarPlane;
 
 	VBOQuad m_DebugQuad;
+	Primitives m_PrimitiveModels;
 
 	void InitShaders();
 
@@ -81,7 +84,8 @@ public:
 	void Update(double p_DeltaTime);
 	void Render();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
-	void RenderDebugging();
+	void RenderQuadDebug();
+	void RenderPhysicsDebug(const glm::mat4 & p_ModelMatrix);
 	void RenderFrameBuffers();
 
 	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);
