@@ -21,6 +21,7 @@ class InputHandler;
 class GameObject;
 class PlayerCharacter;
 class DefaultGame;
+class CameraComponent;
 
 /*! \class Scene
 	\brief A class that manages the level and gameplay.
@@ -79,4 +80,5 @@ public:
 		\return Returns the objects that require objects.
 	*/
 	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> GetObjectsRequiringInput() const;
+	std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> GetObjects() const;
 };

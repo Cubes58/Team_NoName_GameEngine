@@ -26,7 +26,7 @@ class CameraComponent;
 
 class GLFW_EngineCore : public IEngineCore {
 private:
-	GLFWwindow* m_Window;	//!< The window, where everything is rendered.
+	GLFWwindow * m_Window;	//!< The window, where everything is rendered.
 
 	static int m_ScreenWidth;	//!< The screen width.
 	static int m_ScreenHeight;	//!< The screen height.
@@ -67,38 +67,7 @@ private:
 		\param p_Height the height to resize the window.
 	*/
 	static void WindowResizeCallbackEvent(GLFWwindow *p_Window, int p_Width, int p_Height);
-	
-	/**
-		* A structure to represent a Character.
-	*/
-	struct Character {
-		GLuint m_TextureID;		// ID handle of the glyph texture.
-		glm::ivec2 m_Size;		// Size of the glyph.
-		glm::ivec2 m_Bearing;	// Offset from baseline to left/top of the glyph.
-		GLuint m_Advance;		// Horizontal offset to advance to next glyph.
-	};
-	std::map<GLchar, Character> m_Characters;	//!< A map of the characters.
-	GLuint m_Font_VBO;	//!< The font vertex buffer object.
-	GLuint m_Font_VAO;	//!< The font vertex array object.
 
-	GLuint m_DefaultShaderProgram;	//!< The default model rendering shader.
-	GLuint m_FontShaderProgram;	//!< The font shader, to render text.
-
-	/*!
-		\brief Loads a shader program.
-		\param p_VertexShaderFile the vertex shader file path.
-		\param p_FragmentShaderFile the fragment shader file path.
-		\param p_ShaderProgram the shader program ID.
-	*/
-	void LoadShader(const std::string &p_VertexShaderFile, const std::string &p_FragmentShaderFile, GLuint &p_ShaderProgram);
-	/*!
-		\brief Sets the default model shaders.
-	*/
-	void SetDefaultShaders();
-	/*!
-		\brief Sets the default font shaders.
-	*/
-	void SetupDefaultFont();
 
 public:
 	GLFW_EngineCore() = default;	//!< Default constructor.
@@ -124,25 +93,4 @@ public:
 		\param p_Blue the blue colour's strength.
 	*/
 	void RenderColouredBackground(float p_Red, float p_Green, float p_Blue) override;
-
-	/*!
-		\brief Sets the camera.
-		\param p_Camera the camera that will be followed.
-	*/
-	void SetCamera(const std::shared_ptr<CameraComponent> p_Camera) override;
-	/*!
-		\brief Used to render a model.
-		\param p_Model the pointer to the model that will be rendered.
-		\param p_ModelMatrix the model matrix, the position of the model.
-	*/
-	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix) override;
-	/*!
-		\brief Used to render text.
-		\param p_Text the text to be displayed.
-		\param p_XPosition the screen's X position, of where the text should be rendered.
-		\param p_YPosition the screen's Y position, of where the text should be rendered.
-		\param p_Scale the text's scale.
-		\param p_Colour the colour of the text.
-	*/
-	void RenderText(const std::string &p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour) override;
 };

@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "IEngineCore.h"
+#include "RenderEngine.h"
 #include "FileSystemHelper.h"
 #include "InputHandler.h"
 #include "Scene.h"
@@ -14,13 +15,7 @@
 static const std::string s_DEFAULT_SCENE = "resources/levels/default0.json";
 
 DefaultGame::DefaultGame() {
-	imguiInit();
-
 	LoadScenes("resources/scenes/");
-}
-
-DefaultGame::~DefaultGame() {
-	imguiShutdown();
 }
 
 void DefaultGame::LoadScenes(const std::string &p_FolderLocation) {
@@ -74,6 +69,8 @@ void DefaultGame::SetScene(unsigned int p_SceneNumber) {
 			"\nNOT FOUND, ELEMENT LOCATION: " << iter->first << "\tSCENE LOCATION: " << iter->second << std::endl;
 	}
 
+	m_EngineInterface->m_PhysicsEngine->GiveObjects(m_CurrentScene->GetObjects());
+
 	m_InputHandler->SetObjectsRequiringInput(m_CurrentScene->GetObjectsRequiringInput());
 	m_InputHandler->LoadKeyBinds(m_InputHandler->GetKeyBindFile());
 }
@@ -85,24 +82,11 @@ void DefaultGame::Update(float p_DeltaTime) {
 }
 
 void DefaultGame::Render() {
-	if(!m_SwitchingScene)
-		m_CurrentScene->Render(m_EngineInterface);
+	if (!m_SwitchingScene) {
+		m_CurrentScene->Render(m_EngineInterface);	
+	}
 
-	m_EngineInterface->RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
-	
-	imguiRender();
-}
-
-void DefaultGame::imguiInit() {
-
-}
-
-void DefaultGame::imguiRender() {
-
-}
-
-void DefaultGame::imguiShutdown() {
-
+	RenderEngineInstance.RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
 }
 
 unsigned int DefaultGame::GetNextScene() const {

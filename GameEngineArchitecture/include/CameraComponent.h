@@ -21,24 +21,27 @@ public:
 	glm::vec3 m_Position;	//!< Position of the camera.
 	glm::quat m_Orientation;	//!< Orientation of the camera.
 	float m_FieldOfView;	//!< Camera's Field of view.
+	float m_NearPlane; //!< Near Clip Plane of the view frustrum
+	float m_FarPlane; //!< Far Clip Plane of the view frustrum
+	float m_AspectRatio; //!< Aspect Ratio of the screen
 
 	/*!
 		\brief Default constructor for the camera, it initialises the class' variables.
 	*/
-	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(45.0f) {}
+	CameraComponent() : m_Position(0), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(45) {}
+	CameraComponent(const glm::vec3 &p_Position) : m_Position(p_Position), m_Orientation(1, 0, 0, 0), m_FieldOfView(60.0f) {}
 	
 	/*!
 		\brief Constructor for the camera, it initialises the class' variables.
 		\param p_Position starting position of the camera.
 		\param p_Orientation starting orientation of the camera.
 	*/
-	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(45) {}
+	CameraComponent(const glm::vec3 &p_Position, const glm::quat &p_Orientation) : m_Position(p_Position), m_Orientation(p_Orientation), m_FieldOfView(60.0f) {}
 	~CameraComponent() = default;	//!< Default destructor.
 
 
@@ -133,6 +136,24 @@ public:
 	}
 
 	/*!
+		\brief Sets the aspect ratio of the camera component.
+		\param p_AspectRatio the aspect ratio of the camera
+	*/
+	void SetAspectRatio(float p_AspectRatio){
+		m_AspectRatio = p_AspectRatio;
+	}
+
+	/*!
+		\brief Sets the clip planes of the camera component.
+		\param p_ClipPlanes the near and far clip planes (stored in x and y)
+	*/
+	void SetClipPlanes(glm::vec2 p_ClipPlanes) {
+		m_NearPlane = p_ClipPlanes.x;
+		m_FarPlane = p_ClipPlanes.y;
+	}
+
+
+	/*!
 		\brief Gets the position of the camera component.
 		\return returns the position of the camera component.
 	*/
@@ -148,11 +169,15 @@ public:
 		return m_Orientation; 
 	}
 
+	glm::mat4 GetRotationMatrix() const {
+		return glm::mat4_cast(m_Orientation);
+	}
+
 	/*!
 		\brief Gets the view matrix of the camera component.
 		\return returns the view matrix of the camera component.
 	*/
 	glm::mat4 GetViewMatrix() const { 
-		return glm::translate(glm::mat4_cast(m_Orientation), m_Position); 
+		return glm::translate(glm::mat4_cast(m_Orientation), m_Position);
 	}
 };

@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "IEngineCore.h"
+#include "RenderEngine.h"
 #include "ModelManager.h"
 
 #include "PlayerCharacter.h"
@@ -13,6 +14,7 @@
 #include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
+#include "PhysicsObject.h"
 
 #include "ModelComponent.h"
 #include "TransformComponent.h"
@@ -161,8 +163,39 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 			type = typeNode.asString();
 		}
 
+		// Get the size of the AABB node.
+		glm::vec3 AABB(1.0f, 1.0f, 1.0f);
+		const Json::Value AABBNode = gameObjects[i]["AABBSize"];
+		if(AABBNode.type() != Json::nullValue) {
+			AABB.x = AABBNode[0].asFloat();
+			AABB.y = AABBNode[1].asFloat();
+			AABB.z = AABBNode[2].asFloat();
+		}
+
+		// Get the object mass node node.
+		float objectMass(10.0f);
+		const Json::Value objectMassNode = gameObjects[i]["objectMass"];
+		if(objectMassNode.type() != Json::nullValue) {
+			objectMass = objectMassNode.asFloat();
+		}
+
+		// Get the body type node.
+		const Json::Value bodyTypeNode = gameObjects[i]["bodyType"];
+		std::string bodyType = "Static";
+		if(bodyTypeNode.type() != Json::nullValue) {
+			bodyType = bodyTypeNode.asString();
+		}
+
+		BodyType bodyCompType = BodyType::STATIC;
+		if(bodyType == "Dynamic")
+			bodyCompType = BodyType::DYNAMIC;
+		else if(bodyType == "Static")
+			bodyCompType = BodyType::STATIC;
+		else
+			bodyCompType = BodyType::KINEMATIC;
+
 		if (type == "PlayerCharacter") {
-			m_GameObjects.emplace(typeid(PlayerCharacter), std::make_shared<PlayerCharacter>(modelName, position, orientation, scale, health, uniformMovementSpeed));
+			m_GameObjects.emplace(typeid(PlayerCharacter), std::make_shared<PlayerCharacter>(modelName, position, orientation, scale, AABB, health, uniformMovementSpeed));
 			auto iter = m_GameObjects.find(typeid(PlayerCharacter));
 			if (iter != m_GameObjects.end())
 				m_ObjectsRequiringInput.insert(*iter);
@@ -179,13 +212,18 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 		else if (type == "EndLevelCollectable") {
 			m_GameObjects.emplace(typeid(EndLevelCollectable), std::make_shared<EndLevelCollectable>(modelName, position, orientation, scale, p_Game));
 		}
+		else if(type == "PhysicsObject") {
+			m_GameObjects.emplace(typeid(PhysicsObject), std::make_shared<PhysicsObject>(modelName, position, AABB, orientation, scale, objectMass, bodyCompType));
+		}
 		else {
 			std::cout << "ERROR::CANNOT LOAD OBJECT!" << 
 				"\nOBJECT MODEL NAME: " << modelName << 
 				"\nOBJECT TYPE: " << type << std::endl;
 			continue;
 		}
+		
 	}
+	RenderEngineInstance.SetGameObjects(&m_GameObjects);
 	return true;
 }
 
@@ -193,31 +231,22 @@ void Scene::UnloadLevel() {
 	// Memory should clean itself (smart pointers). Just clear the references.
 	m_GameObjects.clear();
 	m_ObjectsRequiringInput.clear();
+
 }
 
 void Scene::Render(std::shared_ptr<IEngineCore> p_EngineInterface) {
-	p_EngineInterface->RenderColouredBackground(m_BackgroundColour.x, m_BackgroundColour.y, m_BackgroundColour.z);
 
-	// Draw the game objects.
-	for (auto gameObject : m_GameObjects) {
-		// Make sure the object has a model and transform component - so it can be rendered.
-		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
-		auto transformComponent = gameObject.second->GetComponent<TransformComponent>();
-
-		if (modelComponent != nullptr && transformComponent != nullptr)
-			p_EngineInterface->DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix());
-	}
+	RenderEngineInstance.Render();
 
 	auto iter = m_GameObjects.find(typeid(PlayerCharacter));
 	if (iter != m_GameObjects.end()) {
-		p_EngineInterface->SetCamera(iter->second->GetComponent<CameraComponent>());
 
 		// Player GUI information.
 		glm::vec3 playerPosition = iter->second->GetComponent<TransformComponent>()->Position();
-		p_EngineInterface->RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
-		p_EngineInterface->RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
+		RenderEngineInstance.RenderText(std::to_string((int)playerPosition.x) + " " + std::to_string((int)playerPosition.y) + " " + std::to_string((int)playerPosition.z), 0.05f, 0.025f, 0.45f, glm::vec3(0.5f, 1.0f, 0.0f));
+		RenderEngineInstance.RenderText("Health: " + std::to_string(static_cast<int>(iter->second->GetComponent<HealthComponent>()->GetHealth())), 0.85f, 0.025f, 0.45f, glm::vec3(1.0f, 0.0f, 0.0f));
 	}
-	p_EngineInterface->RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
+	RenderEngineInstance.RenderText("Get the British flag!", 0.755f, 0.955f, 0.45f, glm::vec3(0.2f, 0.5f, 0.2f));
 
 	DisplayUnsuccessfullyLoadedModels(p_EngineInterface);
 }
@@ -284,9 +313,12 @@ void Scene::Update(float p_DeltaTime) {
 		}
 	}
 
-	for (auto gameObject : m_GameObjects) {
-		gameObject.second->OnUpdate(p_DeltaTime);
-	}
+	//for (auto gameObject : m_GameObjects) {
+	//	gameObject.second->OnUpdate(p_DeltaTime);
+	//}
+
+	RenderEngineInstance.SetGameObjects(&m_GameObjects);
+	RenderEngineInstance.Update(p_DeltaTime);
 }
 
 void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_EngineInterface) {
@@ -296,13 +328,18 @@ void Scene::DisplayUnsuccessfullyLoadedModels(std::shared_ptr<IEngineCore> p_Eng
 	float gapBetweenTextRow = 0.041f;
 
 	if(unsuccessfullyLoadedModels.size() > 0)
-		p_EngineInterface->RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
+		RenderEngineInstance.RenderText("Couldn't load these models:", windowPosition.x, windowPosition.y, textScale, glm::vec3(0.625f, 0.05f, 0.6f));
 	for (const auto &unsuccessfulModel : unsuccessfullyLoadedModels) {
 		windowPosition.y -= gapBetweenTextRow;
-		p_EngineInterface->RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
+		RenderEngineInstance.RenderText(unsuccessfulModel, windowPosition.x, windowPosition.y, textScale, glm::vec3(0.6f, 0.05f, 0.6f));
 	}
 }
 
 std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> Scene::GetObjectsRequiringInput() const {
 	return m_ObjectsRequiringInput;
+}
+
+std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> Scene::GetObjects() const
+{
+	return m_GameObjects;
 }
