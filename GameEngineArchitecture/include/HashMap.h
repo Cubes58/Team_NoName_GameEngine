@@ -4,6 +4,8 @@
 */
 #pragma once
 
+#include <list>
+
 #include "MemoryManager.h"
 
 #define HASH_MAP_GROWTH_SCALAR 2u	//!< The hash map's capacity growth scalar, when the hash map needs to find more space, to fit more elements in.

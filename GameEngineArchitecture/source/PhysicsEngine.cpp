@@ -89,27 +89,29 @@ void PhysicsEngine::CollisionChecks()
 			glm::vec3 l_ACornerB = l_ItrA->second->GetComponent<AABBComponent>()->m_CornerB;
 			for (auto l_ItrB = m_Objects.begin(); l_ItrB != m_Objects.end(); ++l_ItrB) {
 				//std::cout << "loop2" << std::endl;
-				if (l_ItrB->second->GetComponent<AABBComponent>() != nullptr and l_ItrA != l_ItrB) {
-					glm::vec3 l_BCornerA = l_ItrB->second->GetComponent<AABBComponent>()->m_CornerA;
-					glm::vec3 l_BCornerB = l_ItrB->second->GetComponent<AABBComponent>()->m_CornerB;
-					//std::cout << "diff" << std::endl;
-					if (m_CollisionChecker.AABBAABB(l_ACornerA, l_ACornerB, l_BCornerA, l_BCornerB)) {
-						//std::cout << "col" << std::endl;
-						//glm::vec3 test = l_ItrA->second->GetComponent<BodyComponent>()->m_Position;
-						//std::cout << "prev: " << l_PrevPos.y << std::endl;
-						//std::cout << "cur: " << test.y << std::endl;
-						l_ItrA->second->GetComponent<AABBComponent>()->SetPosition(l_PrevPos);
-						if (l_ItrA->second->GetComponent<TransformComponent>() != nullptr) {
-							l_ItrA->second->GetComponent<TransformComponent>()->m_Position = l_PrevPos;
+				if (l_ItrB->second->GetComponent<AABBComponent>() != nullptr) {
+					if(l_ItrA != l_ItrB) {
+						glm::vec3 l_BCornerA = l_ItrB->second->GetComponent<AABBComponent>()->m_CornerA;
+						glm::vec3 l_BCornerB = l_ItrB->second->GetComponent<AABBComponent>()->m_CornerB;
+						//std::cout << "diff" << std::endl;
+						if(m_CollisionChecker.AABBAABB(l_ACornerA, l_ACornerB, l_BCornerA, l_BCornerB)) {
+							//std::cout << "col" << std::endl;
+							//glm::vec3 test = l_ItrA->second->GetComponent<BodyComponent>()->m_Position;
+							//std::cout << "prev: " << l_PrevPos.y << std::endl;
+							//std::cout << "cur: " << test.y << std::endl;
+							l_ItrA->second->GetComponent<AABBComponent>()->SetPosition(l_PrevPos);
+							if(l_ItrA->second->GetComponent<TransformComponent>() != nullptr) {
+								l_ItrA->second->GetComponent<TransformComponent>()->m_Position = l_PrevPos;
+							}
+
+							if(l_ItrA->second->GetComponent<BodyComponent>() != nullptr) {
+								l_ItrA->second->GetComponent<BodyComponent>()->m_Position = l_PrevPos;
+								l_ItrA->second->GetComponent<BodyComponent>()->ApplyAcceleration(glm::vec3(0.0f, 0.5f, 0.0f));
+
+							}
+							//std::cout << "new: " << l_ItrA->second->GetComponent<BodyComponent>()->m_Position.y << std::endl;
+
 						}
-
-						if (l_ItrA->second->GetComponent<BodyComponent>() != nullptr) {
-							l_ItrA->second->GetComponent<BodyComponent>()->m_Position = l_PrevPos;
-							l_ItrA->second->GetComponent<BodyComponent>()->ApplyAcceleration(glm::vec3(0.0f, 0.5f, 0.0f));
-
-						}
-						//std::cout << "new: " << l_ItrA->second->GetComponent<BodyComponent>()->m_Position.y << std::endl;
-
 					}
 				}
 			}

@@ -193,7 +193,7 @@ void RenderEngine::RenderPhysicsDebug(const glm::mat4 & p_ModelMatrix)
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 }
 
-void RenderEngine::SetCamera(std::shared_ptr<CameraComponent> p_Camera)
+void RenderEngine::SetCamera(CameraComponent *p_Camera)
 {
 	m_Camera = p_Camera;
 	m_Camera->SetAspectRatio(m_ScreenWidth / m_ScreenHeight);
