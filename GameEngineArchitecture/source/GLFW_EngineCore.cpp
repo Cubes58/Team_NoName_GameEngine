@@ -103,6 +103,7 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 
 		p_Game->Update((float)deltaTime); // Update game logic.
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
+		p_Game->imguiRender();
 
 		// Swap the buffers.
 		glfwSwapBuffers(m_Window);
