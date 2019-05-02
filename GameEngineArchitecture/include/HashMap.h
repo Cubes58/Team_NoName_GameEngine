@@ -79,7 +79,7 @@ private:
 		\param p_HashNode The hash node to set as the child of another hash node.
 		\return Nothing.
 	*/
-	void SetNodePosition(HashNode<KeyType, ValueType> &p_HashNode) {
+	void SetNodePosition(HashNode<KeyType, ValueType> &p_HashNode, bool p_HasChildren = false) {
 		HashNode<KeyType, ValueType> *currentNode = m_RootNode;
 		KeyType key = p_HashNode.m_Key;
 
@@ -111,9 +111,11 @@ private:
 				previousNode->m_Right = &m_Data[m_Size];
 		}
 
-		// Set the children to nullptrs.
-		p_HashNode.m_Left = nullptr;
-		p_HashNode.m_Right = nullptr;
+		if(!p_HasChildren) {
+			// Set the children to nullptrs.
+			p_HashNode.m_Left = nullptr;
+			p_HashNode.m_Right = nullptr;
+		}
 	}
 
 public:
@@ -137,7 +139,7 @@ public:
 		\param p_HashNode The hash node to add, to the hash map.
 		\return Returns true if the hash node was successfully added, otherwise false.
 	*/
-	bool Insert(HashNode<KeyType, ValueType> p_HashNode) {
+	bool Insert(HashNode<KeyType, ValueType> p_HashNode, bool p_HasChildren = false) {
 		if(m_RootNode == nullptr) {
 			p_HashNode.m_Left = nullptr;
 			p_HashNode.m_Right = nullptr;
@@ -148,7 +150,7 @@ public:
 			return true;
 		}
 
-		SetNodePosition(p_HashNode);
+		SetNodePosition(p_HashNode, p_HasChildren);
 		if(m_Size < m_Capacity || m_EmptySpace.size() > 0u) {
 			if(m_EmptySpace.size() == 0u) {
 				m_Data[m_Size] = p_HashNode;
@@ -188,7 +190,7 @@ public:
 			MemoryManagerInstance.FreeZoneMemory(oldZoneNode);
 		}
 
-		SetNodePosition(p_HashNode);
+		SetNodePosition(p_HashNode, p_HasChildren);
 		if(m_Size < m_Capacity) {
 			m_Data[m_Size] = p_HashNode;
 			++m_Size;
@@ -202,7 +204,7 @@ public:
 		\param p_Value The data stored within the hash node, to add to the hash map.
 		\return Returns true if the hash node was successfully added, otherwise false.
 	*/
-	void Insert(KeyType p_Key, ValueType p_Value) {
+	void Insert(KeyType p_Key, ValueType p_Value, bool p_HasChildren = false) {
 		Insert(HashNode<KeyType, ValueType>(p_Key, p_Value));
 	}
 
@@ -255,7 +257,9 @@ public:
 			parentNodeOfTheOneToRemove->m_Right = leftChildNode;
 
 		// Fix the broken (right) leaf, of the left child node.
-
+		// Push the node[s]/leaf down the tree.
+		if(rightChildNode != nullptr)
+			Insert(*rightChildNode, true);
 
 		// Remove the data of the hash node requested.
 		std::memset(&m_Data[nodeHashIndex], 0, sizeof(HashNode<KeyType, ValueType>));
