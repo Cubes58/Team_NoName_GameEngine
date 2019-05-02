@@ -7,6 +7,9 @@
 #include <vector>
 #include <map>
 
+#include <ImGui/imgui.h>
+#include "ImGui/imgui_impl_glfw.h"
+
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
