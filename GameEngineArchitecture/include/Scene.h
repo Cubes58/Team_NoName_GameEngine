@@ -11,8 +11,6 @@
 #include <memory>
 
 #include <glm/vec3.hpp>
-#include "ImGui/imgui.h"
-#include "ImGui/imgui_impl_glfw.h"
 
 #include "Collision.h"
 

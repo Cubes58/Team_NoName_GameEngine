@@ -7,15 +7,16 @@
 #include <vector>
 #include <map>
 
-#include <ImGui/imgui.h>
-#include "ImGui/imgui_impl_glfw.h"
-//#include "ImGui/imgui_impl_opengl3.h"
-
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/mat4x4.hpp>
 
 #include "IEngineCore.h"
+
+// imgui
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
+
 
 class Game;
 class Model;

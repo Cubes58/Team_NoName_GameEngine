@@ -14,6 +14,9 @@
 #include "FrameBufferType.h"
 #include "VBOQuad.h"
 
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
+
 class GameObject;
 class ShaderProgram;
 class CameraComponent;

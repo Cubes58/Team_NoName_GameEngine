@@ -98,6 +98,9 @@
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
     <ClCompile Include="source\Graph.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
+    <ClCompile Include="source\imgui.cpp" />
+    <ClCompile Include="source\imgui_demo.cpp" />
+    <ClCompile Include="source\imgui_draw.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\Light.cpp" />

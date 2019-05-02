@@ -15,14 +15,14 @@
 static const std::string s_DEFAULT_SCENE = "resources/levels/default0.json";
 
 DefaultGame::DefaultGame() {
-	imguiInit();
+	
 	ImGui::CreateContext();
+	imguiInit();
 	LoadScenes("resources/scenes/");
 }
 
 DefaultGame::~DefaultGame() {
-	//imguiShutdown();
-	ImGui::DestroyContext();
+	
 }
 
 void DefaultGame::LoadScenes(const std::string &p_FolderLocation) {
