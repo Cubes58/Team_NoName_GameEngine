@@ -7,14 +7,22 @@
 using Marker = unsigned char *;	//!< Using Marker as an unsigned char *
 
 /**
-	\brief A structure to represent a memory block.
+	\brief A structure to represent a block of memory.
 */
 struct MemoryBlock {
 	Marker m_StartPointer = nullptr;	//!< A pointer to the start of the memory block.
 	Marker m_EndPointer = nullptr;		//!< A pointer to the end of the memory block.
 	unsigned int m_Size = 0;			//!< The size of the memory block.
 
+	/*!
+		\brief Constructor.
+	*/
 	MemoryBlock() = default;
+	/*!
+		\brief Constructor.
+		\param p_Size Size of the memory block.
+		\param p_StartPointer Pointer to the start of the memory block.
+	*/
 	explicit MemoryBlock(unsigned int p_Size, Marker p_StartPointer) 
 		: m_Size(p_Size), m_StartPointer(p_StartPointer), m_EndPointer(p_StartPointer + p_Size) {  }
 };
