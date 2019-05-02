@@ -32,7 +32,7 @@ for curr_obj in selected_obj:
     gameObjectAttackDistance = 30
     gameObjectAttackSpeed = 15
     # AABB Component
-    gameObjectAABBSize = [10, 10, 10]
+    gameObjectAABBSize = [2, 2, 2]
     # Body Component
     gameObjectMass = 25
     gameObjectRest = 10
