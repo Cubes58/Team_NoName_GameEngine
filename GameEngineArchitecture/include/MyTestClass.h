@@ -16,6 +16,10 @@ public:
 		p_Instance.m_Number < this->m_Number;
 	}
 
+	bool operator==(const MyTestClass &p_Other) const {
+		return m_Number == p_Other.m_Number;
+	}
+
 	friend std::ostream &operator<<(std::ostream &p_OutputStream, const MyTestClass &p_Data);
 };
 

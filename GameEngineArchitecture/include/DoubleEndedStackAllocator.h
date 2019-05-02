@@ -1,6 +1,6 @@
 /**
 @file DoubleEndedStackAllocator.h
-@brief Manages a large chunk of memory, which can grow inward from either direciton.
+@brief Manages a large chunk of memory, which can grow inward from either direction.
 */
 #pragma once
 
@@ -8,13 +8,13 @@
 
 
 /*! \class DoubleEndedStackAllocator
-	\brief Manages a large chunk of memory, which can grow inward from either direciton.
+	\brief Manages a large chunk of memory, which can grow inward from either direction.
 */
 
 class DoubleEndedStackAllocator {
 private:
-	MemoryBlock m_MemoryHead;	//!<
-	MemoryBlock m_MemoryTail;	//!<
+	MemoryBlock m_MemoryHead;	//!< A memory block, representing the head's chunk of allocated memory.
+	MemoryBlock m_MemoryTail;	//!< A memory block, representing the tail's chunk of allocated memory.
 
 public:
 	/*!

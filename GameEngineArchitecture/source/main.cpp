@@ -7,7 +7,6 @@
 
 #include "Game.h"
 #include "DefaultGame.h"
-
 #include "MemoryManager.h"
 
 int main(int p_Argc, char* p_Argv[]) {
