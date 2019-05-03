@@ -158,7 +158,7 @@
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{4AE0F9C9-3023-4B67-B8B5-DCB0972DF4F6}</ProjectGuid>
     <RootNamespace>GameEngineArchitecture</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -249,6 +249,7 @@
       </TreatSpecificWarningsAsErrors>
       <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>USE_RENDER_DEBUG_IMGUI;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>
@@ -275,6 +276,7 @@
       </TreatSpecificWarningsAsErrors>
       <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PreprocessorDefinitions>USE_RENDER_DEBUG_IMGUI;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>
