@@ -1,3 +1,6 @@
+# IMPORTANT:
+Audio only works in RELEASE mode.
+
 # Team_NoName_GameEngine
 A group project, to build a game engine.
 
