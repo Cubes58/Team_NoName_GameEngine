@@ -268,8 +268,6 @@ void Scene::Update(float p_DeltaTime) {
 	if (enemyUnit != m_GameObjects.end()) {
 		std::shared_ptr<EnemyObject> enemy = std::static_pointer_cast<EnemyObject>(enemyUnit->second);
 		if (enemy->IsPathEmpty()) {
-
-
 			enemy->CreatePath(playerCharacter->second->GetComponent<TransformComponent>()->m_Position.x,
 			playerCharacter->second->GetComponent<TransformComponent>()->m_Position.z);
 	

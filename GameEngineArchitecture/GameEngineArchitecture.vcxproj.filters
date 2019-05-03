@@ -55,9 +55,6 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{3fd60b5e-deb6-4333-a8f8-2424a9f53123}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ImGUI">
-      <UniqueIdentifier>{c5390afa-78d2-40ff-b6ee-a2c1b4a13ced}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CameraComponent.h">
@@ -240,25 +237,11 @@
     <ClInclude Include="include\Primitives.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\EnemyObject.h">
-      <Filter>Header Files\GameObjects</Filter>
     <ClInclude Include="include\PolymorphicInstanceManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
-    <ClInclude Include="include\imgui.h">
-      <Filter>Header Files\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_glfw.h">
-      <Filter>Header Files\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_glfw_gl3.h">
-      <Filter>Header Files\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_internal.h">
-      <Filter>Header Files\ImGUI</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imconfig.h">
-      <Filter>Header Files\ImGUI</Filter>
+    <ClInclude Include="include\EnemyObject.h">
+      <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="include\stb_rect_pack.h">
       <Filter>Header Files\Tools</Filter>
@@ -267,6 +250,21 @@
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
     <ClInclude Include="include\stb_truetype.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imconfig.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_glfw.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_impl_glfw_gl3.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_internal.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
   </ItemGroup>
@@ -382,8 +380,6 @@
     <ClCompile Include="source\Primitives.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\EnemyObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
     <ClCompile Include="source\PolymorphicInstanceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -400,6 +396,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\imgui_impl_glfw_gl3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
