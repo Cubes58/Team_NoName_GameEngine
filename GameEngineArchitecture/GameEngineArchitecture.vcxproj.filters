@@ -111,9 +111,6 @@
     <ClInclude Include="include\CameraViewState.h">
       <Filter>Header Files\Enums</Filter>
     </ClInclude>
-    <ClInclude Include="include\MyTestClass.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\BehaviourNodes.h">
       <Filter>Header Files\Artificialntelligence</Filter>
     </ClInclude>

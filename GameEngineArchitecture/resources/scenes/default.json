@@ -1,0 +1,729 @@
+{
+  "GameObjects": [
+    {
+      "AABBSize": [
+        3, 
+        8, 
+        28
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -30.113589482435362, 
+        2.0553897891440815, 
+        -14.588023569863957
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        28, 
+        8, 
+        3
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        -0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        -16.42689419061361, 
+        2.03121530874772, 
+        -29.92587713793193
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        3, 
+        8, 
+        28
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        27.726568238494515, 
+        2.0553897891440815, 
+        13.849441611888324
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        3, 
+        8, 
+        28
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        27.726568238494515, 
+        2.0553897891440815, 
+        -14.72018129336775
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        16, 
+        1.5
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "tallWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -16.50970368766835, 
+        8.143689257485015, 
+        -1.2865320150550499
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "health": 100, 
+      "maxHealth": 100, 
+      "modelName": "duck", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -22.915515761580618, 
+        0.0, 
+        21.968082182342382
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PlayerCharacter", 
+      "uniformMovementSpeed": 0.35
+    }, 
+    {
+      "AABBSize": [
+        6, 
+        5.5, 
+        2
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "littleWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        -12.668075169550232, 
+        2.568513504285974, 
+        4.917644458815099
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        3, 
+        8, 
+        28
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -16.48222441310866, 
+        2.0553897891440815, 
+        13.849441611888324
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        16, 
+        1.5
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "tallWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -16.50970368766835, 
+        8.143689257485015, 
+        -8.40646289502892
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        5, 
+        12
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "normalWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -16.78020887749605, 
+        2.439071226492956, 
+        -15.040720746570097
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        6.5, 
+        27
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "anotherWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -2.601955409340577, 
+        1.8306522427408316, 
+        -15.728367254615366
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        12, 
+        5, 
+        2
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "normalWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        6.081305241034024, 
+        2.439071226492956, 
+        -7.488380593626399
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        6.5, 
+        27
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "anotherWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -0.920680914709231, 
+        1.7620348863687347, 
+        4.2279006040983464
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        12, 
+        5, 
+        2
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "normalWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        -9.548502761272307, 
+        2.4390712264929566, 
+        -21.602779316965147
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        16, 
+        1.5
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "tallWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -16.50970368766835, 
+        8.143689257485015, 
+        -21.834136971441026
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    },
+	{
+      "modelName": "flag", 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        1.0, 
+        0.0, 
+        -20.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EndLevelCollectable"
+    },
+    {
+      "AABBSize": [
+        28, 
+        8, 
+        3
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        -15.121938998314572, 
+        2.0553897891440815, 
+        29.48894631304475
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        3, 
+        8, 
+        28
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -30.113589482435362, 
+        2.0553897891440815, 
+        14.119444987861328
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        28, 
+        8, 
+        3
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        13.651888319382504, 
+        2.0553897891440815, 
+        29.488946313044753
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        28, 
+        8, 
+        3
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "longWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        -0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        12.053620978998563, 
+        2.03121530874772, 
+        -29.925877137931938
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        0, 
+        0, 
+        0
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "floor", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        5, 
+        12
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "normalWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        6.5106137278544916, 
+        2.439071226492956, 
+        -19.967090548131363
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        27, 
+        6.5, 
+        2
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "anotherWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        0.7071067811865476, 
+        0.0, 
+        0.7071067811865475, 
+        0.0
+      ], 
+      "position": [
+        7.628379726019282, 
+        1.7620348863687347, 
+        18.769340695666802
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }, 
+    {
+      "AABBSize": [
+        2, 
+        6.5, 
+        27
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "anotherWall", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        12.684271645790059, 
+        1.7620348863687347, 
+        -0.8481348236741004
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "PhysicsObject"
+    }
+  ]
+}
