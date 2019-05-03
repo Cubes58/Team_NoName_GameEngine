@@ -45,6 +45,10 @@ public:
 	*/
 	virtual void Render() = 0;
 
+	void CloseGame() {
+		m_IsRunning = false;
+	}
+
 	/*!
 		\brief Gets whether the game is running/on-going.
 		\return Returns true if the game is running, false otherwise.
