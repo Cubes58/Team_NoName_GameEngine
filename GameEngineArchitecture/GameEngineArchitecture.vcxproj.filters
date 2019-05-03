@@ -55,6 +55,9 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{3fd60b5e-deb6-4333-a8f8-2424a9f53123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{4dec033b-e683-46b4-99bb-207de886aace}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CameraComponent.h">
@@ -267,6 +270,9 @@
     <ClInclude Include="include\imgui_internal.h">
       <Filter>Header Files\Tools</Filter>
     </ClInclude>
+    <ClInclude Include="include\AudioEngine.h">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\GLFW_EngineCore.cpp">
@@ -399,6 +405,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\AudioEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

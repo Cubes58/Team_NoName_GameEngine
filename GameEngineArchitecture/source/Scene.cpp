@@ -270,12 +270,17 @@ void Scene::Update(float p_DeltaTime) {
 		if (enemy->IsPathEmpty()) {
 			enemy->CreatePath(playerCharacter->second->GetComponent<TransformComponent>()->m_Position.x,
 			playerCharacter->second->GetComponent<TransformComponent>()->m_Position.z);
-	
 		}
-		
-	}
-	
 
+		if(m_Collision(playerCharacter->second->GetComponent<TransformComponent>()->m_Position, 
+			enemyUnit->second->GetComponent<TransformComponent>()->m_Position, glm::vec3(7.5f, 7.5f, 7.5f), glm::vec3(8.0f, 8.0f, 8.0f))) {
+			playerCharacter->second->OnMessage("Reset");
+			std::cout << "Player killed by the enemy!";
+
+			auto endLevelCollectables = m_GameObjects.find(typeid(EndLevelCollectable));
+			enemy->GetComponent<TransformComponent>()->m_Position = endLevelCollectables->second->GetComponent<TransformComponent>()->m_Position;
+		}
+	}
 
 
 	// Check whether the player is within the range of the EndLevelCollectable object.
@@ -286,10 +291,6 @@ void Scene::Update(float p_DeltaTime) {
 			return;
 		}
 	}
-
-	//for (auto gameObject : m_GameObjects) {
-	//	gameObject.second->OnUpdate(p_DeltaTime);
-	//}
 
 	RenderEngineInstance.SetGameObjects(&m_GameObjects);
 	RenderEngineInstance.Update(p_DeltaTime);

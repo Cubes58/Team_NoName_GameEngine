@@ -51,12 +51,12 @@ public:
 		\brief Gets the next scene, in m_Scenes map.
 		\return Returns the next scene key, identifier.
 	*/
-	unsigned int GetNextScene() const;
+	unsigned int GetNextScene();
 	/*!
 		\brief Gets the previous scene, in m_Scenes map.
 		\return Returns the previous scene key, identifier.
 	*/
-	unsigned int GetPreviousScene() const;
+	unsigned int GetPreviousScene();
 
 	/*!
 		\brief Gets the current scene, in the m_Scenes map.
