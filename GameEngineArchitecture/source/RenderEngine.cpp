@@ -15,7 +15,6 @@
 
 #include "PlayerCharacter.h"
 #include "StaticEnvironmentObject.h"
-#include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
 

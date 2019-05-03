@@ -14,7 +14,7 @@
 
 class PolymorphicInstanceManager {
 private:
-	const constexpr static unsigned int s_m_ComponentContainersCapacity = 200;
+	const constexpr static unsigned int s_m_ComponentContainersCapacity = 150;
 
 	PolymorphicInstanceManager() : m_ModelComponents(s_m_ComponentContainersCapacity), m_AABBComponents(s_m_ComponentContainersCapacity), m_AttackComponents(s_m_ComponentContainersCapacity),
 		m_BodyComponents(s_m_ComponentContainersCapacity), m_CameraComponents(s_m_ComponentContainersCapacity), m_HealthComponents(s_m_ComponentContainersCapacity),

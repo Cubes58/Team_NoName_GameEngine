@@ -47,8 +47,7 @@ public:
 	T *GetComponent() {
 		CC::HashNode<std::type_index, Component*> *hashNode = m_Components.Get(typeid(T));
 		if(hashNode != nullptr) {
-			Component *component = hashNode->m_Value;
-			return static_cast<T*>(component);
+			return (static_cast<T*>(hashNode->m_Value));
 		}
 
 		// Return null if we don't have a component of that type.

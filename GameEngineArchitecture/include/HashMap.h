@@ -108,7 +108,7 @@ private:
 		}
 		else {
 			if(m_EmptySpace.size() > 0u)
-				previousNode->m_Left = &m_Data[m_EmptySpace.front()];
+				previousNode->m_Right = &m_Data[m_EmptySpace.front()];
 			else
 				previousNode->m_Right = &m_Data[m_Size];
 		}

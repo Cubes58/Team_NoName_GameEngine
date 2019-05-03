@@ -35,7 +35,6 @@
     <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DoubleEndedStackAllocator.h" />
-    <ClInclude Include="include\DynamicEnvironmentObject.h" />
     <ClInclude Include="include\EndLevelCollectable.h" />
     <ClInclude Include="include\EnemyTower.h" />
     <ClInclude Include="include\FileSystemHelper.h" />
@@ -91,7 +90,6 @@
     <ClCompile Include="source\CubemapCamera.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
     <ClCompile Include="source\DoubleEndedStackAllocator.cpp" />
-    <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
     <ClCompile Include="source\EndLevelCollectable.cpp" />
     <ClCompile Include="source\EnemyTower.cpp" />
     <ClCompile Include="source\FontRenderer.cpp" />

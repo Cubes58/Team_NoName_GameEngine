@@ -87,9 +87,6 @@
     <ClInclude Include="include\InputCommandFactory.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="include\DynamicEnvironmentObject.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="include\EnemyTower.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
@@ -277,9 +274,6 @@
     </ClCompile>
     <ClCompile Include="source\JSON\jsoncpp.cpp">
       <Filter>Source Files\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="source\DynamicEnvironmentObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerCharacter.cpp">
       <Filter>Source Files\GameObjects</Filter>
