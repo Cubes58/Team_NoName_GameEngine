@@ -7,10 +7,13 @@
 
 #include "Game.h"
 #include "DefaultGame.h"
+
 #include "MemoryManager.h"
+#include "PolymorphicInstanceManager.h"
 
 int main(int p_Argc, char* p_Argv[]) {
 	MemoryManagerInstance;
+	PolymorphicInstanceManager::Instance();
 
 	std::shared_ptr<IEngineCore> engineCore;
 

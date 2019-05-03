@@ -1,5 +1,7 @@
 #include "PlayerCharacter.h"
 
+#include "PolymorphicInstanceManager.h"
+
 #include "TransformComponent.h"
 #include "ModelComponent.h"
 #include "CameraComponent.h"
@@ -9,16 +11,32 @@
 
 PlayerCharacter::PlayerCharacter(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, const glm::vec3 &p_Scale, const glm::vec3 &p_AABBSize, float p_Health, float p_PlayerVelocity, float p_PlayerRotationSpeed)
 	: m_CameraState(CameraViewState::FIRST_PERSON_CAMERA), m_PlayerMovementSpeed(p_PlayerVelocity), m_PlayerRotationSpeed(p_PlayerRotationSpeed), m_OriginalPosition(p_Position), m_OriginalOrientation(p_Orientation) {
-	AddComponent(std::make_shared<ModelComponent>(p_ModelName));
-	AddComponent(std::make_shared<TransformComponent>(p_Position, p_Orientation, p_Scale));
-	AddComponent(std::make_shared<CameraComponent>(p_Position, p_Orientation));
-	AddComponent(std::make_shared<HealthComponent>(p_Health));
-	AddComponent(std::make_shared<AABBComponent>(p_Position, p_AABBSize));
+
+	unsigned int index = 0;
+	ModelComponent modelComponent(p_ModelName);
+	PolymorphicInstanceManager::Instance().m_ModelComponents.PushBack(modelComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_ModelComponents.At(index));
+
+	AABBComponent AABBComponent(p_Position, p_AABBSize);
+	PolymorphicInstanceManager::Instance().m_AABBComponents.PushBack(AABBComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_AABBComponents.At(index));
+
+	TransformComponent transformComponent(p_Position, p_Orientation, p_Scale);
+	PolymorphicInstanceManager::Instance().m_TransformComponents.PushBack(transformComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_TransformComponents.At(index));
+
+	CameraComponent cameraComponent(p_Position, p_Orientation);
+	PolymorphicInstanceManager::Instance().m_CameraComponents.PushBack(cameraComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_CameraComponents.At(index));
+
+	HealthComponent healthComponent(p_Health);
+	PolymorphicInstanceManager::Instance().m_HealthComponents.PushBack(healthComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_HealthComponents.At(index));
 }
 
 void PlayerCharacter::OnUpdate(float p_DeltaTime) {
 	// Get the transform component details.
-	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	TransformComponent *transform = GetComponent<TransformComponent>();
 	transform->Translate(m_TranslationVector * p_DeltaTime * inverse(transform->m_Orientation));
 	transform->Yaw(m_RotationValue * p_DeltaTime);
 	GetComponent<AABBComponent>()->SetPosition(transform->m_Position);
@@ -36,8 +54,8 @@ void PlayerCharacter::OnUpdate(float p_DeltaTime) {
 	}
 	GetComponent<CameraComponent>()->m_Orientation = inverseOrientation;
 
-	std::shared_ptr<HealthComponent> health = GetComponent<HealthComponent>();
-	health->OnUpdate(p_DeltaTime);
+	HealthComponent *health = GetComponent<HealthComponent>();
+	//health->OnUpdate(p_DeltaTime);
 	if (health->IsHealthBelowZero()) {
 		OnMessage("Reset");
 	}
@@ -51,7 +69,7 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 		m_CameraState = CameraViewState::THIRD_PERSON_CAMERA;
 	}
 	else if (p_Message.compare(0, 12, "RotateCamera") == 0) {
-		std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+		TransformComponent *transform = GetComponent<TransformComponent>();
 		m_RotationValue = 0;
 		if (p_Message == "RotateCameraLeft")
 			m_RotationValue = m_PlayerRotationSpeed;

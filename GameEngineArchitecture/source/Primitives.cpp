@@ -176,12 +176,16 @@ Primitives::Primitives()
 	prepareSphere();
 	prepareCube();
 	prepareQuad();
+
+	glGenVertexArrays(1, &m_debugVAO);
+	glGenBuffers(1, &m_debugVBO);
 }
 
 void Primitives::renderSphere()
 {
 	glBindVertexArray(m_sphereVAO);
 	glDrawElements(GL_TRIANGLE_STRIP, m_sphereIndices, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
 }
 
 void Primitives::renderCube()

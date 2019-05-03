@@ -15,7 +15,14 @@
 static const std::string s_DEFAULT_SCENE = "resources/levels/default0.json";
 
 DefaultGame::DefaultGame() {
+	
+	ImGui::CreateContext();
+	imguiInit();
 	LoadScenes("resources/scenes/");
+}
+
+DefaultGame::~DefaultGame() {
+	
 }
 
 void DefaultGame::LoadScenes(const std::string &p_FolderLocation) {
@@ -87,6 +94,21 @@ void DefaultGame::Render() {
 	}
 
 	RenderEngineInstance.RenderText("Scene number: " + std::to_string(m_CurrentSceneNumber), 0.005f, 0.955f, 0.45f, glm::vec3(0.0f, 0.5f, 0.5f));
+
+	imguiRender();
+}
+
+void DefaultGame::imguiInit() {
+
+}
+
+void DefaultGame::imguiRender() {
+
+	//m_CurrentScene->ImGuiRender();
+}
+
+void DefaultGame::imguiShutdown() {
+
 }
 
 unsigned int DefaultGame::GetNextScene() const {

@@ -4,10 +4,11 @@
 */
 #pragma once
 
-#include <unordered_map>
+//#include <unordered_map>
 #include <typeindex>
-#include <memory>
+//#include <memory>
 
+#include "HashMap.h"
 #include "Component.h"
 
 /*! \class GameObject
@@ -16,10 +17,15 @@
 
 class GameObject {
 protected:
-	std::unordered_map<std::type_index, std::shared_ptr<Component>> m_Components;	//!< Stores pointers to components, using the typeid of the component to identify it.
+	//std::unordered_map<std::type_index, std::shared_ptr<Component>> m_Components;	//!< Stores pointers to components, using the typeid of the component to identify it.
+	const constexpr static unsigned int s_m_NumberOfComponent = 10u;
+	CC::HashMap<std::type_index, Component*> m_Components; //!< Stores pointers to components, using the typeid of the component to identify it.
 
 public:
-	GameObject() = default;	//!< Default constructor.
+	/*!
+		\brief Constructor.
+	*/
+	GameObject() : m_Components(s_m_NumberOfComponent) {  };
 	~GameObject() = default; //!< Default destructor.
 
 	/*!
@@ -38,12 +44,10 @@ public:
 		\return Returns the requests component (type), if it exists, else it returns a null pointer. 
 	*/
 	template <typename T>
-	std::shared_ptr<T> GetComponent() {
-		auto iter = m_Components.find(typeid(T));
-
-		if (iter != std::end(m_Components)) {
-			// If found, dynamic cast the component pointer and return it.
-			return std::dynamic_pointer_cast<T>(iter->second);
+	T *GetComponent() {
+		CC::HashNode<std::type_index, Component*> *hashNode = m_Components.Get(typeid(T));
+		if(hashNode != nullptr) {
+			return (static_cast<T*>(hashNode->m_Value));
 		}
 
 		// Return null if we don't have a component of that type.
@@ -55,8 +59,8 @@ public:
 		\param p_Component the component to add, to the object.
 	*/
 	template <typename T>
-	void AddComponent(std::shared_ptr<T> p_Component) {
-		// Add the component to unoreder map with hash of its typeid.
-		m_Components[typeid(T)] = p_Component;
+	void AddComponent(T *p_Component) {
+		// Add the component to hsh map with its typeid.
+		m_Components.Insert(typeid(T), p_Component);
 	}
 };

@@ -33,10 +33,14 @@
     <ClInclude Include="include\ContrastChanger.h" />
     <ClInclude Include="include\CubemapCamera.h" />
     <ClInclude Include="include\EnemyObject.h" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_glfw.h" />
+    <ClInclude Include="include\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="include\imgui_internal.h" />
     <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DoubleEndedStackAllocator.h" />
-    <ClInclude Include="include\DynamicEnvironmentObject.h" />
     <ClInclude Include="include\EndLevelCollectable.h" />
     <ClInclude Include="include\EnemyTower.h" />
     <ClInclude Include="include\FileSystemHelper.h" />
@@ -64,10 +68,10 @@
     <ClInclude Include="include\ModelComponent.h" />
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
-    <ClInclude Include="include\MyTestClass.h" />
     <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
+    <ClInclude Include="include\PolymorphicInstanceManager.h" />
     <ClInclude Include="include\Primitives.h" />
     <ClInclude Include="include\QuadTree.h" />
     <ClInclude Include="include\Random.h" />
@@ -78,6 +82,9 @@
     <ClInclude Include="include\Shadows.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
+    <ClInclude Include="include\stb_rect_pack.h" />
+    <ClInclude Include="include\stb_textedit.h" />
+    <ClInclude Include="include\stb_truetype.h" />
     <ClInclude Include="include\TransformComponent.h" />
     <ClInclude Include="include\VBOQuad.h" />
   </ItemGroup>
@@ -91,7 +98,6 @@
     <ClCompile Include="source\CubemapCamera.cpp" />
     <ClCompile Include="source\DefaultGame.cpp" />
     <ClCompile Include="source\DoubleEndedStackAllocator.cpp" />
-    <ClCompile Include="source\DynamicEnvironmentObject.cpp" />
     <ClCompile Include="source\EndLevelCollectable.cpp" />
     <ClCompile Include="source\EnemyObject.cpp" />
     <ClCompile Include="source\EnemyTower.cpp" />
@@ -101,6 +107,11 @@
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
     <ClCompile Include="source\Graph.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
+    <ClCompile Include="source\imgui.cpp" />
+    <ClCompile Include="source\imgui_demo.cpp" />
+    <ClCompile Include="source\imgui_draw.cpp" />
+    <ClCompile Include="source\imgui_glfw.cpp" />
+    <ClCompile Include="source\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\Light.cpp" />
@@ -112,6 +123,7 @@
     <ClCompile Include="source\PhysicsEngine.cpp" />
     <ClCompile Include="source\PhysicsObject.cpp" />
     <ClCompile Include="source\PlayerCharacter.cpp" />
+    <ClCompile Include="source\PolymorphicInstanceManager.cpp" />
     <ClCompile Include="source\Primitives.cpp" />
     <ClCompile Include="source\QuadTree.cpp" />
     <ClCompile Include="source\Random.cpp" />

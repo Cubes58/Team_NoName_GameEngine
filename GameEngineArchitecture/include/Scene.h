@@ -71,6 +71,8 @@ public:
 	*/
 	void Render(std::shared_ptr<IEngineCore> p_EngineInterface);
 
+
+	void ImGuiRender();
 	/*!
 		\brief Gets the objects that require input.
 		\return Returns the objects that require objects.

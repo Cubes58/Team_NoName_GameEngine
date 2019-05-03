@@ -15,6 +15,9 @@
 #include "VBOQuad.h"
 #include "Primitives.h"
 
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
+
 class GameObject;
 class ShaderProgram;
 class CameraComponent;
@@ -26,8 +29,6 @@ class FrameBufferObject;
 class PostProcessor;
 class Light;
 class Shadows;
-
-
 
 #define RenderEngineInstance RenderEngine::Instance()
 
@@ -44,7 +45,7 @@ private:
 
 	std::shared_ptr<FontRenderer> m_FontRenderer;
 	std::shared_ptr<Skybox> m_Skybox;
-	std::shared_ptr<CameraComponent> m_Camera;
+	CameraComponent *m_Camera;
 	std::shared_ptr<FrameBufferObject> m_SceneFrameBuffer;
 	std::shared_ptr<PostProcessor> m_PostProcessor;
 	std::shared_ptr<Shadows> m_ShadowRenderer;
@@ -83,12 +84,13 @@ public:
 	void DrawModel(std::shared_ptr<Model> p_Model, const glm::mat4 &p_ModelMatrix, std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void Update(double p_DeltaTime);
 	void Render();
+	void ImGuiRender();
 	void RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderProgram);
 	void RenderQuadDebug();
 	void RenderPhysicsDebug(const glm::mat4 & p_ModelMatrix);
 	void RenderFrameBuffers();
 
-	void SetCamera(std::shared_ptr<CameraComponent> p_Camera);
+	void SetCamera(CameraComponent *p_Camera);
 	void SetGameObjects(std::unordered_multimap<std::type_index, std::shared_ptr<GameObject>> *p_GameObjects);
 	void SetDefaultShader();
 	void SetLightParams(std::shared_ptr<ShaderProgram> p_ShaderProgram);
@@ -97,5 +99,3 @@ public:
 	void RenderText(const std::string &p_Text, float p_XPosition, float p_YPosition, float p_Scale, glm::vec3 p_Colour);
 	void ClearScreen();
 };
-
-

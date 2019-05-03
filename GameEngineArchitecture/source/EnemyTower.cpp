@@ -1,5 +1,7 @@
 #include "EnemyTower.h"
 
+#include "PolymorphicInstanceManager.h"
+
 #include "TransformComponent.h"
 #include "ModelComponent.h"
 #include "HealthComponent.h"
@@ -11,10 +13,23 @@ EnemyTower::EnemyTower(const std::string &p_ModelName, const glm::vec3 &p_Positi
 
 EnemyTower::EnemyTower(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, const glm::vec3 &p_Scale, 
 	float p_AttackDamage, float p_AttackDistance, float p_AttackSpeed, float p_Health, float p_MaxHealth) {
-	AddComponent(std::make_shared<ModelComponent>(p_ModelName));
-	AddComponent(std::make_shared<TransformComponent>(p_Position, p_Orientation, p_Scale));
-	AddComponent(std::make_shared<HealthComponent>(p_Health, p_MaxHealth));
-	AddComponent(std::make_shared<AttackComponent>(p_AttackDamage, p_AttackDistance, p_AttackSpeed));
+
+	unsigned int index = 0;
+	ModelComponent modelComponent(p_ModelName);
+	PolymorphicInstanceManager::Instance().m_ModelComponents.PushBack(modelComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_ModelComponents.At(index));
+
+	TransformComponent transformComponent(p_Position, p_Orientation, p_Scale);
+	PolymorphicInstanceManager::Instance().m_TransformComponents.PushBack(transformComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_TransformComponents.At(index));
+
+	HealthComponent healthComponent(p_Health);
+	PolymorphicInstanceManager::Instance().m_HealthComponents.PushBack(healthComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_HealthComponents.At(index));
+
+	AttackComponent attackComponent(p_AttackDamage, p_AttackDistance, p_AttackSpeed);
+	PolymorphicInstanceManager::Instance().m_AttackComponents.PushBack(attackComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_AttackComponents.At(index));
 }
 
 void EnemyTower::OnUpdate(float p_DeltaTime) {

@@ -11,7 +11,6 @@
 
 #include "PlayerCharacter.h"
 #include "StaticEnvironmentObject.h"
-#include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
 #include "PhysicsObject.h"
@@ -203,9 +202,6 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 		}
 		else if (type == "StaticEnvironmentObject") {
 			m_GameObjects.emplace(typeid(StaticEnvironmentObject), std::make_shared<StaticEnvironmentObject>(modelName, position, orientation, scale));
-		}
-		else if (type == "DynamicEnvironmentObject") {
-			m_GameObjects.emplace(typeid(DynamicEnvironmentObject), std::make_shared<DynamicEnvironmentObject>(modelName, position, orientation, scale, acceleration, velocity));
 		}
 		else if (type == "EnemyTower") {
 			m_GameObjects.emplace(typeid(EnemyTower), std::make_shared<EnemyTower>(modelName, position, orientation, scale, attackDamage, attackDistance, attackSpeed, health));

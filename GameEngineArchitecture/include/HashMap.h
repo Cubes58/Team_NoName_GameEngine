@@ -4,6 +4,8 @@
 */
 #pragma once
 
+#include <list>
+
 #include "MemoryManager.h"
 
 #define HASH_MAP_GROWTH_SCALAR 2u	//!< The hash map's capacity growth scalar, when the hash map needs to find more space, to fit more elements in.
@@ -106,7 +108,7 @@ private:
 		}
 		else {
 			if(m_EmptySpace.size() > 0u)
-				previousNode->m_Left = &m_Data[m_EmptySpace.front()];
+				previousNode->m_Right = &m_Data[m_EmptySpace.front()];
 			else
 				previousNode->m_Right = &m_Data[m_Size];
 		}

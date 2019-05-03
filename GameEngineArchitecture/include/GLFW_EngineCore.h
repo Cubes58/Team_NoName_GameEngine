@@ -13,6 +13,11 @@
 
 #include "IEngineCore.h"
 
+// imgui
+#include <imgui.h>
+#include "imgui_impl_glfw_gl3.h"
+
+
 class Game;
 class Model;
 class CameraComponent;
