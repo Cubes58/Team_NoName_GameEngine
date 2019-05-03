@@ -82,6 +82,9 @@
     <ClInclude Include="include\Shadows.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
+    <ClInclude Include="include\stb_rect_pack.h" />
+    <ClInclude Include="include\stb_textedit.h" />
+    <ClInclude Include="include\stb_truetype.h" />
     <ClInclude Include="include\TransformComponent.h" />
     <ClInclude Include="include\VBOQuad.h" />
   </ItemGroup>

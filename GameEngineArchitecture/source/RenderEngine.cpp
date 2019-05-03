@@ -143,7 +143,7 @@ void RenderEngine::ImGuiRender()
 	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
 	{
 
-		std::shared_ptr<TransformComponent> tc = m_PlayerObject->GetComponent<TransformComponent>();
+		TransformComponent *tc = m_PlayerObject->GetComponent<TransformComponent>();
 
 
 		float* fpx = &tc->m_Position.x;
