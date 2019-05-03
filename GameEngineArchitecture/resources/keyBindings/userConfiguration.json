@@ -41,16 +41,6 @@
       "inputType": "release"
     },
     {
-      "key": "E",
-      "command": "RotatePlayerRightCommand",
-      "inputType": "press"
-    },
-    {
-      "key": "Q",
-      "command": "RotatePlayerLeftCommand",
-      "inputType": "press"
-    },
-    {
       "key": "X",
       "command": "SetCameraFirstPersonPerspectiveCommand",
       "inputType": "release"

@@ -14,6 +14,7 @@
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
 #include "PhysicsObject.h"
+#include "EnemyObject.h"
 
 #include "ModelComponent.h"
 #include "TransformComponent.h"
@@ -211,6 +212,9 @@ bool Scene::LoadLevelJSON(const std::string &p_SceneFile, std::shared_ptr<Defaul
 		else if(type == "PhysicsObject") {
 			m_GameObjects.emplace(typeid(PhysicsObject), std::make_shared<PhysicsObject>(modelName, position, AABB, orientation, scale, objectMass, bodyCompType));
 		}
+		else if(type == "EnemyObject") {
+			m_GameObjects.emplace(typeid(EnemyObject), std::make_shared<EnemyObject>(modelName, position, AABB, orientation, scale, objectMass, bodyCompType));
+		}
 		else {
 			std::cout << "ERROR::CANNOT LOAD OBJECT!" << 
 				"\nOBJECT MODEL NAME: " << modelName << 
@@ -259,6 +263,20 @@ void Scene::Update(float p_DeltaTime) {
 			}
 		}
 	}
+
+	auto enemyUnit = m_GameObjects.find(typeid(EnemyObject));
+	if (enemyUnit != m_GameObjects.end()) {
+		std::shared_ptr<EnemyObject> enemy = std::static_pointer_cast<EnemyObject>(enemyUnit->second);
+		if (enemy->IsPathEmpty()) {
+			enemy->CreatePath(playerCharacter->second->GetComponent<TransformComponent>()->m_Position.x,
+			playerCharacter->second->GetComponent<TransformComponent>()->m_Position.z);
+	
+		}
+		
+	}
+	
+
+
 
 	// Check whether the player is within the range of the EndLevelCollectable object.
 	auto endLevelCollectables = m_GameObjects.equal_range(typeid(EndLevelCollectable));
