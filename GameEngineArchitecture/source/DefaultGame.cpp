@@ -11,6 +11,8 @@
 #include "InputHandler.h"
 #include "Scene.h"
 #include "PlayerCharacter.h"
+#include "AudioEngine.h"
+#include "GLFW_EngineCore.h"
 
 static const std::string s_DEFAULT_SCENE = "resources/levels/default0.json";
 
@@ -19,6 +21,13 @@ DefaultGame::DefaultGame() {
 	ImGui::CreateContext();
 	imguiInit();
 	LoadScenes("resources/scenes/");
+
+#ifdef PLAY_AUDIO
+	AudioManagerInstance.OpenMusicFile("resources/audio/gameSound.wav");
+#endif // RELEASE
+
+	
+		
 }
 
 DefaultGame::~DefaultGame() {

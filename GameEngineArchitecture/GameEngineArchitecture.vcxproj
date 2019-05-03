@@ -304,6 +304,7 @@
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
       <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLAY_AUDIO;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -333,6 +334,7 @@
       <TreatSpecificWarningsAsErrors>
       </TreatSpecificWarningsAsErrors>
       <AdditionalIncludeDirectories>$(SolutionDir)/$(ProjectName)/external/include;$(SolutionDir)/$(ProjectName)/external/include/freetype;./include;$(SolutionDir)/$(PlatformName)/include;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PLAY_AUDIO;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
