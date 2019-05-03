@@ -13,9 +13,12 @@
 #include "TransformComponent.h"
 #include "AABBComponent.h"
 
+#include "Scene.h"
+#include "ModelManager.h"
+
+
 #include "PlayerCharacter.h"
 #include "StaticEnvironmentObject.h"
-#include "DynamicEnvironmentObject.h"
 #include "EnemyTower.h"
 #include "EndLevelCollectable.h"
 
@@ -118,9 +121,72 @@ void RenderEngine::Render()
 	
 
 	m_Skybox->Render();
+	ImGuiRender();
 	//RenderDebugging();
 	
-	
+}
+
+void RenderEngine::ImGuiRender()
+{
+	static bool show_test_window = true;
+	static bool show_another_window = false;
+	ImVec4 clear_color = ImColor(114, 144, 154);
+
+	/////////////////////////////////////////////////////////////
+	//move to scene??
+	/////////////////////////////////////////////////////////////
+	// imgui
+	ImGui_ImplGlfwGL3_NewFrame();
+	//ImGui::NewFrame();
+
+	// 1. Show a simple window
+	// Tip: if we don't call ImGui::Begin()/ImGui::End() the widgets appears in a window automatically called "Debug"
+	{
+
+		TransformComponent *tc = m_PlayerObject->GetComponent<TransformComponent>();
+
+
+		float* fpx = &tc->m_Position.x;
+		float* fpy = &tc->m_Position.y;
+		float* fpz = &tc->m_Position.z;
+		//TODO aabb is 111
+		//loading 
+
+	//	//static float f = 0.0f;
+	ImGui::Text("Hello, world!");
+	ImGui::SliderFloat("X axis", fpx, 0.0f, 2.0f);
+	ImGui::SliderFloat("Y axis", fpy, 0.0f, 2.0f);
+	ImGui::SliderFloat("Z axis", fpz, 0.0f, 2.0f);
+	ImGui::ColorEdit3("clear color", (float*)&clear_color);
+	if (ImGui::Button("Add Object")) MODEL_MANAGER.GetModel("longWall");
+	if (ImGui::Button("Test Window")) show_test_window ^= 1;
+	//if (ImGui::Button("Another Window")) show_another_window ^= 1;
+	ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / ImGui::GetIO().Framerate, ImGui::GetIO().Framerate);
+	}
+
+	// 2. Show another simple window, this time using an explicit Begin/End pair
+	if (show_another_window)
+	{
+		ImGui::SetNextWindowSize(ImVec2(200, 100), ImGuiSetCond_FirstUseEver);
+		ImGui::Begin("Another Window", &show_another_window);
+		ImGui::Text("Hello");
+		ImGui::End();
+	}
+
+	// 3. Show the ImGui test window. Most of the sample code is in ImGui::ShowTestWindow()
+	if (show_test_window)
+	{
+		ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiSetCond_FirstUseEver);
+		ImGui::ShowTestWindow(&show_test_window);
+	}
+
+	// Rendering
+	//int display_w, display_h;
+	//glfwGetFramebufferSize(m_window, &display_w, &display_h);
+	//glViewport(0, 0, display_w, display_h);
+	//glClearColor(clear_color.x, clear_color.y, clear_color.z, clear_color.w);
+	//glClear(GL_COLOR_BUFFER_BIT);
+	ImGui::Render();
 }
 
 void RenderEngine::RenderFrameBuffers()
@@ -148,17 +214,16 @@ void RenderEngine::RenderSceneObjects(std::shared_ptr<ShaderProgram> p_ShaderPro
 		// Make sure the object has a model and transform component - so it can be rendered.
 		auto modelComponent = gameObject.second->GetComponent<ModelComponent>();
 		auto transformComponent = gameObject.second->GetComponent<TransformComponent>();
-		auto physicsComponent = gameObject.second->GetComponent<AABBComponent>();
+		auto aabbBoxComponent = gameObject.second->GetComponent<AABBComponent>();
 
 		if (modelComponent != nullptr && transformComponent != nullptr)
 			DrawModel(modelComponent->GetModel(), transformComponent->GetModelMatrix(), p_ShaderProgram);
-		if (physicsComponent != nullptr && transformComponent != nullptr) {
-			glm::mat4 l_ModelMatrix;
-			glm::mat4 l_TransMatrix = glm::translate(glm::mat4(1.0f), transformComponent->Position());
-			glm::mat4 l_ScaleMatrix = glm::scale(glm::mat4(1.0f), physicsComponent->m_Size);
-			glm::mat4 l_RotMatrix = glm::mat4_cast(transformComponent->Orientation());
+		if (aabbBoxComponent != nullptr && transformComponent != nullptr) {
+			glm::mat4 l_ModelMatrix = glm::mat4(1.0);
+			glm::mat4 l_TransMatrix = glm::translate(glm::mat4(1.0f), aabbBoxComponent->GetPosition());
+			glm::mat4 l_ScaleMatrix = glm::scale(glm::mat4(1.0f), aabbBoxComponent->m_Size / 2.f);
 
-			l_ModelMatrix = l_TransMatrix * l_RotMatrix * l_ScaleMatrix;
+			l_ModelMatrix = l_TransMatrix * l_ScaleMatrix;
 			RenderPhysicsDebug(l_ModelMatrix);
 		}
 	}

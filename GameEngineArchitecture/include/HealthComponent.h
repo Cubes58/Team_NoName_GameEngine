@@ -37,7 +37,7 @@ public:
 		\param p_DeltaTime the time passed.
 	*/
 	void OnUpdate(float p_DeltaTime) override {
-		m_Health <= 0 ? m_HealthBelowZero = true : m_HealthBelowZero = false;
+		
 	}
 
 	/*!
@@ -52,6 +52,8 @@ public:
 			m_Health = m_MaxHealth;
 			m_HealthBelowZero = false;
 		}
+
+		m_Health <= 0 ? m_HealthBelowZero = true : m_HealthBelowZero = false;
 	}
 
 	/*!

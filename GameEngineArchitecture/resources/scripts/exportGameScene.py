@@ -32,7 +32,7 @@ for curr_obj in selected_obj:
     gameObjectAttackDistance = 30
     gameObjectAttackSpeed = 15
     # AABB Component
-    gameObjectAABBSize = [2, 2, 2]
+    gameObjectAABBSize = [3, 3, 3]
     # Body Component
     gameObjectMass = 25
     gameObjectRest = 10
@@ -49,21 +49,27 @@ for curr_obj in selected_obj:
     elif curr_obj.find("littleWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "littleWall"
+        gameObjectAABBSize = [2, 5.5, 6]
     elif curr_obj.find("tallWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "tallWall"
+        gameObjectAABBSize = [2, 16, 1.5]
     elif curr_obj.find("normalWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "normalWall"
+        gameObjectAABBSize = [2, 5, 12]
     elif curr_obj.find("longWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "longWall"
+        gameObjectAABBSize = [2, 8, 28]
     elif curr_obj.find("anotherWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "anotherWall"
+        gameObjectAABBSize = [2, 6.5, 27]
     elif curr_obj.find("floor") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "floor"
+        gameObjectAABBSize = [200, 1, 200]
     elif curr_obj.find("floorWall") >= 0:
         gameObjectType = "PhysicsObject"
         gameObjectModel = "floorWall"

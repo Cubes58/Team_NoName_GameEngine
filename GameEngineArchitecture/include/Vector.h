@@ -65,7 +65,7 @@ public:
 		\param p_Element The element to add, to the container.
 		\return Returns nothing.
 	*/
-	bool PushBack(Type p_Element, unsigned int &p_ElementIndex = 0) {
+	bool PushBack(Type p_Element, unsigned int &p_ElementIndex) {
 		if(m_Size < m_Capacity || m_EmptySpace.size() > 0u) {
 			if(m_EmptySpace.size() == 0u) {
 				m_Data[m_Size] = p_Element;
@@ -116,6 +116,10 @@ public:
 			return true;
 		}
 		return false;
+	}
+	bool PushBack(Type p_Element) {
+		unsigned int number = 10;
+		return PushBack(p_Element, number);
 	}
 
 	/*!

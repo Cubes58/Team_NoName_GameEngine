@@ -77,7 +77,10 @@ bool GLFW_EngineCore::InitWindow(int p_Width, int p_Height, const std::string &p
 }
 
 bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
-  m_PhysicsEngine = new PhysicsEngine(p_Game);
+	//ImGui_ImplGlfw_InitForOpenGL(m_Window, false);
+	ImGui_ImplGlfwGL3_Init(m_Window, false);
+	
+	m_PhysicsEngine = new PhysicsEngine(p_Game);
 	RenderEngineInstance.Init(m_ScreenWidth, m_ScreenHeight);
   
 	p_Game->m_EngineInterface = std::make_shared<GLFW_EngineCore>(*this);
@@ -92,13 +95,13 @@ bool GLFW_EngineCore::RunEngine(std::shared_ptr<Game> p_Game) {
 
 		m_PhysicsEngine->Update();
 		p_Game->Render(); // Prepare game to send information to the renderer in engine core.
-		
 
 		// Swap the buffers.
 		glfwSwapBuffers(m_Window);
 		glfwPollEvents();
 	}
 
+	ImGui::Shutdown();
 	return true;
 }
 

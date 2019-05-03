@@ -1,5 +1,7 @@
 #include "PlayerCharacter.h"
 
+#include "PolymorphicInstanceManager.h"
+
 #include "TransformComponent.h"
 #include "ModelComponent.h"
 #include "CameraComponent.h"
@@ -9,12 +11,27 @@
 
 PlayerCharacter::PlayerCharacter(const std::string &p_ModelName, const glm::vec3 &p_Position, const glm::quat &p_Orientation, const glm::vec3 &p_Scale, const glm::vec3 &p_AABBSize, float p_Health, float p_PlayerVelocity, float p_PlayerRotationSpeed)
 	: m_CameraState(CameraViewState::FIRST_PERSON_CAMERA), m_PlayerMovementSpeed(p_PlayerVelocity), m_PlayerRotationSpeed(p_PlayerRotationSpeed), m_OriginalPosition(p_Position), m_OriginalOrientation(p_Orientation) {
-	
-	AddComponent(new ModelComponent(p_ModelName));
-	AddComponent(new TransformComponent(p_Position, p_Orientation, p_Scale));
-	AddComponent(new CameraComponent(p_Position, p_Orientation));
-	AddComponent(new HealthComponent(p_Health));
-	AddComponent(new AABBComponent(p_Position, p_AABBSize));
+
+	unsigned int index = 0;
+	ModelComponent modelComponent(p_ModelName);
+	PolymorphicInstanceManager::Instance().m_ModelComponents.PushBack(modelComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_ModelComponents.At(index));
+
+	AABBComponent AABBComponent(p_Position, p_AABBSize);
+	PolymorphicInstanceManager::Instance().m_AABBComponents.PushBack(AABBComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_AABBComponents.At(index));
+
+	TransformComponent transformComponent(p_Position, p_Orientation, p_Scale);
+	PolymorphicInstanceManager::Instance().m_TransformComponents.PushBack(transformComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_TransformComponents.At(index));
+
+	CameraComponent cameraComponent(p_Position, p_Orientation);
+	PolymorphicInstanceManager::Instance().m_CameraComponents.PushBack(cameraComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_CameraComponents.At(index));
+
+	HealthComponent healthComponent(p_Health);
+	PolymorphicInstanceManager::Instance().m_HealthComponents.PushBack(healthComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_HealthComponents.At(index));
 }
 
 void PlayerCharacter::OnUpdate(float p_DeltaTime) {
@@ -38,7 +55,7 @@ void PlayerCharacter::OnUpdate(float p_DeltaTime) {
 	GetComponent<CameraComponent>()->m_Orientation = inverseOrientation;
 
 	HealthComponent *health = GetComponent<HealthComponent>();
-	health->OnUpdate(p_DeltaTime);
+	//health->OnUpdate(p_DeltaTime);
 	if (health->IsHealthBelowZero()) {
 		OnMessage("Reset");
 	}
