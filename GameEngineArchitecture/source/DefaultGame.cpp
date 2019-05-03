@@ -11,6 +11,8 @@
 #include "InputHandler.h"
 #include "Scene.h"
 #include "PlayerCharacter.h"
+#include "AudioEngine.h"
+#include "GLFW_EngineCore.h"
 
 static const std::string s_DEFAULT_SCENE = "resources/levels/default0.json";
 
@@ -19,6 +21,13 @@ DefaultGame::DefaultGame() {
 	ImGui::CreateContext();
 	imguiInit();
 	LoadScenes("resources/scenes/");
+
+#ifdef PLAY_AUDIO
+	AudioManagerInstance.OpenMusicFile("resources/audio/gameSound.wav");
+#endif // RELEASE
+
+	
+		
 }
 
 DefaultGame::~DefaultGame() {
@@ -111,9 +120,11 @@ void DefaultGame::imguiShutdown() {
 
 }
 
-unsigned int DefaultGame::GetNextScene() const {
-	if (m_Scenes.size() == 1)
+unsigned int DefaultGame::GetNextScene() {
+	if(m_Scenes.size() == 1) {
+		CloseGame();
 		return m_Scenes.begin()->first;
+	}
 
 	auto iter = m_Scenes.find(m_CurrentSceneNumber);
 	if (iter != m_Scenes.end()) {
@@ -121,6 +132,7 @@ unsigned int DefaultGame::GetNextScene() const {
 		if (iter != m_Scenes.end())
 			return iter->first;
 		else {
+			CloseGame();
 			// Loop around, to the start.
 			return m_Scenes.begin()->first;
 		}
@@ -129,9 +141,11 @@ unsigned int DefaultGame::GetNextScene() const {
 	return m_CurrentSceneNumber;
 }
 
-unsigned int DefaultGame::GetPreviousScene() const {
-	if (m_Scenes.size() == 1)
+unsigned int DefaultGame::GetPreviousScene() {
+	if(m_Scenes.size() == 1) {
+		CloseGame();
 		return m_Scenes.begin()->first;
+	}
 
 	auto iter = m_Scenes.find(m_CurrentSceneNumber);
 	if (iter != m_Scenes.end()) {
@@ -142,6 +156,7 @@ unsigned int DefaultGame::GetPreviousScene() const {
 				return iter->first;
 		}
 		else {
+			CloseGame();
 			auto loopToEnd = m_Scenes.end();
 			--loopToEnd;
 			return loopToEnd->first;
