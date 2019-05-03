@@ -31,6 +31,37 @@
       ], 
       "type": "PhysicsObject"
     }, 
+	{
+      "AABBSize": [
+        1, 
+        1, 
+        1
+      ], 
+      "ObjectDrag": 15, 
+      "ObjectFriction": 27, 
+      "ObjectRest": 10, 
+      "bodyType": "Static", 
+      "modelName": "duck", 
+      "objectMass": 25, 
+      "objectRest": 10, 
+      "orientation": [
+        1.0, 
+        0.0, 
+        0.0, 
+        0.0
+      ], 
+      "position": [
+        -20.13382983948481, 
+        0.0, 
+        6.592709895624719
+      ], 
+      "scale": [
+        1, 
+        1, 
+        1
+      ], 
+      "type": "EnemyObject"
+    }, 
     {
       "AABBSize": [
         1, 

@@ -1,7 +1,5 @@
 #pragma once
 
-#pragma once
-
 #include <string>
 
 #include <glm/glm.hpp>
@@ -19,10 +17,11 @@ protected:
     glm::vec3 m_TranslationVector = glm::vec3(0, 0, 0);
 	std::list<GraphNode*> m_List;
 	Graph * m_Graph;
+	int counter;
 	
 
 public:
-	EnemyObject(Graph * p_Graph, const std::string &p_ModelName, const glm::vec3& p_Pos, const glm::vec3& p_AABBSize,
+	EnemyObject(const std::string &p_ModelName, const glm::vec3& p_Pos, const glm::vec3& p_AABBSize,
 		const glm::quat &p_ModelOrientation, const glm::vec3& p_ModelScale, float p_Mass, const BodyType &p_BodyType,
 		float p_Rest = 0.0f, float p_DragCo = 0.0f, float p_FrictionCo = 0.0f);
 	~EnemyObject() = default;
