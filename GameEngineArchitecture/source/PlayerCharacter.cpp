@@ -84,7 +84,6 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 	}
 	else if (p_Message.compare(0, 10, "MovePlayer") == 0) {
 		// Determine the correct translation vector.
-		
 		if (p_Message == "MovePlayerForward")
 			m_TranslationVector.z = -m_PlayerMovementSpeed;
 		else if (p_Message == "MovePlayerBackward")
@@ -120,6 +119,13 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 		GetComponent<HealthComponent>()->OnMessage("Reset");
 		GetComponent<TransformComponent>()->m_Position = m_OriginalPosition;
 		GetComponent<TransformComponent>()->m_Orientation = m_OriginalOrientation;
+	}
+
+	if(p_Message == "StopRotateCameraRight") {
+		m_RotationValue = 0;
+	}
+	if(p_Message == "StopRotateCameraRight") {
+		m_RotationValue = 0;
 	}
 }
 

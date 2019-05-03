@@ -1,5 +1,7 @@
 #include "EnemyObject.h"
 
+#include "PolymorphicInstanceManager.h"
+
 #include "ModelComponent.h"
 #include "BodyComponent.h"
 #include "AABBComponent.h"
@@ -12,9 +14,14 @@ EnemyObject::EnemyObject(const std::string &p_ModelName, const glm::vec3& p_Pos,
 	const glm::vec3& p_AABBSize, const glm::quat &p_ModelOrientation, const glm::vec3& p_ModelScale,
 	float p_Mass, const BodyType &p_BodyType, float p_Rest, float p_DragCo, float p_FrictionCo) {
 
-	AddComponent(std::make_shared<ModelComponent>(p_ModelName));
-	AddComponent(std::make_shared<AABBComponent>(p_Pos, p_AABBSize));
-	AddComponent(std::make_shared<TransformComponent>(p_Pos, p_ModelOrientation, p_ModelScale));
+	unsigned int index = 0;
+	ModelComponent modelComponent(p_ModelName);
+	PolymorphicInstanceManager::Instance().m_ModelComponents.PushBack(modelComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_ModelComponents.At(index));
+
+	TransformComponent transformComponent(p_Pos, p_ModelOrientation, p_ModelScale);
+	PolymorphicInstanceManager::Instance().m_TransformComponents.PushBack(transformComponent, index);
+	AddComponent(PolymorphicInstanceManager::Instance().m_TransformComponents.At(index));
 
 	m_Graph = new Graph(glm::vec3(-24.f, 0.f, -24.f), 1.f, glm::vec2(50u, 50u));
 	counter = 0;
@@ -26,7 +33,6 @@ void EnemyObject::ApplyForce(glm::vec3 p_Force)
 
 void EnemyObject::SetPosition(glm::vec3 p_Pos)
 {
-	GetComponent<AABBComponent>()->SetPosition(p_Pos);
 	GetComponent<TransformComponent>()->m_Position = p_Pos;
 }
 
@@ -44,7 +50,7 @@ bool EnemyObject::IsPathEmpty()
 
 void EnemyObject::OnUpdate(float p_DeltaTime)
 {
-	std::shared_ptr<TransformComponent> transform = GetComponent<TransformComponent>();
+	TransformComponent *transform = GetComponent<TransformComponent>();
 	transform->Translate(m_TranslationVector * p_DeltaTime * inverse(transform->m_Orientation));
 
 	if (!IsPathEmpty()) {
