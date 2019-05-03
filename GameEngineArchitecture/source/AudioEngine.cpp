@@ -4,7 +4,7 @@
 
 AudioManager::AudioManager() {
 	m_BackgroundMusic.setLoop(true);
-	m_BackgroundMusic.setVolume(50);
+	m_BackgroundMusic.setVolume(80);
 }
 
 AudioManager &AudioManager::Instance() {
