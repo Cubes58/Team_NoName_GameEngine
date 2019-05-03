@@ -34,6 +34,11 @@ public:
 		\brief A pure virtual method, used to update the game.
 		\param p_DeltaTime the amount of time passed since the last update.
 	*/
+	
+	virtual void imguiInit() = 0;
+	virtual void imguiRender() = 0;
+	virtual void imguiShutdown() = 0;
+
 	virtual void Update(float p_DeltaTime) = 0;
 	/*!
 		\brief A pure virtual method, used to render the game.

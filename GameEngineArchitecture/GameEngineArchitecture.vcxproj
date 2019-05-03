@@ -32,6 +32,11 @@
     <ClInclude Include="include\Component.h" />
     <ClInclude Include="include\ContrastChanger.h" />
     <ClInclude Include="include\CubemapCamera.h" />
+    <ClInclude Include="include\imconfig.h" />
+    <ClInclude Include="include\imgui.h" />
+    <ClInclude Include="include\imgui_glfw.h" />
+    <ClInclude Include="include\imgui_impl_glfw_gl3.h" />
+    <ClInclude Include="include\imgui_internal.h" />
     <ClInclude Include="include\PhysicsObject.h" />
     <ClInclude Include="include\DefaultGame.h" />
     <ClInclude Include="include\DoubleEndedStackAllocator.h" />
@@ -98,6 +103,11 @@
     <ClCompile Include="source\GLFW_EngineCore.cpp" />
     <ClCompile Include="source\Graph.cpp" />
     <ClCompile Include="source\ImageRenderer.cpp" />
+    <ClCompile Include="source\imgui.cpp" />
+    <ClCompile Include="source\imgui_demo.cpp" />
+    <ClCompile Include="source\imgui_draw.cpp" />
+    <ClCompile Include="source\imgui_glfw.cpp" />
+    <ClCompile Include="source\imgui_impl_glfw_gl3.cpp" />
     <ClCompile Include="source\InputHandler.cpp" />
     <ClCompile Include="source\JSON\jsoncpp.cpp" />
     <ClCompile Include="source\Light.cpp" />

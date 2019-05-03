@@ -26,7 +26,7 @@ private:
 	void LoadScenes(const std::string &p_FolderLocation);
 public:
 	DefaultGame();	//!< Default constructor.
-	~DefaultGame() = default;	//!< Default destructor.
+	~DefaultGame();	//!< Default destructor.
 
 	/*!
 		\brief Used to set the scene.
@@ -42,6 +42,10 @@ public:
 		\brief Used to render the game.
 	*/
 	void Render() override;
+
+	void imguiInit() override;
+	void imguiRender() override;
+	void imguiShutdown() override;
 
 	/*!
 		\brief Gets the next scene, in m_Scenes map.

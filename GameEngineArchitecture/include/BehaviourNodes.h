@@ -6,9 +6,14 @@
 #pragma once
 #include <iostream>
 #include <list>
+//#include <stdlib.h>    
+//#include <time.h>
+#include "Graph.h"
 
-/*! \BehaviourNode
-    \Interface class for the Behaviour Nodes
+class GraphNode;
+
+/*! \class BehaviourNode
+	\brief Interface class for the Behaviour Nodes
 */
 
 class BehaviourNode {
@@ -20,38 +25,33 @@ public:
 	\return did it run or not
 	*/
 
-	virtual bool Run() = 0; 
+	virtual bool Run() = 0;
 };
 
-/*! \CompositeNode
-    \This class handles all the nodes that will be in the tree
-*/
 
 class CompositeNode : public BehaviourNode {
-//
+	//
 private:
 	std::list<BehaviourNode*> m_ChildrenList; //!< List of children nodes
 public:
 	/*!
 	\brief get the children
-	\return a list of children nodes 
+	\return a list of children nodes
 	*/
-	const std::list<BehaviourNode*>& GetTheChildren() const { return m_ChildrenList; } 
+	const std::list<BehaviourNode*>& GetTheChildren() const { return m_ChildrenList; }
 	/*!
-	\brief adds 
+	\brief adds
 	\param p_NodesPosition sets Pos
 	*/
-	void AddTheChildren(BehaviourNode* p_Child) { m_ChildrenList.emplace_back(p_Child);	} //!< Adds to the list of children
+	void AddTheChildren(BehaviourNode* p_Child) { m_ChildrenList.emplace_back(p_Child); } //!< Adds to the list of children
 };
 
-/*! \Selector
-    \This class is used to see which node will return true
+/*! \class Selector
+	\brief This class is used to see which node will return true
 */
 
 class Selector : public CompositeNode {
-
 public:
-
 	/*!
 	\brief Run the Node
 	\return did it run or not
@@ -59,7 +59,7 @@ public:
 
 	bool Run() override {
 
-		for (BehaviourNode* BN : GetTheChildren()) 
+		for (BehaviourNode* BN : GetTheChildren())
 		{
 			if (BN->Run()) { return true; } //Run will return true as long as one child is working
 		}
@@ -68,15 +68,12 @@ public:
 
 };
 
-/*! \Sequence
-    \This class is the sequance of the nodes
-*/
+/*! \class Sequence
+	\brief This class is the sequance of the nodes
 
 class Sequence : public CompositeNode {
 
 public:
-
-
 	/*!
 	\brief Run the Node
 	\return did it run or not
@@ -91,70 +88,141 @@ public:
 	}
 };
 
-/*! \LeafNodeRageExample
-    \An example of a conditional leaf node
+/*! \class DistanceLeafNode
+	\brief An example of a conditional leaf node
 */
 
-class LeafNodeRageExample : public BehaviourNode
+class DistanceLeafNode : public BehaviourNode
 {
-private : 
-
-	int m_Rage; //!< Just rage for this example
-
+private:
+	float m_Distance; //!< Just rage for this example
 public:
-
-
 	/*!
-	\brief Give me an int set method
-	\param p_Rage int that tells us what the rage is
+	\brief Give me an float set method
+	\param p_Float a float that tells us what the distance is
 	*/
-
-	void GiveMeInt(int p_Rage) { m_Rage = p_Rage; } //!< Stores new Value
+	void GiveMeFloat(float p_Float) { m_Distance = p_Float; } 
 
 	/*!
 	\brief Run the Node
 	\return did it run or not
 	*/
-
-	bool Run() override { 
-		if (m_Rage <= 100){ //This part will be the condition of the node
-			return true;  
-			std::cout << "Enemy Has Embrace the Void and it drove him Mad" << std::endl;
+	bool Run() override {
+		const static float m_Max = 100.0f;
+		if (m_Distance < m_Max) { //This part is the condition of the node
+			std::cout << "Target Is Near" << std::endl;
+			return false;
 		}
-		else return false;
-		std::cout << "Enemy is calm..... for now" << std::endl;
+		else return true;
 	}
 };
 
-/*! \LeafNodeActionExample
-    \An example of a conditional leaf node
+/*! \class ListEmptyLeafNode
+	\brief checks to see if the list is empty
 */
 
+class ListEmptyLeafNode : public BehaviourNode
+{
+private:
+	std::list<GraphNode*> m_List;
+public:
+	/*!
+	\brief Give me an List set method
+	\param p_List Used to see if a list is empty
+	*/
+	void GiveMeList(std::list<GraphNode*> p_List) { m_List = p_List; }
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+	bool Run() override {
+		if (m_List.empty()) { //This part is the condition of the node
+			std::cout << "List is empty" << std::endl;
+			return false;
+		}
+		else return true;
+	}
+};
+
+/*! \class LeafNodeActionExample
+	\brief An example of a conditional leaf node
+*/
 
 class LeafNodeActionExample : public BehaviourNode
 {
 private:
 
-	//int m_rage; //Just rage for this example
-
+	std::string m_String; //!< Just rage for this example
 public:
-
-	//void giveMeInt(int p_rage) { m_rage = p_rage; } //Stores new Value
-
-
+	/*!
+	\brief Give me a string set method
+	\param p_String a string that tells us what the console wil display is
+	*/
+	void GiveMeString(std::string p_String) { m_String = p_String; }
 	/*!
 	\brief Run the Node
 	\return did it run or not
 	*/
-
-	bool Run() override { 
-		
-		std::cout << "AUGHHHHH!!!!!!" << std::endl;
-		return true;
-
+	bool Run() override {
+		//std::cout << m_String << std::endl;
+		return false;
 	}
 };
 
+/*! \class LeafNodeActionExample
+	\brief An example of a conditional leaf node
+*/
+
+class WanderActionExample : public BehaviourNode
+{
+private:
+	//Store Object Pointer
+	int m_GoalX; //!< goal X
+	int m_GoalY; //!< goal Y
+	int m_RandomX; //!< total of Nodes
+	int m_RandomY; //!< total of Nodes
+public:
+	/*!
+	\brief Give me a string set method
+	\param p_IntOne used to pass in random X
+	\param p_IntTwo used to pass in random Y
+	*/
+	void GiveMeInts(int p_IntOne, int p_IntTwo) { m_RandomX = p_IntOne; m_RandomY = p_IntTwo; };
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+	bool Run() override {	
+		m_GoalX = rand() % m_RandomX;
+		m_GoalY = rand() % m_RandomY;
+		return false;
+	}
+	//call that methods pointer and pass in the goal
+};
+
+
+class AttackActionExample : public BehaviourNode
+{
+private:
+	//Store Object Pointer
+	int m_GoalX; //!< goal X
+	int m_GoalY; //!< goal Y
+public:
+	/*!
+	\brief Give me a string set method
+	\param p_IDOne to find the x node
+	\param p_IDTwo to find the y node
+	*/
+	void GiveMeInts(int p_IDOne, int p_IntTwo) { m_GoalX = p_IDOne; m_GoalY = p_IntTwo; };
+	/*!
+	\brief Run the Node
+	\return did it run or not
+	*/
+	bool Run() override {		
+		return false;
+	}
+	//call that methods pointer and pass in the goal
+};
 
 //Inside a NPC 
 //Sequance will be the root
@@ -176,6 +244,3 @@ public:
 //properties you wont have to re use this code
 
 //I hope this helps this can be confusing (i keep mixing up selector and sequance)
-	
-
-
