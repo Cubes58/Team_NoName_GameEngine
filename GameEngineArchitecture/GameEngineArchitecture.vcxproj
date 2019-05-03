@@ -67,7 +67,6 @@
     <ClInclude Include="include\ModelComponent.h" />
     <ClInclude Include="include\ModelManager.h" />
     <ClInclude Include="include\MovementComponent.h" />
-    <ClInclude Include="include\MyTestClass.h" />
     <ClInclude Include="include\GraphNode.h" />
     <ClInclude Include="include\PhysicsEngine.h" />
     <ClInclude Include="include\PlayerCharacter.h" />
@@ -82,6 +81,9 @@
     <ClInclude Include="include\Shadows.h" />
     <ClInclude Include="include\SkyBox.h" />
     <ClInclude Include="include\StaticEnvironmentObject.h" />
+    <ClInclude Include="include\stb_rect_pack.h" />
+    <ClInclude Include="include\stb_textedit.h" />
+    <ClInclude Include="include\stb_truetype.h" />
     <ClInclude Include="include\TransformComponent.h" />
     <ClInclude Include="include\VBOQuad.h" />
   </ItemGroup>
