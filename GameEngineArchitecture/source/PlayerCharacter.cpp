@@ -116,7 +116,7 @@ void PlayerCharacter::OnMessage(const std::string &p_Message) {
 		m_InverseRotation = true;
 	}
 	else if (p_Message == "Reset") {
-		GetComponent<HealthComponent>()->OnMessage("Reset");
+		//GetComponent<HealthComponent>()->OnMessage("Reset");
 		GetComponent<TransformComponent>()->m_Position = m_OriginalPosition;
 		GetComponent<TransformComponent>()->m_Orientation = m_OriginalOrientation;
 	}

@@ -111,9 +111,11 @@ void DefaultGame::imguiShutdown() {
 
 }
 
-unsigned int DefaultGame::GetNextScene() const {
-	if (m_Scenes.size() == 1)
+unsigned int DefaultGame::GetNextScene() {
+	if(m_Scenes.size() == 1) {
+		CloseGame();
 		return m_Scenes.begin()->first;
+	}
 
 	auto iter = m_Scenes.find(m_CurrentSceneNumber);
 	if (iter != m_Scenes.end()) {
@@ -121,6 +123,7 @@ unsigned int DefaultGame::GetNextScene() const {
 		if (iter != m_Scenes.end())
 			return iter->first;
 		else {
+			CloseGame();
 			// Loop around, to the start.
 			return m_Scenes.begin()->first;
 		}
@@ -129,9 +132,11 @@ unsigned int DefaultGame::GetNextScene() const {
 	return m_CurrentSceneNumber;
 }
 
-unsigned int DefaultGame::GetPreviousScene() const {
-	if (m_Scenes.size() == 1)
+unsigned int DefaultGame::GetPreviousScene() {
+	if(m_Scenes.size() == 1) {
+		CloseGame();
 		return m_Scenes.begin()->first;
+	}
 
 	auto iter = m_Scenes.find(m_CurrentSceneNumber);
 	if (iter != m_Scenes.end()) {
@@ -142,6 +147,7 @@ unsigned int DefaultGame::GetPreviousScene() const {
 				return iter->first;
 		}
 		else {
+			CloseGame();
 			auto loopToEnd = m_Scenes.end();
 			--loopToEnd;
 			return loopToEnd->first;
