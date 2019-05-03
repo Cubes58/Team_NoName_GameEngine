@@ -55,6 +55,9 @@
     <Filter Include="Header Files\Game">
       <UniqueIdentifier>{3fd60b5e-deb6-4333-a8f8-2424a9f53123}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ImGUI">
+      <UniqueIdentifier>{c5390afa-78d2-40ff-b6ee-a2c1b4a13ced}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\CameraComponent.h">
@@ -87,9 +90,6 @@
     <ClInclude Include="include\InputCommandFactory.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="include\DynamicEnvironmentObject.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="include\EnemyTower.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
@@ -110,9 +110,6 @@
     </ClInclude>
     <ClInclude Include="include\CameraViewState.h">
       <Filter>Header Files\Enums</Filter>
-    </ClInclude>
-    <ClInclude Include="include\MyTestClass.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\BehaviourNodes.h">
       <Filter>Header Files\Artificialntelligence</Filter>
@@ -240,25 +237,35 @@
     <ClInclude Include="include\ModelManager.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\imconfig.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_glfw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_impl_glfw_gl3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="include\imgui_internal.h">
-      <Filter>Header Files</Filter>
     <ClInclude Include="include\Primitives.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\PolymorphicInstanceManager.h">
-      <Filter>Header Files\MemoryManager</Filter>
+      <Filter>Header Files\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui.h">
+      <Filter>Header Files\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_glfw.h">
+      <Filter>Header Files\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_impl_glfw_gl3.h">
+      <Filter>Header Files\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imgui_internal.h">
+      <Filter>Header Files\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\imconfig.h">
+      <Filter>Header Files\ImGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_rect_pack.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_textedit.h">
+      <Filter>Header Files\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="include\stb_truetype.h">
+      <Filter>Header Files\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -291,9 +298,6 @@
     </ClCompile>
     <ClCompile Include="source\JSON\jsoncpp.cpp">
       <Filter>Source Files\Tools</Filter>
-    </ClCompile>
-    <ClCompile Include="source\DynamicEnvironmentObject.cpp">
-      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerCharacter.cpp">
       <Filter>Source Files\GameObjects</Filter>
@@ -373,6 +377,12 @@
     <ClCompile Include="source\PhysicsObject.cpp">
       <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
+    <ClCompile Include="source\Primitives.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PolymorphicInstanceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="source\imgui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -386,10 +396,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\imgui_impl_glfw_gl3.cpp">
-    <ClCompile Include="source\Primitives.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="source\PolymorphicInstanceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -24,6 +24,9 @@ private:
 	unsigned int m_quadVAO;
 	unsigned int m_quadVBO;
 
+	unsigned int m_debugVAO;
+	unsigned int m_debugVBO;
+
 	// Prepare the models so they are ready for rendering
 	void prepareSphere();
 	void prepareCube();
@@ -32,6 +35,8 @@ public:
 	// default constructor that prepares the models
 	Primitives();
 
+	void prepareDebug(glm::vec3 p_Scale);
+	void renderDebug();
 	// Render the model when called (binds the VAOs and unbinds after draw call)
 	void renderSphere();
 	void renderCube();
