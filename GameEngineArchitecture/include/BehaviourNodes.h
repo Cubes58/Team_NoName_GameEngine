@@ -70,7 +70,7 @@ public:
 
 /*! \class Sequence
 	\brief This class is the sequance of the nodes
-
+*/
 class Sequence : public CompositeNode {
 
 public:

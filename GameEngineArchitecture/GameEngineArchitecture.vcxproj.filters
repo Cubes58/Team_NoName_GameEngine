@@ -240,6 +240,8 @@
     <ClInclude Include="include\Primitives.h">
       <Filter>Header Files\RenderEngine</Filter>
     </ClInclude>
+    <ClInclude Include="include\EnemyObject.h">
+      <Filter>Header Files\GameObjects</Filter>
     <ClInclude Include="include\PolymorphicInstanceManager.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
@@ -380,6 +382,8 @@
     <ClCompile Include="source\Primitives.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\EnemyObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
     <ClCompile Include="source\PolymorphicInstanceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
